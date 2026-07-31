@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#5A1611">
+  <meta name="description" content="Bloomé Ear Acupoint Guide">
+  <title>Bloomé Ear Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home"><span class="brand-mark">✦</span><span>Bloomé</span></a>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="desktop-nav">
+        <a href="#home">Home</a>
+        <a href="#explore">Explore</a>
+        <a href="#guide">Guide</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+    <nav class="mobile-menu">
+      <a href="#home">Home</a>
+      <a href="#explore">Explore</a>
+      <a href="#guide">Beginner guide</a>
+      <a href="#about">About Bloomé</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Bloomé Ear Acupoint Guide</p>
+          <h1>Find the right ear points with calm, clear guidance.</h1>
+          <p class="hero-text">Search common wellness concerns, explore acupoints, and learn how to use ear seeds safely.</p>
+
+          <form class="search-shell" id="hero-search">
+            <span class="search-icon">⌕</span>
+            <input id="search-input" type="search" placeholder="Try “stress”, “sleep” or “Shen Men”">
+            <button type="submit">Search</button>
+          </form>
+
+          <div class="popular-row">
+            <span>Popular:</span>
+            <button class="search-chip" data-query="Stress">Stress</button>
+            <button class="search-chip" data-query="Sleep">Sleep</button>
+            <button class="search-chip" data-query="Headache">Headache</button>
+          </div>
+        </div>
+
+        <div class="hero-art reveal">
+          <div class="art-card">
+            <svg class="ear-line" viewBox="0 0 300 400" aria-label="Minimal ear illustration">
+              <path d="M157 50c74 0 112 58 102 127-8 56-47 75-63 121-12 34-8 66-45 82-32 14-76-2-81-36-4-25 14-37 23-57 13-29-4-55-20-78-29-41-21-94 10-127 19-21 43-32 74-32Z"/>
+              <path d="M158 101c38 0 59 31 53 66-5 29-27 43-44 63-20 24-8 61-32 73-17 9-39-2-39-22 0-16 13-25 18-39 8-22-10-39-13-58-7-43 16-83 57-83Z"/>
+              <path d="M144 175c23-16 53 7 42 32-8 18-32 18-44 32-9 10-9 24-4 36"/>
+            </svg>
+            <button class="point point-one" data-label="Shen Men" aria-label="Shen Men"></button>
+            <button class="point point-two" data-label="Heart" aria-label="Heart"></button>
+            <button class="point point-three" data-label="Point Zero" aria-label="Point Zero"></button>
+            <div class="art-caption">Interactive ear map preview</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="explore">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Explore the guide</p>
+          <h2>Start with what you need today.</h2>
+        </div>
+
+        <div class="action-grid">
+          <a class="action-card reveal" href="#concerns"><span class="card-icon">♡</span><div><h3>Find by concern</h3><p>Browse sleep, stress, digestion and more.</p></div><span>→</span></a>
+          <a class="action-card reveal" href="#points"><span class="card-icon">◌</span><div><h3>Browse acupoints</h3><p>Learn point names, locations and common uses.</p></div><span>→</span></a>
+          <a class="action-card reveal" href="#guide"><span class="card-icon">✧</span><div><h3>Beginner guide</h3><p>Simple instructions for first-time users.</p></div><span>→</span></a>
+          <button class="action-card reveal" id="map-preview"><span class="card-icon">⌁</span><div><h3>Interactive ear map</h3><p>Preview the upcoming visual guide.</p></div><span class="status-pill">Soon</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section concerns-section" id="concerns">
+      <div class="container">
+        <div class="section-heading split-heading reveal">
+          <div><p class="eyebrow">Popular concerns</p><h2>Browse by how you feel.</h2></div>
+          <button class="text-button" id="view-all-concerns">View all concerns →</button>
+        </div>
+
+        <div class="concern-grid" id="concern-grid">
+          <button class="concern-card reveal" data-query="Sleep"><span>☾</span><h3>Sleep</h3><p>Support a calmer bedtime routine.</p></button>
+          <button class="concern-card reveal" data-query="Stress"><span>≈</span><h3>Stress</h3><p>Encourage relaxation during busy days.</p></button>
+          <button class="concern-card reveal" data-query="Headache"><span>⌁</span><h3>Head tension</h3><p>Explore commonly referenced comfort points.</p></button>
+          <button class="concern-card reveal" data-query="Digestion"><span>◡</span><h3>Digestion</h3><p>Browse points often used in digestive routines.</p></button>
+          <button class="concern-card reveal extra-concern" data-query="Women's wellness"><span>✿</span><h3>Women’s wellness</h3><p>Explore supportive self-care combinations.</p></button>
+          <button class="concern-card reveal extra-concern" data-query="Focus"><span>◎</span><h3>Focus</h3><p>Discover points used in clarity-focused routines.</p></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="points">
+      <div class="container">
+        <div class="featured-card reveal">
+          <div>
+            <p class="eyebrow light">Featured acupoint</p>
+            <h2>Shen Men</h2>
+            <p>One of the most widely used auricular points in general wellness routines.</p>
+            <button class="light-button" id="learn-shenmen">Learn about Shen Men</button>
+          </div>
+          <div class="featured-badge"><span>01</span><small>Popular point</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="guide">
+      <div class="container guide-grid">
+        <div class="guide-copy reveal">
+          <p class="eyebrow">New to ear seeds?</p>
+          <h2>A gentle place to begin.</h2>
+          <p>Clean the ear, apply each seed carefully, press gently, and give your skin regular breaks.</p>
+          <button class="primary-button" id="open-guide">Open beginner guide</button>
+        </div>
+
+        <div class="steps-card reveal">
+          <div class="step-row"><span>1</span><div><h3>Clean</h3><p>Dry the ear thoroughly before application.</p></div></div>
+          <div class="step-row"><span>2</span><div><h3>Apply</h3><p>Use tweezers and position the seed gently.</p></div></div>
+          <div class="step-row"><span>3</span><div><h3>Stimulate</h3><p>Press for a few seconds several times a day.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-card reveal">
+        <div><p class="eyebrow">About Bloomé</p><h2>Wellness guidance, made easier to understand.</h2></div>
+        <p>Bloomé creates approachable self-care tools and education for everyday wellness. This guide is for general informational use and does not replace professional medical advice.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a class="brand footer-brand" href="#home"><span class="brand-mark">✦</span><span>Bloomé</span></a><p>Naturally rooted, gently transforming.</p></div>
+      <p>© <span id="year"></span> Bloomé</p>
+    </div>
+  </footer>
+
+  <nav class="bottom-nav">
+    <a class="bottom-link active" href="#home"><span>⌂</span><small>Home</small></a>
+    <a class="bottom-link" href="#explore"><span>⌕</span><small>Explore</small></a>
+    <a class="bottom-link" href="#concerns"><span>♡</span><small>Concerns</small></a>
+    <a class="bottom-link" href="#guide"><span>✧</span><small>Guide</small></a>
+  </nav>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="modal" id="info-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel">
+      <button class="modal-close" data-close-modal>×</button>
+      <p class="eyebrow">Preview</p>
+      <h2 id="modal-title">Bloomé Guide</h2>
+      <p id="modal-copy"></p>
+      <button class="primary-button" data-close-modal>Got it</button>
+    </div>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
