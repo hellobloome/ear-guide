@@ -1,38 +1,53 @@
-# Bloomé Guide — Package 3
+# Bloomé Guide — Package 4A
 
-Package 3 turns the homepage into a more complete interactive guide.
+Package 4A rebuilds the site into a routed single-page application.
 
-## New in this package
+## New in 4A
 
-- Instant autocomplete while typing
-- Keyboard navigation for autocomplete
-- Dynamic acupoint directory
-- Dynamic concern cards generated from JSON
-- Full acupoint detail drawer
-- Full concern detail drawer
-- Related concern and point links
-- Search result filters
-- Interactive simplified ear map
-- Beginner-guide modal
-- Improved mobile layout
+- Hash-based page routing:
+  - `#/home`
+  - `#/discover`
+  - `#/map`
+  - `#/guide`
+  - `#/about`
+  - `#/condition/<id>`
+  - `#/point/<id>`
+- Dedicated condition views
+- Dedicated acupoint views
+- New Discover directory
+- New search architecture with autocomplete
+- Interactive ear map with:
+  - marker selection
+  - next-point navigation
+  - zoom controls
+- Navigation that stays in sync with the active route
+- Cleaner, reusable application shell
+- Mobile bottom navigation
+- Updated data metadata
 
 ## Install
 
 1. Extract the ZIP.
-2. Copy everything inside the extracted folder into your local `ear-guide` folder.
+2. Copy everything inside the extracted folder into your local `ear-guide` repository.
 3. Choose **Replace the files in the destination**.
 4. Open GitHub Desktop.
-5. In Summary, enter: `Package 3 - Autocomplete and interactive guide`
+5. Use this Summary:
+   `Package 4A - Routing and professional ear map`
 6. Commit to `main`.
 7. Click **Push origin**.
-8. Wait for GitHub Pages to deploy.
-9. Hard-refresh the live website with `Ctrl + Shift + R`.
+8. Wait for GitHub Pages to redeploy.
+9. Hard-refresh with `Ctrl + Shift + R`.
 
 ## Test
 
-- Type `str` and use the autocomplete menu.
-- Search `insomnia`.
-- Open `Shen Men`.
-- Click **Browse acupoints**.
-- Tap markers on the ear map.
-- Test the site on a phone-sized browser window.
+- Home navigation
+- Discover filters
+- Search autocomplete
+- Open a condition
+- Open an acupoint
+- Ear map markers
+- Ear map zoom controls
+- Browser Back button
+- Mobile bottom navigation
+
+The ear map remains a simplified navigation illustration and should not be treated as a clinical placement chart.

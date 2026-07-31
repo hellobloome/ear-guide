@@ -23,7 +23,13 @@
       "general-balance"
     ],
     "shortDescription": "Commonly selected in auricular wellness routines intended to promote calm and overall balance.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "shen-men",
+    "featured": true,
+    "keywords": [
+      "spirit gate",
+      "shenmen"
+    ]
   },
   {
     "id": "point-zero",
@@ -47,7 +53,12 @@
       "general-balance"
     ],
     "shortDescription": "Often used as a balancing or centering point in auricular practice.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "point-zero",
+    "featured": true,
+    "keywords": [
+      "zero point"
+    ]
   },
   {
     "id": "heart",
@@ -64,7 +75,12 @@
       "sleep"
     ],
     "shortDescription": "Traditionally included in routines related to calm, rest and emotional settling.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "heart",
+    "featured": true,
+    "keywords": [
+      "heart point"
+    ]
   },
   {
     "id": "sympathetic",
@@ -88,7 +104,13 @@
       "general-balance"
     ],
     "shortDescription": "Frequently included in traditional comfort and relaxation combinations.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "sympathetic",
+    "featured": true,
+    "keywords": [
+      "autonomic",
+      "sympathetic point"
+    ]
   },
   {
     "id": "kidney",
@@ -107,7 +129,12 @@
       "menstrual-comfort"
     ],
     "shortDescription": "Traditionally associated with foundational energy and restorative routines.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "kidney",
+    "featured": false,
+    "keywords": [
+      "kidney point"
+    ]
   },
   {
     "id": "occiput",
@@ -125,7 +152,13 @@
       "head-tension"
     ],
     "shortDescription": "Commonly referenced in routines for rest and head comfort.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "occiput",
+    "featured": false,
+    "keywords": [
+      "occipital",
+      "back of head"
+    ]
   },
   {
     "id": "stomach",
@@ -143,7 +176,12 @@
       "travel-queasiness"
     ],
     "shortDescription": "Traditionally included in digestive-support and appetite-awareness routines.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "stomach",
+    "featured": false,
+    "keywords": [
+      "stomach point"
+    ]
   },
   {
     "id": "spleen",
@@ -160,7 +198,12 @@
       "low-energy"
     ],
     "shortDescription": "Traditionally linked with digestive and energy-support routines.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "spleen",
+    "featured": false,
+    "keywords": [
+      "spleen point"
+    ]
   },
   {
     "id": "brain",
@@ -178,7 +221,13 @@
       "low-energy"
     ],
     "shortDescription": "Often selected in traditional routines for clarity, rest and general regulation.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "brain",
+    "featured": false,
+    "keywords": [
+      "subcortex",
+      "brain point"
+    ]
   },
   {
     "id": "endocrine",
@@ -195,7 +244,13 @@
       "menstrual-comfort"
     ],
     "shortDescription": "Traditionally included in women’s wellness and general regulation routines.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "endocrine",
+    "featured": false,
+    "keywords": [
+      "endocrine point",
+      "hormone"
+    ]
   },
   {
     "id": "mouth",
@@ -212,7 +267,13 @@
       "cravings"
     ],
     "shortDescription": "Sometimes used in mindful-eating and oral-comfort routines.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "mouth",
+    "featured": false,
+    "keywords": [
+      "oral point",
+      "appetite"
+    ]
   },
   {
     "id": "cervical-spine",
@@ -229,7 +290,13 @@
       "neck-shoulder-tension"
     ],
     "shortDescription": "Traditionally selected for neck-comfort routines.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "cervical-spine",
+    "featured": false,
+    "keywords": [
+      "neck",
+      "cervical"
+    ]
   },
   {
     "id": "shoulder",
@@ -245,7 +312,12 @@
       "neck-shoulder-tension"
     ],
     "shortDescription": "Commonly selected in shoulder-comfort routines.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "shoulder",
+    "featured": false,
+    "keywords": [
+      "shoulder point"
+    ]
   },
   {
     "id": "jaw",
@@ -262,6 +334,12 @@
       "jaw-tension"
     ],
     "shortDescription": "Traditionally included in jaw-relaxation routines.",
-    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "jaw",
+    "featured": false,
+    "keywords": [
+      "mandible",
+      "tmj point"
+    ]
   }
 ]

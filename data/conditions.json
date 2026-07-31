@@ -15,7 +15,15 @@
       "heart",
       "sympathetic"
     ],
-    "category": "Calm"
+    "category": "Calm",
+    "slug": "stress",
+    "featured": true,
+    "keywords": [
+      "stressed",
+      "tension",
+      "overwhelmed",
+      "relaxation"
+    ]
   },
   {
     "id": "sleep",
@@ -33,7 +41,15 @@
       "kidney",
       "occiput"
     ],
-    "category": "Rest"
+    "category": "Rest",
+    "slug": "sleep",
+    "featured": true,
+    "keywords": [
+      "insomnia",
+      "can't sleep",
+      "rest",
+      "bedtime"
+    ]
   },
   {
     "id": "head-tension",
@@ -50,7 +66,14 @@
       "sympathetic",
       "point-zero"
     ],
-    "category": "Comfort"
+    "category": "Comfort",
+    "slug": "head-tension",
+    "featured": false,
+    "keywords": [
+      "headache",
+      "migraine",
+      "head pain"
+    ]
   },
   {
     "id": "digestion",
@@ -68,7 +91,15 @@
       "sympathetic",
       "point-zero"
     ],
-    "category": "Digestive"
+    "category": "Digestive",
+    "slug": "digestion",
+    "featured": true,
+    "keywords": [
+      "bloating",
+      "stomach",
+      "indigestion",
+      "gas"
+    ]
   },
   {
     "id": "focus",
@@ -86,7 +117,15 @@
       "brain",
       "kidney"
     ],
-    "category": "Daily"
+    "category": "Daily",
+    "slug": "focus",
+    "featured": true,
+    "keywords": [
+      "concentration",
+      "clarity",
+      "study",
+      "work"
+    ]
   },
   {
     "id": "low-energy",
@@ -103,7 +142,14 @@
       "brain",
       "point-zero"
     ],
-    "category": "Daily"
+    "category": "Daily",
+    "slug": "low-energy",
+    "featured": false,
+    "keywords": [
+      "fatigue",
+      "tired",
+      "energy"
+    ]
   },
   {
     "id": "neck-shoulder-tension",
@@ -120,7 +166,14 @@
       "shen-men",
       "sympathetic"
     ],
-    "category": "Comfort"
+    "category": "Comfort",
+    "slug": "neck-shoulder-tension",
+    "featured": false,
+    "keywords": [
+      "neck pain",
+      "shoulder pain",
+      "stiff neck"
+    ]
   },
   {
     "id": "cravings",
@@ -137,7 +190,14 @@
       "shen-men",
       "point-zero"
     ],
-    "category": "Lifestyle"
+    "category": "Lifestyle",
+    "slug": "cravings",
+    "featured": false,
+    "keywords": [
+      "appetite",
+      "snacking",
+      "food cravings"
+    ]
   },
   {
     "id": "menstrual-comfort",
@@ -154,7 +214,14 @@
       "sympathetic",
       "kidney"
     ],
-    "category": "Women’s wellness"
+    "category": "Women’s wellness",
+    "slug": "menstrual-comfort",
+    "featured": false,
+    "keywords": [
+      "period discomfort",
+      "menstrual cramps",
+      "pms"
+    ]
   },
   {
     "id": "jaw-tension",
@@ -171,7 +238,14 @@
       "sympathetic",
       "point-zero"
     ],
-    "category": "Comfort"
+    "category": "Comfort",
+    "slug": "jaw-tension",
+    "featured": false,
+    "keywords": [
+      "tmj",
+      "jaw pain",
+      "teeth grinding"
+    ]
   },
   {
     "id": "travel-queasiness",
@@ -188,7 +262,14 @@
       "shen-men",
       "point-zero"
     ],
-    "category": "Travel"
+    "category": "Travel",
+    "slug": "travel-queasiness",
+    "featured": false,
+    "keywords": [
+      "motion sickness",
+      "nausea",
+      "car sick"
+    ]
   },
   {
     "id": "general-balance",
@@ -204,6 +285,13 @@
       "point-zero",
       "sympathetic"
     ],
-    "category": "Beginner"
+    "category": "Beginner",
+    "slug": "general-balance",
+    "featured": false,
+    "keywords": [
+      "wellness",
+      "daily routine",
+      "balance"
+    ]
   }
 ]
