@@ -1,1 +1,164 @@
-[]
+[
+  {
+    "id": "shen-men",
+    "name": "Shen Men",
+    "aliases": [
+      "spirit gate",
+      "shenmen"
+    ],
+    "category": "Master point",
+    "location": "In the triangular fossa, toward its upper-central region.",
+    "traditionalUse": "Commonly selected in auricular wellness routines intended to promote calm and overall balance.",
+    "howToStimulate": "Press gently for 5–10 seconds, release, and repeat a few times. Stop if the area becomes painful or irritated."
+  },
+  {
+    "id": "point-zero",
+    "name": "Point Zero",
+    "aliases": [
+      "zero point"
+    ],
+    "category": "Master point",
+    "location": "Near the center of the ear, around the root of the helix.",
+    "traditionalUse": "Often used as a balancing or centering point in auricular practice.",
+    "howToStimulate": "Use light, steady pressure. More pressure is not necessarily better."
+  },
+  {
+    "id": "heart",
+    "name": "Heart",
+    "aliases": [
+      "heart point"
+    ],
+    "category": "Organ point",
+    "location": "In the central concha region.",
+    "traditionalUse": "Traditionally included in routines related to calm, rest and emotional settling.",
+    "howToStimulate": "Press gently and discontinue use if you notice persistent tenderness or skin irritation."
+  },
+  {
+    "id": "sympathetic",
+    "name": "Sympathetic",
+    "aliases": [
+      "autonomic",
+      "sympathetic point"
+    ],
+    "category": "Master point",
+    "location": "Near the junction of the inferior crus of the antihelix and the inner helix.",
+    "traditionalUse": "Frequently included in traditional comfort and relaxation combinations.",
+    "howToStimulate": "Apply brief, comfortable pressure several times through the day."
+  },
+  {
+    "id": "kidney",
+    "name": "Kidney",
+    "aliases": [
+      "kidney point"
+    ],
+    "category": "Organ point",
+    "location": "In the upper concha region.",
+    "traditionalUse": "Traditionally associated with foundational energy and restorative routines.",
+    "howToStimulate": "Use gentle pressure only and keep the surrounding skin clean and dry."
+  },
+  {
+    "id": "occiput",
+    "name": "Occiput",
+    "aliases": [
+      "occipital",
+      "back of head"
+    ],
+    "category": "Anatomical point",
+    "location": "On the posterior-superior area of the antitragus.",
+    "traditionalUse": "Commonly referenced in routines for rest and head comfort.",
+    "howToStimulate": "Press until you feel mild pressure, not sharp pain."
+  },
+  {
+    "id": "stomach",
+    "name": "Stomach",
+    "aliases": [
+      "stomach point"
+    ],
+    "category": "Organ point",
+    "location": "Around the end of the crus of the helix in the concha.",
+    "traditionalUse": "Traditionally included in digestive-support and appetite-awareness routines.",
+    "howToStimulate": "Stimulate gently before or after meals as part of a mindful routine."
+  },
+  {
+    "id": "spleen",
+    "name": "Spleen",
+    "aliases": [
+      "spleen point"
+    ],
+    "category": "Organ point",
+    "location": "In the concha region, close to the liver and stomach representations.",
+    "traditionalUse": "Traditionally linked with digestive and energy-support routines.",
+    "howToStimulate": "Use light pressure and avoid applying seeds to broken or inflamed skin."
+  },
+  {
+    "id": "brain",
+    "name": "Brain",
+    "aliases": [
+      "subcortex",
+      "brain point"
+    ],
+    "category": "Functional point",
+    "location": "On the inner aspect of the antitragus.",
+    "traditionalUse": "Often selected in traditional routines for clarity, rest and general regulation.",
+    "howToStimulate": "Press comfortably for a few seconds at a time."
+  },
+  {
+    "id": "endocrine",
+    "name": "Endocrine",
+    "aliases": [
+      "endocrine point",
+      "hormone"
+    ],
+    "category": "Functional point",
+    "location": "At the base of the intertragic notch.",
+    "traditionalUse": "Traditionally included in women’s wellness and general regulation routines.",
+    "howToStimulate": "Apply light pressure only. Seek professional guidance for persistent symptoms."
+  },
+  {
+    "id": "mouth",
+    "name": "Mouth",
+    "aliases": [
+      "oral point",
+      "appetite"
+    ],
+    "category": "Anatomical point",
+    "location": "Near the lower portion of the concha, close to the ear canal opening.",
+    "traditionalUse": "Sometimes used in mindful-eating and oral-comfort routines.",
+    "howToStimulate": "Press gently and keep seeds away from the ear canal."
+  },
+  {
+    "id": "cervical-spine",
+    "name": "Cervical Spine",
+    "aliases": [
+      "neck",
+      "cervical"
+    ],
+    "category": "Anatomical point",
+    "location": "Along the lower antihelix, corresponding traditionally to the neck region.",
+    "traditionalUse": "Traditionally selected for neck-comfort routines.",
+    "howToStimulate": "Use comfortable pressure and seek medical care for severe, persistent or injury-related pain."
+  },
+  {
+    "id": "shoulder",
+    "name": "Shoulder",
+    "aliases": [
+      "shoulder point"
+    ],
+    "category": "Anatomical point",
+    "location": "Along the antihelix region traditionally corresponding to the shoulder.",
+    "traditionalUse": "Commonly selected in shoulder-comfort routines.",
+    "howToStimulate": "Press gently. Do not use ear seeds as a substitute for assessment after injury."
+  },
+  {
+    "id": "jaw",
+    "name": "Jaw",
+    "aliases": [
+      "mandible",
+      "tmj point"
+    ],
+    "category": "Anatomical point",
+    "location": "On the earlobe region traditionally mapped to the jaw and face.",
+    "traditionalUse": "Traditionally included in jaw-relaxation routines.",
+    "howToStimulate": "Use mild pressure and consult a dental or medical professional for persistent jaw pain."
+  }
+]

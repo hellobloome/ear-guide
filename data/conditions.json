@@ -1,1 +1,209 @@
-[]
+[
+  {
+    "id": "stress",
+    "name": "Stress",
+    "aliases": [
+      "stressed",
+      "tension",
+      "overwhelmed",
+      "relaxation"
+    ],
+    "summary": "A general wellness routine intended to support relaxation during busy or tense periods.",
+    "pointIds": [
+      "shen-men",
+      "point-zero",
+      "heart",
+      "sympathetic"
+    ],
+    "category": "Calm"
+  },
+  {
+    "id": "sleep",
+    "name": "Sleep",
+    "aliases": [
+      "insomnia",
+      "can't sleep",
+      "rest",
+      "bedtime"
+    ],
+    "summary": "A calming ear-seed routine commonly explored as part of a healthy bedtime ritual.",
+    "pointIds": [
+      "shen-men",
+      "heart",
+      "kidney",
+      "occiput"
+    ],
+    "category": "Rest"
+  },
+  {
+    "id": "head-tension",
+    "name": "Head Tension",
+    "aliases": [
+      "headache",
+      "migraine",
+      "head pain"
+    ],
+    "summary": "Points traditionally referenced in complementary routines for head comfort.",
+    "pointIds": [
+      "shen-men",
+      "occiput",
+      "sympathetic",
+      "point-zero"
+    ],
+    "category": "Comfort"
+  },
+  {
+    "id": "digestion",
+    "name": "Digestion",
+    "aliases": [
+      "bloating",
+      "stomach",
+      "indigestion",
+      "gas"
+    ],
+    "summary": "A wellness-focused selection often used in traditional digestive-support routines.",
+    "pointIds": [
+      "stomach",
+      "spleen",
+      "sympathetic",
+      "point-zero"
+    ],
+    "category": "Digestive"
+  },
+  {
+    "id": "focus",
+    "name": "Focus",
+    "aliases": [
+      "concentration",
+      "clarity",
+      "study",
+      "work"
+    ],
+    "summary": "A simple routine intended to complement focus-friendly habits such as rest, hydration and breaks.",
+    "pointIds": [
+      "shen-men",
+      "point-zero",
+      "brain",
+      "kidney"
+    ],
+    "category": "Daily"
+  },
+  {
+    "id": "low-energy",
+    "name": "Low Energy",
+    "aliases": [
+      "fatigue",
+      "tired",
+      "energy"
+    ],
+    "summary": "A complementary self-care routine for days when you feel physically or mentally drained.",
+    "pointIds": [
+      "kidney",
+      "spleen",
+      "brain",
+      "point-zero"
+    ],
+    "category": "Daily"
+  },
+  {
+    "id": "neck-shoulder-tension",
+    "name": "Neck & Shoulder Tension",
+    "aliases": [
+      "neck pain",
+      "shoulder pain",
+      "stiff neck"
+    ],
+    "summary": "Points traditionally selected for general neck and shoulder comfort.",
+    "pointIds": [
+      "cervical-spine",
+      "shoulder",
+      "shen-men",
+      "sympathetic"
+    ],
+    "category": "Comfort"
+  },
+  {
+    "id": "cravings",
+    "name": "Cravings",
+    "aliases": [
+      "appetite",
+      "snacking",
+      "food cravings"
+    ],
+    "summary": "A mindful-eating support routine. It is not a weight-loss treatment and should not replace balanced nutrition.",
+    "pointIds": [
+      "mouth",
+      "stomach",
+      "shen-men",
+      "point-zero"
+    ],
+    "category": "Lifestyle"
+  },
+  {
+    "id": "menstrual-comfort",
+    "name": "Menstrual Comfort",
+    "aliases": [
+      "period discomfort",
+      "menstrual cramps",
+      "pms"
+    ],
+    "summary": "A complementary comfort routine for menstrual self-care.",
+    "pointIds": [
+      "endocrine",
+      "shen-men",
+      "sympathetic",
+      "kidney"
+    ],
+    "category": "Women’s wellness"
+  },
+  {
+    "id": "jaw-tension",
+    "name": "Jaw Tension",
+    "aliases": [
+      "tmj",
+      "jaw pain",
+      "teeth grinding"
+    ],
+    "summary": "A traditional point combination used in general jaw-relaxation routines.",
+    "pointIds": [
+      "jaw",
+      "shen-men",
+      "sympathetic",
+      "point-zero"
+    ],
+    "category": "Comfort"
+  },
+  {
+    "id": "travel-queasiness",
+    "name": "Travel Queasiness",
+    "aliases": [
+      "motion sickness",
+      "nausea",
+      "car sick"
+    ],
+    "summary": "A complementary routine sometimes explored for travel-related queasiness.",
+    "pointIds": [
+      "stomach",
+      "sympathetic",
+      "shen-men",
+      "point-zero"
+    ],
+    "category": "Travel"
+  },
+  {
+    "id": "general-balance",
+    "name": "General Balance",
+    "aliases": [
+      "wellness",
+      "daily routine",
+      "balance"
+    ],
+    "summary": "A gentle starter combination for a simple, non-condition-specific wellness ritual.",
+    "pointIds": [
+      "shen-men",
+      "point-zero",
+      "sympathetic"
+    ],
+    "category": "Beginner"
+  }
+]
