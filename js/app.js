@@ -8,19 +8,35 @@ let conditionMap=new Map();
 let activeSuggestion=-1;
 let mapSelectedId="shen-men";
 let mapZoom=1;
+let selectedConditionPoint=new Map();
 
 const mapPositions={
-  "shen-men":[62,26],"point-zero":[51,46],"heart":[42,55],"sympathetic":[32,42],
-  "kidney":[59,38],"occiput":[34,66],"stomach":[49,51],"spleen":[55,55],
-  "brain":[39,70],"endocrine":[48,67],"mouth":[43,59],"cervical-spine":[66,58],
-  "shoulder":[69,48],"jaw":[44,78]
+  "shen-men":[61,25],"point-zero":[50,44],"heart":[42,54],"sympathetic":[31,40],
+  "kidney":[59,37],"occiput":[34,65],"stomach":[49,50],"spleen":[55,54],
+  "brain":[39,69],"endocrine":[48,66],"mouth":[43,58],"cervical-spine":[66,57],
+  "shoulder":[70,47],"jaw":[44,77]
 };
 
-const earSvg=`
-<svg class="map-ear" viewBox="0 0 360 470" aria-label="Simplified interactive ear illustration">
-  <path d="M196 38c82 0 128 67 116 148-10 65-54 87-72 140-13 40-7 77-50 96-38 17-89-3-95-43-4-29 17-44 28-68 15-34-5-64-24-91-34-48-24-109 12-148 23-24 51-34 85-34Z"/>
-  <path d="M198 97c42 0 68 35 61 76-6 35-31 49-50 73-23 28-10 70-38 85-20 11-46-2-46-25 0-19 15-29 21-46 10-25-11-46-15-68-8-49 19-95 67-95Z"/>
-  <path d="M182 182c27-19 61 8 49 38-9 21-37 21-50 37-10 12-10 29-5 43"/>
+const anatomicalEarSvg=(extraClass="")=>`
+<svg class="anatomical-ear ${extraClass}" viewBox="0 0 400 520" role="img" aria-label="Refined anatomical ear illustration">
+  <defs>
+    <linearGradient id="earSkin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4DDD4"/>
+      <stop offset=".58" stop-color="#E9C8BD"/>
+      <stop offset="1" stop-color="#DDAFA3"/>
+    </linearGradient>
+  </defs>
+  <path class="ear-shadow" d="M214 38c83 4 132 70 122 159-8 70-56 99-76 150-16 42-14 92-62 115-42 20-97-1-108-46-8-34 16-55 31-82 19-35-3-68-25-98-37-50-27-119 14-160 27-27 62-40 104-38Z"/>
+  <path class="ear-skin" d="M205 28c88 0 142 72 130 165-9 72-58 99-79 154-16 43-11 92-61 117-43 21-103 1-113-48-7-36 18-56 34-84 19-35-3-69-27-101-39-53-28-125 16-168 28-27 61-38 100-35Z"/>
+  <path class="ear-highlight" d="M182 49c-54 10-87 59-82 113"/>
+  <path class="ear-ridge" d="M207 86c58 1 91 50 80 107-8 43-39 61-62 91-29 37-13 83-47 103-25 15-59-1-61-31-1-23 18-38 27-59 12-29-14-55-19-81-11-60 21-129 82-130Z"/>
+  <path class="ear-soft" d="M211 119c34 3 56 29 52 61-4 29-23 45-44 63-23 20-32 49-27 76"/>
+  <path class="ear-ridge" d="M183 194c17-17 43-18 57-1 14 17 9 43-12 57-13 9-32 9-42 23-11 15-10 38-5 57"/>
+  <path class="ear-soft" d="M132 231c23-3 40 12 43 33 3 21-10 37-22 53"/>
+  <path class="ear-ridge" d="M150 363c14 18 37 24 56 14 21-11 22-37 18-56"/>
+  <path class="ear-soft" d="M230 352c20 9 34 29 31 51"/>
+  <path class="ear-ridge" d="M111 176c29-5 57 11 65 38"/>
+  <path class="ear-soft" d="M270 117c27 21 35 54 26 86"/>
 </svg>`;
 
 function escapeHtml(value=""){
@@ -79,13 +95,23 @@ function closeMobileMenu(){
   $("#mobile-menu").classList.remove("open");
   $("#menu-button").setAttribute("aria-expanded","false");
 }
+function openQuickHelp(){
+  $("#quick-help-sheet").hidden=false;
+  document.body.classList.add("sheet-open");
+  $("#quick-help-button").setAttribute("aria-expanded","true");
+}
+function closeQuickHelp(){
+  $("#quick-help-sheet").hidden=true;
+  document.body.classList.remove("sheet-open");
+  $("#quick-help-button").setAttribute("aria-expanded","false");
+}
 
 function searchBoxMarkup(id="route-search"){
   return `
   <div class="search-box">
     <form class="search-shell" data-search-form>
       <span aria-hidden="true">⌕</span>
-      <input id="${id}" data-search-input type="search" placeholder="Try “stress”, “sleep” or “Shen Men”" autocomplete="off">
+      <input id="${id}" data-search-input type="search" placeholder="Try “sleep”, “stress” or “Shen Men”" autocomplete="off">
       <button type="submit">Search</button>
     </form>
     <div class="suggestions" data-suggestions hidden></div>
@@ -153,13 +179,13 @@ function homeView(){
       <div class="container route-grid">
         <div>
           <p class="eyebrow">Bloomé Ear Acupoint Guide</p>
-          <h1>Find the right ear points with calm, clear guidance.</h1>
-          <p class="lead">Search common wellness concerns, browse acupoints, and explore a simplified interactive ear map.</p>
+          <h1>See where each ear seed belongs.</h1>
+          <p class="lead">Search a wellness concern and open a visual map with only the suggested points highlighted.</p>
           ${searchBoxMarkup("home-search")}
         </div>
         <div class="hero-card">
-          ${earSvg}
-          <div class="hero-card-note">A calmer way to explore ear-seed guidance</div>
+          ${anatomicalEarSvg("hero-ear")}
+          <div class="hero-card-note">Visual guidance designed for calm, confident application</div>
         </div>
       </div>
     </div>
@@ -168,13 +194,13 @@ function homeView(){
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Choose your path</p>
-          <h2>What would you like to explore?</h2>
+          <h2>Begin with what you need today.</h2>
         </div>
         <div class="quick-grid">
-          <a class="feature-card" href="#/discover"><span class="feature-icon">⌕</span><div><h3>Discover</h3><p>Browse concerns and acupoints in one searchable directory.</p></div><span>→</span></a>
-          <a class="feature-card" href="#/map"><span class="feature-icon">◌</span><div><h3>Interactive ear map</h3><p>Tap markers and open the matching point guide.</p></div><span>→</span></a>
-          <a class="feature-card" href="#/guide"><span class="feature-icon">✧</span><div><h3>Beginner guide</h3><p>Learn a simple, skin-conscious application routine.</p></div><span>→</span></a>
-          <a class="feature-card" href="#/about"><span class="feature-icon">♡</span><div><h3>About Bloomé</h3><p>Learn what the guide is designed to do, and what it is not.</p></div><span>→</span></a>
+          <a class="feature-card" href="#/discover"><span class="feature-icon">⌕</span><div><h3>Search a concern</h3><p>Open a visual point combination instead of a plain list.</p></div><span>→</span></a>
+          <a class="feature-card" href="#/map"><span class="feature-icon">◌</span><div><h3>Explore the ear</h3><p>Tap individual markers on the complete reference map.</p></div><span>→</span></a>
+          <a class="feature-card" href="#/guide"><span class="feature-icon">✧</span><div><h3>Beginner guide</h3><p>Follow a simple, skin-conscious application routine.</p></div><span>→</span></a>
+          <a class="feature-card" href="#/about"><span class="feature-icon">♡</span><div><h3>About Bloomé</h3><p>Calm information, cautious language and everyday usability.</p></div><span>→</span></a>
         </div>
       </div>
     </section>
@@ -182,16 +208,16 @@ function homeView(){
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Featured guidance</p>
-          <h2>Popular places to begin.</h2>
+          <p class="eyebrow">Popular starting points</p>
+          <h2>Open a visual combination.</h2>
         </div>
         <div class="card-grid">
           ${conditions.filter(c=>c.featured).slice(0,4).map(condition=>`
-            <button class="data-card" data-open-route="condition" data-open-id="${escapeHtml(condition.id)}">
-              <span class="data-type">Concern</span>
+            <button class="data-card" data-kind-card="condition" data-open-route="condition" data-open-id="${escapeHtml(condition.id)}">
+              <span class="data-type">Visual guide</span>
               <h3>${escapeHtml(condition.name)}</h3>
               <p>${escapeHtml(condition.summary)}</p>
-              <div class="meta">${condition.pointIds.length} suggested points</div>
+              <div class="meta">${condition.pointIds.length} highlighted points</div>
             </button>`).join("")}
         </div>
       </div>
@@ -205,14 +231,13 @@ function discoverView(searchTerm=null){
     ...acupoints.map(item=>({kind:"point",item}))
   ];
   const initial=searchTerm?matches(searchTerm,100):allItems;
-
   return `
   <section class="route">
     <div class="route-hero">
       <div class="container">
         <p class="eyebrow">Discover</p>
-        <h1>Browse concerns and acupoints.</h1>
-        <p class="lead">Use natural words such as “can’t sleep”, “TMJ”, “bloating” or a point name.</p>
+        <h1>Search by need or point name.</h1>
+        <p class="lead">Condition pages now open with an interactive map showing the suggested combination immediately.</p>
         ${searchBoxMarkup("discover-search")}
       </div>
     </div>
@@ -223,9 +248,7 @@ function discoverView(searchTerm=null){
           <button class="filter-chip" data-directory-filter="condition">Concerns</button>
           <button class="filter-chip" data-directory-filter="point">Acupoints</button>
         </div>
-        <div class="directory-grid" id="directory-grid">
-          ${directoryCards(initial)}
-        </div>
+        <div class="directory-grid" id="directory-grid">${directoryCards(initial)}</div>
       </div>
     </section>
   </section>`;
@@ -238,30 +261,30 @@ function directoryCards(items){
     const copy=kind==="condition"?item.summary:item.traditionalUse;
     return `
     <button class="data-card" data-kind-card="${kind}" data-open-route="${kind}" data-open-id="${escapeHtml(item.id)}">
-      <span class="data-type">${kind==="condition"?"Concern":"Acupoint"}</span>
+      <span class="data-type">${kind==="condition"?"Visual concern guide":"Acupoint"}</span>
       <h3>${escapeHtml(item.name)}</h3>
       <p>${escapeHtml(copy||"")}</p>
-      <div class="meta">${escapeHtml(item.category||"")}</div>
+      <div class="meta">${kind==="condition"?`${item.pointIds.length} highlighted points`:escapeHtml(item.category||"")}</div>
     </button>`;
   }).join("");
 }
 
-function mapView(){
+function fullMapView(){
   const first=pointMap.get(mapSelectedId)||acupoints[0];
   return `
   <section class="route">
     <div class="route-hero">
       <div class="container">
         <p class="eyebrow">Interactive ear map</p>
-        <h1>Tap a marker to explore.</h1>
-        <p class="lead">This simplified illustration is a navigation aid, not a clinical placement chart.</p>
+        <h1>Explore one point at a time.</h1>
+        <p class="lead">The illustration has been refined for a calmer, more anatomical appearance. It remains a simplified educational aid.</p>
       </div>
     </div>
     <section class="section soft-section">
       <div class="container map-shell">
         <div class="map-canvas">
           <div class="map-stage" id="map-stage">
-            ${earSvg}
+            ${anatomicalEarSvg()}
             ${acupoints.filter(p=>mapPositions[p.id]).map(point=>{
               const [left,top]=mapPositions[point.id];
               return `<button class="map-marker ${point.id===mapSelectedId?"active":""}" style="left:${left}%;top:${top}%" data-map-id="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${escapeHtml(point.name)}"></button>`;
@@ -282,6 +305,76 @@ function mapView(){
             <button class="secondary-button" id="map-next-point">Next marker</button>
           </div>
         </aside>
+      </div>
+    </section>
+  </section>`;
+}
+
+function conditionInfoMarkup(point){
+  return `
+    <p class="eyebrow">Selected point</p>
+    <h2 id="condition-point-title">${escapeHtml(point.name)}</h2>
+    <div class="info-section">
+      <div class="info-label"><span>⌖</span>Location</div>
+      <p id="condition-point-location">${escapeHtml(point.location)}</p>
+    </div>
+    <div class="info-section">
+      <div class="info-label"><span>✦</span>Traditional wellness use</div>
+      <p id="condition-point-use">${escapeHtml(point.traditionalUse)}</p>
+    </div>
+    <div class="info-section">
+      <div class="info-label"><span>◌</span>Gentle stimulation</div>
+      <p id="condition-point-stimulate">${escapeHtml(point.howToStimulate)}</p>
+    </div>
+  `;
+}
+
+function conditionView(id){
+  const condition=conditionMap.get(id);
+  if(!condition)return notFoundView();
+  const points=(condition.pointIds||[]).map(pid=>pointMap.get(pid)).filter(Boolean);
+  const currentId=selectedConditionPoint.get(id)||points[0]?.id;
+  const current=pointMap.get(currentId)||points[0];
+  return `
+  <section class="route">
+    <div class="route-hero">
+      <div class="container">
+        <p class="eyebrow">${escapeHtml(condition.category||"Concern")}</p>
+        <h1>${escapeHtml(condition.name)}</h1>
+        <p class="lead">${escapeHtml(condition.summary)}</p>
+      </div>
+    </div>
+
+    <section class="section soft-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Recommended point combination</p>
+          <h2>See every suggested point at a glance.</h2>
+          <p class="lead">Tap a numbered marker or point name. The explanation updates without leaving this page.</p>
+        </div>
+
+        <div class="condition-experience">
+          <div class="condition-map-card">
+            ${anatomicalEarSvg("compact")}
+            ${points.map((point,index)=>{
+              const position=mapPositions[point.id]||[50,50];
+              return `<button class="condition-point ${point.id===current.id?"active":""}" style="left:${position[0]}%;top:${position[1]}%" data-condition-point="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${index+1}. ${escapeHtml(point.name)}">${index+1}</button>`;
+            }).join("")}
+          </div>
+
+          <aside class="condition-info-card">
+            <div id="condition-info-content">${conditionInfoMarkup(current)}</div>
+            <div class="point-tabs">
+              ${points.map((point,index)=>`<button class="point-tab ${point.id===current.id?"active":""}" data-condition-point-tab="${escapeHtml(point.id)}">${index+1}. ${escapeHtml(point.name)}</button>`).join("")}
+            </div>
+            <div class="condition-actions">
+              <button class="primary-button" id="open-selected-point" data-point-id="${escapeHtml(current.id)}">Open full point guide</button>
+              <a class="secondary-button" href="#/guide">Application guide</a>
+            </div>
+          </aside>
+        </div>
+
+        <div class="notice" style="margin-top:24px">This illustration is a simplified educational guide, not a clinical placement chart. Use only on clean, intact skin and seek professional care for severe, persistent, sudden or unexplained symptoms.</div>
       </div>
     </section>
   </section>`;
@@ -309,49 +402,11 @@ function pointView(id){
           <section><h3>Caution</h3><p>${escapeHtml(point.caution||"Use only on clean, intact skin and remove if irritation occurs.")}</p></section>
         </article>
         <aside class="side-card">
-          <p class="eyebrow">Related concerns</p>
+          <p class="eyebrow">Related visual guides</p>
           <div class="tag-list">
             ${related.length?related.map(c=>`<button class="tag-button" data-open-route="condition" data-open-id="${escapeHtml(c.id)}">${escapeHtml(c.name)}</button>`).join(""):"<p>No related concerns listed yet.</p>"}
           </div>
           <div class="notice" style="margin-top:22px">This page provides general wellness education and does not replace professional medical advice.</div>
-        </aside>
-      </div>
-    </section>
-  </section>`;
-}
-
-function conditionView(id){
-  const condition=conditionMap.get(id);
-  if(!condition)return notFoundView();
-  const points=(condition.pointIds||[]).map(pid=>pointMap.get(pid)).filter(Boolean);
-  return `
-  <section class="route">
-    <div class="route-hero">
-      <div class="container">
-        <p class="eyebrow">${escapeHtml(condition.category||"Concern")}</p>
-        <h1>${escapeHtml(condition.name)}</h1>
-        <p class="lead">${escapeHtml(condition.summary)}</p>
-      </div>
-    </div>
-    <section class="section soft-section">
-      <div class="container detail-layout">
-        <article class="detail-card">
-          <section>
-            <h3>Suggested point combination</h3>
-            <div class="tag-list">
-              ${points.map(p=>`<button class="tag-button" data-open-route="point" data-open-id="${escapeHtml(p.id)}">${escapeHtml(p.name)}</button>`).join("")}
-            </div>
-          </section>
-          <section><h3>How to use this guide</h3><p>Begin with a small number of points, follow the beginner instructions, and stop if the skin becomes irritated or the ear feels significantly uncomfortable.</p></section>
-          <section><h3>When to seek help</h3><p>Persistent, severe, sudden or unexplained symptoms should be assessed by a qualified healthcare professional.</p></section>
-        </article>
-        <aside class="side-card">
-          <p class="eyebrow">Quick actions</p>
-          <div class="tag-list">
-            <a class="tag-button" href="#/map">Open ear map</a>
-            <a class="tag-button" href="#/guide">Read beginner guide</a>
-          </div>
-          <div class="notice" style="margin-top:22px">Bloomé Guide is for general wellness education only.</div>
         </aside>
       </div>
     </section>
@@ -396,11 +451,11 @@ function aboutView(){
     </div>
     <section class="section soft-section">
       <div class="container about-panel">
-        <div><h2>Calm information, not loud promises.</h2></div>
+        <div><h2>Visual guidance before dense explanation.</h2></div>
         <div>
           <p>Bloomé creates approachable self-care tools and educational resources for everyday wellness.</p>
+          <p>Condition pages now begin with the ear itself, because customers need to see where the suggested points are before reading deeper details.</p>
           <p>This guide distinguishes traditional auricular uses from medical treatment. It is not designed to diagnose illness or replace professional care.</p>
-          <p>As the guide grows, the content will remain organized around clarity, cautious language and ease of use.</p>
         </div>
       </div>
     </section>
@@ -415,7 +470,6 @@ function wireCommonActions(){
   $$("[data-open-route]").forEach(button=>button.addEventListener("click",()=>navigate(button.dataset.openRoute,button.dataset.openId)));
   wireSearch($("#app"));
 }
-
 function wireDiscover(){
   const grid=$("#directory-grid");
   if(!grid)return;
@@ -431,8 +485,7 @@ function wireDiscover(){
     wireCommonActions();
   }));
 }
-
-function wireMap(){
+function wireFullMap(){
   const stage=$("#map-stage");
   if(!stage)return;
   function select(id){
@@ -447,19 +500,36 @@ function wireMap(){
   $("#map-open-point").addEventListener("click",event=>navigate("point",event.currentTarget.dataset.pointId));
   $("#map-next-point").addEventListener("click",()=>{
     const ids=acupoints.filter(p=>mapPositions[p.id]).map(p=>p.id);
-    const next=ids[(ids.indexOf(mapSelectedId)+1)%ids.length];
-    select(next);
+    select(ids[(ids.indexOf(mapSelectedId)+1)%ids.length]);
   });
   function applyZoom(){stage.style.transform=`scale(${mapZoom})`}
   $("#zoom-in").addEventListener("click",()=>{mapZoom=Math.min(1.65,mapZoom+.15);applyZoom()});
   $("#zoom-out").addEventListener("click",()=>{mapZoom=Math.max(.8,mapZoom-.15);applyZoom()});
   $("#zoom-reset").addEventListener("click",()=>{mapZoom=1;applyZoom()});
 }
+function wireCondition(id){
+  const condition=conditionMap.get(id);
+  if(!condition)return;
+  const points=(condition.pointIds||[]).map(pid=>pointMap.get(pid)).filter(Boolean);
+  function select(pointId){
+    const point=pointMap.get(pointId);
+    if(!point)return;
+    selectedConditionPoint.set(id,pointId);
+    $$("[data-condition-point]").forEach(button=>button.classList.toggle("active",button.dataset.conditionPoint===pointId));
+    $$("[data-condition-point-tab]").forEach(button=>button.classList.toggle("active",button.dataset.conditionPointTab===pointId));
+    $("#condition-info-content").innerHTML=conditionInfoMarkup(point);
+    $("#open-selected-point").dataset.pointId=pointId;
+  }
+  $$("[data-condition-point]").forEach(button=>button.addEventListener("click",()=>select(button.dataset.conditionPoint)));
+  $$("[data-condition-point-tab]").forEach(button=>button.addEventListener("click",()=>select(button.dataset.conditionPointTab)));
+  $("#open-selected-point")?.addEventListener("click",event=>navigate("point",event.currentTarget.dataset.pointId));
+}
 
 function render(){
   const {route,id}=getRoute();
   updateActiveNav(route);
   closeMobileMenu();
+  closeQuickHelp();
   const app=$("#app");
 
   let html;
@@ -468,7 +538,7 @@ function render(){
     const search=id&&id.startsWith("search-")?decodeURIComponent(id.replace(/^search-/,"")):null;
     html=discoverView(search);
   }
-  else if(route==="map")html=mapView();
+  else if(route==="map")html=fullMapView();
   else if(route==="point")html=pointView(id);
   else if(route==="condition")html=conditionView(id);
   else if(route==="guide")html=guideView();
@@ -480,7 +550,8 @@ function render(){
   window.scrollTo({top:0,behavior:"instant"});
   wireCommonActions();
   wireDiscover();
-  wireMap();
+  wireFullMap();
+  if(route==="condition")wireCondition(id);
 }
 
 async function loadData(){
@@ -506,5 +577,10 @@ $("#menu-button").addEventListener("click",()=>{
   $("#menu-button").setAttribute("aria-expanded",String(open));
 });
 $$("#mobile-menu a").forEach(link=>link.addEventListener("click",closeMobileMenu));
+$("#quick-help-button").addEventListener("click",openQuickHelp);
+$("#quick-help-close").addEventListener("click",closeQuickHelp);
+$("#quick-help-backdrop").addEventListener("click",closeQuickHelp);
+$$(".quick-help-grid a").forEach(link=>link.addEventListener("click",closeQuickHelp));
+window.addEventListener("keydown",event=>{if(event.key==="Escape")closeQuickHelp()});
 window.addEventListener("hashchange",render);
 loadData();

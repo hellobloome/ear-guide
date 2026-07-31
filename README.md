@@ -1,29 +1,20 @@
-# Bloomé Guide — Package 4A
+# Bloomé Guide — Package 4B
 
-Package 4A rebuilds the site into a routed single-page application.
+Package 4B upgrades the guide from a text-first directory into a visual-first ear-seed experience.
 
-## New in 4A
+## New in 4B
 
-- Hash-based page routing:
-  - `#/home`
-  - `#/discover`
-  - `#/map`
-  - `#/guide`
-  - `#/about`
-  - `#/condition/<id>`
-  - `#/point/<id>`
-- Dedicated condition views
-- Dedicated acupoint views
-- New Discover directory
-- New search architecture with autocomplete
-- Interactive ear map with:
-  - marker selection
-  - next-point navigation
-  - zoom controls
-- Navigation that stays in sync with the active route
-- Cleaner, reusable application shell
-- Mobile bottom navigation
-- Updated data metadata
+- Refined anatomical-style SVG ear illustration
+- Softer Bloomé colour system and upgraded card styling
+- Condition pages now show the ear map immediately
+- Only the points related to the selected condition are highlighted
+- Numbered point markers for easier visual matching
+- Tap a marker or point name to update the information panel
+- Location, traditional use and stimulation guidance remain on the same page
+- Quick Help floating menu
+- Homepage copy updated around visual guidance
+- Basic app metadata prepared for future English and Malay support
+- Apply Mode is intentionally postponed
 
 ## Install
 
@@ -32,22 +23,25 @@ Package 4A rebuilds the site into a routed single-page application.
 3. Choose **Replace the files in the destination**.
 4. Open GitHub Desktop.
 5. Use this Summary:
-   `Package 4A - Routing and professional ear map`
+   `Package 4B - Visual condition maps and refined ear`
 6. Commit to `main`.
 7. Click **Push origin**.
 8. Wait for GitHub Pages to redeploy.
 9. Hard-refresh with `Ctrl + Shift + R`.
 
-## Test
+## Test carefully
 
-- Home navigation
-- Discover filters
-- Search autocomplete
-- Open a condition
-- Open an acupoint
-- Ear map markers
-- Ear map zoom controls
-- Browser Back button
-- Mobile bottom navigation
+- Search `sleep`
+- Confirm four numbered points appear immediately
+- Tap each point on the ear
+- Tap each point-name button
+- Confirm the information panel updates without leaving the page
+- Open `stress`, `digestion` and `jaw tension`
+- Test the full ear map
+- Test Quick Help on desktop and mobile
+- Test browser Back
+- Test mobile bottom navigation
 
-The ear map remains a simplified navigation illustration and should not be treated as a clinical placement chart.
+## Important note
+
+The SVG ear and point coordinates are simplified educational guidance. They are not a clinical placement chart and should not be presented as a substitute for professional instruction.

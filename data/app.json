@@ -1,6 +1,6 @@
 {
   "name": "Bloom\u00e9 Guide",
-  "version": "4A",
+  "version": "4B",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -11,5 +11,16 @@
     "condition",
     "point"
   ],
-  "brandColor": "#5A1611"
+  "brandColor": "#5A1611",
+  "defaultLocale": "en",
+  "supportedLocales": [
+    "en",
+    "ms"
+  ],
+  "features": {
+    "conditionMaps": true,
+    "refinedEarIllustration": true,
+    "quickHelp": true,
+    "applyMode": false
+  }
 }

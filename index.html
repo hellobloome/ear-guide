@@ -48,6 +48,33 @@
     </div>
   </main>
 
+  <button class="quick-help-button" id="quick-help-button" aria-label="Open quick help" aria-expanded="false">
+    <span>?</span>
+    <small>Quick help</small>
+  </button>
+
+  <div class="quick-help-sheet" id="quick-help-sheet" hidden>
+    <button class="sheet-backdrop" id="quick-help-backdrop" aria-label="Close quick help"></button>
+    <section class="sheet-card" aria-label="Quick help">
+      <div class="sheet-handle"></div>
+      <div class="sheet-heading">
+        <div>
+          <p class="eyebrow">Quick help</p>
+          <h2>What would you like today?</h2>
+        </div>
+        <button class="sheet-close" id="quick-help-close" aria-label="Close">×</button>
+      </div>
+      <div class="quick-help-grid">
+        <a href="#/condition/sleep"><span>☾</span><strong>Better sleep</strong></a>
+        <a href="#/condition/stress"><span>♡</span><strong>Feeling stressed</strong></a>
+        <a href="#/condition/digestion"><span>⌁</span><strong>Digestion</strong></a>
+        <a href="#/condition/menstrual-comfort"><span>✿</span><strong>Women's wellness</strong></a>
+        <a href="#/map"><span>◌</span><strong>Ear map</strong></a>
+        <a href="#/guide"><span>✧</span><strong>Beginner guide</strong></a>
+      </div>
+    </section>
+  </div>
+
   <nav class="bottom-nav" aria-label="Bottom navigation">
     <a data-nav-route="home" href="#/home"><span>⌂</span><small>Home</small></a>
     <a data-nav-route="discover" href="#/discover"><span>⌕</span><small>Discover</small></a>
@@ -56,7 +83,6 @@
   </nav>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
   <script src="./js/app.js"></script>
 </body>
 </html>
