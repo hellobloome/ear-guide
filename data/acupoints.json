@@ -9,7 +9,21 @@
     "category": "Master point",
     "location": "In the triangular fossa, toward its upper-central region.",
     "traditionalUse": "Commonly selected in auricular wellness routines intended to promote calm and overall balance.",
-    "howToStimulate": "Press gently for 5–10 seconds, release, and repeat a few times. Stop if the area becomes painful or irritated."
+    "howToStimulate": "Press gently for 5–10 seconds, release, and repeat a few times. Stop if the area becomes painful or irritated.",
+    "relatedConditionIds": [
+      "stress",
+      "sleep",
+      "head-tension",
+      "focus",
+      "neck-shoulder-tension",
+      "cravings",
+      "menstrual-comfort",
+      "jaw-tension",
+      "travel-queasiness",
+      "general-balance"
+    ],
+    "shortDescription": "Commonly selected in auricular wellness routines intended to promote calm and overall balance.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "point-zero",
@@ -20,7 +34,20 @@
     "category": "Master point",
     "location": "Near the center of the ear, around the root of the helix.",
     "traditionalUse": "Often used as a balancing or centering point in auricular practice.",
-    "howToStimulate": "Use light, steady pressure. More pressure is not necessarily better."
+    "howToStimulate": "Use light, steady pressure. More pressure is not necessarily better.",
+    "relatedConditionIds": [
+      "stress",
+      "head-tension",
+      "digestion",
+      "focus",
+      "low-energy",
+      "cravings",
+      "jaw-tension",
+      "travel-queasiness",
+      "general-balance"
+    ],
+    "shortDescription": "Often used as a balancing or centering point in auricular practice.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "heart",
@@ -31,7 +58,13 @@
     "category": "Organ point",
     "location": "In the central concha region.",
     "traditionalUse": "Traditionally included in routines related to calm, rest and emotional settling.",
-    "howToStimulate": "Press gently and discontinue use if you notice persistent tenderness or skin irritation."
+    "howToStimulate": "Press gently and discontinue use if you notice persistent tenderness or skin irritation.",
+    "relatedConditionIds": [
+      "stress",
+      "sleep"
+    ],
+    "shortDescription": "Traditionally included in routines related to calm, rest and emotional settling.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "sympathetic",
@@ -43,7 +76,19 @@
     "category": "Master point",
     "location": "Near the junction of the inferior crus of the antihelix and the inner helix.",
     "traditionalUse": "Frequently included in traditional comfort and relaxation combinations.",
-    "howToStimulate": "Apply brief, comfortable pressure several times through the day."
+    "howToStimulate": "Apply brief, comfortable pressure several times through the day.",
+    "relatedConditionIds": [
+      "stress",
+      "head-tension",
+      "digestion",
+      "neck-shoulder-tension",
+      "menstrual-comfort",
+      "jaw-tension",
+      "travel-queasiness",
+      "general-balance"
+    ],
+    "shortDescription": "Frequently included in traditional comfort and relaxation combinations.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "kidney",
@@ -54,7 +99,15 @@
     "category": "Organ point",
     "location": "In the upper concha region.",
     "traditionalUse": "Traditionally associated with foundational energy and restorative routines.",
-    "howToStimulate": "Use gentle pressure only and keep the surrounding skin clean and dry."
+    "howToStimulate": "Use gentle pressure only and keep the surrounding skin clean and dry.",
+    "relatedConditionIds": [
+      "sleep",
+      "focus",
+      "low-energy",
+      "menstrual-comfort"
+    ],
+    "shortDescription": "Traditionally associated with foundational energy and restorative routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "occiput",
@@ -66,7 +119,13 @@
     "category": "Anatomical point",
     "location": "On the posterior-superior area of the antitragus.",
     "traditionalUse": "Commonly referenced in routines for rest and head comfort.",
-    "howToStimulate": "Press until you feel mild pressure, not sharp pain."
+    "howToStimulate": "Press until you feel mild pressure, not sharp pain.",
+    "relatedConditionIds": [
+      "sleep",
+      "head-tension"
+    ],
+    "shortDescription": "Commonly referenced in routines for rest and head comfort.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "stomach",
@@ -77,7 +136,14 @@
     "category": "Organ point",
     "location": "Around the end of the crus of the helix in the concha.",
     "traditionalUse": "Traditionally included in digestive-support and appetite-awareness routines.",
-    "howToStimulate": "Stimulate gently before or after meals as part of a mindful routine."
+    "howToStimulate": "Stimulate gently before or after meals as part of a mindful routine.",
+    "relatedConditionIds": [
+      "digestion",
+      "cravings",
+      "travel-queasiness"
+    ],
+    "shortDescription": "Traditionally included in digestive-support and appetite-awareness routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "spleen",
@@ -88,7 +154,13 @@
     "category": "Organ point",
     "location": "In the concha region, close to the liver and stomach representations.",
     "traditionalUse": "Traditionally linked with digestive and energy-support routines.",
-    "howToStimulate": "Use light pressure and avoid applying seeds to broken or inflamed skin."
+    "howToStimulate": "Use light pressure and avoid applying seeds to broken or inflamed skin.",
+    "relatedConditionIds": [
+      "digestion",
+      "low-energy"
+    ],
+    "shortDescription": "Traditionally linked with digestive and energy-support routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "brain",
@@ -100,7 +172,13 @@
     "category": "Functional point",
     "location": "On the inner aspect of the antitragus.",
     "traditionalUse": "Often selected in traditional routines for clarity, rest and general regulation.",
-    "howToStimulate": "Press comfortably for a few seconds at a time."
+    "howToStimulate": "Press comfortably for a few seconds at a time.",
+    "relatedConditionIds": [
+      "focus",
+      "low-energy"
+    ],
+    "shortDescription": "Often selected in traditional routines for clarity, rest and general regulation.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "endocrine",
@@ -112,7 +190,12 @@
     "category": "Functional point",
     "location": "At the base of the intertragic notch.",
     "traditionalUse": "Traditionally included in women’s wellness and general regulation routines.",
-    "howToStimulate": "Apply light pressure only. Seek professional guidance for persistent symptoms."
+    "howToStimulate": "Apply light pressure only. Seek professional guidance for persistent symptoms.",
+    "relatedConditionIds": [
+      "menstrual-comfort"
+    ],
+    "shortDescription": "Traditionally included in women’s wellness and general regulation routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "mouth",
@@ -124,7 +207,12 @@
     "category": "Anatomical point",
     "location": "Near the lower portion of the concha, close to the ear canal opening.",
     "traditionalUse": "Sometimes used in mindful-eating and oral-comfort routines.",
-    "howToStimulate": "Press gently and keep seeds away from the ear canal."
+    "howToStimulate": "Press gently and keep seeds away from the ear canal.",
+    "relatedConditionIds": [
+      "cravings"
+    ],
+    "shortDescription": "Sometimes used in mindful-eating and oral-comfort routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "cervical-spine",
@@ -136,7 +224,12 @@
     "category": "Anatomical point",
     "location": "Along the lower antihelix, corresponding traditionally to the neck region.",
     "traditionalUse": "Traditionally selected for neck-comfort routines.",
-    "howToStimulate": "Use comfortable pressure and seek medical care for severe, persistent or injury-related pain."
+    "howToStimulate": "Use comfortable pressure and seek medical care for severe, persistent or injury-related pain.",
+    "relatedConditionIds": [
+      "neck-shoulder-tension"
+    ],
+    "shortDescription": "Traditionally selected for neck-comfort routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "shoulder",
@@ -147,7 +240,12 @@
     "category": "Anatomical point",
     "location": "Along the antihelix region traditionally corresponding to the shoulder.",
     "traditionalUse": "Commonly selected in shoulder-comfort routines.",
-    "howToStimulate": "Press gently. Do not use ear seeds as a substitute for assessment after injury."
+    "howToStimulate": "Press gently. Do not use ear seeds as a substitute for assessment after injury.",
+    "relatedConditionIds": [
+      "neck-shoulder-tension"
+    ],
+    "shortDescription": "Commonly selected in shoulder-comfort routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   },
   {
     "id": "jaw",
@@ -159,6 +257,11 @@
     "category": "Anatomical point",
     "location": "On the earlobe region traditionally mapped to the jaw and face.",
     "traditionalUse": "Traditionally included in jaw-relaxation routines.",
-    "howToStimulate": "Use mild pressure and consult a dental or medical professional for persistent jaw pain."
+    "howToStimulate": "Use mild pressure and consult a dental or medical professional for persistent jaw pain.",
+    "relatedConditionIds": [
+      "jaw-tension"
+    ],
+    "shortDescription": "Traditionally included in jaw-relaxation routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal."
   }
 ]
