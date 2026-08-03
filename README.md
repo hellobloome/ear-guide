@@ -1,41 +1,32 @@
-# Bloomé Guide — Package 6: Calm Refinement
+# Bloomé Guide — Package 6.1 Ear Size Hotfix
 
-This package continues the Premium Pass without adding feature clutter.
+This is a targeted hotfix for Package 6.
 
-## Main change requested
-- Removed botanical decoration from every functional ear illustration.
-- The ear map is now intentionally just: ear → markers → information.
+## Fixed
+- Reduced the ear illustration size on desktop.
+- Reduced the ear illustration size on mobile.
+- Added more breathing room around the ear.
+- Reduced functional map container height slightly.
+- Kept marker positioning stable.
+- Slightly reduced marker size on phones.
 
-## Additional refinements
-- Calmer marker styling with less visual weight.
-- Cleaner map backgrounds and more breathing room around the ear.
-- Refined information-card borders and spacing.
-- Improved mobile map proportions and touch behaviour.
-- Added reduced-motion support for accessibility.
-- Smart Combination structure remains in place.
-- Apply Mode is still intentionally postponed.
+No content, search, routing, Smart Combination or Quick Help features were changed.
 
 ## Install
-1. Extract this ZIP.
-2. Copy everything inside into your local `ear-guide` repository.
-3. Replace the existing files when prompted.
-4. Open GitHub Desktop.
-5. Summary:
-   `Package 6 - Calm refinement`
-6. Commit to `main`.
-7. Push origin.
-8. Wait for GitHub Pages to deploy.
-9. Hard refresh with `Ctrl + Shift + R`.
+1. Extract the ZIP.
+2. Copy everything into your local `ear-guide` folder.
+3. Replace existing files.
+4. In GitHub Desktop use:
+   `Package 6.1 - Ear size hotfix`
+5. Commit to main.
+6. Push origin.
+7. Wait for deployment.
+8. Hard-refresh with `Ctrl + Shift + R`.
 
-## Test
-- Homepage ear: no botanical decoration.
-- Search `sleep`: condition map has no botanical decoration.
-- Open the full Ear Map: no botanical decoration.
-- Tap every highlighted point and confirm the information panel updates.
-- Test Stress, Digestion and another condition.
-- Test desktop and phone.
-- Test browser Back.
-- Confirm Quick Help still works.
+## Check
+- Homepage on desktop
+- Sleep condition page on desktop
+- Full Ear Map on desktop
+- Same three views on phone
 
-## Scope note
-The ear illustration and point coordinates remain simplified educational guidance, not a clinical placement chart.
+The ear should now sit comfortably inside the map instead of filling it.

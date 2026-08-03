@@ -371,3 +371,102 @@ h3,p{margin-top:0}
     transition-duration: .01ms !important;
   }
 }
+
+
+/* =========================================================
+   Bloomé Guide 6.1 — Ear Size Hotfix
+   Restores comfortable scale on desktop and mobile.
+   ========================================================= */
+
+/* Global ear illustration scale */
+.anatomical-ear {
+  width: min(58%, 390px) !important;
+  max-height: 78% !important;
+}
+
+.anatomical-ear.compact {
+  width: min(62%, 360px) !important;
+  max-height: 76% !important;
+}
+
+.hero-ear {
+  width: min(56%, 350px) !important;
+  max-height: 74% !important;
+}
+
+/* Keep functional maps roomy without letting the ear dominate */
+.map-canvas {
+  min-height: 580px !important;
+  padding: 34px !important;
+}
+
+.condition-map-card {
+  min-height: 570px !important;
+  padding: 34px !important;
+}
+
+/* Stabilise the stage so percentage-positioned markers remain predictable */
+.map-stage {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 500px !important;
+}
+
+/* Desktop/tablet */
+@media (max-width: 960px) {
+  .anatomical-ear {
+    width: min(54%, 360px) !important;
+  }
+
+  .anatomical-ear.compact {
+    width: min(58%, 340px) !important;
+  }
+
+  .hero-ear {
+    width: min(52%, 330px) !important;
+  }
+
+  .map-canvas,
+  .condition-map-card {
+    min-height: 540px !important;
+    padding: 30px !important;
+  }
+}
+
+/* Phone */
+@media (max-width: 680px) {
+  .anatomical-ear {
+    width: min(62vw, 270px) !important;
+    max-height: 68% !important;
+  }
+
+  .anatomical-ear.compact {
+    width: min(64vw, 280px) !important;
+    max-height: 68% !important;
+  }
+
+  .hero-ear {
+    width: min(60vw, 260px) !important;
+  }
+
+  .map-canvas,
+  .condition-map-card {
+    min-height: 430px !important;
+    padding: 24px 18px !important;
+  }
+
+  .map-stage {
+    min-height: 380px !important;
+  }
+
+  .condition-point {
+    width: 27px !important;
+    height: 27px !important;
+    font-size: .67rem !important;
+  }
+
+  .map-marker {
+    width: 17px !important;
+    height: 17px !important;
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "6",
+  "version": "6.1",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -29,7 +29,8 @@
     "botanicalEarDecoration": false,
     "calmMarkers": true,
     "reducedMotionSupport": true,
-    "mobileMapFocus": true
+    "mobileMapFocus": true,
+    "earSizeHotfix": true
   },
-  "releaseName": "Calm Refinement"
+  "releaseName": "Ear Size Hotfix"
 }
