@@ -519,3 +519,9 @@ $$(".quick-help-grid a").forEach(link=>link.addEventListener("click",closeQuickH
 window.addEventListener("keydown",event=>{if(event.key==="Escape")closeQuickHelp()});
 window.addEventListener("hashchange",render);
 loadData();
+
+
+/* Package 9A note:
+   Condition rendering keeps existing data bindings.
+   Future upgrades can expand from this stable structure.
+*/
