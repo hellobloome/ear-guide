@@ -3,6 +3,10 @@ const $$=(s,c=document)=>[...c.querySelectorAll(s)];
 
 let conditions=[];
 let acupoints=[];
+let sourceConditions=[];
+let sourceAcupoints=[];
+let localeData={};
+let currentLocale=localStorage.getItem("bloome-locale")==="ms"?"ms":"en";
 let pointMap=new Map();
 let conditionMap=new Map();
 let activeSuggestion=-1;
@@ -30,8 +34,92 @@ function escapeHtml(value=""){
 function normalize(value=""){
   return String(value).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim();
 }
+
+function localeRecord(type,id){
+  return localeData?.[type]?.[id]||null;
+}
+
+function mergeLocaleItem(item,type){
+  if(currentLocale!=="ms")return {...item};
+  const translated=localeRecord(type,item.id);
+  if(!translated)return {...item};
+
+  return {
+    ...item,
+    ...translated,
+    aliases:[...(item.aliases||[]),...(translated.aliases||[])],
+    keywords:[...(item.keywords||[]),...(translated.keywords||[])]
+  };
+}
+
+function rebuildLocalizedData(){
+  conditions=sourceConditions.map(item=>mergeLocaleItem(item,"conditions"));
+  acupoints=sourceAcupoints.map(item=>mergeLocaleItem(item,"points"));
+  conditionMap=new Map(conditions.map(item=>[item.id,item]));
+  pointMap=new Map(acupoints.map(item=>[item.id,item]));
+}
+
+function uiText(english){
+  if(currentLocale!=="ms")return english;
+  return localeData?.ui?.ms?.exact?.[english]||english;
+}
+
+function pointCountText(count,{suggested=false}={}){
+  if(currentLocale==="ms")return suggested?`${count} titik dicadangkan`:`${count} titik`;
+  return suggested?`${count} suggested point${count===1?"":"s"}`:`${count} point${count===1?"":"s"}`;
+}
+
+function translateUi(root=document){
+  document.documentElement.lang=currentLocale==="ms"?"ms":"en";
+
+  if(currentLocale==="ms"){
+    const exact=localeData?.ui?.ms?.exact||{};
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    const nodes=[];
+    while(walker.nextNode())nodes.push(walker.currentNode);
+
+    nodes.forEach(node=>{
+      const raw=node.nodeValue;
+      const trimmed=raw.trim();
+      if(!trimmed || !exact[trimmed])return;
+      node.nodeValue=raw.replace(trimmed,exact[trimmed]);
+    });
+
+    const placeholders=localeData?.ui?.ms?.placeholders||{};
+    $$("[placeholder]",root).forEach(el=>{
+      const original=el.getAttribute("placeholder");
+      if(placeholders[original])el.setAttribute("placeholder",placeholders[original]);
+    });
+  }
+
+  updateLanguageToggle();
+}
+
+function updateLanguageToggle(){
+  const toggle=$("#language-toggle");
+  if(!toggle)return;
+  $$("[data-locale-option]",toggle).forEach(option=>{
+    option.classList.toggle("active",option.dataset.localeOption===currentLocale);
+  });
+  toggle.setAttribute("aria-label",currentLocale==="ms"?"Tukar ke bahasa Inggeris":"Switch to Bahasa Melayu");
+}
+
+function setLocale(locale){
+  currentLocale=locale==="ms"?"ms":"en";
+  localStorage.setItem("bloome-locale",currentLocale);
+  selectedConditionPoint.clear();
+  rebuildLocalizedData();
+  render();
+}
+
 function searchableText(item){
-  return normalize([item.name,item.category,item.summary,item.location,item.traditionalUse,...(item.aliases||[]),...(item.keywords||[])].filter(Boolean).join(" "));
+  const extra=localeRecord("points",item.id)||localeRecord("conditions",item.id)||{};
+  return normalize([
+    item.name,item.category,item.summary,item.location,item.traditionalUse,
+    ...(item.aliases||[]),...(item.keywords||[]),
+    extra.name,extra.category,extra.summary,extra.location,extra.traditionalUse,
+    ...(extra.aliases||[]),...(extra.keywords||[])
+  ].filter(Boolean).join(" "));
 }
 
 function pointIsMapped(point){
@@ -126,7 +214,7 @@ function suggestionMarkup(result,index){
           ${points.slice(0,4).map(point=>`<span>${escapeHtml(point.name)}</span>`).join("")}
         </span>
         <span class="suggestion-footer">
-          <b>${points.length} suggested point${points.length===1?"":"s"}</b>
+          <b>${pointCountText(points.length,{suggested:true})}</b>
           <em>Open guide →</em>
         </span>
       </span>
@@ -185,6 +273,7 @@ function wireSearch(scope=document){
     if(!results.length){
       suggestions.innerHTML=searchEmptyMarkup(query);
       suggestions.hidden=false;
+      translateUi(suggestions);
       $$("[data-empty-condition]",suggestions).forEach(button=>button.addEventListener("mousedown",event=>{
         event.preventDefault();
         navigate("condition",button.dataset.emptyCondition);
@@ -195,6 +284,7 @@ function wireSearch(scope=document){
 
     suggestions.innerHTML=results.map(suggestionMarkup).join("");
     suggestions.hidden=false;
+    translateUi(suggestions);
     $$("[data-kind]",suggestions).forEach(button=>button.addEventListener("mousedown",event=>{
       event.preventDefault();
       navigate(button.dataset.kind,button.dataset.id);
@@ -281,7 +371,7 @@ function directoryCards(items){
       <span class="data-type">${kind==="condition"?"Visual concern guide":mapped?"Mapped acupoint":"Reference acupoint"}</span>
       <h3>${escapeHtml(item.name)}</h3>
       <p>${escapeHtml(copy||"")}</p>
-      <div class="meta">${kind==="condition"?`${item.pointIds.length} highlighted points`:`${escapeHtml(item.category||"")} · ${mapped?"On interactive map":"Library reference"}`}</div>
+      <div class="meta">${kind==="condition"?pointCountText(item.pointIds.length,{suggested:true}):`${escapeHtml(item.category||"")} · ${mapped?uiText("On map"):uiText("Reference only")}`}</div>
     </button>`;
   }).join("");
 }
@@ -407,7 +497,7 @@ function fullMapView(){
               <p class="eyebrow">Browse A–Z</p>
               <h2>Bloomé point library.</h2>
             </div>
-            <span id="map-result-count">${allPoints.length} points</span>
+            <span id="map-result-count">${pointCountText(allPoints.length)}</span>
           </div>
 
           <div class="map-alpha-row" aria-label="Browse points alphabetically">
@@ -423,7 +513,7 @@ function fullMapView(){
                   <span class="map-point-card-icon">${mapped?"◉":"◌"}</span>
                   <span>
                     <strong>${escapeHtml(point.name)}</strong>
-                    <small>${escapeHtml(point.category||"Ear point")} · ${mapped?"Mapped":"Reference"}</small>
+                    <small>${escapeHtml(point.category||"Ear point")} · ${mapped?uiText("Mapped"):uiText("Reference")}</small>
                   </span>
                   <span class="map-point-card-arrow">→</span>
                 </button>`;
@@ -442,6 +532,11 @@ function fullMapView(){
 
 
 function combinationRole(index,total){
+  if(currentLocale==="ms"){
+    if(index===0)return ["Utama","Mula di sini","Titik utama dalam gabungan Bloomé ini."];
+    if(index===total-1 && total>3)return ["Sokongan pilihan","Tambah jika perlu","Titik sokongan untuk melengkapkan rutin ini."];
+    return ["Sokongan",`Langkah ${index+1}`,"Digabungkan dengan titik utama sebagai sebahagian daripada rutin yang dicadangkan."];
+  }
   if(index===0)return ["Primary","Start here","The anchor point in this Bloomé combination."];
   if(index===total-1 && total>3)return ["Optional support","Add if useful","A supporting point that rounds out the routine."];
   return ["Support",`Step ${index+1}`,"Paired with the primary point as part of the suggested routine."];
@@ -613,6 +708,7 @@ function wireDiscover(){
         ? conditions.map(item=>({kind:"condition",item}))
         : acupoints.map(item=>({kind:"point",item}));
     grid.innerHTML=directoryCards(items);
+    translateUi(grid);
     wireCommonActions();
   }));
 }
@@ -658,7 +754,7 @@ function wireFullMap(){
     $("#map-category").textContent=point.category||"Ear point";
 
     const status=$("#map-plot-status");
-    status.textContent=mapped?"On map":"Reference only";
+    status.textContent=mapped?uiText("On map"):uiText("Reference only");
     status.classList.toggle("mapped",mapped);
     status.classList.toggle("reference",!mapped);
 
@@ -699,7 +795,7 @@ function wireFullMap(){
     });
 
     const count=visible.size;
-    resultCount.textContent=`${count} point${count===1?"":"s"}`;
+    resultCount.textContent=pointCountText(count);
     emptyState.hidden=count!==0;
 
     if(count>0 && !visible.has(mapSelectedId)){
@@ -799,6 +895,7 @@ function wireCondition(id){
     $$("[data-condition-point-tab]").forEach(button=>button.classList.toggle("active",button.dataset.conditionPointTab===pointId));
     const idx=points.findIndex(p=>p.id===pointId);
     $("#condition-info-content").innerHTML=conditionInfoMarkup(point,combinationRole(idx,points.length));
+    translateUi($("#condition-info-content"));
     $("#open-selected-point").dataset.pointId=pointId;
   }
   $$("[data-condition-point]").forEach(button=>button.addEventListener("click",()=>select(button.dataset.conditionPoint)));
@@ -833,20 +930,22 @@ function render(){
   wireDiscover();
   wireFullMap();
   if(route==="condition")wireCondition(id);
+  translateUi(document);
   requestAnimationFrame(()=>$$('.reveal-item').forEach(el=>el.classList.add('revealed')));
 }
 
 async function loadData(){
   try{
-    const [conditionResponse,pointResponse]=await Promise.all([
+    const [conditionResponse,pointResponse,i18nResponse]=await Promise.all([
       fetch("./data/conditions.json"),
-      fetch("./data/acupoints.json")
+      fetch("./data/acupoints.json"),
+      fetch("./data/i18n.json")
     ]);
-    if(!conditionResponse.ok||!pointResponse.ok)throw new Error("Data load failed");
-    conditions=await conditionResponse.json();
-    acupoints=await pointResponse.json();
-    conditionMap=new Map(conditions.map(item=>[item.id,item]));
-    pointMap=new Map(acupoints.map(item=>[item.id,item]));
+    if(!conditionResponse.ok||!pointResponse.ok||!i18nResponse.ok)throw new Error("Data load failed");
+    sourceConditions=await conditionResponse.json();
+    sourceAcupoints=await pointResponse.json();
+    localeData=await i18nResponse.json();
+    rebuildLocalizedData();
     render();
   }catch(error){
     console.error(error);
@@ -865,6 +964,9 @@ $("#quick-help-backdrop").addEventListener("click",closeQuickHelp);
 $$(".quick-help-grid a").forEach(link=>link.addEventListener("click",closeQuickHelp));
 window.addEventListener("keydown",event=>{if(event.key==="Escape")closeQuickHelp()});
 window.addEventListener("hashchange",render);
+$("#language-toggle")?.addEventListener("click",()=>{
+  setLocale(currentLocale==="en"?"ms":"en");
+});
 loadData();
 
 
@@ -875,3 +977,6 @@ loadData();
 
 
 /* Bloomé Package 9B — Smart Search Experience */
+
+
+/* Bloomé Package 13 — Bahasa Melayu Layer */

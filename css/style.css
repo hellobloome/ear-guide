@@ -1080,3 +1080,57 @@ h3,p{margin-top:0}
     gap:7px;
   }
 }
+
+
+/* ==========================================================
+   Bloomé Package 13 — Bahasa Melayu Layer
+   Persistent EN / BM switch with a compact premium control.
+   ========================================================== */
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.language-toggle{
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:8px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,253,252,.76);
+  color:var(--muted);
+  cursor:pointer;
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.05em;
+}
+
+.language-toggle:hover{
+  background:var(--paper);
+  border-color:rgba(90,22,17,.2);
+}
+
+.language-toggle i{
+  color:var(--line);
+  font-style:normal;
+}
+
+.language-toggle span{
+  opacity:.58;
+  transition:.2s ease;
+}
+
+.language-toggle span.active{
+  color:var(--primary);
+  opacity:1;
+}
+
+@media(max-width:680px){
+  .language-toggle{
+    padding:7px 9px;
+    font-size:.63rem;
+  }
+}

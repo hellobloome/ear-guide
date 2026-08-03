@@ -7,27 +7,796 @@
     ],
     "status": {
       "en": "active",
-      "ms": "scaffold-only"
+      "ms": "active"
+    },
+    "localeLabels": {
+      "en": "EN",
+      "ms": "BM"
     }
   },
   "ui": {
-    "en": {
-      "searchPlaceholder": "Try “sleep”, “stress” or “Shen Men”",
-      "wellnessGuide": "Wellness guide",
-      "acupoint": "Acupoint",
-      "relatedGuides": "Related guides",
-      "location": "Location",
-      "traditionalUse": "Traditional wellness use",
-      "stimulation": "Gentle stimulation"
-    },
     "ms": {
-      "searchPlaceholder": "",
-      "wellnessGuide": "",
-      "acupoint": "",
-      "relatedGuides": "",
-      "location": "",
-      "traditionalUse": "",
-      "stimulation": ""
+      "exact": {
+        "Home": "Utama",
+        "Discover": "Terokai",
+        "Ear map": "Peta telinga",
+        "Guide": "Panduan",
+        "About": "Tentang",
+        "Beginner guide": "Panduan pemula",
+        "About Bloomé": "Tentang Bloomé",
+        "Quick help": "Bantuan pantas",
+        "What would you like today?": "Apa yang anda perlukan hari ini?",
+        "Better sleep": "Tidur lebih baik",
+        "Feeling stressed": "Rasa stres",
+        "Digestion": "Penghadaman",
+        "Women's wellness": "Kesejahteraan wanita",
+        "Beginner friendly": "Mesra pemula",
+        "Visual point guidance": "Panduan titik secara visual",
+        "Bloomé Ear Acupoint Guide": "Panduan Titik Telinga Bloomé",
+        "What would you like support with today?": "Apa yang anda perlukan hari ini?",
+        "Choose a wellness need or search by name. We’ll show the suggested points directly on the ear.": "Pilih keperluan kesejahteraan atau cari mengikut nama. Kami akan tunjukkan titik yang dicadangkan terus pada telinga.",
+        "A calmer way to find your points": "Cara yang lebih tenang untuk mencari titik anda",
+        "Start with a need": "Mulakan dengan keperluan",
+        "Choose what feels most relevant.": "Pilih yang paling sesuai dengan keperluan anda.",
+        "Each guide opens with a focused ear map, so you can see the combination before reading the details.": "Setiap panduan bermula dengan peta telinga yang fokus supaya anda boleh melihat gabungan titik sebelum membaca penerangan.",
+        "View guide": "Lihat panduan",
+        "Or explore your way": "Atau terokai dengan cara anda",
+        "Already know what you're looking for?": "Sudah tahu apa yang anda cari?",
+        "Browse A–Z": "Lihat A–Z",
+        "Search concerns and individual acupoints.": "Cari keperluan dan titik telinga secara individu.",
+        "Explore the ear": "Terokai telinga",
+        "Open the complete interactive reference map.": "Buka peta rujukan interaktif yang lengkap.",
+        "First time?": "Kali pertama?",
+        "Read the simple application guide first.": "Baca panduan penggunaan ringkas dahulu.",
+        "Search": "Cari",
+        "Wellness guide": "Panduan kesejahteraan",
+        "Acupoint": "Titik telinga",
+        "Mapped point": "Titik pada peta",
+        "Reference point": "Titik rujukan",
+        "Mapped acupoint": "Titik pada peta",
+        "Reference acupoint": "Titik rujukan",
+        "Open guide →": "Buka panduan →",
+        "View point →": "Lihat titik →",
+        "Open reference →": "Buka rujukan →",
+        "Concern": "Keperluan",
+        "Concerns": "Keperluan",
+        "Acupoints": "Titik telinga",
+        "All": "Semua",
+        "Search by need or point name.": "Cari mengikut keperluan atau nama titik.",
+        "Condition pages now open with an interactive map showing the suggested combination immediately.": "Halaman keperluan kini dibuka dengan peta interaktif yang terus menunjukkan gabungan titik yang dicadangkan.",
+        "Full Ear Map Explorer": "Penerokaan Peta Telinga",
+        "Explore the ear, one point at a time.": "Terokai telinga, satu titik pada satu masa.",
+        "Search the full Bloomé point library. Mapped points appear on the ear; reference points stay clearly labelled until their visual placement is reviewed.": "Cari seluruh pustaka titik Bloomé. Titik yang telah dipetakan akan muncul pada telinga, manakala titik rujukan kekal dilabel dengan jelas sehingga kedudukan visualnya disemak.",
+        "Mapped points": "Titik pada peta",
+        "Reference points": "Titik rujukan",
+        "Reference points are available for learning and search, but are not plotted on the simplified ear map yet.": "Titik rujukan boleh digunakan untuk pembelajaran dan carian, tetapi belum diletakkan pada peta telinga ringkas.",
+        "All points": "Semua titik",
+        "Selected point": "Titik dipilih",
+        "On map": "Pada peta",
+        "Reference only": "Rujukan sahaja",
+        "This point is in Bloomé’s reference library but has not yet been placed on the simplified interactive ear.": "Titik ini berada dalam pustaka rujukan Bloomé tetapi belum diletakkan pada peta telinga interaktif ringkas.",
+        "Location": "Lokasi",
+        "Traditional wellness use": "Kegunaan tradisional untuk kesejahteraan",
+        "Gentle stimulation": "Cara rangsangan lembut",
+        "Related guides": "Panduan berkaitan",
+        "Open full point guide": "Buka panduan penuh titik",
+        "Next visible point": "Titik kelihatan seterusnya",
+        "Bloomé point library.": "Pustaka titik Bloomé.",
+        "Mapped": "Dipetakan",
+        "Reference": "Rujukan",
+        "No library points match that search.": "Tiada titik dalam pustaka yang sepadan dengan carian ini.",
+        "Try a different point name or choose “All points”.": "Cuba nama titik lain atau pilih “Semua titik”.",
+        "Recommended point combination": "Gabungan titik dicadangkan",
+        "See every suggested point at a glance.": "Lihat semua titik yang dicadangkan dalam satu pandangan.",
+        "Tap a numbered marker or point name. The explanation updates without leaving this page.": "Tekan penanda bernombor atau nama titik. Penerangan akan dikemas kini tanpa meninggalkan halaman ini.",
+        "Explore each highlighted point": "Terokai setiap titik yang ditanda",
+        "Application guide": "Panduan penggunaan",
+        "Primary": "Utama",
+        "Start here": "Mula di sini",
+        "Optional support": "Sokongan pilihan",
+        "Add if useful": "Tambah jika perlu",
+        "Support": "Sokongan",
+        "The anchor point in this Bloomé combination.": "Titik utama dalam gabungan Bloomé ini.",
+        "A supporting point that rounds out the routine.": "Titik sokongan untuk melengkapkan rutin ini.",
+        "Paired with the primary point as part of the suggested routine.": "Digabungkan dengan titik utama sebagai sebahagian daripada rutin yang dicadangkan.",
+        "This illustration is a simplified educational guide, not a clinical placement chart. Use only on clean, intact skin and seek professional care for severe, persistent, sudden or unexplained symptoms.": "Ilustrasi ini ialah panduan pendidikan ringkas, bukan carta kedudukan klinikal. Gunakan hanya pada kulit yang bersih dan tidak luka, dan dapatkan rawatan profesional untuk simptom yang teruk, berterusan, tiba-tiba atau tidak dapat dijelaskan.",
+        "Reference library point": "Titik pustaka rujukan",
+        "This point has not yet been plotted on Bloomé’s simplified interactive ear map. The written location below is for general educational reference only.": "Titik ini belum diletakkan pada peta telinga interaktif ringkas Bloomé. Lokasi bertulis di bawah adalah untuk rujukan pendidikan umum sahaja.",
+        "General location": "Lokasi umum",
+        "Caution": "Perhatian",
+        "View on interactive ear map": "Lihat pada peta telinga interaktif",
+        "Visual placement pending review. This avoids showing an approximate marker as if it were exact.": "Kedudukan visual masih menunggu semakan. Ini mengelakkan penanda anggaran dipaparkan seolah-olah tepat.",
+        "Related visual guides": "Panduan berkaitan",
+        "No related guides listed yet.": "Belum ada panduan berkaitan.",
+        "This page provides general wellness education and does not replace professional medical advice.": "Halaman ini menyediakan pendidikan kesejahteraan umum dan tidak menggantikan nasihat perubatan profesional.",
+        "A simple, skin-conscious routine.": "Rutin ringkas yang mengambil kira keselesaan kulit.",
+        "The gentlest useful routine usually beats the most complicated one.": "Rutin yang lembut dan mudah biasanya lebih sesuai berbanding rutin yang terlalu rumit.",
+        "Clean": "Bersihkan",
+        "Choose": "Pilih",
+        "Apply": "Tampal",
+        "Stimulate": "Rangsang",
+        "Check": "Periksa",
+        "Rest": "Rehat",
+        "Wash your hands. Clean and thoroughly dry the outer ear before application.": "Basuh tangan. Bersihkan dan keringkan telinga luar sepenuhnya sebelum penggunaan.",
+        "Start with a small number of points so the routine stays simple and comfortable.": "Mulakan dengan sedikit titik supaya rutin kekal ringkas dan selesa.",
+        "Use clean tweezers and place each seed on intact skin, outside the ear canal.": "Gunakan penyepit yang bersih dan letakkan setiap ear seed pada kulit yang tidak luka, di luar saluran telinga.",
+        "Press gently for a few seconds. Mild pressure is enough. Sharp pain is not the goal.": "Tekan perlahan selama beberapa saat. Tekanan ringan sudah mencukupi. Rasa sakit yang tajam bukan matlamatnya.",
+        "Inspect the skin daily and remove seeds if irritation, swelling or significant discomfort appears.": "Periksa kulit setiap hari dan tanggalkan ear seed jika berlaku iritasi, bengkak atau ketidakselesaan yang ketara.",
+        "Give the skin regular breaks between applications.": "Berikan kulit masa rehat secara berkala antara penggunaan.",
+        "Remove the seeds if irritation, swelling, dizziness or significant discomfort occurs. Keep all seeds outside the ear canal.": "Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+        "Wellness guidance, made easier to understand.": "Panduan kesejahteraan yang lebih mudah difahami.",
+        "Visual guidance before dense explanation.": "Panduan visual sebelum penerangan yang panjang.",
+        "Bloomé creates approachable self-care tools and educational resources for everyday wellness.": "Bloomé menghasilkan alat penjagaan diri dan sumber pendidikan yang mudah digunakan untuk kesejahteraan harian.",
+        "Condition pages now begin with the ear itself, because customers need to see where the suggested points are before reading deeper details.": "Halaman keperluan kini bermula dengan visual telinga supaya pengguna boleh melihat lokasi titik yang dicadangkan sebelum membaca penerangan lanjut.",
+        "This guide distinguishes traditional auricular uses from medical treatment. It is not designed to diagnose illness or replace professional care.": "Panduan ini membezakan penggunaan aurikular tradisional daripada rawatan perubatan. Ia bukan untuk mendiagnosis penyakit atau menggantikan rawatan profesional.",
+        "Not found": "Tidak dijumpai",
+        "This page wandered off.": "Halaman ini tidak dapat dijumpai.",
+        "Return to the guide and continue exploring.": "Kembali ke panduan dan teruskan meneroka.",
+        "Back home": "Kembali ke utama",
+        "We couldn't find that yet.": "Kami belum menemui carian itu.",
+        "Try Sleep, Stress, Focus, Digestion or Energy.": "Cuba Tidur, Stres, Fokus, Penghadaman atau Tenaga.",
+        "Sleep": "Tidur",
+        "Stress": "Stres",
+        "Energy": "Tenaga",
+        "Focus": "Fokus",
+        "Wind down and explore a calm bedtime combination.": "Bertenang dan terokai gabungan titik yang sesuai untuk rutin sebelum tidur.",
+        "Explore points traditionally used in calming routines.": "Terokai titik yang secara tradisional digunakan dalam rutin menenangkan.",
+        "Find a simple digestive-wellness combination.": "Temui gabungan ringkas untuk kesejahteraan penghadaman.",
+        "Explore a menstrual-comfort combination.": "Terokai gabungan untuk keselesaan ketika haid.",
+        "Explore a traditional low-energy combination.": "Terokai gabungan tradisional untuk hari yang terasa kurang bertenaga.",
+        "Find points commonly used in focus routines.": "Temui titik yang biasa digunakan dalam rutin fokus."
+      },
+      "placeholders": {
+        "Try “sleep”, “stress” or “Shen Men”": "Cuba “tidur”, “stres” atau “Shen Men”",
+        "Search the point library, e.g. Shen Men or Liver": "Cari pustaka titik, contohnya Shen Men atau Hati"
+      }
+    }
+  },
+  "conditions": {
+    "stress": {
+      "name": "Stres",
+      "category": "Tenang",
+      "summary": "Rutin kesejahteraan umum untuk membantu anda berehat ketika hari terasa sibuk atau tegang.",
+      "aliases": [
+        "tekanan",
+        "rasa tegang",
+        "minda sibuk",
+        "tenangkan diri",
+        "relaks"
+      ]
+    },
+    "sleep": {
+      "name": "Tidur",
+      "category": "Rehat",
+      "summary": "Rutin ear seed yang menenangkan dan biasa diterokai sebagai sebahagian daripada ritual sebelum tidur yang sihat.",
+      "aliases": [
+        "sukar tidur",
+        "rutin tidur",
+        "sebelum tidur",
+        "waktu malam",
+        "rehat malam"
+      ]
+    },
+    "head-tension": {
+      "name": "Ketegangan Kepala",
+      "category": "Keselesaan",
+      "summary": "Titik yang secara tradisional dirujuk dalam rutin pelengkap untuk keselesaan kepala.",
+      "aliases": [
+        "kepala tegang",
+        "tekanan kepala",
+        "ketegangan pelipis",
+        "sakit kepala kerana skrin"
+      ]
+    },
+    "digestion": {
+      "name": "Penghadaman",
+      "category": "Penghadaman",
+      "summary": "Pilihan titik berfokuskan kesejahteraan yang sering digunakan dalam rutin tradisional untuk menyokong keselesaan penghadaman.",
+      "aliases": [
+        "perut",
+        "keselesaan penghadaman",
+        "selepas makan",
+        "perut rasa penuh"
+      ]
+    },
+    "focus": {
+      "name": "Fokus",
+      "category": "Harian",
+      "summary": "Rutin ringkas untuk melengkapkan tabiat yang menyokong fokus seperti rehat, hidrasi dan mengambil masa untuk berehat seketika.",
+      "aliases": [
+        "tumpuan",
+        "belajar",
+        "kerja fokus",
+        "fokus mental"
+      ]
+    },
+    "low-energy": {
+      "name": "Kurang Tenaga",
+      "category": "Harian",
+      "summary": "Rutin penjagaan diri pelengkap untuk hari-hari apabila anda berasa letih secara fizikal atau mental.",
+      "aliases": [
+        "letih",
+        "lesu",
+        "kurang bertenaga",
+        "tenaga pagi"
+      ]
+    },
+    "neck-shoulder-tension": {
+      "name": "Ketegangan Leher & Bahu",
+      "category": "Keselesaan",
+      "summary": "Titik yang secara tradisional dipilih untuk keselesaan umum pada leher dan bahu.",
+      "aliases": [
+        "leher tegang",
+        "bahu tegang",
+        "ketegangan meja kerja",
+        "bahagian atas belakang"
+      ]
+    },
+    "cravings": {
+      "name": "Keinginan Makan",
+      "category": "Gaya Hidup",
+      "summary": "Rutin sokongan untuk pemakanan lebih sedar. Ia bukan rawatan menurunkan berat badan dan tidak menggantikan pemakanan seimbang.",
+      "aliases": [
+        "mengidam",
+        "snek",
+        "keinginan manis",
+        "selera makan"
+      ]
+    },
+    "menstrual-comfort": {
+      "name": "Keselesaan Haid",
+      "category": "Kesejahteraan Wanita",
+      "summary": "Rutin keselesaan pelengkap untuk penjagaan diri ketika haid.",
+      "aliases": [
+        "haid",
+        "period",
+        "keselesaan bulanan",
+        "kitaran haid",
+        "premenstrual"
+      ]
+    },
+    "jaw-tension": {
+      "name": "Ketegangan Rahang",
+      "category": "Keselesaan",
+      "summary": "Gabungan titik tradisional yang digunakan dalam rutin umum untuk merehatkan rahang.",
+      "aliases": [
+        "rahang tegang",
+        "ketap gigi",
+        "gigi bergeser",
+        "rahang ketat"
+      ]
+    },
+    "travel-queasiness": {
+      "name": "Loya Semasa Perjalanan",
+      "category": "Perjalanan",
+      "summary": "Rutin pelengkap yang kadangkala diterokai untuk rasa loya semasa perjalanan.",
+      "aliases": [
+        "mabuk perjalanan",
+        "mabuk laut",
+        "mabuk udara",
+        "rasa loya"
+      ]
+    },
+    "general-balance": {
+      "name": "Keseimbangan Umum",
+      "category": "Pemula",
+      "summary": "Gabungan lembut untuk pemula yang mahukan ritual kesejahteraan ringkas tanpa fokus pada keadaan tertentu.",
+      "aliases": [
+        "keseimbangan",
+        "penjagaan diri",
+        "reset harian",
+        "kesejahteraan umum"
+      ]
+    }
+  },
+  "points": {
+    "shen-men": {
+      "location": "Di fossa segi tiga, ke arah bahagian atas-tengah.",
+      "traditionalUse": "Sering dipilih dalam rutin kesejahteraan aurikular yang bertujuan membantu rasa tenang dan keseimbangan umum.",
+      "howToStimulate": "Tekan perlahan selama 5–10 saat, lepaskan dan ulang beberapa kali. Hentikan jika kawasan terasa sakit atau iritasi.",
+      "aliases": [
+        "pintu semangat",
+        "shenmen"
+      ],
+      "name": "Shen Men",
+      "category": "Titik utama",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Sering dipilih dalam rutin kesejahteraan aurikular yang bertujuan membantu rasa tenang dan keseimbangan umum.",
+      "keywords": [
+        "Shen Men",
+        "pintu semangat",
+        "shenmen"
+      ]
+    },
+    "point-zero": {
+      "location": "Berhampiran bahagian tengah telinga, sekitar pangkal heliks.",
+      "traditionalUse": "Sering digunakan sebagai titik untuk keseimbangan atau rasa lebih berpusat dalam amalan aurikular.",
+      "howToStimulate": "Gunakan tekanan ringan dan stabil. Tekanan yang lebih kuat tidak semestinya lebih baik.",
+      "aliases": [
+        "titik sifar"
+      ],
+      "name": "Titik Sifar",
+      "category": "Titik utama",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Sering digunakan sebagai titik untuk keseimbangan atau rasa lebih berpusat dalam amalan aurikular.",
+      "keywords": [
+        "Titik Sifar",
+        "titik sifar"
+      ]
+    },
+    "heart": {
+      "location": "Di kawasan konka tengah.",
+      "traditionalUse": "Secara tradisional dimasukkan dalam rutin berkaitan ketenangan, rehat dan kestabilan emosi.",
+      "howToStimulate": "Tekan perlahan dan hentikan penggunaan jika terasa sakit berterusan atau kulit mengalami iritasi.",
+      "aliases": [
+        "jantung"
+      ],
+      "name": "Jantung",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dimasukkan dalam rutin berkaitan ketenangan, rehat dan kestabilan emosi.",
+      "keywords": [
+        "Jantung",
+        "jantung"
+      ]
+    },
+    "sympathetic": {
+      "location": "Berhampiran pertemuan crus bawah antiheliks dengan bahagian dalam heliks.",
+      "traditionalUse": "Kerap dimasukkan dalam gabungan tradisional untuk keselesaan dan relaksasi.",
+      "howToStimulate": "Berikan tekanan yang ringkas dan selesa beberapa kali sepanjang hari.",
+      "aliases": [
+        "simpatetik",
+        "saraf simpatetik"
+      ],
+      "name": "Simpatetik",
+      "category": "Titik utama",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Kerap dimasukkan dalam gabungan tradisional untuk keselesaan dan relaksasi.",
+      "keywords": [
+        "Simpatetik",
+        "saraf simpatetik",
+        "simpatetik"
+      ]
+    },
+    "kidney": {
+      "location": "Di kawasan konka atas.",
+      "traditionalUse": "Secara tradisional dikaitkan dengan tenaga asas dan rutin pemulihan.",
+      "howToStimulate": "Gunakan tekanan lembut sahaja dan pastikan kulit di sekeliling sentiasa bersih serta kering.",
+      "aliases": [
+        "buah pinggang"
+      ],
+      "name": "Buah Pinggang",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dikaitkan dengan tenaga asas dan rutin pemulihan.",
+      "keywords": [
+        "Buah Pinggang",
+        "buah pinggang"
+      ]
+    },
+    "occiput": {
+      "location": "Pada kawasan atas-belakang antitragus.",
+      "traditionalUse": "Sering dirujuk dalam rutin untuk rehat dan keselesaan kepala.",
+      "howToStimulate": "Tekan sehingga terasa sedikit tekanan, bukan sakit yang tajam.",
+      "aliases": [
+        "oksiput",
+        "belakang kepala"
+      ],
+      "name": "Oksiput",
+      "category": "Titik anatomi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Sering dirujuk dalam rutin untuk rehat dan keselesaan kepala.",
+      "keywords": [
+        "Oksiput",
+        "belakang kepala",
+        "oksiput"
+      ]
+    },
+    "stomach": {
+      "location": "Sekitar hujung crus heliks di bahagian konka.",
+      "traditionalUse": "Secara tradisional dimasukkan dalam rutin sokongan penghadaman dan kesedaran terhadap selera makan.",
+      "howToStimulate": "Rangsang secara lembut sebelum atau selepas makan sebagai sebahagian daripada rutin yang lebih sedar.",
+      "aliases": [
+        "perut"
+      ],
+      "name": "Perut",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dimasukkan dalam rutin sokongan penghadaman dan kesedaran terhadap selera makan.",
+      "keywords": [
+        "Perut",
+        "perut"
+      ]
+    },
+    "spleen": {
+      "location": "Di kawasan konka, berhampiran representasi hati dan perut.",
+      "traditionalUse": "Secara tradisional dikaitkan dengan rutin sokongan penghadaman dan tenaga.",
+      "howToStimulate": "Gunakan tekanan ringan dan elakkan meletakkan ear seed pada kulit yang luka atau meradang.",
+      "aliases": [
+        "limpa"
+      ],
+      "name": "Limpa",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dikaitkan dengan rutin sokongan penghadaman dan tenaga.",
+      "keywords": [
+        "Limpa",
+        "limpa"
+      ]
+    },
+    "brain": {
+      "location": "Pada bahagian dalam antitragus.",
+      "traditionalUse": "Sering dipilih dalam rutin tradisional untuk kejernihan, rehat dan pengawalan umum.",
+      "howToStimulate": "Tekan dengan selesa selama beberapa saat setiap kali.",
+      "aliases": [
+        "otak"
+      ],
+      "name": "Otak",
+      "category": "Titik fungsi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Sering dipilih dalam rutin tradisional untuk kejernihan, rehat dan pengawalan umum.",
+      "keywords": [
+        "Otak",
+        "otak"
+      ]
+    },
+    "endocrine": {
+      "location": "Di pangkal lekuk intertragik.",
+      "traditionalUse": "Secara tradisional dimasukkan dalam rutin kesejahteraan wanita dan keseimbangan umum.",
+      "howToStimulate": "Gunakan tekanan ringan sahaja. Dapatkan nasihat profesional jika simptom berterusan.",
+      "aliases": [
+        "endokrin"
+      ],
+      "name": "Endokrin",
+      "category": "Titik fungsi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dimasukkan dalam rutin kesejahteraan wanita dan keseimbangan umum.",
+      "keywords": [
+        "Endokrin",
+        "endokrin"
+      ]
+    },
+    "mouth": {
+      "location": "Berhampiran bahagian bawah konka, dekat bukaan saluran telinga.",
+      "traditionalUse": "Kadangkala digunakan dalam rutin pemakanan lebih sedar dan keselesaan mulut.",
+      "howToStimulate": "Tekan perlahan dan pastikan ear seed tidak masuk ke dalam saluran telinga.",
+      "aliases": [
+        "mulut"
+      ],
+      "name": "Mulut",
+      "category": "Titik anatomi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Kadangkala digunakan dalam rutin pemakanan lebih sedar dan keselesaan mulut.",
+      "keywords": [
+        "Mulut",
+        "mulut"
+      ]
+    },
+    "cervical-spine": {
+      "location": "Sepanjang antiheliks bawah, yang secara tradisional mewakili kawasan leher.",
+      "traditionalUse": "Secara tradisional dipilih dalam rutin untuk keselesaan leher.",
+      "howToStimulate": "Gunakan tekanan yang selesa dan dapatkan rawatan perubatan untuk sakit yang teruk, berterusan atau berkaitan kecederaan.",
+      "aliases": [
+        "serviks",
+        "tulang belakang leher",
+        "leher"
+      ],
+      "name": "Tulang Belakang Serviks",
+      "category": "Titik anatomi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dipilih dalam rutin untuk keselesaan leher.",
+      "keywords": [
+        "Tulang Belakang Serviks",
+        "leher",
+        "serviks",
+        "tulang belakang leher"
+      ]
+    },
+    "shoulder": {
+      "location": "Sepanjang kawasan antiheliks yang secara tradisional mewakili bahu.",
+      "traditionalUse": "Sering dipilih dalam rutin untuk keselesaan bahu.",
+      "howToStimulate": "Tekan perlahan. Jangan gunakan ear seed sebagai pengganti pemeriksaan selepas kecederaan.",
+      "aliases": [
+        "bahu"
+      ],
+      "name": "Bahu",
+      "category": "Titik anatomi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Sering dipilih dalam rutin untuk keselesaan bahu.",
+      "keywords": [
+        "Bahu",
+        "bahu"
+      ]
+    },
+    "jaw": {
+      "location": "Pada kawasan cuping telinga yang secara tradisional dipetakan kepada rahang dan muka.",
+      "traditionalUse": "Secara tradisional dimasukkan dalam rutin untuk merehatkan rahang.",
+      "howToStimulate": "Gunakan tekanan ringan dan rujuk doktor gigi atau profesional perubatan jika sakit rahang berterusan.",
+      "aliases": [
+        "rahang"
+      ],
+      "name": "Rahang",
+      "category": "Titik anatomi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dimasukkan dalam rutin untuk merehatkan rahang.",
+      "keywords": [
+        "Rahang",
+        "rahang"
+      ]
+    },
+    "liver": {
+      "location": "Di kawasan konka atas, pada bahagian yang biasanya dilabel Hati dalam carta aurikular.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin aurikular yang menumpukan pada kesejahteraan penghadaman dan keseimbangan umum.",
+      "howToStimulate": "Gunakan tekanan ringan dan selesa selama beberapa saat. Hentikan jika kawasan menjadi sakit atau iritasi.",
+      "aliases": [
+        "hati"
+      ],
+      "name": "Hati",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin aurikular yang menumpukan pada kesejahteraan penghadaman dan keseimbangan umum.",
+      "keywords": [
+        "Hati",
+        "hati"
+      ]
+    },
+    "lung": {
+      "location": "Di kawasan konka tengah, pada bahagian yang biasanya dilabel Paru-paru dalam carta aurikular.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin kesejahteraan umum dan amalan aurikular yang memberi perhatian kepada keselesaan pernafasan.",
+      "howToStimulate": "Gunakan tekanan lembut dan stabil, bukan tekanan kuat. Tanggalkan ear seed jika kulit mengalami iritasi.",
+      "aliases": [
+        "paru paru",
+        "paru-paru"
+      ],
+      "name": "Paru-paru",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin kesejahteraan umum dan amalan aurikular yang memberi perhatian kepada keselesaan pernafasan.",
+      "keywords": [
+        "Paru-paru",
+        "paru paru",
+        "paru-paru"
+      ]
+    },
+    "large-intestine": {
+      "location": "Di kawasan konka atas berhampiran kawasan representasi usus pada carta aurikular biasa.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin kesejahteraan penghadaman.",
+      "howToStimulate": "Tekan perlahan selama beberapa saat, lepaskan dan ulang beberapa kali jika selesa.",
+      "aliases": [
+        "usus besar",
+        "kolon"
+      ],
+      "name": "Usus Besar",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin kesejahteraan penghadaman.",
+      "keywords": [
+        "Usus Besar",
+        "kolon",
+        "usus besar"
+      ]
+    },
+    "small-intestine": {
+      "location": "Di kawasan konka atas berhampiran kawasan representasi usus pada carta aurikular biasa.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin kesejahteraan penghadaman.",
+      "howToStimulate": "Gunakan tekanan ringan dan ringkas. Tekanan yang lebih kuat tidak semestinya lebih baik.",
+      "aliases": [
+        "usus kecil"
+      ],
+      "name": "Usus Kecil",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin kesejahteraan penghadaman.",
+      "keywords": [
+        "Usus Kecil",
+        "usus kecil"
+      ]
+    },
+    "bladder": {
+      "location": "Di kawasan konka atas, pada bahagian yang dilabel Pundi Kencing dalam banyak peta aurikular.",
+      "traditionalUse": "Secara tradisional dimasukkan dalam rutin keseimbangan badan yang lebih umum dalam amalan aurikular.",
+      "howToStimulate": "Tekan perlahan dan hentikan jika terdapat rasa sakit berterusan, kemerahan atau iritasi.",
+      "aliases": [
+        "pundi kencing"
+      ],
+      "name": "Pundi Kencing",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dimasukkan dalam rutin keseimbangan badan yang lebih umum dalam amalan aurikular.",
+      "keywords": [
+        "Pundi Kencing",
+        "pundi kencing"
+      ]
+    },
+    "gallbladder": {
+      "location": "Di kawasan konka atas berhampiran bahagian Hati pada banyak carta aurikular.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin penghadaman dan keseimbangan umum.",
+      "howToStimulate": "Berikan tekanan ringan dan selesa selama beberapa saat setiap kali.",
+      "aliases": [
+        "pundi hempedu"
+      ],
+      "name": "Pundi Hempedu",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin penghadaman dan keseimbangan umum.",
+      "keywords": [
+        "Pundi Hempedu",
+        "pundi hempedu"
+      ]
+    },
+    "pancreas": {
+      "location": "Di kawasan konka berhampiran representasi perut dan penghadaman pada carta aurikular biasa.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin kesejahteraan yang menumpukan pada penghadaman dan kesedaran selera makan.",
+      "howToStimulate": "Gunakan tekanan lembut sahaja dan tanggalkan ear seed jika kulit mengalami iritasi.",
+      "aliases": [
+        "pankreas"
+      ],
+      "name": "Pankreas",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin kesejahteraan yang menumpukan pada penghadaman dan kesedaran selera makan.",
+      "keywords": [
+        "Pankreas",
+        "pankreas"
+      ]
+    },
+    "adrenal": {
+      "location": "Sekitar tragus atau kawasan intertragik dalam beberapa sistem aurikular.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin yang menumpukan pada stres, daya tahan dan keseimbangan tenaga umum.",
+      "howToStimulate": "Gunakan tekanan ringan dan ringkas. Hentikan jika rangsangan terasa tajam atau tidak selesa.",
+      "aliases": [
+        "adrenal",
+        "kelenjar adrenal"
+      ],
+      "name": "Adrenal",
+      "category": "Titik fungsi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin yang menumpukan pada stres, daya tahan dan keseimbangan tenaga umum.",
+      "keywords": [
+        "Adrenal",
+        "adrenal",
+        "kelenjar adrenal"
+      ]
+    },
+    "subcortex": {
+      "location": "Sekitar kawasan antitragus dalam banyak sistem aurikular.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin aurikular yang berfokus pada ketenangan, rehat dan fokus.",
+      "howToStimulate": "Tekan perlahan selama beberapa saat dan lepaskan. Elakkan tekanan terlalu lama atau menyakitkan.",
+      "aliases": [
+        "subkorteks"
+      ],
+      "name": "Subkorteks",
+      "category": "Titik fungsi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin aurikular yang berfokus pada ketenangan, rehat dan fokus.",
+      "keywords": [
+        "Subkorteks",
+        "subkorteks"
+      ]
+    },
+    "thalamus": {
+      "location": "Sekitar kawasan antitragus pada beberapa carta aurikular.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin aurikular yang berfokus pada ketenangan dan keselesaan.",
+      "howToStimulate": "Gunakan tekanan lembut secara berselang. Hentikan jika kawasan menjadi sensitif atau iritasi.",
+      "aliases": [
+        "talamus"
+      ],
+      "name": "Talamus",
+      "category": "Titik fungsi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin aurikular yang berfokus pada ketenangan dan keselesaan.",
+      "keywords": [
+        "Talamus",
+        "talamus"
+      ]
+    },
+    "ear-apex": {
+      "location": "Pada titik paling tinggi telinga luar apabila telinga dilihat dalam kedudukan tegak.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin aurikular umum yang berfokus pada ketenangan dan keselesaan.",
+      "howToStimulate": "Gunakan tekanan yang sangat ringan. Kawasan ini boleh sensitif, jadi hentikan jika tidak selesa.",
+      "aliases": [
+        "puncak telinga",
+        "apeks telinga"
+      ],
+      "name": "Puncak Telinga",
+      "category": "Titik utama",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin aurikular umum yang berfokus pada ketenangan dan keselesaan.",
+      "keywords": [
+        "Puncak Telinga",
+        "apeks telinga",
+        "puncak telinga"
+      ]
+    },
+    "eye": {
+      "location": "Di bahagian bawah telinga atau kawasan cuping pada carta aurikular biasa.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin yang menumpukan pada keselesaan mata dan kesejahteraan berkaitan penggunaan skrin.",
+      "howToStimulate": "Gunakan tekanan lembut sahaja. Jangan letakkan ear seed di dalam saluran telinga.",
+      "aliases": [
+        "mata"
+      ],
+      "name": "Mata",
+      "category": "Titik deria",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin yang menumpukan pada keselesaan mata dan kesejahteraan berkaitan penggunaan skrin.",
+      "keywords": [
+        "Mata",
+        "mata"
+      ]
+    },
+    "inner-ear": {
+      "location": "Sekitar bahagian bawah telinga dan kawasan intertragik pada beberapa carta aurikular.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin keseimbangan dan keselesaan semasa perjalanan.",
+      "howToStimulate": "Gunakan tekanan ringan dan hentikan segera jika rangsangan meningkatkan rasa pening atau tidak selesa.",
+      "aliases": [
+        "telinga dalam",
+        "keseimbangan"
+      ],
+      "name": "Telinga Dalam",
+      "category": "Titik deria",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin keseimbangan dan keselesaan semasa perjalanan.",
+      "keywords": [
+        "Telinga Dalam",
+        "keseimbangan",
+        "telinga dalam"
+      ]
+    },
+    "thoracic-spine": {
+      "location": "Sepanjang antiheliks, di antara kawasan representasi tulang belakang serviks dan lumbar.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin untuk keselesaan bahagian atas dan tengah belakang.",
+      "howToStimulate": "Gunakan tekanan yang selesa sahaja dan elakkan menekan kulit yang iritasi atau luka.",
+      "aliases": [
+        "toraks",
+        "belakang tengah",
+        "tulang belakang toraks"
+      ],
+      "name": "Tulang Belakang Toraks",
+      "category": "Titik anatomi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin untuk keselesaan bahagian atas dan tengah belakang.",
+      "keywords": [
+        "Tulang Belakang Toraks",
+        "belakang tengah",
+        "toraks",
+        "tulang belakang toraks"
+      ]
+    },
+    "lumbar-spine": {
+      "location": "Sepanjang antiheliks, di bawah kawasan representasi tulang belakang toraks.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin untuk keselesaan bahagian bawah belakang.",
+      "howToStimulate": "Tekan perlahan selama beberapa saat. Hentikan jika kawasan terasa sakit tajam atau iritasi.",
+      "aliases": [
+        "lumbar",
+        "pinggang",
+        "belakang bawah"
+      ],
+      "name": "Tulang Belakang Lumbar",
+      "category": "Titik anatomi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin untuk keselesaan bahagian bawah belakang.",
+      "keywords": [
+        "Tulang Belakang Lumbar",
+        "belakang bawah",
+        "lumbar",
+        "pinggang"
+      ]
+    },
+    "hip": {
+      "location": "Sekitar bahagian atas antiheliks atau kawasan crus antiheliks pada carta aurikular biasa.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin untuk keselesaan pinggul dan bahagian bawah badan.",
+      "howToStimulate": "Gunakan tekanan ringan secara berselang dan hentikan jika tidak selesa.",
+      "aliases": [
+        "pinggul"
+      ],
+      "name": "Pinggul",
+      "category": "Titik anatomi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Secara tradisional dirujuk dalam rutin untuk keselesaan pinggul dan bahagian bawah badan.",
+      "keywords": [
+        "Pinggul",
+        "pinggul"
+      ]
     }
   }
 }

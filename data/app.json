@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "11",
+  "version": "13",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -29,9 +29,10 @@
     "expandedPointLibrary": true,
     "mapReadyMetadata": true,
     "i18nScaffold": true,
-    "malayContentComplete": false
+    "malayContentComplete": true,
+    "languageToggle": true
   },
-  "releaseName": "Database Expansion",
+  "releaseName": "Bahasa Melayu Layer",
   "database": {
     "acupointCount": 30,
     "conditionCount": 12,
