@@ -22,3 +22,7 @@ Summary:
 Package 6.2 - Ear Map Architecture Fix
 
 Commit to main, push origin, then hard refresh after GitHub Pages deploys.
+
+
+## Package 6.3 Direction
+Clean Option 1 ear asset replacement: remove all botanical decoration and restore full ear visibility.
