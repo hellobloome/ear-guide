@@ -32,3 +32,6 @@ The ear illustration and point positions are visual educational guidance rather 
 
 
 Package 7 restores the stable direction and separates future ear illustration work from layout logic.
+
+
+Package 8.1 focuses only on replacing the ear illustration with a clean non-botanical asset.
