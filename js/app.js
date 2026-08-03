@@ -99,9 +99,10 @@ function translateUi(root=document){
   document.documentElement.lang=currentLocale==="ms"?"ms":"en";
 
   const exact=localeData?.ui?.ms?.exact||{};
-  const reverseExact=Object.fromEntries(
-    Object.entries(exact).map(([english,malay])=>[malay,english])
-  );
+  const reverseExact={};
+  Object.entries(exact).forEach(([english,malay])=>{
+    if(!(malay in reverseExact))reverseExact[malay]=english;
+  });
 
   const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
   const nodes=[];
@@ -120,9 +121,10 @@ function translateUi(root=document){
   });
 
   const placeholders=localeData?.ui?.ms?.placeholders||{};
-  const reversePlaceholders=Object.fromEntries(
-    Object.entries(placeholders).map(([english,malay])=>[malay,english])
-  );
+  const reversePlaceholders={};
+  Object.entries(placeholders).forEach(([english,malay])=>{
+    if(!(malay in reversePlaceholders))reversePlaceholders[malay]=english;
+  });
 
   $$("[placeholder]",root).forEach(el=>{
     const current=el.getAttribute("placeholder");
@@ -1025,3 +1027,6 @@ loadData();
 
 
 /* Bloomé Package 14.1 — Language Toggle Hotfix */
+
+
+/* Bloomé Package 14.2 — Translation Collision Fix */
