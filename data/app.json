@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "6.1",
+  "version": "6.2",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -30,7 +30,10 @@
     "calmMarkers": true,
     "reducedMotionSupport": true,
     "mobileMapFocus": true,
-    "earSizeHotfix": true
+    "earSizeHotfix": true,
+    "heroAndMapSeparated": true,
+    "controlledEarSizing": true,
+    "botanicalSvgHidden": true
   },
-  "releaseName": "Ear Size Hotfix"
+  "releaseName": "Ear Map Architecture Fix"
 }

@@ -470,3 +470,84 @@ h3,p{margin-top:0}
     height: 17px !important;
   }
 }
+
+
+/* =========================================================
+ Bloomé Guide Package 6.2 — Ear Map Architecture Fix
+ Separates hero artwork from functional ear map behaviour.
+ ========================================================= */
+
+/* Functional ear maps: complete anatomy, controlled scale */
+.condition-map-card .anatomical-ear,
+.map-canvas .anatomical-ear,
+.ear-stage .anatomical-ear {
+  width: 360px !important;
+  max-width: 72% !important;
+  height: auto !important;
+  max-height: 520px !important;
+  object-fit: contain !important;
+  transform: none !important;
+}
+
+/* Map containers should frame the ear, not stretch it */
+.condition-map-card,
+.map-canvas,
+.ear-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px !important;
+  overflow: hidden;
+}
+
+/* Hero artwork remains separate */
+.hero-ear,
+.hero-grid .hero-ear,
+.hero-art .hero-ear {
+  width: min(420px, 42vw) !important;
+  max-height: 620px !important;
+  object-fit: contain !important;
+}
+
+/* Mobile map */
+@media (max-width: 680px) {
+  .condition-map-card .anatomical-ear,
+  .map-canvas .anatomical-ear,
+  .ear-stage .anatomical-ear {
+    width: min(270px, 72vw) !important;
+    max-width: 72vw !important;
+    max-height: 390px !important;
+  }
+
+  .condition-map-card,
+  .map-canvas,
+  .ear-stage {
+    min-height: 430px !important;
+    padding: 20px !important;
+  }
+
+  .hero-ear,
+  .hero-grid .hero-ear,
+  .hero-art .hero-ear {
+    width: min(290px, 70vw) !important;
+    max-height: 430px !important;
+  }
+}
+
+/* Keep markers attached visually without enlarging the map */
+.map-marker,
+.condition-point {
+  transform-origin: center;
+}
+
+/* Remove decorative botanical leftovers if SVG classes exist */
+svg .leaf,
+svg .leaves,
+svg .botanical,
+svg .flora,
+svg .sprig,
+svg [class*="leaf"],
+svg [class*="flora"],
+svg [class*="botanic"] {
+  display: none !important;
+}
