@@ -101,13 +101,62 @@ function searchBoxMarkup(id="route-search"){
   </div>`;
 }
 function suggestionMarkup(result,index){
-  const summary=result.kind==="condition"?result.item.summary:result.item.category;
+  const item=result.item;
+  if(result.kind==="condition"){
+    const points=(item.pointIds||[]).map(id=>pointMap.get(id)).filter(Boolean);
+    return `
+    <button class="suggestion suggestion-condition" data-suggestion-index="${index}" data-kind="condition" data-id="${escapeHtml(item.id)}">
+      <span class="suggestion-icon">♡</span>
+      <span class="suggestion-content">
+        <span class="suggestion-topline">
+          <strong>${escapeHtml(item.name)}</strong>
+          <span class="suggestion-kind">Wellness guide</span>
+        </span>
+        <small>${escapeHtml(item.summary||"")}</small>
+        <span class="suggestion-point-preview">
+          ${points.slice(0,4).map(point=>`<span>${escapeHtml(point.name)}</span>`).join("")}
+        </span>
+        <span class="suggestion-footer">
+          <b>${points.length} suggested point${points.length===1?"":"s"}</b>
+          <em>Open guide →</em>
+        </span>
+      </span>
+    </button>`;
+  }
+
   return `
-  <button class="suggestion" data-suggestion-index="${index}" data-kind="${result.kind}" data-id="${escapeHtml(result.item.id)}">
-    <span class="suggestion-icon">${result.kind==="condition"?"♡":"◌"}</span>
-    <span><strong>${escapeHtml(result.item.name)}</strong><small>${escapeHtml(summary||"")}</small></span>
-    <span class="suggestion-kind">${result.kind==="condition"?"Concern":"Point"}</span>
+  <button class="suggestion suggestion-point-result" data-suggestion-index="${index}" data-kind="point" data-id="${escapeHtml(item.id)}">
+    <span class="suggestion-icon">◌</span>
+    <span class="suggestion-content">
+      <span class="suggestion-topline">
+        <strong>${escapeHtml(item.name)}</strong>
+        <span class="suggestion-kind">Acupoint</span>
+      </span>
+      <small>${escapeHtml(item.traditionalUse||item.category||"")}</small>
+      <span class="suggestion-footer">
+        <b>${escapeHtml(item.category||"Ear point")}</b>
+        <em>View point →</em>
+      </span>
+    </span>
   </button>`;
+}
+
+function searchEmptyMarkup(query){
+  const quick=[
+    ["Sleep","sleep"],
+    ["Stress","stress"],
+    ["Focus","focus"],
+    ["Digestion","digestion"],
+    ["Energy","low-energy"]
+  ];
+  return `
+    <div class="search-empty">
+      <strong>We couldn’t find “${escapeHtml(query)}” yet.</strong>
+      <p>Try one of these common guides instead:</p>
+      <div class="search-empty-chips">
+        ${quick.map(([label,id])=>`<button type="button" data-empty-condition="${id}">${label}</button>`).join("")}
+      </div>
+    </div>`;
 }
 function wireSearch(scope=document){
   const form=$("[data-search-form]",scope);
@@ -117,9 +166,23 @@ function wireSearch(scope=document){
 
   function hide(){suggestions.hidden=true;suggestions.innerHTML="";activeSuggestion=-1}
   function show(){
-    const results=matches(input.value,7);
-    if(!input.value.trim()||!results.length){hide();return}
+    const query=input.value.trim();
+    if(!query){hide();return}
+
+    const results=matches(query,6);
     activeSuggestion=-1;
+
+    if(!results.length){
+      suggestions.innerHTML=searchEmptyMarkup(query);
+      suggestions.hidden=false;
+      $$("[data-empty-condition]",suggestions).forEach(button=>button.addEventListener("mousedown",event=>{
+        event.preventDefault();
+        navigate("condition",button.dataset.emptyCondition);
+        hide();
+      }));
+      return;
+    }
+
     suggestions.innerHTML=results.map(suggestionMarkup).join("");
     suggestions.hidden=false;
     $$("[data-kind]",suggestions).forEach(button=>button.addEventListener("mousedown",event=>{
@@ -197,7 +260,7 @@ function discoverView(searchTerm=null){
   </section>`;
 }
 function directoryCards(items){
-  if(!items.length)return `<div class="empty-state">No matches found. Try a broader term.</div>`;
+  if(!items.length)return `<div class="empty-state search-directory-empty"><strong>We couldn’t find that yet.</strong><p>Try Sleep, Stress, Focus, Digestion or Energy.</p><div class="empty-state-actions"><button data-open-route="condition" data-open-id="sleep">Sleep</button><button data-open-route="condition" data-open-id="stress">Stress</button><button data-open-route="condition" data-open-id="focus">Focus</button></div></div>`;
   return items.map(entry=>{
     const kind=entry.kind;
     const item=entry.item;
@@ -525,3 +588,6 @@ loadData();
    Condition rendering keeps existing data bindings.
    Future upgrades can expand from this stable structure.
 */
+
+
+/* Bloomé Package 9B — Smart Search Experience */

@@ -302,3 +302,215 @@ h3,p{margin-top:0}
     font-size: .62rem;
   }
 }
+
+
+/* =====================================================
+   Bloomé Package 9B — Smart Search Experience
+   Richer condition previews, clearer mobile search,
+   and a friendlier no-result state.
+   ===================================================== */
+
+.suggestions{
+  padding:10px;
+  max-height:min(68vh,620px);
+  overflow-y:auto;
+  overscroll-behavior:contain;
+}
+
+.suggestion{
+  grid-template-columns:42px 1fr;
+  align-items:start;
+  padding:15px;
+  gap:13px;
+}
+
+.suggestion + .suggestion{
+  border-top:1px solid rgba(90,22,17,.07);
+}
+
+.suggestion-content{
+  min-width:0;
+  display:block;
+}
+
+.suggestion-topline{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:4px;
+}
+
+.suggestion-topline strong{
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.2rem;
+  line-height:1.1;
+}
+
+.suggestion-content > small{
+  display:block;
+  white-space:normal;
+  overflow:visible;
+  line-height:1.5;
+}
+
+.suggestion-point-preview{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:10px;
+}
+
+.suggestion-point-preview span{
+  padding:5px 8px;
+  border:1px solid rgba(90,22,17,.1);
+  border-radius:999px;
+  background:#FFFDFC;
+  color:var(--primary);
+  font-size:.68rem;
+  font-weight:600;
+}
+
+.suggestion-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:10px;
+  color:var(--sage);
+  font-size:.68rem;
+}
+
+.suggestion-footer b{
+  font-weight:700;
+}
+
+.suggestion-footer em{
+  color:var(--primary);
+  font-style:normal;
+  font-weight:700;
+}
+
+.suggestion-condition:hover,
+.suggestion-condition.active{
+  background:linear-gradient(145deg,#FBF4F0,#FFFDFC);
+}
+
+.suggestion-point-result:hover,
+.suggestion-point-result.active{
+  background:linear-gradient(145deg,#F4F7F1,#FFFDFC);
+}
+
+.search-empty{
+  padding:18px;
+  text-align:left;
+}
+
+.search-empty strong{
+  display:block;
+  color:var(--primary);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.35rem;
+  line-height:1.2;
+}
+
+.search-empty p{
+  margin:7px 0 13px;
+  color:var(--muted);
+  font-size:.82rem;
+}
+
+.search-empty-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.search-empty-chips button,
+.empty-state-actions button{
+  padding:7px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#FFFDFC;
+  color:var(--primary);
+  font-weight:600;
+  cursor:pointer;
+}
+
+.search-empty-chips button:hover,
+.empty-state-actions button:hover{
+  background:var(--rose-soft);
+}
+
+.search-directory-empty{
+  grid-column:1/-1;
+}
+
+.search-directory-empty strong{
+  display:block;
+  margin-bottom:6px;
+  color:var(--primary);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.6rem;
+}
+
+.search-directory-empty p{
+  margin-bottom:14px;
+}
+
+.empty-state-actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+@media(max-width:680px){
+  .search-box{
+    z-index:48;
+  }
+
+  .suggestions{
+    left:-2px;
+    right:-2px;
+    top:calc(100% + 8px);
+    max-height:58vh;
+    border-radius:22px;
+    padding:8px;
+  }
+
+  .suggestion{
+    grid-template-columns:38px 1fr;
+    padding:13px 11px;
+  }
+
+  .suggestion-icon{
+    width:34px;
+    height:34px;
+  }
+
+  .suggestion-topline{
+    align-items:flex-start;
+  }
+
+  .suggestion-topline strong{
+    font-size:1.12rem;
+  }
+
+  .suggestion-kind{
+    font-size:.58rem;
+  }
+
+  .suggestion-point-preview{
+    gap:5px;
+  }
+
+  .suggestion-point-preview span{
+    font-size:.62rem;
+    padding:4px 7px;
+  }
+
+  .suggestion-footer{
+    margin-top:8px;
+  }
+}
