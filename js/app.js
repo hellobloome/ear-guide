@@ -275,46 +275,146 @@ function directoryCards(items){
   }).join("");
 }
 
+function mapRelatedMarkup(point){
+  const related=(point.relatedConditionIds||[])
+    .map(id=>conditionMap.get(id))
+    .filter(Boolean)
+    .slice(0,6);
+
+  if(!related.length)return `<p class="map-related-empty">No related guides listed yet.</p>`;
+
+  return related.map(condition=>`
+    <button class="tag-button map-related-link" data-map-condition-id="${escapeHtml(condition.id)}">
+      ${escapeHtml(condition.name)}
+    </button>`).join("");
+}
+
 function fullMapView(){
-  const first=pointMap.get(mapSelectedId)||acupoints[0];
+  const mappedPoints=acupoints.filter(point=>mapPositions[point.id]);
+  const first=pointMap.get(mapSelectedId)||mappedPoints[0]||acupoints[0];
+  const categories=[...new Set(mappedPoints.map(point=>point.category).filter(Boolean))].sort();
+  const letters=[...new Set(mappedPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
+
   return `
-  <section class="route">
-    <div class="route-hero">
+  <section class="route map-explorer-route">
+    <div class="route-hero map-explorer-hero">
       <div class="container">
-        <p class="eyebrow">Interactive ear map</p>
-        <h1>Explore one point at a time.</h1>
-        <p class="lead">The illustration has been refined for a calmer, more anatomical appearance. It remains a simplified educational aid.</p>
+        <p class="eyebrow">Full Ear Map Explorer</p>
+        <h1>Explore the ear, one point at a time.</h1>
+        <p class="lead">Search by point name, browse A–Z, or tap a marker directly on the ear.</p>
       </div>
     </div>
-    <section class="section soft-section">
-      <div class="container map-shell">
-        <div class="map-canvas">
-          <div class="map-stage" id="map-stage">
-            ${anatomicalEarSvg()}
-            ${acupoints.filter(p=>mapPositions[p.id]).map(point=>{
-              const [left,top]=mapPositions[point.id];
-              return `<button class="map-marker ${point.id===mapSelectedId?"active":""}" style="left:${left}%;top:${top}%" data-map-id="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${escapeHtml(point.name)}"></button>`;
-            }).join("")}
-          </div>
-          <div class="zoom-controls">
-            <button id="zoom-in" aria-label="Zoom in">+</button>
-            <button id="zoom-out" aria-label="Zoom out">−</button>
-            <button id="zoom-reset" aria-label="Reset zoom">↺</button>
+
+    <section class="section soft-section map-explorer-section">
+      <div class="container">
+        <div class="map-explorer-toolbar">
+          <label class="map-point-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="map-point-search" type="search" placeholder="Search an acupoint, e.g. Shen Men" autocomplete="off">
+            <button id="map-search-clear" type="button" aria-label="Clear point search" hidden>×</button>
+          </label>
+
+          <div class="map-category-row" aria-label="Filter ear points by type">
+            <button class="map-filter-chip active" data-map-category="all">All points</button>
+            ${categories.map(category=>`
+              <button class="map-filter-chip" data-map-category="${escapeHtml(category)}">${escapeHtml(category)}</button>
+            `).join("")}
           </div>
         </div>
-        <aside class="map-panel">
-          <p class="eyebrow">Selected point</p>
-          <h2 id="map-title">${escapeHtml(first.name)}</h2>
-          <p id="map-copy">${escapeHtml(first.traditionalUse)}</p>
-          <div class="map-actions">
-            <button class="primary-button" id="map-open-point" data-point-id="${escapeHtml(first.id)}">Open full point guide</button>
-            <button class="secondary-button" id="map-next-point">Next marker</button>
+
+        <div class="map-explorer-grid">
+          <div class="map-canvas map-explorer-canvas">
+            <div class="map-stage map-explorer-stage" id="map-stage">
+              ${anatomicalEarSvg()}
+              ${mappedPoints.map(point=>{
+                const [left,top]=mapPositions[point.id];
+                return `<button class="map-marker ${point.id===first.id?"active":""}" style="left:${left}%;top:${top}%" data-map-id="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${escapeHtml(point.name)}"></button>`;
+              }).join("")}
+            </div>
+
+            <div class="zoom-controls">
+              <button id="zoom-in" aria-label="Zoom in">+</button>
+              <button id="zoom-out" aria-label="Zoom out">−</button>
+              <button id="zoom-reset" aria-label="Reset zoom">↺</button>
+            </div>
           </div>
-        </aside>
+
+          <aside class="map-panel map-explorer-panel">
+            <div class="map-selected-heading">
+              <div>
+                <p class="eyebrow">Selected point</p>
+                <h2 id="map-title">${escapeHtml(first.name)}</h2>
+              </div>
+              <span class="map-point-category" id="map-category">${escapeHtml(first.category||"Ear point")}</span>
+            </div>
+
+            <div class="map-info-block">
+              <div class="info-label"><span>⌖</span>Location</div>
+              <p id="map-location">${escapeHtml(first.location||"")}</p>
+            </div>
+
+            <div class="map-info-block">
+              <div class="info-label"><span>✦</span>Traditional wellness use</div>
+              <p id="map-copy">${escapeHtml(first.traditionalUse||"")}</p>
+            </div>
+
+            <div class="map-info-block">
+              <div class="info-label"><span>◌</span>Gentle stimulation</div>
+              <p id="map-stimulate">${escapeHtml(first.howToStimulate||"")}</p>
+            </div>
+
+            <div class="map-related-section">
+              <p class="map-mini-label">Related guides</p>
+              <div class="tag-list" id="map-related">${mapRelatedMarkup(first)}</div>
+            </div>
+
+            <div class="map-actions">
+              <button class="primary-button" id="map-open-point" data-point-id="${escapeHtml(first.id)}">Open full point guide</button>
+              <button class="secondary-button" id="map-next-point">Next visible point</button>
+            </div>
+          </aside>
+        </div>
+
+        <section class="map-directory-section">
+          <div class="map-directory-heading">
+            <div>
+              <p class="eyebrow">Browse A–Z</p>
+              <h2>All mapped acupoints.</h2>
+            </div>
+            <span id="map-result-count">${mappedPoints.length} points</span>
+          </div>
+
+          <div class="map-alpha-row" aria-label="Browse points alphabetically">
+            <button class="map-alpha-chip active" data-map-letter="all">All</button>
+            ${letters.map(letter=>`<button class="map-alpha-chip" data-map-letter="${letter}">${letter}</button>`).join("")}
+          </div>
+
+          <div class="map-point-directory" id="map-point-directory">
+            ${mappedPoints
+              .slice()
+              .sort((a,b)=>a.name.localeCompare(b.name))
+              .map(point=>`
+                <button class="map-point-card ${point.id===first.id?"active":""}" data-map-list-id="${escapeHtml(point.id)}">
+                  <span class="map-point-card-icon">◌</span>
+                  <span>
+                    <strong>${escapeHtml(point.name)}</strong>
+                    <small>${escapeHtml(point.category||"Ear point")}</small>
+                  </span>
+                  <span class="map-point-card-arrow">→</span>
+                </button>
+              `).join("")}
+          </div>
+
+          <div class="map-directory-empty" id="map-directory-empty" hidden>
+            <strong>No mapped points match that search.</strong>
+            <p>Try a different point name or choose “All points”.</p>
+          </div>
+        </section>
       </div>
     </section>
   </section>`;
 }
+
 
 function combinationRole(index,total){
   if(index===0)return ["Primary","Start here","The anchor point in this Bloomé combination."];
@@ -484,25 +584,164 @@ function wireDiscover(){
 function wireFullMap(){
   const stage=$("#map-stage");
   if(!stage)return;
-  function select(id){
-    mapSelectedId=id;
-    const point=pointMap.get(id);
-    $$(".map-marker").forEach(marker=>marker.classList.toggle("active",marker.dataset.mapId===id));
-    $("#map-title").textContent=point.name;
-    $("#map-copy").textContent=point.traditionalUse;
-    $("#map-open-point").dataset.pointId=id;
+
+  const searchInput=$("#map-point-search");
+  const clearButton=$("#map-search-clear");
+  const directory=$("#map-point-directory");
+  const emptyState=$("#map-directory-empty");
+  const resultCount=$("#map-result-count");
+
+  let activeCategory="all";
+  let activeLetter="all";
+  let activeQuery="";
+
+  const mappedIds=acupoints.filter(point=>mapPositions[point.id]).map(point=>point.id);
+
+  function relatedButtons(){
+    $$("[data-map-condition-id]",$("#map-related")).forEach(button=>{
+      button.addEventListener("click",()=>navigate("condition",button.dataset.mapConditionId));
+    });
   }
-  $$("[data-map-id]").forEach(marker=>marker.addEventListener("click",()=>select(marker.dataset.mapId)));
-  $("#map-open-point").addEventListener("click",event=>navigate("point",event.currentTarget.dataset.pointId));
-  $("#map-next-point").addEventListener("click",()=>{
-    const ids=acupoints.filter(p=>mapPositions[p.id]).map(p=>p.id);
-    select(ids[(ids.indexOf(mapSelectedId)+1)%ids.length]);
+
+  function select(id,{scrollOnMobile=false}={}){
+    const point=pointMap.get(id);
+    if(!point)return;
+
+    mapSelectedId=id;
+
+    $$(".map-marker").forEach(marker=>{
+      marker.classList.toggle("active",marker.dataset.mapId===id);
+    });
+    $$(".map-point-card").forEach(card=>{
+      card.classList.toggle("active",card.dataset.mapListId===id);
+    });
+
+    stage.classList.add("map-has-selection");
+
+    $("#map-title").textContent=point.name;
+    $("#map-category").textContent=point.category||"Ear point";
+    $("#map-location").textContent=point.location||"";
+    $("#map-copy").textContent=point.traditionalUse||"";
+    $("#map-stimulate").textContent=point.howToStimulate||"";
+    $("#map-related").innerHTML=mapRelatedMarkup(point);
+    $("#map-open-point").dataset.pointId=id;
+    relatedButtons();
+
+    if(scrollOnMobile && window.matchMedia("(max-width: 680px)").matches){
+      $(".map-explorer-panel")?.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+  }
+
+  function visiblePointIds(){
+    return mappedIds.filter(id=>{
+      const point=pointMap.get(id);
+      if(!point)return false;
+
+      const queryMatch=!activeQuery || searchableText(point).includes(normalize(activeQuery));
+      const categoryMatch=activeCategory==="all" || point.category===activeCategory;
+      const letterMatch=activeLetter==="all" || point.name.charAt(0).toUpperCase()===activeLetter;
+      return queryMatch && categoryMatch && letterMatch;
+    });
+  }
+
+  function applyFilters(){
+    const visible=new Set(visiblePointIds());
+
+    $$(".map-marker").forEach(marker=>{
+      marker.classList.toggle("map-filtered-out",!visible.has(marker.dataset.mapId));
+      marker.disabled=!visible.has(marker.dataset.mapId);
+    });
+
+    $$(".map-point-card").forEach(card=>{
+      card.hidden=!visible.has(card.dataset.mapListId);
+    });
+
+    const count=visible.size;
+    resultCount.textContent=`${count} point${count===1?"":"s"}`;
+    emptyState.hidden=count!==0;
+
+    if(count>0 && !visible.has(mapSelectedId)){
+      select([...visible][0]);
+    }
+  }
+
+  $$("[data-map-id]").forEach(marker=>{
+    marker.addEventListener("click",()=>select(marker.dataset.mapId,{scrollOnMobile:true}));
   });
-  function applyZoom(){stage.style.transform=`scale(${mapZoom})`}
-  $("#zoom-in").addEventListener("click",()=>{mapZoom=Math.min(1.65,mapZoom+.15);applyZoom()});
-  $("#zoom-out").addEventListener("click",()=>{mapZoom=Math.max(.8,mapZoom-.15);applyZoom()});
-  $("#zoom-reset").addEventListener("click",()=>{mapZoom=1;applyZoom()});
+
+  $$("[data-map-list-id]").forEach(card=>{
+    card.addEventListener("click",()=>{
+      select(card.dataset.mapListId);
+      $(".map-explorer-canvas")?.scrollIntoView({behavior:"smooth",block:"center"});
+    });
+  });
+
+  $$("[data-map-category]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      activeCategory=button.dataset.mapCategory;
+      $$("[data-map-category]").forEach(item=>item.classList.toggle("active",item===button));
+      applyFilters();
+    });
+  });
+
+  $$("[data-map-letter]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      activeLetter=button.dataset.mapLetter;
+      $$("[data-map-letter]").forEach(item=>item.classList.toggle("active",item===button));
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener("input",()=>{
+    activeQuery=searchInput.value.trim();
+    clearButton.hidden=!activeQuery;
+    applyFilters();
+  });
+
+  clearButton?.addEventListener("click",()=>{
+    searchInput.value="";
+    activeQuery="";
+    clearButton.hidden=true;
+    searchInput.focus();
+    applyFilters();
+  });
+
+  $("#map-open-point")?.addEventListener("click",event=>{
+    navigate("point",event.currentTarget.dataset.pointId);
+  });
+
+  $("#map-next-point")?.addEventListener("click",()=>{
+    const ids=visiblePointIds();
+    if(!ids.length)return;
+    const currentIndex=ids.indexOf(mapSelectedId);
+    select(ids[(currentIndex+1+ids.length)%ids.length]);
+  });
+
+  function applyZoom(){
+    stage.style.transform=`scale(${mapZoom})`;
+  }
+
+  $("#zoom-in")?.addEventListener("click",()=>{
+    mapZoom=Math.min(1.65,mapZoom+.15);
+    applyZoom();
+  });
+
+  $("#zoom-out")?.addEventListener("click",()=>{
+    mapZoom=Math.max(.8,mapZoom-.15);
+    applyZoom();
+  });
+
+  $("#zoom-reset")?.addEventListener("click",()=>{
+    mapZoom=1;
+    applyZoom();
+  });
+
+  relatedButtons();
+  stage.classList.add("map-has-selection");
+  applyFilters();
 }
+
+
 function wireCondition(id){
   const condition=conditionMap.get(id);
   if(!condition)return;

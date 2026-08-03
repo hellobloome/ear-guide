@@ -514,3 +514,386 @@ h3,p{margin-top:0}
     margin-top:8px;
   }
 }
+
+
+/* ==========================================================
+   Bloomé Package 10 — Full Ear Map Explorer
+   Search, filter, A–Z browsing and richer point information.
+   Illustration asset is intentionally unchanged.
+   ========================================================== */
+
+.map-explorer-hero{
+  padding-bottom:42px;
+}
+
+.map-explorer-section{
+  padding-top:54px;
+}
+
+.map-explorer-toolbar{
+  display:grid;
+  gap:18px;
+  margin-bottom:28px;
+}
+
+.map-point-search{
+  width:min(620px,100%);
+  display:grid;
+  grid-template-columns:28px 1fr 34px;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px 10px 17px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--paper);
+  box-shadow:var(--soft-shadow);
+}
+
+.map-point-search:focus-within{
+  border-color:rgba(90,22,17,.34);
+  box-shadow:0 14px 40px rgba(74,35,31,.09);
+}
+
+.map-point-search input{
+  min-width:0;
+  padding:8px 0;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:var(--text);
+}
+
+.map-point-search button{
+  width:32px;
+  height:32px;
+  border:0;
+  border-radius:50%;
+  background:var(--rose-soft);
+  color:var(--primary);
+  cursor:pointer;
+  font-size:1.15rem;
+}
+
+.map-category-row,
+.map-alpha-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.map-filter-chip,
+.map-alpha-chip{
+  padding:8px 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.55);
+  color:var(--primary);
+  cursor:pointer;
+  font-weight:600;
+  font-size:.76rem;
+}
+
+.map-filter-chip:hover,
+.map-alpha-chip:hover{
+  background:var(--rose-soft);
+}
+
+.map-filter-chip.active,
+.map-alpha-chip.active{
+  border-color:var(--primary);
+  background:var(--primary);
+  color:white;
+}
+
+.map-explorer-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.14fr) minmax(350px,.86fr);
+  gap:28px;
+  align-items:stretch;
+}
+
+.map-explorer-canvas{
+  min-height:650px;
+}
+
+.map-explorer-stage.map-has-selection .map-marker:not(.active){
+  opacity:.55;
+}
+
+.map-marker.map-filtered-out{
+  opacity:.1 !important;
+  transform:scale(.8);
+  pointer-events:none;
+}
+
+.map-explorer-panel{
+  display:flex;
+  flex-direction:column;
+}
+
+.map-selected-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  margin-bottom:10px;
+}
+
+.map-selected-heading h2{
+  margin-bottom:0;
+}
+
+.map-point-category{
+  flex:none;
+  display:inline-flex;
+  padding:7px 10px;
+  border-radius:999px;
+  background:var(--sage-soft);
+  color:#68745f;
+  font-size:.65rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.map-info-block{
+  padding:19px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.map-info-block p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.map-related-section{
+  padding-top:22px;
+}
+
+.map-mini-label{
+  margin:0 0 10px;
+  color:var(--primary);
+  font-size:.69rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.map-related-empty{
+  color:var(--muted);
+  font-size:.84rem;
+}
+
+.map-related-link{
+  font-size:.74rem;
+}
+
+.map-explorer-panel .map-actions{
+  margin-top:auto;
+  padding-top:26px;
+}
+
+.map-directory-section{
+  margin-top:54px;
+  padding:38px;
+  border:1px solid rgba(90,22,17,.08);
+  border-radius:30px;
+  background:rgba(255,253,252,.78);
+  box-shadow:var(--soft-shadow);
+}
+
+.map-directory-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:24px;
+  margin-bottom:22px;
+}
+
+.map-directory-heading h2{
+  margin-bottom:0;
+  font-size:clamp(2.3rem,4vw,3.7rem);
+}
+
+#map-result-count{
+  flex:none;
+  padding:8px 11px;
+  border-radius:999px;
+  background:var(--rose-soft);
+  color:var(--primary);
+  font-size:.72rem;
+  font-weight:700;
+}
+
+.map-alpha-row{
+  margin-bottom:22px;
+}
+
+.map-point-directory{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.map-point-card{
+  appearance:none;
+  display:grid;
+  grid-template-columns:38px 1fr auto;
+  align-items:center;
+  gap:12px;
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:#FFFDFC;
+  color:var(--text);
+  text-align:left;
+  cursor:pointer;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+
+.map-point-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(90,22,17,.2);
+  box-shadow:0 10px 28px rgba(74,35,31,.07);
+}
+
+.map-point-card.active{
+  border-color:rgba(90,22,17,.35);
+  background:linear-gradient(145deg,#FBF3EE,#FFFDFC);
+}
+
+.map-point-card[hidden]{
+  display:none;
+}
+
+.map-point-card-icon{
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:var(--rose-soft);
+  color:var(--primary);
+}
+
+.map-point-card strong{
+  display:block;
+  color:var(--primary);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.16rem;
+  line-height:1.15;
+}
+
+.map-point-card small{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:.68rem;
+}
+
+.map-point-card-arrow{
+  color:var(--primary);
+}
+
+.map-directory-empty{
+  padding:32px 18px 12px;
+  text-align:center;
+}
+
+.map-directory-empty strong{
+  display:block;
+  color:var(--primary);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.55rem;
+}
+
+.map-directory-empty p{
+  margin:6px 0 0;
+  color:var(--muted);
+}
+
+@media(max-width:960px){
+  .map-explorer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .map-explorer-panel{
+    min-height:auto;
+  }
+
+  .map-point-directory{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:680px){
+  .map-explorer-hero{
+    padding-bottom:24px;
+  }
+
+  .map-explorer-section{
+    padding-top:36px;
+  }
+
+  .map-explorer-toolbar{
+    margin-bottom:18px;
+  }
+
+  .map-point-search{
+    width:100%;
+  }
+
+  .map-category-row,
+  .map-alpha-row{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    padding-bottom:4px;
+    scrollbar-width:none;
+  }
+
+  .map-category-row::-webkit-scrollbar,
+  .map-alpha-row::-webkit-scrollbar{
+    display:none;
+  }
+
+  .map-filter-chip,
+  .map-alpha-chip{
+    flex:none;
+  }
+
+  .map-explorer-canvas{
+    min-height:500px;
+  }
+
+  .map-selected-heading{
+    display:block;
+  }
+
+  .map-point-category{
+    margin-top:8px;
+  }
+
+  .map-directory-section{
+    margin-top:30px;
+    padding:24px 16px;
+    border-radius:24px;
+  }
+
+  .map-directory-heading{
+    display:block;
+  }
+
+  #map-result-count{
+    display:inline-flex;
+    margin-top:12px;
+  }
+
+  .map-point-directory{
+    grid-template-columns:1fr;
+  }
+
+  .map-point-card{
+    padding:13px;
+  }
+}
