@@ -18,26 +18,9 @@ const mapPositions={
 };
 
 const anatomicalEarSvg=(extraClass="")=>`
-<svg class="anatomical-ear ${extraClass}" viewBox="0 0 400 520" role="img" aria-label="Refined anatomical ear illustration">
-  <defs>
-    <linearGradient id="earSkin" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#F4DDD4"/>
-      <stop offset=".58" stop-color="#E9C8BD"/>
-      <stop offset="1" stop-color="#DDAFA3"/>
-    </linearGradient>
-  </defs>
-  <path class="ear-shadow" d="M214 38c83 4 132 70 122 159-8 70-56 99-76 150-16 42-14 92-62 115-42 20-97-1-108-46-8-34 16-55 31-82 19-35-3-68-25-98-37-50-27-119 14-160 27-27 62-40 104-38Z"/>
-  <path class="ear-skin" d="M205 28c88 0 142 72 130 165-9 72-58 99-79 154-16 43-11 92-61 117-43 21-103 1-113-48-7-36 18-56 34-84 19-35-3-69-27-101-39-53-28-125 16-168 28-27 61-38 100-35Z"/>
-  <path class="ear-highlight" d="M182 49c-54 10-87 59-82 113"/>
-  <path class="ear-ridge" d="M207 86c58 1 91 50 80 107-8 43-39 61-62 91-29 37-13 83-47 103-25 15-59-1-61-31-1-23 18-38 27-59 12-29-14-55-19-81-11-60 21-129 82-130Z"/>
-  <path class="ear-soft" d="M211 119c34 3 56 29 52 61-4 29-23 45-44 63-23 20-32 49-27 76"/>
-  <path class="ear-ridge" d="M183 194c17-17 43-18 57-1 14 17 9 43-12 57-13 9-32 9-42 23-11 15-10 38-5 57"/>
-  <path class="ear-soft" d="M132 231c23-3 40 12 43 33 3 21-10 37-22 53"/>
-  <path class="ear-ridge" d="M150 363c14 18 37 24 56 14 21-11 22-37 18-56"/>
-  <path class="ear-soft" d="M230 352c20 9 34 29 31 51"/>
-  <path class="ear-ridge" d="M111 176c29-5 57 11 65 38"/>
-  <path class="ear-soft" d="M270 117c27 21 35 54 26 86"/>
-</svg>`;
+<div class="premium-ear-wrap ${extraClass}" aria-label="Minimal line-art ear illustration">
+  <img class="premium-ear-image" src="./images/ear-option-1.webp" alt="Minimal line-art illustration of an ear">
+</div>`;
 
 function escapeHtml(value=""){
   return String(value).replace(/[&<>"']/g,char=>({
@@ -173,55 +156,15 @@ function wireSearch(scope=document){
 }
 
 function homeView(){
+  const journeys=[["☾","Sleep","Wind down and explore a calm bedtime combination.","sleep"],["♡","Stress","Explore points traditionally used in calming routines.","stress"],["⌁","Digestion","Find a simple digestive-wellness combination.","digestion"],["✿","Women's wellness","Explore a menstrual-comfort combination.","menstrual-comfort"],["✦","Energy","Explore a traditional low-energy combination.","low-energy"],["◎","Focus","Find points commonly used in focus routines.","focus"]];
   return `
-  <section class="route">
-    <div class="route-hero">
-      <div class="container route-grid">
-        <div>
-          <p class="eyebrow">Bloomé Ear Acupoint Guide</p>
-          <h1>See where each ear seed belongs.</h1>
-          <p class="lead">Search a wellness concern and open a visual map with only the suggested points highlighted.</p>
-          ${searchBoxMarkup("home-search")}
-        </div>
-        <div class="hero-card">
-          ${anatomicalEarSvg("hero-ear")}
-          <div class="hero-card-note">Visual guidance designed for calm, confident application</div>
-        </div>
-      </div>
-    </div>
-
-    <section class="section soft-section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Choose your path</p>
-          <h2>Begin with what you need today.</h2>
-        </div>
-        <div class="quick-grid">
-          <a class="feature-card" href="#/discover"><span class="feature-icon">⌕</span><div><h3>Search a concern</h3><p>Open a visual point combination instead of a plain list.</p></div><span>→</span></a>
-          <a class="feature-card" href="#/map"><span class="feature-icon">◌</span><div><h3>Explore the ear</h3><p>Tap individual markers on the complete reference map.</p></div><span>→</span></a>
-          <a class="feature-card" href="#/guide"><span class="feature-icon">✧</span><div><h3>Beginner guide</h3><p>Follow a simple, skin-conscious application routine.</p></div><span>→</span></a>
-          <a class="feature-card" href="#/about"><span class="feature-icon">♡</span><div><h3>About Bloomé</h3><p>Calm information, cautious language and everyday usability.</p></div><span>→</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Popular starting points</p>
-          <h2>Open a visual combination.</h2>
-        </div>
-        <div class="card-grid">
-          ${conditions.filter(c=>c.featured).slice(0,4).map(condition=>`
-            <button class="data-card" data-kind-card="condition" data-open-route="condition" data-open-id="${escapeHtml(condition.id)}">
-              <span class="data-type">Visual guide</span>
-              <h3>${escapeHtml(condition.name)}</h3>
-              <p>${escapeHtml(condition.summary)}</p>
-              <div class="meta">${condition.pointIds.length} highlighted points</div>
-            </button>`).join("")}
-        </div>
-      </div>
-    </section>
+  <section class="route premium-home">
+    <div class="route-hero premium-hero"><div class="container route-grid">
+      <div class="hero-copy reveal-item"><p class="eyebrow">Bloomé Ear Acupoint Guide</p><h1>What would you like support with today?</h1><p class="lead">Choose a wellness need or search by name. We’ll show the suggested points directly on the ear.</p>${searchBoxMarkup("home-search")}<div class="hero-trust"><span>◌ Visual point guidance</span><span>✧ Beginner friendly</span></div></div>
+      <div class="hero-card premium-hero-card reveal-item">${anatomicalEarSvg("hero-ear")}<div class="hero-card-note">A calmer way to find your points</div></div>
+    </div></div>
+    <section class="section soft-section need-section"><div class="container"><div class="section-heading centered-heading reveal-item"><p class="eyebrow">Start with a need</p><h2>Choose what feels most relevant.</h2><p>Each guide opens with a focused ear map, so you can see the combination before reading the details.</p></div><div class="need-grid">${journeys.map((j,i)=>`<button class="need-card reveal-item" style="--delay:${i*55}ms" data-open-route="condition" data-open-id="${j[3]}"><span class="need-icon">${j[0]}</span><h3>${j[1]}</h3><p>${j[2]}</p><span class="need-link">View guide <b>→</b></span></button>`).join("")}</div></div></section>
+    <section class="section"><div class="container premium-paths"><div class="section-heading reveal-item"><p class="eyebrow">Or explore your way</p><h2>Already know what you're looking for?</h2></div><div class="quick-grid compact-paths"><a class="feature-card reveal-item" href="#/discover"><span class="feature-icon">⌕</span><div><h3>Browse A–Z</h3><p>Search concerns and individual acupoints.</p></div><span>→</span></a><a class="feature-card reveal-item" href="#/map"><span class="feature-icon">◌</span><div><h3>Explore the ear</h3><p>Open the complete interactive reference map.</p></div><span>→</span></a><a class="feature-card reveal-item" href="#/guide"><span class="feature-icon">✧</span><div><h3>First time?</h3><p>Read the simple application guide first.</p></div><span>→</span></a></div></div></section>
   </section>`;
 }
 
@@ -310,23 +253,13 @@ function fullMapView(){
   </section>`;
 }
 
-function conditionInfoMarkup(point){
-  return `
-    <p class="eyebrow">Selected point</p>
-    <h2 id="condition-point-title">${escapeHtml(point.name)}</h2>
-    <div class="info-section">
-      <div class="info-label"><span>⌖</span>Location</div>
-      <p id="condition-point-location">${escapeHtml(point.location)}</p>
-    </div>
-    <div class="info-section">
-      <div class="info-label"><span>✦</span>Traditional wellness use</div>
-      <p id="condition-point-use">${escapeHtml(point.traditionalUse)}</p>
-    </div>
-    <div class="info-section">
-      <div class="info-label"><span>◌</span>Gentle stimulation</div>
-      <p id="condition-point-stimulate">${escapeHtml(point.howToStimulate)}</p>
-    </div>
-  `;
+function combinationRole(index,total){
+  if(index===0)return ["Primary","Start here","The anchor point in this Bloomé combination."];
+  if(index===total-1 && total>3)return ["Optional support","Add if useful","A supporting point that rounds out the routine."];
+  return ["Support",`Step ${index+1}`,"Paired with the primary point as part of the suggested routine."];
+}
+function conditionInfoMarkup(point,role=["Selected point","",""]){
+  return `<div class="role-line"><span class="role-badge">${escapeHtml(role[0])}</span><small>${escapeHtml(role[1])}</small></div><h2 id="condition-point-title">${escapeHtml(point.name)}</h2><p class="role-explainer">${escapeHtml(role[2])}</p><div class="info-section"><div class="info-label"><span>⌖</span>Location</div><p id="condition-point-location">${escapeHtml(point.location)}</p></div><div class="info-section"><div class="info-label"><span>✦</span>Traditional wellness use</div><p id="condition-point-use">${escapeHtml(point.traditionalUse)}</p></div><div class="info-section"><div class="info-label"><span>◌</span>Gentle stimulation</div><p id="condition-point-stimulate">${escapeHtml(point.howToStimulate)}</p></div>`;
 }
 
 function conditionView(id){
@@ -363,9 +296,9 @@ function conditionView(id){
           </div>
 
           <aside class="condition-info-card">
-            <div id="condition-info-content">${conditionInfoMarkup(current)}</div>
+            <div id="condition-info-content">${conditionInfoMarkup(current,combinationRole(Math.max(0,points.findIndex(p=>p.id===current.id)),points.length))}</div>
             <div class="point-tabs">
-              ${points.map((point,index)=>`<button class="point-tab ${point.id===current.id?"active":""}" data-condition-point-tab="${escapeHtml(point.id)}">${index+1}. ${escapeHtml(point.name)}</button>`).join("")}
+              ${points.map((point,index)=>`<button class="point-tab ${point.id===current.id?"active":""}" data-condition-point-tab="${escapeHtml(point.id)}"><span>${index+1}. ${escapeHtml(point.name)}</span><small>${combinationRole(index,points.length)[0]}</small></button>`).join("")}
             </div>
             <div class="condition-actions">
               <button class="primary-button" id="open-selected-point" data-point-id="${escapeHtml(current.id)}">Open full point guide</button>
@@ -517,7 +450,8 @@ function wireCondition(id){
     selectedConditionPoint.set(id,pointId);
     $$("[data-condition-point]").forEach(button=>button.classList.toggle("active",button.dataset.conditionPoint===pointId));
     $$("[data-condition-point-tab]").forEach(button=>button.classList.toggle("active",button.dataset.conditionPointTab===pointId));
-    $("#condition-info-content").innerHTML=conditionInfoMarkup(point);
+    const idx=points.findIndex(p=>p.id===pointId);
+    $("#condition-info-content").innerHTML=conditionInfoMarkup(point,combinationRole(idx,points.length));
     $("#open-selected-point").dataset.pointId=pointId;
   }
   $$("[data-condition-point]").forEach(button=>button.addEventListener("click",()=>select(button.dataset.conditionPoint)));
@@ -552,6 +486,7 @@ function render(){
   wireDiscover();
   wireFullMap();
   if(route==="condition")wireCondition(id);
+  requestAnimationFrame(()=>$$('.reveal-item').forEach(el=>el.classList.add('revealed')));
 }
 
 async function loadData(){

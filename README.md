@@ -1,47 +1,31 @@
-# Bloomé Guide — Package 4B
+# Bloomé Guide — Package 5: Premium Pass
 
-Package 4B upgrades the guide from a text-first directory into a visual-first ear-seed experience.
+This package builds directly on Package 4B.
 
-## New in 4B
+## New in Package 5
+- Option 1 minimal line-art ear integrated throughout the guide.
+- Intent-first homepage with six wellness starting paths.
+- Refined ring-style point markers and selected-point pulse.
+- Smart Combination hierarchy: Primary, Support, Optional support.
+- Softer motion and reveal transitions with reduced-motion support.
+- Existing search, A–Z discovery, condition maps, full ear map, point pages, Quick Help and beginner guide remain intact.
 
-- Refined anatomical-style SVG ear illustration
-- Softer Bloomé colour system and upgraded card styling
-- Condition pages now show the ear map immediately
-- Only the points related to the selected condition are highlighted
-- Numbered point markers for easier visual matching
-- Tap a marker or point name to update the information panel
-- Location, traditional use and stimulation guidance remain on the same page
-- Quick Help floating menu
-- Homepage copy updated around visual guidance
-- Basic app metadata prepared for future English and Malay support
-- Apply Mode is intentionally postponed
+## Install with GitHub Desktop
+1. Extract this ZIP.
+2. Copy everything inside the extracted folder into your local `ear-guide` repository folder.
+3. Choose Replace when Windows asks about existing files.
+4. In GitHub Desktop, review the changes.
+5. Summary: `Package 5 - Premium Pass`
+6. Commit to main, then Push origin.
+7. Wait for GitHub Pages to redeploy, then hard-refresh the live site.
 
-## Install
+## Test checklist
+- Home: six need cards open the correct condition.
+- Search: sleep, stress and Shen Men still work.
+- Condition: ear map appears immediately; markers switch the information card.
+- Smart Combination labels appear beside the point tabs.
+- Ear map: markers remain interactive.
+- Mobile: bottom navigation and Quick Help remain usable.
 
-1. Extract the ZIP.
-2. Copy everything inside the extracted folder into your local `ear-guide` repository.
-3. Choose **Replace the files in the destination**.
-4. Open GitHub Desktop.
-5. Use this Summary:
-   `Package 4B - Visual condition maps and refined ear`
-6. Commit to `main`.
-7. Click **Push origin**.
-8. Wait for GitHub Pages to redeploy.
-9. Hard-refresh with `Ctrl + Shift + R`.
-
-## Test carefully
-
-- Search `sleep`
-- Confirm four numbered points appear immediately
-- Tap each point on the ear
-- Tap each point-name button
-- Confirm the information panel updates without leaving the page
-- Open `stress`, `digestion` and `jaw tension`
-- Test the full ear map
-- Test Quick Help on desktop and mobile
-- Test browser Back
-- Test mobile bottom navigation
-
-## Important note
-
-The SVG ear and point coordinates are simplified educational guidance. They are not a clinical placement chart and should not be presented as a substitute for professional instruction.
+## Note
+The ear illustration and point positions are visual educational guidance rather than a clinical placement chart. Apply Mode remains reserved for a later package.

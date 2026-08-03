@@ -1,6 +1,6 @@
 {
   "name": "Bloom\u00e9 Guide",
-  "version": "4B",
+  "version": "5",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -21,6 +21,10 @@
     "conditionMaps": true,
     "refinedEarIllustration": true,
     "quickHelp": true,
-    "applyMode": false
+    "applyMode": false,
+    "premiumPass": true,
+    "option1Ear": true,
+    "smartCombinations": true,
+    "intentFirstHome": true
   }
 }
