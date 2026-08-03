@@ -33,6 +33,15 @@ function normalize(value=""){
 function searchableText(item){
   return normalize([item.name,item.category,item.summary,item.location,item.traditionalUse,...(item.aliases||[]),...(item.keywords||[])].filter(Boolean).join(" "));
 }
+
+function pointIsMapped(point){
+  return Boolean(point && (mapPositions[point.id] || point.mapReady===true));
+}
+
+function pointStatusLabel(point){
+  return pointIsMapped(point) ? "Mapped acupoint" : "Reference acupoint";
+}
+
 function score(item,query){
   const q=normalize(query);
   if(!q)return 0;
@@ -124,18 +133,19 @@ function suggestionMarkup(result,index){
     </button>`;
   }
 
+  const mapped=pointIsMapped(item);
   return `
-  <button class="suggestion suggestion-point-result" data-suggestion-index="${index}" data-kind="point" data-id="${escapeHtml(item.id)}">
-    <span class="suggestion-icon">◌</span>
+  <button class="suggestion suggestion-point-result ${mapped?"is-mapped":"is-reference"}" data-suggestion-index="${index}" data-kind="point" data-id="${escapeHtml(item.id)}">
+    <span class="suggestion-icon">${mapped?"◉":"◌"}</span>
     <span class="suggestion-content">
       <span class="suggestion-topline">
         <strong>${escapeHtml(item.name)}</strong>
-        <span class="suggestion-kind">Acupoint</span>
+        <span class="suggestion-kind">${mapped?"Mapped point":"Reference point"}</span>
       </span>
       <small>${escapeHtml(item.traditionalUse||item.category||"")}</small>
       <span class="suggestion-footer">
         <b>${escapeHtml(item.category||"Ear point")}</b>
-        <em>View point →</em>
+        <em>${mapped?"View point →":"Open reference →"}</em>
       </span>
     </span>
   </button>`;
@@ -265,12 +275,13 @@ function directoryCards(items){
     const kind=entry.kind;
     const item=entry.item;
     const copy=kind==="condition"?item.summary:item.traditionalUse;
+    const mapped=kind==="point" ? pointIsMapped(item) : false;
     return `
-    <button class="data-card" data-kind-card="${kind}" data-open-route="${kind}" data-open-id="${escapeHtml(item.id)}">
-      <span class="data-type">${kind==="condition"?"Visual concern guide":"Acupoint"}</span>
+    <button class="data-card ${kind==="point"?(mapped?"mapped-point-card":"reference-point-card"):""}" data-kind-card="${kind}" data-open-route="${kind}" data-open-id="${escapeHtml(item.id)}">
+      <span class="data-type">${kind==="condition"?"Visual concern guide":mapped?"Mapped acupoint":"Reference acupoint"}</span>
       <h3>${escapeHtml(item.name)}</h3>
       <p>${escapeHtml(copy||"")}</p>
-      <div class="meta">${kind==="condition"?`${item.pointIds.length} highlighted points`:escapeHtml(item.category||"")}</div>
+      <div class="meta">${kind==="condition"?`${item.pointIds.length} highlighted points`:`${escapeHtml(item.category||"")} · ${mapped?"On interactive map":"Library reference"}`}</div>
     </button>`;
   }).join("");
 }
@@ -290,10 +301,12 @@ function mapRelatedMarkup(point){
 }
 
 function fullMapView(){
-  const mappedPoints=acupoints.filter(point=>mapPositions[point.id]);
-  const first=pointMap.get(mapSelectedId)||mappedPoints[0]||acupoints[0];
-  const categories=[...new Set(mappedPoints.map(point=>point.category).filter(Boolean))].sort();
-  const letters=[...new Set(mappedPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
+  const mappedPoints=acupoints.filter(point=>pointIsMapped(point));
+  const allPoints=acupoints.slice().sort((a,b)=>a.name.localeCompare(b.name));
+  const first=pointMap.get(mapSelectedId)||mappedPoints[0]||allPoints[0];
+  const categories=[...new Set(allPoints.map(point=>point.category).filter(Boolean))].sort();
+  const letters=[...new Set(allPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
+  const referenceCount=allPoints.filter(point=>!pointIsMapped(point)).length;
 
   return `
   <section class="route map-explorer-route">
@@ -301,16 +314,22 @@ function fullMapView(){
       <div class="container">
         <p class="eyebrow">Full Ear Map Explorer</p>
         <h1>Explore the ear, one point at a time.</h1>
-        <p class="lead">Search by point name, browse A–Z, or tap a marker directly on the ear.</p>
+        <p class="lead">Search the full Bloomé point library. Mapped points appear on the ear; reference points stay clearly labelled until their visual placement is reviewed.</p>
       </div>
     </div>
 
     <section class="section soft-section map-explorer-section">
       <div class="container">
+        <div class="map-library-summary">
+          <div><strong>${mappedPoints.length}</strong><span>Mapped points</span></div>
+          <div><strong>${referenceCount}</strong><span>Reference points</span></div>
+          <p>Reference points are available for learning and search, but are not plotted on the simplified ear map yet.</p>
+        </div>
+
         <div class="map-explorer-toolbar">
           <label class="map-point-search">
             <span aria-hidden="true">⌕</span>
-            <input id="map-point-search" type="search" placeholder="Search an acupoint, e.g. Shen Men" autocomplete="off">
+            <input id="map-point-search" type="search" placeholder="Search the point library, e.g. Shen Men or Liver" autocomplete="off">
             <button id="map-search-clear" type="button" aria-label="Clear point search" hidden>×</button>
           </label>
 
@@ -345,7 +364,14 @@ function fullMapView(){
                 <p class="eyebrow">Selected point</p>
                 <h2 id="map-title">${escapeHtml(first.name)}</h2>
               </div>
-              <span class="map-point-category" id="map-category">${escapeHtml(first.category||"Ear point")}</span>
+              <div class="map-status-stack">
+                <span class="map-point-category" id="map-category">${escapeHtml(first.category||"Ear point")}</span>
+                <span class="map-plot-status ${pointIsMapped(first)?"mapped":"reference"}" id="map-plot-status">${pointIsMapped(first)?"On map":"Reference only"}</span>
+              </div>
+            </div>
+
+            <div class="map-reference-note" id="map-reference-note" ${pointIsMapped(first)?"hidden":""}>
+              This point is in Bloomé’s reference library but has not yet been placed on the simplified interactive ear.
             </div>
 
             <div class="map-info-block">
@@ -379,9 +405,9 @@ function fullMapView(){
           <div class="map-directory-heading">
             <div>
               <p class="eyebrow">Browse A–Z</p>
-              <h2>All mapped acupoints.</h2>
+              <h2>Bloomé point library.</h2>
             </div>
-            <span id="map-result-count">${mappedPoints.length} points</span>
+            <span id="map-result-count">${allPoints.length} points</span>
           </div>
 
           <div class="map-alpha-row" aria-label="Browse points alphabetically">
@@ -390,23 +416,22 @@ function fullMapView(){
           </div>
 
           <div class="map-point-directory" id="map-point-directory">
-            ${mappedPoints
-              .slice()
-              .sort((a,b)=>a.name.localeCompare(b.name))
-              .map(point=>`
-                <button class="map-point-card ${point.id===first.id?"active":""}" data-map-list-id="${escapeHtml(point.id)}">
-                  <span class="map-point-card-icon">◌</span>
+            ${allPoints.map(point=>{
+              const mapped=pointIsMapped(point);
+              return `
+                <button class="map-point-card ${point.id===first.id?"active":""} ${mapped?"mapped-library-point":"reference-library-point"}" data-map-list-id="${escapeHtml(point.id)}">
+                  <span class="map-point-card-icon">${mapped?"◉":"◌"}</span>
                   <span>
                     <strong>${escapeHtml(point.name)}</strong>
-                    <small>${escapeHtml(point.category||"Ear point")}</small>
+                    <small>${escapeHtml(point.category||"Ear point")} · ${mapped?"Mapped":"Reference"}</small>
                   </span>
                   <span class="map-point-card-arrow">→</span>
-                </button>
-              `).join("")}
+                </button>`;
+            }).join("")}
           </div>
 
           <div class="map-directory-empty" id="map-directory-empty" hidden>
-            <strong>No mapped points match that search.</strong>
+            <strong>No library points match that search.</strong>
             <p>Try a different point name or choose “All points”.</p>
           </div>
         </section>
@@ -480,11 +505,15 @@ function pointView(id){
   const point=pointMap.get(id);
   if(!point)return notFoundView();
   const related=(point.relatedConditionIds||[]).map(cid=>conditionMap.get(cid)).filter(Boolean);
+  const mapped=pointIsMapped(point);
   return `
   <section class="route">
     <div class="route-hero">
       <div class="container">
-        <p class="eyebrow">${escapeHtml(point.category||"Acupoint")}</p>
+        <div class="point-title-status">
+          <p class="eyebrow">${escapeHtml(point.category||"Acupoint")}</p>
+          <span class="point-library-status ${mapped?"mapped":"reference"}">${mapped?"Mapped acupoint":"Reference acupoint"}</span>
+        </div>
         <h1>${escapeHtml(point.name)}</h1>
         <p class="lead">${escapeHtml(point.traditionalUse)}</p>
       </div>
@@ -492,15 +521,17 @@ function pointView(id){
     <section class="section soft-section">
       <div class="container detail-layout">
         <article class="detail-card">
+          ${!mapped?`<div class="reference-point-notice"><strong>Reference library point</strong><p>This point has not yet been plotted on Bloomé’s simplified interactive ear map. The written location below is for general educational reference only.</p></div>`:""}
           <section><h3>General location</h3><p>${escapeHtml(point.location)}</p></section>
           <section><h3>Traditional wellness use</h3><p>${escapeHtml(point.traditionalUse)}</p></section>
           <section><h3>Gentle stimulation</h3><p>${escapeHtml(point.howToStimulate)}</p></section>
           <section><h3>Caution</h3><p>${escapeHtml(point.caution||"Use only on clean, intact skin and remove if irritation occurs.")}</p></section>
         </article>
         <aside class="side-card">
-          <p class="eyebrow">Related visual guides</p>
+          ${mapped?`<button class="primary-button point-map-button" data-jump-map="${escapeHtml(point.id)}">View on interactive ear map</button>`:`<div class="reference-map-message">Visual placement pending review. This avoids showing an approximate marker as if it were exact.</div>`}
+          <p class="eyebrow point-related-heading">Related visual guides</p>
           <div class="tag-list">
-            ${related.length?related.map(c=>`<button class="tag-button" data-open-route="condition" data-open-id="${escapeHtml(c.id)}">${escapeHtml(c.name)}</button>`).join(""):"<p>No related concerns listed yet.</p>"}
+            ${related.length?related.map(c=>`<button class="tag-button" data-open-route="condition" data-open-id="${escapeHtml(c.id)}">${escapeHtml(c.name)}</button>`).join(""):"<p>No related guides listed yet.</p>"}
           </div>
           <div class="notice" style="margin-top:22px">This page provides general wellness education and does not replace professional medical advice.</div>
         </aside>
@@ -564,6 +595,10 @@ function notFoundView(){
 
 function wireCommonActions(){
   $$("[data-open-route]").forEach(button=>button.addEventListener("click",()=>navigate(button.dataset.openRoute,button.dataset.openId)));
+  $$("[data-jump-map]").forEach(button=>button.addEventListener("click",()=>{
+    mapSelectedId=button.dataset.jumpMap;
+    navigate("map");
+  }));
   wireSearch($("#app"));
 }
 function wireDiscover(){
@@ -587,7 +622,6 @@ function wireFullMap(){
 
   const searchInput=$("#map-point-search");
   const clearButton=$("#map-search-clear");
-  const directory=$("#map-point-directory");
   const emptyState=$("#map-directory-empty");
   const resultCount=$("#map-result-count");
 
@@ -595,7 +629,7 @@ function wireFullMap(){
   let activeLetter="all";
   let activeQuery="";
 
-  const mappedIds=acupoints.filter(point=>mapPositions[point.id]).map(point=>point.id);
+  const allIds=acupoints.map(point=>point.id);
 
   function relatedButtons(){
     $$("[data-map-condition-id]",$("#map-related")).forEach(button=>{
@@ -608,18 +642,27 @@ function wireFullMap(){
     if(!point)return;
 
     mapSelectedId=id;
+    const mapped=pointIsMapped(point);
 
     $$(".map-marker").forEach(marker=>{
-      marker.classList.toggle("active",marker.dataset.mapId===id);
+      marker.classList.toggle("active",mapped && marker.dataset.mapId===id);
     });
     $$(".map-point-card").forEach(card=>{
       card.classList.toggle("active",card.dataset.mapListId===id);
     });
 
-    stage.classList.add("map-has-selection");
+    stage.classList.toggle("map-has-selection",mapped);
+    stage.classList.toggle("map-reference-selection",!mapped);
 
     $("#map-title").textContent=point.name;
     $("#map-category").textContent=point.category||"Ear point";
+
+    const status=$("#map-plot-status");
+    status.textContent=mapped?"On map":"Reference only";
+    status.classList.toggle("mapped",mapped);
+    status.classList.toggle("reference",!mapped);
+
+    $("#map-reference-note").hidden=mapped;
     $("#map-location").textContent=point.location||"";
     $("#map-copy").textContent=point.traditionalUse||"";
     $("#map-stimulate").textContent=point.howToStimulate||"";
@@ -633,10 +676,9 @@ function wireFullMap(){
   }
 
   function visiblePointIds(){
-    return mappedIds.filter(id=>{
+    return allIds.filter(id=>{
       const point=pointMap.get(id);
       if(!point)return false;
-
       const queryMatch=!activeQuery || searchableText(point).includes(normalize(activeQuery));
       const categoryMatch=activeCategory==="all" || point.category===activeCategory;
       const letterMatch=activeLetter==="all" || point.name.charAt(0).toUpperCase()===activeLetter;
@@ -671,8 +713,11 @@ function wireFullMap(){
 
   $$("[data-map-list-id]").forEach(card=>{
     card.addEventListener("click",()=>{
-      select(card.dataset.mapListId);
-      $(".map-explorer-canvas")?.scrollIntoView({behavior:"smooth",block:"center"});
+      const id=card.dataset.mapListId;
+      select(id);
+      const point=pointMap.get(id);
+      const target=pointIsMapped(point)?$(".map-explorer-canvas"):$(".map-explorer-panel");
+      target?.scrollIntoView({behavior:"smooth",block:"center"});
     });
   });
 
@@ -737,7 +782,7 @@ function wireFullMap(){
   });
 
   relatedButtons();
-  stage.classList.add("map-has-selection");
+  select(mapSelectedId);
   applyFilters();
 }
 

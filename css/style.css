@@ -897,3 +897,186 @@ h3,p{margin-top:0}
     padding:13px;
   }
 }
+
+
+/* ==========================================================
+   Bloomé Package 12 — Expanded Library Integration
+   30-point library with clear mapped/reference distinction.
+   ========================================================== */
+
+.map-library-summary{
+  display:grid;
+  grid-template-columns:150px 150px 1fr;
+  gap:14px;
+  align-items:center;
+  margin-bottom:24px;
+  padding:18px 20px;
+  border:1px solid rgba(90,22,17,.08);
+  border-radius:22px;
+  background:rgba(255,253,252,.72);
+}
+
+.map-library-summary div{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+}
+
+.map-library-summary strong{
+  color:var(--primary);
+  font-family:"Cormorant Garamond",serif;
+  font-size:2rem;
+  line-height:1;
+}
+
+.map-library-summary span{
+  color:var(--muted);
+  font-size:.75rem;
+  font-weight:700;
+}
+
+.map-library-summary p{
+  margin:0;
+  color:var(--muted);
+  font-size:.8rem;
+  line-height:1.55;
+}
+
+.map-status-stack{
+  display:grid;
+  justify-items:end;
+  gap:7px;
+}
+
+.map-plot-status,
+.point-library-status{
+  display:inline-flex;
+  padding:6px 9px;
+  border-radius:999px;
+  font-size:.62rem;
+  font-weight:700;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.map-plot-status.mapped,
+.point-library-status.mapped{
+  background:var(--sage-soft);
+  color:#68745f;
+}
+
+.map-plot-status.reference,
+.point-library-status.reference{
+  background:#F3E9E4;
+  color:var(--primary);
+}
+
+.map-reference-note,
+.reference-point-notice,
+.reference-map-message{
+  padding:14px 16px;
+  border:1px solid #E7D8CF;
+  border-radius:15px;
+  background:#FAF2ED;
+  color:var(--muted);
+  font-size:.8rem;
+  line-height:1.6;
+}
+
+.map-reference-note{
+  margin-bottom:8px;
+}
+
+.reference-point-notice{
+  margin-bottom:4px;
+}
+
+.reference-point-notice strong{
+  display:block;
+  margin-bottom:4px;
+  color:var(--primary);
+}
+
+.reference-point-notice p{
+  margin:0;
+}
+
+.point-title-status{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.point-title-status .eyebrow{
+  margin:0;
+}
+
+.point-map-button{
+  width:100%;
+  margin-bottom:24px;
+}
+
+.point-related-heading{
+  margin-top:4px;
+}
+
+.reference-map-message{
+  margin-bottom:24px;
+}
+
+.reference-library-point{
+  background:linear-gradient(145deg,#FFFDFC,#FBF6F2);
+}
+
+.reference-library-point .map-point-card-icon{
+  background:#F5EEE9;
+}
+
+.mapped-library-point .map-point-card-icon{
+  background:var(--sage-soft);
+  color:#68745f;
+}
+
+.reference-point-card{
+  background:linear-gradient(155deg,#FFFDFC,#FBF4EF)!important;
+}
+
+.mapped-point-card{
+  background:linear-gradient(155deg,#FFFDFC,#EEF1EC)!important;
+}
+
+.suggestion-point-result.is-reference .suggestion-icon{
+  background:#F5EEE9;
+}
+
+.suggestion-point-result.is-mapped .suggestion-icon{
+  background:var(--sage-soft);
+  color:#68745f;
+}
+
+.map-reference-selection .map-marker{
+  opacity:.28;
+}
+
+@media(max-width:680px){
+  .map-library-summary{
+    grid-template-columns:1fr 1fr;
+    padding:16px;
+  }
+
+  .map-library-summary p{
+    grid-column:1/-1;
+  }
+
+  .map-status-stack{
+    justify-items:start;
+    margin-top:10px;
+  }
+
+  .point-title-status{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:7px;
+  }
+}
