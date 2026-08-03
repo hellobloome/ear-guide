@@ -15,10 +15,36 @@ let mapZoom=1;
 let selectedConditionPoint=new Map();
 
 const mapPositions={
-  "shen-men":[61,25],"point-zero":[50,44],"heart":[42,54],"sympathetic":[31,40],
-  "kidney":[59,37],"occiput":[34,65],"stomach":[49,50],"spleen":[55,54],
-  "brain":[39,69],"endocrine":[48,66],"mouth":[43,58],"cervical-spine":[66,57],
-  "shoulder":[70,47],"jaw":[44,77]
+  "shen-men":[61,25],
+  "point-zero":[50,44],
+  "heart":[42,54],
+  "sympathetic":[31,40],
+  "kidney":[59,37],
+  "occiput":[34,65],
+  "stomach":[49,50],
+  "spleen":[55,54],
+  "brain":[39,69],
+  "endocrine":[48,66],
+  "mouth":[43,58],
+  "cervical-spine":[66,57],
+  "shoulder":[70,47],
+  "jaw":[44,77],
+  "liver":[57,44],
+  "lung":[47,56],
+  "large-intestine":[43,39],
+  "small-intestine":[49,40],
+  "bladder":[54,35],
+  "gallbladder":[58,32],
+  "pancreas":[61,34],
+  "adrenal":[33,58],
+  "subcortex":[37,68],
+  "thalamus":[41,67],
+  "ear-apex":[50,13],
+  "eye":[38,80],
+  "inner-ear":[48,82],
+  "thoracic-spine":[66,51],
+  "lumbar-spine":[64,44],
+  "hip":[62,38]
 };
 
 const anatomicalEarSvg=(extraClass="")=>`
@@ -396,7 +422,6 @@ function fullMapView(){
   const first=pointMap.get(mapSelectedId)||mappedPoints[0]||allPoints[0];
   const categories=[...new Set(allPoints.map(point=>point.category).filter(Boolean))].sort();
   const letters=[...new Set(allPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
-  const referenceCount=allPoints.filter(point=>!pointIsMapped(point)).length;
 
   return `
   <section class="route map-explorer-route">
@@ -404,16 +429,15 @@ function fullMapView(){
       <div class="container">
         <p class="eyebrow">Full Ear Map Explorer</p>
         <h1>Explore the ear, one point at a time.</h1>
-        <p class="lead">Search the full Bloomé point library. Mapped points appear on the ear; reference points stay clearly labelled until their visual placement is reviewed.</p>
+        <p class="lead">Search the full Bloomé point library. Every point in the current library is now plotted on the simplified interactive ear.</p>
       </div>
     </div>
 
     <section class="section soft-section map-explorer-section">
       <div class="container">
-        <div class="map-library-summary">
-          <div><strong>${mappedPoints.length}</strong><span>Mapped points</span></div>
-          <div><strong>${referenceCount}</strong><span>Reference points</span></div>
-          <p>Reference points are available for learning and search, but are not plotted on the simplified ear map yet.</p>
+        <div class="map-library-summary complete-map-summary">
+          <div><strong>${mappedPoints.length}</strong><span>Complete visual library</span></div>
+          <p>All points in Bloomé’s current library are now plotted on the simplified educational ear map.</p>
         </div>
 
         <div class="map-explorer-toolbar">
@@ -980,3 +1004,6 @@ loadData();
 
 
 /* Bloomé Package 13 — Bahasa Melayu Layer */
+
+
+/* Bloomé Package 14 — Complete 30-Point Ear Map */

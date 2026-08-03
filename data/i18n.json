@@ -144,7 +144,12 @@
         "Find a simple digestive-wellness combination.": "Temui gabungan ringkas untuk kesejahteraan penghadaman.",
         "Explore a menstrual-comfort combination.": "Terokai gabungan untuk keselesaan ketika haid.",
         "Explore a traditional low-energy combination.": "Terokai gabungan tradisional untuk hari yang terasa kurang bertenaga.",
-        "Find points commonly used in focus routines.": "Temui titik yang biasa digunakan dalam rutin fokus."
+        "Find points commonly used in focus routines.": "Temui titik yang biasa digunakan dalam rutin fokus.",
+        "Search the full Bloomé point library. Every point in the current library is now plotted on the simplified interactive ear.": "Cari seluruh pustaka titik Bloomé. Setiap titik dalam pustaka semasa kini telah diletakkan pada peta telinga interaktif ringkas.",
+        "Complete visual library": "Pustaka visual lengkap",
+        "All points in Bloomé’s current library are now plotted on the simplified educational ear map.": "Semua titik dalam pustaka semasa Bloomé kini telah diletakkan pada peta telinga pendidikan ringkas.",
+        "30 mapped points": "30 titik pada peta",
+        "Complete map": "Peta lengkap"
       },
       "placeholders": {
         "Try “sleep”, “stress” or “Shen Men”": "Cuba “tidur”, “stres” atau “Shen Men”",
@@ -525,7 +530,7 @@
       ]
     },
     "liver": {
-      "location": "Di kawasan konka atas, pada bahagian yang biasanya dilabel Hati dalam carta aurikular.",
+      "location": "Di bahagian bawah-belakang cymba conchae (CO12 dalam nomenklatur gaya WFAS yang digunakan untuk peta ini).",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin aurikular yang menumpukan pada kesejahteraan penghadaman dan keseimbangan umum.",
       "howToStimulate": "Gunakan tekanan ringan dan selesa selama beberapa saat. Hentikan jika kawasan menjadi sakit atau iritasi.",
       "aliases": [
@@ -541,7 +546,7 @@
       ]
     },
     "lung": {
-      "location": "Di kawasan konka tengah, pada bahagian yang biasanya dilabel Paru-paru dalam carta aurikular.",
+      "location": "Di cavum conchae sekitar kawasan Jantung dan Trakea (CO14 dalam nomenklatur gaya WFAS yang digunakan untuk peta ini).",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin kesejahteraan umum dan amalan aurikular yang memberi perhatian kepada keselesaan pernafasan.",
       "howToStimulate": "Gunakan tekanan lembut dan stabil, bukan tekanan kuat. Tanggalkan ear seed jika kulit mengalami iritasi.",
       "aliases": [
@@ -559,7 +564,7 @@
       ]
     },
     "large-intestine": {
-      "location": "Di kawasan konka atas berhampiran kawasan representasi usus pada carta aurikular biasa.",
+      "location": "Di satu pertiga hadapan kawasan konka atas antara crus heliks dan garisan sempadan konka (CO7).",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin kesejahteraan penghadaman.",
       "howToStimulate": "Tekan perlahan selama beberapa saat, lepaskan dan ulang beberapa kali jika selesa.",
       "aliases": [
@@ -577,7 +582,7 @@
       ]
     },
     "small-intestine": {
-      "location": "Di kawasan konka atas berhampiran kawasan representasi usus pada carta aurikular biasa.",
+      "location": "Di satu pertiga tengah kawasan konka atas antara crus heliks dan garisan sempadan konka (CO6).",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin kesejahteraan penghadaman.",
       "howToStimulate": "Gunakan tekanan ringan dan ringkas. Tekanan yang lebih kuat tidak semestinya lebih baik.",
       "aliases": [
@@ -593,7 +598,7 @@
       ]
     },
     "bladder": {
-      "location": "Di kawasan konka atas, pada bahagian yang dilabel Pundi Kencing dalam banyak peta aurikular.",
+      "location": "Di cymba conchae di bawah bahagian tengah crus bawah antiheliks (CO9).",
       "traditionalUse": "Secara tradisional dimasukkan dalam rutin keseimbangan badan yang lebih umum dalam amalan aurikular.",
       "howToStimulate": "Tekan perlahan dan hentikan jika terdapat rasa sakit berterusan, kemerahan atau iritasi.",
       "aliases": [
@@ -609,7 +614,7 @@
       ]
     },
     "gallbladder": {
-      "location": "Di kawasan konka atas berhampiran bahagian Hati pada banyak carta aurikular.",
+      "location": "Di bahagian atas-belakang cymba conchae, dalam zon bersama Pankreas / Pundi Hempedu CO11.",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin penghadaman dan keseimbangan umum.",
       "howToStimulate": "Berikan tekanan ringan dan selesa selama beberapa saat setiap kali.",
       "aliases": [
@@ -625,7 +630,7 @@
       ]
     },
     "pancreas": {
-      "location": "Di kawasan konka berhampiran representasi perut dan penghadaman pada carta aurikular biasa.",
+      "location": "Di bahagian atas-belakang cymba conchae, dalam zon bersama Pankreas / Pundi Hempedu CO11.",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin kesejahteraan yang menumpukan pada penghadaman dan kesedaran selera makan.",
       "howToStimulate": "Gunakan tekanan lembut sahaja dan tanggalkan ear seed jika kulit mengalami iritasi.",
       "aliases": [
@@ -641,7 +646,7 @@
       ]
     },
     "adrenal": {
-      "location": "Sekitar tragus atau kawasan intertragik dalam beberapa sistem aurikular.",
+      "location": "Pada bahagian bawah permukaan luar tragus, sekitar kawasan tradisional Adrenal.",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin yang menumpukan pada stres, daya tahan dan keseimbangan tenaga umum.",
       "howToStimulate": "Gunakan tekanan ringan dan ringkas. Hentikan jika rangsangan terasa tajam atau tidak selesa.",
       "aliases": [
@@ -659,7 +664,7 @@
       ]
     },
     "subcortex": {
-      "location": "Sekitar kawasan antitragus dalam banyak sistem aurikular.",
+      "location": "Pada bahagian dalam antitragus (AT4).",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin aurikular yang berfokus pada ketenangan, rehat dan fokus.",
       "howToStimulate": "Tekan perlahan selama beberapa saat dan lepaskan. Elakkan tekanan terlalu lama atau menyakitkan.",
       "aliases": [
@@ -675,7 +680,7 @@
       ]
     },
     "thalamus": {
-      "location": "Sekitar kawasan antitragus pada beberapa carta aurikular.",
+      "location": "Pada bahagian dalam antitragus, dalam kawasan AT4 yang digunakan untuk rujukan Talamus / Subkorteks.",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin aurikular yang berfokus pada ketenangan dan keselesaan.",
       "howToStimulate": "Gunakan tekanan lembut secara berselang. Hentikan jika kawasan menjadi sensitif atau iritasi.",
       "aliases": [
@@ -691,7 +696,7 @@
       ]
     },
     "ear-apex": {
-      "location": "Pada titik paling tinggi telinga luar apabila telinga dilihat dalam kedudukan tegak.",
+      "location": "Pada puncak heliks, iaitu bahagian paling atas telinga apabila aurikel dilipat perlahan ke hadapan.",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin aurikular umum yang berfokus pada ketenangan dan keselesaan.",
       "howToStimulate": "Gunakan tekanan yang sangat ringan. Kawasan ini boleh sensitif, jadi hentikan jika tidak selesa.",
       "aliases": [
@@ -709,7 +714,7 @@
       ]
     },
     "eye": {
-      "location": "Di bahagian bawah telinga atau kawasan cuping pada carta aurikular biasa.",
+      "location": "Di bahagian tengah permukaan hadapan-luar cuping telinga (LO5).",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin yang menumpukan pada keselesaan mata dan kesejahteraan berkaitan penggunaan skrin.",
       "howToStimulate": "Gunakan tekanan lembut sahaja. Jangan letakkan ear seed di dalam saluran telinga.",
       "aliases": [
@@ -725,7 +730,7 @@
       ]
     },
     "inner-ear": {
-      "location": "Sekitar bahagian bawah telinga dan kawasan intertragik pada beberapa carta aurikular.",
+      "location": "Di kawasan 6 cuping telinga (LO6), pada bahagian tengah-belakang grid cuping.",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin keseimbangan dan keselesaan semasa perjalanan.",
       "howToStimulate": "Gunakan tekanan ringan dan hentikan segera jika rangsangan meningkatkan rasa pening atau tidak selesa.",
       "aliases": [
@@ -743,7 +748,7 @@
       ]
     },
     "thoracic-spine": {
-      "location": "Sepanjang antiheliks, di antara kawasan representasi tulang belakang serviks dan lumbar.",
+      "location": "Sepanjang bahagian tengah badan antiheliks, antara kawasan representasi serviks dan lumbosakral (kawasan AH11).",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin untuk keselesaan bahagian atas dan tengah belakang.",
       "howToStimulate": "Gunakan tekanan yang selesa sahaja dan elakkan menekan kulit yang iritasi atau luka.",
       "aliases": [
@@ -763,7 +768,7 @@
       ]
     },
     "lumbar-spine": {
-      "location": "Sepanjang antiheliks, di bawah kawasan representasi tulang belakang toraks.",
+      "location": "Pada bahagian atas badan antiheliks dalam kawasan representasi lumbosakral (kawasan AH9).",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin untuk keselesaan bahagian bawah belakang.",
       "howToStimulate": "Tekan perlahan selama beberapa saat. Hentikan jika kawasan terasa sakit tajam atau iritasi.",
       "aliases": [
@@ -783,7 +788,7 @@
       ]
     },
     "hip": {
-      "location": "Sekitar bahagian atas antiheliks atau kawasan crus antiheliks pada carta aurikular biasa.",
+      "location": "Pada permulaan crus bawah antiheliks, dalam kawasan aurikular yang mewakili pinggul.",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin untuk keselesaan pinggul dan bahagian bawah badan.",
       "howToStimulate": "Gunakan tekanan ringan secara berselang dan hentikan jika tidak selesa.",
       "aliases": [

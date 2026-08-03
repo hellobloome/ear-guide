@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "13",
+  "version": "14",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -30,12 +30,30 @@
     "mapReadyMetadata": true,
     "i18nScaffold": true,
     "malayContentComplete": true,
-    "languageToggle": true
+    "languageToggle": true,
+    "completeEarMap": true,
+    "allLibraryPointsMapped": true,
+    "mappedReferenceDistinction": false
   },
-  "releaseName": "Bahasa Melayu Layer",
+  "releaseName": "Complete 30-Point Ear Map",
   "database": {
     "acupointCount": 30,
     "conditionCount": 12,
-    "mappedAcupointCount": 14
+    "mappedAcupointCount": 30
+  },
+  "mapReference": {
+    "primarySystem": "WFAS-style anatomical auricular reference based on WFAS Standard-002:2013 / GB/T13734-2008 descriptions",
+    "exception": "Point Zero is retained from the existing Bloomé / Nogier-origin reference.",
+    "sharedZones": {
+      "CO11": [
+        "gallbladder",
+        "pancreas"
+      ],
+      "AT4": [
+        "subcortex",
+        "thalamus"
+      ]
+    },
+    "disclaimer": "The Bloomé map is a simplified educational visual, not a clinical placement chart."
   }
 }
