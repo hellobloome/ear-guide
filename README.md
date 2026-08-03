@@ -1,31 +1,41 @@
-# Bloomé Guide — Package 5: Premium Pass
+# Bloomé Guide — Package 6: Calm Refinement
 
-This package builds directly on Package 4B.
+This package continues the Premium Pass without adding feature clutter.
 
-## New in Package 5
-- Option 1 minimal line-art ear integrated throughout the guide.
-- Intent-first homepage with six wellness starting paths.
-- Refined ring-style point markers and selected-point pulse.
-- Smart Combination hierarchy: Primary, Support, Optional support.
-- Softer motion and reveal transitions with reduced-motion support.
-- Existing search, A–Z discovery, condition maps, full ear map, point pages, Quick Help and beginner guide remain intact.
+## Main change requested
+- Removed botanical decoration from every functional ear illustration.
+- The ear map is now intentionally just: ear → markers → information.
 
-## Install with GitHub Desktop
+## Additional refinements
+- Calmer marker styling with less visual weight.
+- Cleaner map backgrounds and more breathing room around the ear.
+- Refined information-card borders and spacing.
+- Improved mobile map proportions and touch behaviour.
+- Added reduced-motion support for accessibility.
+- Smart Combination structure remains in place.
+- Apply Mode is still intentionally postponed.
+
+## Install
 1. Extract this ZIP.
-2. Copy everything inside the extracted folder into your local `ear-guide` repository folder.
-3. Choose Replace when Windows asks about existing files.
-4. In GitHub Desktop, review the changes.
-5. Summary: `Package 5 - Premium Pass`
-6. Commit to main, then Push origin.
-7. Wait for GitHub Pages to redeploy, then hard-refresh the live site.
+2. Copy everything inside into your local `ear-guide` repository.
+3. Replace the existing files when prompted.
+4. Open GitHub Desktop.
+5. Summary:
+   `Package 6 - Calm refinement`
+6. Commit to `main`.
+7. Push origin.
+8. Wait for GitHub Pages to deploy.
+9. Hard refresh with `Ctrl + Shift + R`.
 
-## Test checklist
-- Home: six need cards open the correct condition.
-- Search: sleep, stress and Shen Men still work.
-- Condition: ear map appears immediately; markers switch the information card.
-- Smart Combination labels appear beside the point tabs.
-- Ear map: markers remain interactive.
-- Mobile: bottom navigation and Quick Help remain usable.
+## Test
+- Homepage ear: no botanical decoration.
+- Search `sleep`: condition map has no botanical decoration.
+- Open the full Ear Map: no botanical decoration.
+- Tap every highlighted point and confirm the information panel updates.
+- Test Stress, Digestion and another condition.
+- Test desktop and phone.
+- Test browser Back.
+- Confirm Quick Help still works.
 
-## Note
-The ear illustration and point positions are visual educational guidance rather than a clinical placement chart. Apply Mode remains reserved for a later package.
+## Scope note
+The ear illustration and point coordinates remain simplified educational guidance, not a clinical placement chart.

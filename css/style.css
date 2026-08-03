@@ -216,7 +216,7 @@ h3,p{margin-top:0}
   .condition-point::after{display:none}
 }
 
-/* Bloomé Guide Package 5 — Premium Pass */
+/* Bloomé Guide Package 6 — Calm Refinement
 .premium-ear-wrap{position:relative;width:min(76%,470px);aspect-ratio:365/655;display:grid;place-items:center;pointer-events:none}
 .premium-ear-wrap.compact{width:min(78%,430px)}
 .premium-ear-image{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:42% 42% 34% 34%;mix-blend-mode:multiply;filter:saturate(.82) contrast(1.03)}
@@ -245,3 +245,129 @@ h3,p{margin-top:0}
 @media (prefers-reduced-motion:reduce){.reveal-item{opacity:1;transform:none;transition:none}.condition-point.active::before{animation:none}}
 @media(max-width:900px){.need-grid{grid-template-columns:repeat(2,1fr)}.compact-paths{grid-template-columns:1fr}.condition-map-card .premium-ear-wrap,.map-stage .premium-ear-wrap{width:min(76%,400px)}}
 @media(max-width:640px){.need-grid{grid-template-columns:1fr 1fr;gap:12px}.need-card{padding:20px;border-radius:20px}.need-card h3{font-size:1.38rem}.need-card p{font-size:.78rem;min-height:62px}.need-icon{width:40px;height:40px;margin-bottom:14px}.premium-ear-wrap{width:min(84%,350px)}.condition-map-card .premium-ear-wrap,.map-stage .premium-ear-wrap{width:min(80%,350px)}}
+
+
+/* =========================================================
+   Bloomé Guide Package 6 — Calm Refinement
+   Functional ear maps are deliberately decoration-free.
+   ========================================================= */
+
+/* No botanical decoration in instructional ear graphics */
+.anatomical-ear .botanical,
+.anatomical-ear .botanic,
+.anatomical-ear .leaf,
+.anatomical-ear .leaves,
+.anatomical-ear .flora,
+.anatomical-ear .sprig,
+.ear-illustration .botanical,
+.ear-illustration .botanic,
+.ear-illustration .leaf,
+.ear-illustration .leaves,
+.ear-illustration .flora,
+.ear-illustration .sprig,
+.hero-ear-wrap .botanical,
+.hero-ear-wrap .botanic,
+.hero-ear-wrap .leaf,
+.hero-ear-wrap .leaves,
+.hero-ear-wrap .flora,
+.hero-ear-wrap .sprig {
+  display: none !important;
+}
+
+/* Give the ear more breathing room now that ornament is gone */
+.hero-ear,
+.anatomical-ear {
+  filter: none;
+}
+
+.hero-ear-wrap,
+.condition-ear-wrap,
+.map-ear-wrap,
+.ear-stage {
+  isolation: isolate;
+}
+
+.condition-map-card,
+.map-canvas {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255,253,252,.98) 0 24%, rgba(248,245,241,.96) 68%, rgba(243,237,232,.96) 100%);
+}
+
+/* Marker 3.0: quiet until needed */
+.condition-point,
+.map-marker {
+  box-shadow: 0 0 0 4px rgba(90,22,17,.08);
+  transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+
+.condition-point:not(.active),
+.map-marker:not(.active) {
+  opacity: .82;
+}
+
+.condition-point:hover,
+.condition-point:focus-visible,
+.map-marker:hover,
+.map-marker:focus-visible {
+  opacity: 1;
+  box-shadow: 0 0 0 7px rgba(90,22,17,.10);
+}
+
+.condition-point.active,
+.map-marker.active {
+  opacity: 1;
+  box-shadow: 0 0 0 8px rgba(126,143,120,.16);
+}
+
+/* Keep labels legible without visually fencing in the ear */
+.condition-point::after,
+.map-marker::after {
+  box-shadow: 0 6px 18px rgba(52,25,22,.10);
+}
+
+/* Information panel refinement */
+.condition-info-card,
+.map-panel,
+.detail-card,
+.side-card {
+  border: 1px solid rgba(90,22,17,.08);
+}
+
+.info-section {
+  padding-block: 20px;
+}
+
+.info-label {
+  letter-spacing: .075em;
+}
+
+/* Mobile: ear first, controls second, prose third */
+@media (max-width: 680px) {
+  .condition-map-card,
+  .map-canvas {
+    min-height: 470px;
+    border-radius: 26px;
+  }
+
+  .condition-info-card,
+  .map-panel {
+    border-radius: 26px;
+  }
+
+  .condition-point,
+  .map-marker {
+    touch-action: manipulation;
+  }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
