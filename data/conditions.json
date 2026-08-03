@@ -3,10 +3,14 @@
     "id": "stress",
     "name": "Stress",
     "aliases": [
+      "busy mind",
+      "calm down",
+      "mental load",
+      "overwhelmed",
+      "relaxation",
       "stressed",
       "tension",
-      "overwhelmed",
-      "relaxation"
+      "unwind"
     ],
     "summary": "A general wellness routine intended to support relaxation during busy or tense periods.",
     "pointIds": [
@@ -19,20 +23,30 @@
     "slug": "stress",
     "featured": true,
     "keywords": [
+      "busy mind",
+      "calm down",
+      "mental load",
+      "overwhelmed",
+      "relaxation",
       "stressed",
       "tension",
-      "overwhelmed",
-      "relaxation"
-    ]
+      "unwind"
+    ],
+    "i18nKey": "condition.stress",
+    "mapReady": true
   },
   {
     "id": "sleep",
     "name": "Sleep",
     "aliases": [
-      "insomnia",
+      "bedtime",
+      "bedtime routine",
       "can't sleep",
+      "insomnia",
+      "night routine",
       "rest",
-      "bedtime"
+      "sleep routine",
+      "wind down"
     ],
     "summary": "A calming ear-seed routine commonly explored as part of a healthy bedtime ritual.",
     "pointIds": [
@@ -45,19 +59,28 @@
     "slug": "sleep",
     "featured": true,
     "keywords": [
-      "insomnia",
+      "bedtime",
+      "bedtime routine",
       "can't sleep",
+      "insomnia",
+      "night routine",
       "rest",
-      "bedtime"
-    ]
+      "sleep routine",
+      "wind down"
+    ],
+    "i18nKey": "condition.sleep",
+    "mapReady": true
   },
   {
     "id": "head-tension",
     "name": "Head Tension",
     "aliases": [
+      "head pain",
+      "head pressure",
       "headache",
       "migraine",
-      "head pain"
+      "screen headache",
+      "temple tension"
     ],
     "summary": "Points traditionally referenced in complementary routines for head comfort.",
     "pointIds": [
@@ -70,19 +93,28 @@
     "slug": "head-tension",
     "featured": false,
     "keywords": [
+      "head pain",
+      "head pressure",
       "headache",
       "migraine",
-      "head pain"
-    ]
+      "screen headache",
+      "temple tension"
+    ],
+    "i18nKey": "condition.head-tension",
+    "mapReady": true
   },
   {
     "id": "digestion",
     "name": "Digestion",
     "aliases": [
+      "after meal",
       "bloating",
-      "stomach",
+      "digestive comfort",
+      "full stomach",
+      "gas",
       "indigestion",
-      "gas"
+      "stomach",
+      "stomach discomfort"
     ],
     "summary": "A wellness-focused selection often used in traditional digestive-support routines.",
     "pointIds": [
@@ -95,20 +127,30 @@
     "slug": "digestion",
     "featured": true,
     "keywords": [
+      "after meal",
       "bloating",
-      "stomach",
+      "digestive comfort",
+      "full stomach",
+      "gas",
       "indigestion",
-      "gas"
-    ]
+      "stomach",
+      "stomach discomfort"
+    ],
+    "i18nKey": "condition.digestion",
+    "mapReady": true
   },
   {
     "id": "focus",
     "name": "Focus",
     "aliases": [
-      "concentration",
       "clarity",
+      "concentration",
+      "deep work",
+      "mental focus",
       "study",
-      "work"
+      "study focus",
+      "work",
+      "work focus"
     ],
     "summary": "A simple routine intended to complement focus-friendly habits such as rest, hydration and breaks.",
     "pointIds": [
@@ -121,19 +163,29 @@
     "slug": "focus",
     "featured": true,
     "keywords": [
-      "concentration",
       "clarity",
+      "concentration",
+      "deep work",
+      "mental focus",
       "study",
-      "work"
-    ]
+      "study focus",
+      "work",
+      "work focus"
+    ],
+    "i18nKey": "condition.focus",
+    "mapReady": true
   },
   {
     "id": "low-energy",
     "name": "Low Energy",
     "aliases": [
+      "daytime tiredness",
+      "energy",
       "fatigue",
-      "tired",
-      "energy"
+      "low energy",
+      "morning energy",
+      "sluggish",
+      "tired"
     ],
     "summary": "A complementary self-care routine for days when you feel physically or mentally drained.",
     "pointIds": [
@@ -146,18 +198,28 @@
     "slug": "low-energy",
     "featured": false,
     "keywords": [
+      "daytime tiredness",
+      "energy",
       "fatigue",
-      "tired",
-      "energy"
-    ]
+      "low energy",
+      "morning energy",
+      "sluggish",
+      "tired"
+    ],
+    "i18nKey": "condition.low-energy",
+    "mapReady": true
   },
   {
     "id": "neck-shoulder-tension",
     "name": "Neck & Shoulder Tension",
     "aliases": [
+      "desk tension",
       "neck pain",
+      "office neck",
       "shoulder pain",
-      "stiff neck"
+      "stiff neck",
+      "tight shoulders",
+      "upper back tension"
     ],
     "summary": "Points traditionally selected for general neck and shoulder comfort.",
     "pointIds": [
@@ -170,18 +232,27 @@
     "slug": "neck-shoulder-tension",
     "featured": false,
     "keywords": [
+      "desk tension",
       "neck pain",
+      "office neck",
       "shoulder pain",
-      "stiff neck"
-    ]
+      "stiff neck",
+      "tight shoulders",
+      "upper back tension"
+    ],
+    "i18nKey": "condition.neck-shoulder-tension",
+    "mapReady": true
   },
   {
     "id": "cravings",
     "name": "Cravings",
     "aliases": [
       "appetite",
+      "appetite routine",
+      "food cravings",
+      "food urge",
       "snacking",
-      "food cravings"
+      "sweet cravings"
     ],
     "summary": "A mindful-eating support routine. It is not a weight-loss treatment and should not replace balanced nutrition.",
     "pointIds": [
@@ -195,17 +266,26 @@
     "featured": false,
     "keywords": [
       "appetite",
+      "appetite routine",
+      "food cravings",
+      "food urge",
       "snacking",
-      "food cravings"
-    ]
+      "sweet cravings"
+    ],
+    "i18nKey": "condition.cravings",
+    "mapReady": true
   },
   {
     "id": "menstrual-comfort",
     "name": "Menstrual Comfort",
     "aliases": [
-      "period discomfort",
+      "cycle comfort",
       "menstrual cramps",
-      "pms"
+      "monthly comfort",
+      "period discomfort",
+      "period wellness",
+      "pms",
+      "premenstrual wellness"
     ],
     "summary": "A complementary comfort routine for menstrual self-care.",
     "pointIds": [
@@ -218,18 +298,28 @@
     "slug": "menstrual-comfort",
     "featured": false,
     "keywords": [
-      "period discomfort",
+      "cycle comfort",
       "menstrual cramps",
-      "pms"
-    ]
+      "monthly comfort",
+      "period discomfort",
+      "period wellness",
+      "pms",
+      "premenstrual wellness"
+    ],
+    "i18nKey": "condition.menstrual-comfort",
+    "mapReady": true
   },
   {
     "id": "jaw-tension",
     "name": "Jaw Tension",
     "aliases": [
-      "tmj",
+      "clenching",
+      "grinding",
+      "jaw clenching",
       "jaw pain",
-      "teeth grinding"
+      "teeth grinding",
+      "tight jaw",
+      "tmj"
     ],
     "summary": "A traditional point combination used in general jaw-relaxation routines.",
     "pointIds": [
@@ -242,18 +332,28 @@
     "slug": "jaw-tension",
     "featured": false,
     "keywords": [
-      "tmj",
+      "clenching",
+      "grinding",
+      "jaw clenching",
       "jaw pain",
-      "teeth grinding"
-    ]
+      "teeth grinding",
+      "tight jaw",
+      "tmj"
+    ],
+    "i18nKey": "condition.jaw-tension",
+    "mapReady": true
   },
   {
     "id": "travel-queasiness",
     "name": "Travel Queasiness",
     "aliases": [
+      "airsick",
+      "car sick",
       "motion sickness",
       "nausea",
-      "car sick"
+      "queasy travel",
+      "sea sickness",
+      "travel sickness"
     ],
     "summary": "A complementary routine sometimes explored for travel-related queasiness.",
     "pointIds": [
@@ -266,18 +366,28 @@
     "slug": "travel-queasiness",
     "featured": false,
     "keywords": [
+      "airsick",
+      "car sick",
       "motion sickness",
       "nausea",
-      "car sick"
-    ]
+      "queasy travel",
+      "sea sickness",
+      "travel sickness"
+    ],
+    "i18nKey": "condition.travel-queasiness",
+    "mapReady": true
   },
   {
     "id": "general-balance",
     "name": "General Balance",
     "aliases": [
-      "wellness",
+      "balance",
+      "daily reset",
       "daily routine",
-      "balance"
+      "general wellness",
+      "self care",
+      "wellness",
+      "wellness reset"
     ],
     "summary": "A gentle starter combination for a simple, non-condition-specific wellness ritual.",
     "pointIds": [
@@ -289,9 +399,15 @@
     "slug": "general-balance",
     "featured": false,
     "keywords": [
-      "wellness",
+      "balance",
+      "daily reset",
       "daily routine",
-      "balance"
-    ]
+      "general wellness",
+      "self care",
+      "wellness",
+      "wellness reset"
+    ],
+    "i18nKey": "condition.general-balance",
+    "mapReady": true
   }
 ]

@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "defaultLocale": "en",
+    "supportedLocales": [
+      "en",
+      "ms"
+    ],
+    "status": {
+      "en": "active",
+      "ms": "scaffold-only"
+    }
+  },
+  "ui": {
+    "en": {
+      "searchPlaceholder": "Try “sleep”, “stress” or “Shen Men”",
+      "wellnessGuide": "Wellness guide",
+      "acupoint": "Acupoint",
+      "relatedGuides": "Related guides",
+      "location": "Location",
+      "traditionalUse": "Traditional wellness use",
+      "stimulation": "Gentle stimulation"
+    },
+    "ms": {
+      "searchPlaceholder": "",
+      "wellnessGuide": "",
+      "acupoint": "",
+      "relatedGuides": "",
+      "location": "",
+      "traditionalUse": "",
+      "stimulation": ""
+    }
+  }
+}

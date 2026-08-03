@@ -27,9 +27,11 @@
     "slug": "shen-men",
     "featured": true,
     "keywords": [
-      "spirit gate",
-      "shenmen"
-    ]
+      "shenmen",
+      "spirit gate"
+    ],
+    "mapReady": true,
+    "i18nKey": "point.shen-men"
   },
   {
     "id": "point-zero",
@@ -58,7 +60,9 @@
     "featured": true,
     "keywords": [
       "zero point"
-    ]
+    ],
+    "mapReady": true,
+    "i18nKey": "point.point-zero"
   },
   {
     "id": "heart",
@@ -80,7 +84,9 @@
     "featured": true,
     "keywords": [
       "heart point"
-    ]
+    ],
+    "mapReady": true,
+    "i18nKey": "point.heart"
   },
   {
     "id": "sympathetic",
@@ -110,7 +116,9 @@
     "keywords": [
       "autonomic",
       "sympathetic point"
-    ]
+    ],
+    "mapReady": true,
+    "i18nKey": "point.sympathetic"
   },
   {
     "id": "kidney",
@@ -134,7 +142,9 @@
     "featured": false,
     "keywords": [
       "kidney point"
-    ]
+    ],
+    "mapReady": true,
+    "i18nKey": "point.kidney"
   },
   {
     "id": "occiput",
@@ -156,9 +166,11 @@
     "slug": "occiput",
     "featured": false,
     "keywords": [
-      "occipital",
-      "back of head"
-    ]
+      "back of head",
+      "occipital"
+    ],
+    "mapReady": true,
+    "i18nKey": "point.occiput"
   },
   {
     "id": "stomach",
@@ -181,7 +193,9 @@
     "featured": false,
     "keywords": [
       "stomach point"
-    ]
+    ],
+    "mapReady": true,
+    "i18nKey": "point.stomach"
   },
   {
     "id": "spleen",
@@ -203,7 +217,9 @@
     "featured": false,
     "keywords": [
       "spleen point"
-    ]
+    ],
+    "mapReady": true,
+    "i18nKey": "point.spleen"
   },
   {
     "id": "brain",
@@ -225,9 +241,11 @@
     "slug": "brain",
     "featured": false,
     "keywords": [
-      "subcortex",
-      "brain point"
-    ]
+      "brain point",
+      "subcortex"
+    ],
+    "mapReady": true,
+    "i18nKey": "point.brain"
   },
   {
     "id": "endocrine",
@@ -250,7 +268,9 @@
     "keywords": [
       "endocrine point",
       "hormone"
-    ]
+    ],
+    "mapReady": true,
+    "i18nKey": "point.endocrine"
   },
   {
     "id": "mouth",
@@ -271,9 +291,11 @@
     "slug": "mouth",
     "featured": false,
     "keywords": [
-      "oral point",
-      "appetite"
-    ]
+      "appetite",
+      "oral point"
+    ],
+    "mapReady": true,
+    "i18nKey": "point.mouth"
   },
   {
     "id": "cervical-spine",
@@ -294,9 +316,11 @@
     "slug": "cervical-spine",
     "featured": false,
     "keywords": [
-      "neck",
-      "cervical"
-    ]
+      "cervical",
+      "neck"
+    ],
+    "mapReady": true,
+    "i18nKey": "point.cervical-spine"
   },
   {
     "id": "shoulder",
@@ -317,7 +341,9 @@
     "featured": false,
     "keywords": [
       "shoulder point"
-    ]
+    ],
+    "mapReady": true,
+    "i18nKey": "point.shoulder"
   },
   {
     "id": "jaw",
@@ -340,6 +366,358 @@
     "keywords": [
       "mandible",
       "tmj point"
-    ]
+    ],
+    "mapReady": true,
+    "i18nKey": "point.jaw"
+  },
+  {
+    "id": "liver",
+    "name": "Liver",
+    "aliases": [
+      "liver point"
+    ],
+    "category": "Organ point",
+    "location": "In the upper concha region, in the area commonly labelled Liver on auricular charts.",
+    "traditionalUse": "Traditionally referenced in auricular routines centred on digestive wellness and general balance.",
+    "howToStimulate": "Use light, comfortable pressure for a few seconds at a time. Stop if the area becomes painful or irritated.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in auricular routines centred on digestive wellness and general balance.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "liver",
+    "featured": false,
+    "keywords": [
+      "liver point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.liver"
+  },
+  {
+    "id": "lung",
+    "name": "Lung",
+    "aliases": [
+      "lung point"
+    ],
+    "category": "Organ point",
+    "location": "In the central concha region, within the area commonly labelled Lung on auricular charts.",
+    "traditionalUse": "Traditionally referenced in general wellness routines and in auricular traditions focused on breathing comfort.",
+    "howToStimulate": "Use gentle, steady pressure rather than strong pressure. Remove the seed if the skin becomes irritated.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in general wellness routines and in auricular traditions focused on breathing comfort.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "lung",
+    "featured": false,
+    "keywords": [
+      "lung point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.lung"
+  },
+  {
+    "id": "large-intestine",
+    "name": "Large Intestine",
+    "aliases": [
+      "colon point",
+      "large bowel point"
+    ],
+    "category": "Organ point",
+    "location": "In the upper concha region near the intestinal representation area on common auricular charts.",
+    "traditionalUse": "Traditionally referenced in digestive-wellness routines.",
+    "howToStimulate": "Press gently for several seconds, release, and repeat a few times if comfortable.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in digestive-wellness routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "large-intestine",
+    "featured": false,
+    "keywords": [
+      "colon point",
+      "large bowel point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.large-intestine"
+  },
+  {
+    "id": "small-intestine",
+    "name": "Small Intestine",
+    "aliases": [
+      "small bowel point"
+    ],
+    "category": "Organ point",
+    "location": "In the upper concha region near the intestinal representation area on common auricular charts.",
+    "traditionalUse": "Traditionally referenced in digestive-wellness routines.",
+    "howToStimulate": "Use brief, light pressure. More pressure is not necessarily better.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in digestive-wellness routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "small-intestine",
+    "featured": false,
+    "keywords": [
+      "small bowel point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.small-intestine"
+  },
+  {
+    "id": "bladder",
+    "name": "Bladder",
+    "aliases": [
+      "bladder point"
+    ],
+    "category": "Organ point",
+    "location": "In the upper concha region, within the area labelled Bladder on many auricular maps.",
+    "traditionalUse": "Traditionally included in broader body-balance routines in auricular practice.",
+    "howToStimulate": "Press lightly and discontinue if there is persistent tenderness, redness or irritation.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally included in broader body-balance routines in auricular practice.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "bladder",
+    "featured": false,
+    "keywords": [
+      "bladder point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.bladder"
+  },
+  {
+    "id": "gallbladder",
+    "name": "Gallbladder",
+    "aliases": [
+      "gall bladder point"
+    ],
+    "category": "Organ point",
+    "location": "In the upper concha region near the Liver area on many auricular charts.",
+    "traditionalUse": "Traditionally referenced in digestive and general-balance routines.",
+    "howToStimulate": "Apply light, comfortable pressure for a few seconds at a time.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in digestive and general-balance routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "gallbladder",
+    "featured": false,
+    "keywords": [
+      "gall bladder point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.gallbladder"
+  },
+  {
+    "id": "pancreas",
+    "name": "Pancreas",
+    "aliases": [
+      "pancreas point"
+    ],
+    "category": "Organ point",
+    "location": "In the concha region near the stomach and digestive representation areas on common auricular charts.",
+    "traditionalUse": "Traditionally referenced in digestive and appetite-focused wellness routines.",
+    "howToStimulate": "Use gentle pressure only and remove the seed if the skin becomes irritated.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in digestive and appetite-focused wellness routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "pancreas",
+    "featured": false,
+    "keywords": [
+      "pancreas point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.pancreas"
+  },
+  {
+    "id": "adrenal",
+    "name": "Adrenal",
+    "aliases": [
+      "adrenal point"
+    ],
+    "category": "Functional point",
+    "location": "Around the tragus or intertragic region in several auricular systems.",
+    "traditionalUse": "Traditionally referenced in routines focused on stress, resilience and general energy balance.",
+    "howToStimulate": "Use brief, light pressure and stop if stimulation feels sharp or uncomfortable.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in routines focused on stress, resilience and general energy balance.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "adrenal",
+    "featured": false,
+    "keywords": [
+      "adrenal point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.adrenal"
+  },
+  {
+    "id": "subcortex",
+    "name": "Subcortex",
+    "aliases": [
+      "sub cortex",
+      "subcortical point"
+    ],
+    "category": "Functional point",
+    "location": "Around the antitragus region in many auricular systems.",
+    "traditionalUse": "Traditionally referenced in calming, rest and focus-oriented auricular routines.",
+    "howToStimulate": "Press gently for a few seconds and release. Avoid prolonged or painful pressure.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in calming, rest and focus-oriented auricular routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "subcortex",
+    "featured": false,
+    "keywords": [
+      "sub cortex",
+      "subcortical point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.subcortex"
+  },
+  {
+    "id": "thalamus",
+    "name": "Thalamus",
+    "aliases": [
+      "thalamus point"
+    ],
+    "category": "Functional point",
+    "location": "Around the antitragus region on several auricular charts.",
+    "traditionalUse": "Traditionally referenced in calming and comfort-focused auricular routines.",
+    "howToStimulate": "Use gentle, intermittent pressure. Stop if the area becomes tender or irritated.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in calming and comfort-focused auricular routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "thalamus",
+    "featured": false,
+    "keywords": [
+      "thalamus point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.thalamus"
+  },
+  {
+    "id": "ear-apex",
+    "name": "Ear Apex",
+    "aliases": [
+      "apex",
+      "auricular apex"
+    ],
+    "category": "Master point",
+    "location": "At the highest point of the outer ear when the ear is viewed upright.",
+    "traditionalUse": "Traditionally referenced in broad calming and comfort-oriented auricular routines.",
+    "howToStimulate": "Use very light pressure. This area can be sensitive, so discontinue if uncomfortable.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in broad calming and comfort-oriented auricular routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "ear-apex",
+    "featured": false,
+    "keywords": [
+      "apex",
+      "auricular apex"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.ear-apex"
+  },
+  {
+    "id": "eye",
+    "name": "Eye",
+    "aliases": [
+      "eye point",
+      "eyes"
+    ],
+    "category": "Sensory point",
+    "location": "In the lower ear or lobule region on common auricular charts.",
+    "traditionalUse": "Traditionally referenced in routines centred on eye comfort and screen-related wellness.",
+    "howToStimulate": "Use gentle pressure only. Do not apply seeds inside the ear canal.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in routines centred on eye comfort and screen-related wellness.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "eye",
+    "featured": false,
+    "keywords": [
+      "eye point",
+      "eyes"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.eye"
+  },
+  {
+    "id": "inner-ear",
+    "name": "Inner Ear",
+    "aliases": [
+      "inner ear point",
+      "balance point"
+    ],
+    "category": "Sensory point",
+    "location": "Around the lower ear and intertragic region on several auricular charts.",
+    "traditionalUse": "Traditionally referenced in balance and travel-comfort routines.",
+    "howToStimulate": "Use light pressure and stop immediately if stimulation increases dizziness or discomfort.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in balance and travel-comfort routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "inner-ear",
+    "featured": false,
+    "keywords": [
+      "balance point",
+      "inner ear point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.inner-ear"
+  },
+  {
+    "id": "thoracic-spine",
+    "name": "Thoracic Spine",
+    "aliases": [
+      "mid back",
+      "thoracic back"
+    ],
+    "category": "Anatomical point",
+    "location": "Along the antihelix, between the cervical and lumbar spine representation areas.",
+    "traditionalUse": "Traditionally referenced in upper- and mid-back comfort routines.",
+    "howToStimulate": "Use comfortable pressure only and avoid pressing on irritated or broken skin.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in upper- and mid-back comfort routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "thoracic-spine",
+    "featured": false,
+    "keywords": [
+      "mid back",
+      "thoracic back"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.thoracic-spine"
+  },
+  {
+    "id": "lumbar-spine",
+    "name": "Lumbar Spine",
+    "aliases": [
+      "lower back",
+      "lumbar back"
+    ],
+    "category": "Anatomical point",
+    "location": "Along the antihelix, below the thoracic spine representation area.",
+    "traditionalUse": "Traditionally referenced in lower-back comfort routines.",
+    "howToStimulate": "Press gently for several seconds. Stop if the area feels sharply painful or irritated.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in lower-back comfort routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "lumbar-spine",
+    "featured": false,
+    "keywords": [
+      "lower back",
+      "lumbar back"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.lumbar-spine"
+  },
+  {
+    "id": "hip",
+    "name": "Hip",
+    "aliases": [
+      "hip point"
+    ],
+    "category": "Anatomical point",
+    "location": "Around the upper antihelix or antihelix-crus region on common auricular charts.",
+    "traditionalUse": "Traditionally referenced in hip and lower-body comfort routines.",
+    "howToStimulate": "Use light, intermittent pressure and discontinue if uncomfortable.",
+    "relatedConditionIds": [],
+    "shortDescription": "Traditionally referenced in hip and lower-body comfort routines.",
+    "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
+    "slug": "hip",
+    "featured": false,
+    "keywords": [
+      "hip point"
+    ],
+    "mapReady": false,
+    "i18nKey": "point.hip"
   }
 ]
