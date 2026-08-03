@@ -1,6 +1,6 @@
 {
-  "name": "Bloomé Guide",
-  "version": "6.2",
+  "name": "Bloom\u00e9 Guide",
+  "version": "5",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -25,15 +25,6 @@
     "premiumPass": true,
     "option1Ear": true,
     "smartCombinations": true,
-    "intentFirstHome": true,
-    "botanicalEarDecoration": false,
-    "calmMarkers": true,
-    "reducedMotionSupport": true,
-    "mobileMapFocus": true,
-    "earSizeHotfix": true,
-    "heroAndMapSeparated": true,
-    "controlledEarSizing": true,
-    "botanicalSvgHidden": true
-  },
-  "releaseName": "Ear Map Architecture Fix"
+    "intentFirstHome": true
+  }
 }
