@@ -98,25 +98,40 @@ function pointCountText(count,{suggested=false}={}){
 function translateUi(root=document){
   document.documentElement.lang=currentLocale==="ms"?"ms":"en";
 
-  if(currentLocale==="ms"){
-    const exact=localeData?.ui?.ms?.exact||{};
-    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
-    const nodes=[];
-    while(walker.nextNode())nodes.push(walker.currentNode);
+  const exact=localeData?.ui?.ms?.exact||{};
+  const reverseExact=Object.fromEntries(
+    Object.entries(exact).map(([english,malay])=>[malay,english])
+  );
 
-    nodes.forEach(node=>{
-      const raw=node.nodeValue;
-      const trimmed=raw.trim();
-      if(!trimmed || !exact[trimmed])return;
-      node.nodeValue=raw.replace(trimmed,exact[trimmed]);
-    });
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const nodes=[];
+  while(walker.nextNode())nodes.push(walker.currentNode);
 
-    const placeholders=localeData?.ui?.ms?.placeholders||{};
-    $$("[placeholder]",root).forEach(el=>{
-      const original=el.getAttribute("placeholder");
-      if(placeholders[original])el.setAttribute("placeholder",placeholders[original]);
-    });
-  }
+  nodes.forEach(node=>{
+    const raw=node.nodeValue;
+    const trimmed=raw.trim();
+    if(!trimmed)return;
+
+    const replacement=currentLocale==="ms"
+      ? exact[trimmed]
+      : reverseExact[trimmed];
+
+    if(replacement)node.nodeValue=raw.replace(trimmed,replacement);
+  });
+
+  const placeholders=localeData?.ui?.ms?.placeholders||{};
+  const reversePlaceholders=Object.fromEntries(
+    Object.entries(placeholders).map(([english,malay])=>[malay,english])
+  );
+
+  $$("[placeholder]",root).forEach(el=>{
+    const current=el.getAttribute("placeholder");
+    const replacement=currentLocale==="ms"
+      ? placeholders[current]
+      : reversePlaceholders[current];
+
+    if(replacement)el.setAttribute("placeholder",replacement);
+  });
 
   updateLanguageToggle();
 }
@@ -1007,3 +1022,6 @@ loadData();
 
 
 /* Bloomé Package 14 — Complete 30-Point Ear Map */
+
+
+/* Bloomé Package 14.1 — Language Toggle Hotfix */
