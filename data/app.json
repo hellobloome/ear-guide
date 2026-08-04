@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "14",
+  "version": "15",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -33,9 +33,11 @@
     "languageToggle": true,
     "completeEarMap": true,
     "allLibraryPointsMapped": true,
-    "mappedReferenceDistinction": false
+    "mappedReferenceDistinction": false,
+    "guidedApplicationMode": true,
+    "guidedApplicationBilingual": true
   },
-  "releaseName": "Complete 30-Point Ear Map",
+  "releaseName": "Guided Application Mode",
   "database": {
     "acupointCount": 30,
     "conditionCount": 12,

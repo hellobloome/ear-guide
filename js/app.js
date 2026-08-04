@@ -13,6 +13,7 @@ let activeSuggestion=-1;
 let mapSelectedId="shen-men";
 let mapZoom=1;
 let selectedConditionPoint=new Map();
+let applicationProgress=new Map();
 
 const mapPositions={
   "shen-men":[61,25],
@@ -211,7 +212,7 @@ function navigate(route,id=null){
   location.hash=id?`#/${route}/${id}`:`#/${route}`;
 }
 function updateActiveNav(route){
-  const activeBase=["condition","point"].includes(route)?"discover":route;
+  const activeBase=["condition","point"].includes(route)?"discover":route==="apply"?"guide":route;
   $$("[data-nav-route]").forEach(link=>link.classList.toggle("active",link.dataset.navRoute===activeBase));
 }
 function closeMobileMenu(){
@@ -624,9 +625,10 @@ function conditionView(id){
             <div class="point-tabs">
               ${points.map((point,index)=>`<button class="point-tab ${point.id===current.id?"active":""}" data-condition-point-tab="${escapeHtml(point.id)}"><span>${index+1}. ${escapeHtml(point.name)}</span><small>${combinationRole(index,points.length)[0]}</small></button>`).join("")}
             </div>
-            <div class="condition-actions">
-              <button class="primary-button" id="open-selected-point" data-point-id="${escapeHtml(current.id)}">Open full point guide</button>
-              <a class="secondary-button" href="#/guide">Application guide</a>
+            <div class="condition-actions condition-actions-guided">
+              <button class="primary-button" data-start-apply="${escapeHtml(condition.id)}">Start application</button>
+              <button class="secondary-button" id="open-selected-point" data-point-id="${escapeHtml(current.id)}">Open full point guide</button>
+              <a class="text-button condition-guide-link" href="#/guide">Application guide</a>
             </div>
           </aside>
         </div>
@@ -636,6 +638,154 @@ function conditionView(id){
     </section>
   </section>`;
 }
+
+
+function applicationStepRole(index,total){
+  return combinationRole(index,total);
+}
+
+function applicationProgressMarkup(points,step){
+  return points.map((point,index)=>{
+    const state=index<step?"complete":index===step?"current":"upcoming";
+    const marker=index<step?"✓":index+1;
+    return `
+      <div class="application-progress-step ${state}">
+        <span>${marker}</span>
+        <small>${escapeHtml(point.name)}</small>
+      </div>`;
+  }).join("");
+}
+
+function applicationView(id){
+  const condition=conditionMap.get(id);
+  if(!condition)return notFoundView();
+
+  const points=(condition.pointIds||[]).map(pid=>pointMap.get(pid)).filter(Boolean);
+  if(!points.length)return notFoundView();
+
+  let step=applicationProgress.get(id)??0;
+  step=Math.max(0,Math.min(step,points.length));
+
+  if(step>=points.length){
+    return `
+    <section class="route application-route">
+      <div class="application-complete-wrap container">
+        <div class="application-complete-card">
+          <span class="application-complete-icon">✓</span>
+          <p class="eyebrow">Routine complete</p>
+          <h1>${escapeHtml(condition.name)} guide complete.</h1>
+          <p class="lead">You’ve reached the end of this ${points.length}-point application guide.</p>
+
+          <div class="application-reminders">
+            <article><span>◌</span><strong>Press gently</strong><p>Mild pressure is enough. Sharp pain is not the goal.</p></article>
+            <article><span>◇</span><strong>Check your skin</strong><p>Inspect the area regularly while the ear seeds are in place.</p></article>
+            <article><span>×</span><strong>Remove if irritated</strong><p>Remove the seeds if redness, swelling or significant discomfort appears.</p></article>
+          </div>
+
+          <div class="application-complete-actions">
+            <button class="primary-button" data-finish-apply="${escapeHtml(id)}">Back to ${escapeHtml(condition.name)} guide</button>
+            <a class="secondary-button" href="#/guide">Review application guide</a>
+          </div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  const point=points[step];
+  const role=applicationStepRole(step,points.length);
+  const position=mapPositions[point.id]||[50,50];
+  const percent=Math.round(((step+1)/points.length)*100);
+
+  return `
+  <section class="route application-route">
+    <div class="route-hero application-hero">
+      <div class="container">
+        <a class="application-back-link" href="#/condition/${escapeHtml(condition.id)}">← Back to ${escapeHtml(condition.name)}</a>
+        <p class="eyebrow">Guided application</p>
+        <h1>${escapeHtml(condition.name)}</h1>
+        <p class="lead">Follow the suggested combination one point at a time. Take your time and use gentle pressure.</p>
+
+        <div class="application-progress-head">
+          <span>Step ${step+1} of ${points.length}</span>
+          <strong>${percent}%</strong>
+        </div>
+        <div class="application-progress-bar" aria-label="Application progress">
+          <span style="width:${percent}%"></span>
+        </div>
+        <div class="application-progress-list">
+          ${applicationProgressMarkup(points,step)}
+        </div>
+      </div>
+    </div>
+
+    <section class="section soft-section application-workspace-section">
+      <div class="container">
+        <div class="application-prep-note">
+          <span>✦</span>
+          <div>
+            <strong>Before placing this seed</strong>
+            <p>Use clean hands or tweezers, make sure the outer ear is clean and dry, and apply only to intact skin outside the ear canal.</p>
+          </div>
+        </div>
+
+        <div class="application-workspace">
+          <div class="application-map-card">
+            <div class="application-map-caption">
+              <span>Step ${step+1}</span>
+              <strong>${escapeHtml(point.name)}</strong>
+            </div>
+
+            ${anatomicalEarSvg("compact")}
+
+            ${points.map((p,index)=>{
+              const pos=mapPositions[p.id]||[50,50];
+              const state=index<step?"complete":index===step?"current":"upcoming";
+              return `<span class="application-point ${state}" style="left:${pos[0]}%;top:${pos[1]}%" aria-label="${escapeHtml(p.name)}">${index<step?"✓":index+1}</span>`;
+            }).join("")}
+          </div>
+
+          <aside class="application-info-card">
+            <div class="role-line">
+              <span class="role-badge">${escapeHtml(role[0])}</span>
+              <small>${escapeHtml(role[1])}</small>
+            </div>
+
+            <p class="eyebrow application-step-label">Step ${step+1} of ${points.length}</p>
+            <h2>${escapeHtml(point.name)}</h2>
+            <p class="role-explainer">${escapeHtml(role[2])}</p>
+
+            <div class="application-info-section">
+              <div class="info-label"><span>⌖</span>Where to place</div>
+              <p>${escapeHtml(point.location||"")}</p>
+            </div>
+
+            <div class="application-info-section">
+              <div class="info-label"><span>◌</span>Gentle stimulation</div>
+              <p>${escapeHtml(point.howToStimulate||"")}</p>
+            </div>
+
+            <div class="application-info-section application-wellness-context">
+              <div class="info-label"><span>✦</span>Why it’s included</div>
+              <p>${escapeHtml(point.traditionalUse||"")}</p>
+            </div>
+
+            <div class="application-step-actions">
+              <button class="secondary-button" data-apply-prev="${escapeHtml(id)}" ${step===0?"disabled":""}>Back</button>
+              <button class="primary-button" data-apply-next="${escapeHtml(id)}">${step===points.length-1?"Finish routine":"Next point"}</button>
+            </div>
+
+            <button class="application-point-detail-link text-button" data-open-route="point" data-open-id="${escapeHtml(point.id)}">Open full ${escapeHtml(point.name)} guide</button>
+          </aside>
+        </div>
+
+        <div class="notice application-safety-notice">
+          This guided mode is for general wellness education and does not confirm clinical point placement. Stop and remove the ear seed if irritation, swelling, dizziness or significant discomfort occurs.
+        </div>
+      </div>
+    </section>
+  </section>`;
+}
+
 
 function pointView(id){
   const point=pointMap.get(id);
@@ -731,10 +881,18 @@ function notFoundView(){
 
 function wireCommonActions(){
   $$("[data-open-route]").forEach(button=>button.addEventListener("click",()=>navigate(button.dataset.openRoute,button.dataset.openId)));
+
+  $$("[data-start-apply]").forEach(button=>button.addEventListener("click",()=>{
+    const id=button.dataset.startApply;
+    applicationProgress.set(id,0);
+    navigate("apply",id);
+  }));
+
   $$("[data-jump-map]").forEach(button=>button.addEventListener("click",()=>{
     mapSelectedId=button.dataset.jumpMap;
     navigate("map");
   }));
+
   wireSearch($("#app"));
 }
 function wireDiscover(){
@@ -944,6 +1102,32 @@ function wireCondition(id){
   $("#open-selected-point")?.addEventListener("click",event=>navigate("point",event.currentTarget.dataset.pointId));
 }
 
+
+function wireApplication(id){
+  const condition=conditionMap.get(id);
+  if(!condition)return;
+
+  const points=(condition.pointIds||[]).map(pid=>pointMap.get(pid)).filter(Boolean);
+
+  $("[data-apply-prev]")?.addEventListener("click",()=>{
+    const step=applicationProgress.get(id)??0;
+    applicationProgress.set(id,Math.max(0,step-1));
+    render();
+  });
+
+  $("[data-apply-next]")?.addEventListener("click",()=>{
+    const step=applicationProgress.get(id)??0;
+    applicationProgress.set(id,Math.min(points.length,step+1));
+    render();
+  });
+
+  $("[data-finish-apply]")?.addEventListener("click",()=>{
+    applicationProgress.delete(id);
+    navigate("condition",id);
+  });
+}
+
+
 function render(){
   const {route,id}=getRoute();
   updateActiveNav(route);
@@ -960,6 +1144,7 @@ function render(){
   else if(route==="map")html=fullMapView();
   else if(route==="point")html=pointView(id);
   else if(route==="condition")html=conditionView(id);
+  else if(route==="apply")html=applicationView(id);
   else if(route==="guide")html=guideView();
   else if(route==="about")html=aboutView();
   else html=notFoundView();
@@ -971,6 +1156,7 @@ function render(){
   wireDiscover();
   wireFullMap();
   if(route==="condition")wireCondition(id);
+  if(route==="apply")wireApplication(id);
   translateUi(document);
   requestAnimationFrame(()=>$$('.reveal-item').forEach(el=>el.classList.add('revealed')));
 }
@@ -1030,3 +1216,6 @@ loadData();
 
 
 /* Bloomé Package 14.2 — Translation Collision Fix */
+
+
+/* Bloomé Package 15 — Guided Application Mode */
