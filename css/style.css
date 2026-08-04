@@ -1750,3 +1750,117 @@ h3,p{margin-top:0}
     width:min(80%,350px);
   }
 }
+
+
+/* Package 18.2 — Hero Blend + Ear Framing Fix */
+.premium-ear-wrap{
+  position:relative;
+  width:min(74%,420px);
+  aspect-ratio:240/390;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+  padding:16px 0 18px;
+}
+
+.premium-ear-wrap.hero-ear{
+  width:min(76%,360px);
+  padding:22px 0 28px;
+}
+
+.premium-ear-wrap.compact{
+  width:min(68%,320px);
+  padding:18px 0 20px;
+}
+
+.premium-ear-image{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center top;
+  border-radius:0;
+  mix-blend-mode:multiply;
+  filter:saturate(.88) contrast(1.02) drop-shadow(0 14px 28px rgba(90,22,17,.08));
+}
+
+.hero-card.premium-hero-card{
+  min-height:520px;
+  background:transparent;
+  box-shadow:none;
+  border-radius:0;
+  overflow:visible;
+}
+
+.hero-card.premium-hero-card::before{
+  display:none;
+}
+
+.hero-card.premium-hero-card::after{
+  content:"";
+  position:absolute;
+  inset:10px 8px 20px 8px;
+  border-radius:46% 46% 32px 32px;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255,255,255,.88) 0%, rgba(255,255,255,.72) 34%, rgba(234,217,209,.42) 72%, rgba(234,217,209,0) 100%);
+  box-shadow:0 24px 48px rgba(90,22,17,.06);
+}
+
+.hero-card.premium-hero-card .premium-ear-wrap{
+  position:relative;
+  z-index:2;
+}
+
+.hero-card.premium-hero-card .hero-card-note{
+  z-index:3;
+  left:34px;
+  right:34px;
+  bottom:34px;
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.4);
+}
+
+.condition-map-card .premium-ear-wrap,
+.application-map-card .premium-ear-wrap,
+.map-canvas .premium-ear-wrap{
+  width:min(70%,330px);
+  padding:20px 0 18px;
+}
+
+.condition-map-card .premium-ear-image,
+.application-map-card .premium-ear-image,
+.map-canvas .premium-ear-image{
+  object-position:center top;
+}
+
+.condition-map-card,
+.application-map-card{
+  overflow:hidden;
+}
+
+@media(max-width:960px){
+  .premium-ear-wrap.hero-ear{
+    width:min(72%,340px);
+    padding:16px 0 24px;
+  }
+  .condition-map-card .premium-ear-wrap,
+  .application-map-card .premium-ear-wrap,
+  .map-canvas .premium-ear-wrap{
+    width:min(70%,320px);
+  }
+}
+
+@media(max-width:680px){
+  .condition-map-card .premium-ear-wrap,
+  .application-map-card .premium-ear-wrap,
+  .map-canvas .premium-ear-wrap{
+    width:min(74%,300px);
+    padding:18px 0 18px;
+  }
+  .condition-map-card .premium-ear-image,
+  .application-map-card .premium-ear-image,
+  .map-canvas .premium-ear-image{
+    filter:saturate(.88) contrast(1.02) drop-shadow(0 10px 20px rgba(90,22,17,.07));
+  }
+}
