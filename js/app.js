@@ -53,6 +53,14 @@ const anatomicalEarSvg=(extraClass="")=>`
   <img class="premium-ear-image" src="./images/ear-option-1.webp" alt="Minimal line-art illustration of an ear">
 </div>`;
 
+function markerLabelClass(left,top){
+  const classes=[];
+  if(left>=60)classes.push("label-left");
+  if(top<=20)classes.push("label-below");
+  if(top>=76)classes.push("label-above");
+  return classes.join(" ");
+}
+
 function escapeHtml(value=""){
   return String(value).replace(/[&<>"']/g,char=>({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
@@ -479,7 +487,7 @@ function fullMapView(){
               ${anatomicalEarSvg()}
               ${mappedPoints.map(point=>{
                 const [left,top]=mapPositions[point.id];
-                return `<button class="map-marker ${point.id===first.id?"active":""}" style="left:${left}%;top:${top}%" data-map-id="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${escapeHtml(point.name)}"></button>`;
+                return `<button class="map-marker ${point.id===first.id?"active":""} ${markerLabelClass(left,top)}" style="left:${left}%;top:${top}%" data-map-id="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${escapeHtml(point.name)}"></button>`;
               }).join("")}
             </div>
 
@@ -622,7 +630,7 @@ function conditionView(id){
             ${anatomicalEarSvg("compact")}
             ${points.map((point,index)=>{
               const position=mapPositions[point.id]||[50,50];
-              return `<button class="condition-point ${point.id===current.id?"active":""}" style="left:${position[0]}%;top:${position[1]}%" data-condition-point="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${index+1}. ${escapeHtml(point.name)}">${index+1}</button>`;
+              return `<button class="condition-point ${point.id===current.id?"active":""} ${markerLabelClass(position[0],position[1])}" style="left:${position[0]}%;top:${position[1]}%" data-condition-point="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${index+1}. ${escapeHtml(point.name)}">${index+1}</button>`;
             }).join("")}
           </div>
 

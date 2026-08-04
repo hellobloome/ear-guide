@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "17.1",
+  "version": "19",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -41,9 +41,12 @@
     "conditionIntentNotes": true,
     "conditionRelatedGuides": true,
     "combinationAuditComplete": true,
-    "homepageHeadlineRefined": true
+    "homepageHeadlineRefined": true,
+    "mapLegibilityPolish": true,
+    "edgeAwareMarkerLabels": true,
+    "expandedMapTouchTargets": true
   },
-  "releaseName": "Homepage Copy Refinement",
+  "releaseName": "Map Legibility Polish",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

@@ -1709,3 +1709,169 @@ h3,p{margin-top:0}
     padding:20px;
   }
 }
+
+
+/* Package 19 — Map Legibility & Interaction Polish
+   Stable base: Package 17.1
+   Point coordinates and ear illustration remain unchanged. */
+
+.map-marker{
+  isolation:isolate;
+}
+
+.map-marker::before{
+  content:"";
+  position:absolute;
+  inset:-9px;
+  border-radius:50%;
+}
+
+.map-marker:hover,
+.map-marker.active{
+  z-index:18;
+}
+
+.map-marker.active{
+  background:var(--sage);
+  box-shadow:
+    0 0 0 4px rgba(255,255,255,.92),
+    0 0 0 10px rgba(126,143,120,.22),
+    0 6px 16px rgba(74,35,31,.12);
+}
+
+.map-marker:focus-visible{
+  outline:3px solid rgba(90,22,17,.28);
+  outline-offset:8px;
+  z-index:20;
+}
+
+.map-marker::after{
+  z-index:22;
+  line-height:1.2;
+  box-shadow:0 8px 22px rgba(74,35,31,.13);
+}
+
+.map-marker.label-left::after{
+  left:auto;
+  right:25px;
+}
+
+.map-marker.label-below::after{
+  top:22px;
+}
+
+.map-marker.label-above::after{
+  top:auto;
+  bottom:22px;
+}
+
+.map-marker.label-left.label-below::after{
+  left:auto;
+  right:25px;
+}
+
+.map-marker.label-left.label-above::after{
+  left:auto;
+  right:25px;
+}
+
+.zoom-controls button{
+  box-shadow:0 6px 16px rgba(74,35,31,.07);
+}
+
+.zoom-controls button:hover{
+  border-color:rgba(90,22,17,.22);
+  background:#fffdfb;
+}
+
+.zoom-controls button:focus-visible{
+  outline:3px solid rgba(90,22,17,.20);
+  outline-offset:2px;
+}
+
+.condition-point{
+  isolation:isolate;
+}
+
+.condition-point::before{
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border-radius:50%;
+}
+
+.condition-point:hover,
+.condition-point.active{
+  z-index:18;
+}
+
+.condition-point.active{
+  box-shadow:
+    0 0 0 4px rgba(255,255,255,.94),
+    0 0 0 10px rgba(126,143,120,.20),
+    0 7px 18px rgba(74,35,31,.12);
+}
+
+.condition-point:focus-visible{
+  outline:3px solid rgba(90,22,17,.24);
+  outline-offset:7px;
+  z-index:20;
+}
+
+.condition-point::after{
+  z-index:22;
+  box-shadow:0 8px 22px rgba(74,35,31,.14);
+}
+
+.condition-point.label-left::after{
+  left:auto;
+  right:36px;
+}
+
+.condition-point.label-below::after{
+  top:34px;
+}
+
+.condition-point.label-above::after{
+  top:auto;
+  bottom:34px;
+}
+
+.condition-point.label-left.label-below::after,
+.condition-point.label-left.label-above::after{
+  left:auto;
+  right:36px;
+}
+
+@media(max-width:680px){
+  .map-marker::before{
+    inset:-11px;
+  }
+
+  .map-marker::after{
+    max-width:130px;
+    white-space:normal;
+    text-align:center;
+    font-size:.66rem;
+  }
+
+  .condition-point::before{
+    inset:-9px;
+  }
+
+  .condition-point::after{
+    max-width:118px;
+    white-space:normal;
+    text-align:center;
+  }
+
+  .zoom-controls{
+    right:14px;
+    bottom:14px;
+  }
+
+  .zoom-controls button{
+    width:44px;
+    height:44px;
+  }
+}
