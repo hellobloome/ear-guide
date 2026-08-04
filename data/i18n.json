@@ -184,11 +184,24 @@
       "category": "Tenang",
       "summary": "Rutin kesejahteraan umum untuk membantu anda berehat ketika hari terasa sibuk atau tegang.",
       "aliases": [
-        "tekanan",
-        "rasa tegang",
+        "hari sibuk",
         "minda sibuk",
+        "rasa tegang",
+        "relaks",
+        "reset tenang",
+        "tekanan",
         "tenangkan diri",
-        "relaks"
+        "terlebih fikir"
+      ],
+      "keywords": [
+        "hari sibuk",
+        "minda sibuk",
+        "rasa tegang",
+        "relaks",
+        "reset tenang",
+        "tekanan",
+        "tenangkan diri",
+        "terlebih fikir"
       ]
     },
     "sleep": {
@@ -196,11 +209,24 @@
       "category": "Rehat",
       "summary": "Rutin ear seed yang menenangkan dan biasa diterokai sebagai sebahagian daripada ritual sebelum tidur yang sihat.",
       "aliases": [
-        "sukar tidur",
+        "rehat malam",
+        "reset malam",
+        "rutin malam",
         "rutin tidur",
         "sebelum tidur",
-        "waktu malam",
-        "rehat malam"
+        "sukar tidur",
+        "tenang sebelum tidur",
+        "waktu malam"
+      ],
+      "keywords": [
+        "rehat malam",
+        "reset malam",
+        "rutin malam",
+        "rutin tidur",
+        "sebelum tidur",
+        "sukar tidur",
+        "tenang sebelum tidur",
+        "waktu malam"
       ]
     },
     "head-tension": {
@@ -209,9 +235,19 @@
       "summary": "Titik yang secara tradisional dirujuk dalam rutin pelengkap untuk keselesaan kepala.",
       "aliases": [
         "kepala tegang",
-        "tekanan kepala",
+        "ketegangan kepala kerana skrin",
         "ketegangan pelipis",
-        "sakit kepala kerana skrin"
+        "reset kepala",
+        "sakit kepala kerana skrin",
+        "tekanan kepala"
+      ],
+      "keywords": [
+        "kepala tegang",
+        "ketegangan kepala kerana skrin",
+        "ketegangan pelipis",
+        "reset kepala",
+        "sakit kepala kerana skrin",
+        "tekanan kepala"
       ]
     },
     "digestion": {
@@ -219,10 +255,20 @@
       "category": "Penghadaman",
       "summary": "Pilihan titik berfokuskan kesejahteraan yang sering digunakan dalam rutin tradisional untuk menyokong keselesaan penghadaman.",
       "aliases": [
-        "perut",
         "keselesaan penghadaman",
-        "selepas makan",
-        "perut rasa penuh"
+        "perut",
+        "perut rasa penuh",
+        "reset penghadaman",
+        "rutin perut",
+        "selepas makan"
+      ],
+      "keywords": [
+        "keselesaan penghadaman",
+        "perut",
+        "perut rasa penuh",
+        "reset penghadaman",
+        "rutin perut",
+        "selepas makan"
       ]
     },
     "focus": {
@@ -230,10 +276,22 @@
       "category": "Harian",
       "summary": "Rutin ringkas untuk melengkapkan tabiat yang menyokong fokus seperti rehat, hidrasi dan mengambil masa untuk berehat seketika.",
       "aliases": [
-        "tumpuan",
         "belajar",
+        "fokus mental",
         "kerja fokus",
-        "fokus mental"
+        "rutin belajar",
+        "sesi belajar",
+        "tumpuan",
+        "tumpuan kerja"
+      ],
+      "keywords": [
+        "belajar",
+        "fokus mental",
+        "kerja fokus",
+        "rutin belajar",
+        "sesi belajar",
+        "tumpuan",
+        "tumpuan kerja"
       ]
     },
     "low-energy": {
@@ -241,9 +299,21 @@
       "category": "Harian",
       "summary": "Rutin penjagaan diri pelengkap untuk hari-hari apabila anda berasa letih secara fizikal atau mental.",
       "aliases": [
-        "letih",
-        "lesu",
+        "cas semula",
         "kurang bertenaga",
+        "lesu",
+        "lesu petang",
+        "letih",
+        "reset pagi",
+        "tenaga pagi"
+      ],
+      "keywords": [
+        "cas semula",
+        "kurang bertenaga",
+        "lesu",
+        "lesu petang",
+        "letih",
+        "reset pagi",
         "tenaga pagi"
       ]
     },
@@ -252,10 +322,22 @@
       "category": "Keselesaan",
       "summary": "Titik yang secara tradisional dipilih untuk keselesaan umum pada leher dan bahu.",
       "aliases": [
-        "leher tegang",
+        "bahagian atas belakang",
+        "bahu pejabat",
         "bahu tegang",
         "ketegangan meja kerja",
-        "bahagian atas belakang"
+        "leher tegang",
+        "rehat postur",
+        "reset meja kerja"
+      ],
+      "keywords": [
+        "bahagian atas belakang",
+        "bahu pejabat",
+        "bahu tegang",
+        "ketegangan meja kerja",
+        "leher tegang",
+        "rehat postur",
+        "reset meja kerja"
       ]
     },
     "cravings": {
@@ -263,10 +345,20 @@
       "category": "Gaya Hidup",
       "summary": "Rutin sokongan untuk pemakanan lebih sedar. Ia bukan rawatan menurunkan berat badan dan tidak menggantikan pemakanan seimbang.",
       "aliases": [
-        "mengidam",
-        "snek",
         "keinginan manis",
-        "selera makan"
+        "keinginan snek",
+        "makan dengan sedar",
+        "mengidam",
+        "selera makan",
+        "snek"
+      ],
+      "keywords": [
+        "keinginan manis",
+        "keinginan snek",
+        "makan dengan sedar",
+        "mengidam",
+        "selera makan",
+        "snek"
       ]
     },
     "menstrual-comfort": {
@@ -297,10 +389,20 @@
       "category": "Perjalanan",
       "summary": "Rutin pelengkap yang kadangkala diterokai untuk rasa loya semasa perjalanan.",
       "aliases": [
-        "mabuk perjalanan",
+        "loya penerbangan",
         "mabuk laut",
+        "mabuk perjalanan",
         "mabuk udara",
-        "rasa loya"
+        "rasa loya",
+        "tidak selesa dalam kereta"
+      ],
+      "keywords": [
+        "loya penerbangan",
+        "mabuk laut",
+        "mabuk perjalanan",
+        "mabuk udara",
+        "rasa loya",
+        "tidak selesa dalam kereta"
       ]
     },
     "general-balance": {
@@ -312,6 +414,160 @@
         "penjagaan diri",
         "reset harian",
         "kesejahteraan umum"
+      ]
+    },
+    "eye-screen-comfort": {
+      "name": "Keselesaan Mata & Skrin",
+      "category": "Harian",
+      "summary": "Rutin rehat daripada skrin yang lembut, menggunakan titik yang secara tradisional dirujuk untuk keselesaan mata, ketenangan dan keseimbangan umum.",
+      "aliases": [
+        "mata penat",
+        "rehat skrin",
+        "keselesaan mata",
+        "mata selepas komputer",
+        "rehat telefon"
+      ],
+      "keywords": [
+        "mata",
+        "skrin",
+        "komputer",
+        "telefon",
+        "belajar",
+        "rehat skrin"
+      ]
+    },
+    "back-comfort": {
+      "name": "Keselesaan Belakang",
+      "category": "Keselesaan",
+      "summary": "Rutin keselesaan umum menggunakan titik aurikular yang secara tradisional dikaitkan dengan belakang, rehat postur dan relaksasi.",
+      "aliases": [
+        "belakang tegang",
+        "belakang tengah",
+        "belakang atas",
+        "keselesaan postur",
+        "reset belakang"
+      ],
+      "keywords": [
+        "belakang",
+        "postur",
+        "meja kerja",
+        "belakang atas",
+        "belakang tengah"
+      ]
+    },
+    "lower-body-comfort": {
+      "name": "Keselesaan Bahagian Bawah Badan",
+      "category": "Keselesaan",
+      "summary": "Rutin kesejahteraan ringkas untuk keselesaan pinggul dan bahagian bawah belakang selepas aktiviti harian biasa.",
+      "aliases": [
+        "keselesaan pinggul",
+        "bahagian bawah badan",
+        "pinggul tegang",
+        "pinggang dan pinggul",
+        "reset pinggul"
+      ],
+      "keywords": [
+        "pinggul",
+        "pinggang",
+        "belakang bawah",
+        "bahagian bawah badan",
+        "keselesaan"
+      ]
+    },
+    "breathing-reset": {
+      "name": "Reset Pernafasan",
+      "category": "Tenang",
+      "summary": "Rutin berhenti seketika dan bernafas untuk detik harian yang terasa tegang. Ia bukan untuk kesukaran bernafas atau simptom pernafasan.",
+      "aliases": [
+        "tarik nafas",
+        "rutin pernafasan",
+        "nafas tenang",
+        "reset nafas",
+        "pernafasan sedar"
+      ],
+      "keywords": [
+        "nafas",
+        "bernafas",
+        "tenang",
+        "reset",
+        "mindfulness"
+      ]
+    },
+    "after-meal-comfort": {
+      "name": "Keselesaan Selepas Makan",
+      "category": "Penghadaman",
+      "summary": "Rutin kesejahteraan penghadaman menggunakan titik yang secara tradisional dirujuk selepas makan dan dalam penjagaan diri berkaitan penghadaman.",
+      "aliases": [
+        "selepas makan",
+        "lepas makan",
+        "keselesaan makan",
+        "reset penghadaman",
+        "perut selepas makan"
+      ],
+      "keywords": [
+        "makan",
+        "selepas makan",
+        "penghadaman",
+        "perut",
+        "keselesaan"
+      ]
+    },
+    "daily-recovery": {
+      "name": "Pemulihan Harian",
+      "category": "Harian",
+      "summary": "Gabungan kesejahteraan yang lembut untuk membantu anda berehat dan reset selepas hari yang sibuk atau memenatkan.",
+      "aliases": [
+        "rutin pemulihan",
+        "hari yang panjang",
+        "reset selepas kerja",
+        "cas semula",
+        "pemulihan harian"
+      ],
+      "keywords": [
+        "pemulihan",
+        "rehat",
+        "cas semula",
+        "hari sibuk",
+        "reset"
+      ]
+    },
+    "deep-relaxation": {
+      "name": "Relaksasi Mendalam",
+      "category": "Tenang",
+      "summary": "Rutin kesejahteraan yang menenangkan menggunakan titik yang secara tradisional dirujuk untuk rehat, relaksasi dan menenangkan minda yang sibuk.",
+      "aliases": [
+        "tenang mendalam",
+        "relaks",
+        "minda tenang",
+        "perlahan seketika",
+        "rutin relaksasi"
+      ],
+      "keywords": [
+        "relaks",
+        "tenang",
+        "minda",
+        "rehat",
+        "relaksasi"
+      ]
+    },
+    "travel-balance": {
+      "name": "Keseimbangan Semasa Perjalanan",
+      "category": "Perjalanan",
+      "summary": "Rutin kesejahteraan perjalanan umum menggunakan titik yang secara tradisional dirujuk untuk keseimbangan, ketenangan dan keselesaan semasa perjalanan.",
+      "aliases": [
+        "keselesaan perjalanan",
+        "keseimbangan perjalanan",
+        "naik kereta",
+        "keselesaan penerbangan",
+        "naik bot"
+      ],
+      "keywords": [
+        "perjalanan",
+        "kereta",
+        "penerbangan",
+        "bot",
+        "keseimbangan",
+        "keselesaan"
       ]
     }
   },

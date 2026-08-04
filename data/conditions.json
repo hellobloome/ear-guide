@@ -3,10 +3,14 @@
     "id": "stress",
     "name": "Stress",
     "aliases": [
+      "busy day calm",
       "busy mind",
       "calm down",
+      "calm reset",
       "mental load",
+      "overthinking",
       "overwhelmed",
+      "quick calm",
       "relaxation",
       "stressed",
       "tension",
@@ -23,10 +27,14 @@
     "slug": "stress",
     "featured": true,
     "keywords": [
+      "busy day calm",
       "busy mind",
       "calm down",
+      "calm reset",
       "mental load",
+      "overthinking",
       "overwhelmed",
+      "quick calm",
       "relaxation",
       "stressed",
       "tension",
@@ -40,12 +48,16 @@
     "name": "Sleep",
     "aliases": [
       "bedtime",
+      "bedtime calm",
       "bedtime routine",
       "can't sleep",
+      "evening wind down",
       "insomnia",
+      "night reset",
       "night routine",
       "rest",
       "sleep routine",
+      "sleep wind down",
       "wind down"
     ],
     "summary": "A calming ear-seed routine commonly explored as part of a healthy bedtime ritual.",
@@ -60,12 +72,16 @@
     "featured": true,
     "keywords": [
       "bedtime",
+      "bedtime calm",
       "bedtime routine",
       "can't sleep",
+      "evening wind down",
       "insomnia",
+      "night reset",
       "night routine",
       "rest",
       "sleep routine",
+      "sleep wind down",
       "wind down"
     ],
     "i18nKey": "condition.sleep",
@@ -77,9 +93,12 @@
     "aliases": [
       "head pain",
       "head pressure",
+      "head reset",
       "headache",
       "migraine",
+      "screen head tension",
       "screen headache",
+      "temple comfort",
       "temple tension"
     ],
     "summary": "Points traditionally referenced in complementary routines for head comfort.",
@@ -95,9 +114,12 @@
     "keywords": [
       "head pain",
       "head pressure",
+      "head reset",
       "headache",
       "migraine",
+      "screen head tension",
       "screen headache",
+      "temple comfort",
       "temple tension"
     ],
     "i18nKey": "condition.head-tension",
@@ -110,11 +132,14 @@
       "after meal",
       "bloating",
       "digestive comfort",
+      "digestive reset",
       "full stomach",
       "gas",
       "indigestion",
+      "meal wellness",
       "stomach",
-      "stomach discomfort"
+      "stomach discomfort",
+      "stomach routine"
     ],
     "summary": "A wellness-focused selection often used in traditional digestive-support routines.",
     "pointIds": [
@@ -130,11 +155,14 @@
       "after meal",
       "bloating",
       "digestive comfort",
+      "digestive reset",
       "full stomach",
       "gas",
       "indigestion",
+      "meal wellness",
       "stomach",
-      "stomach discomfort"
+      "stomach discomfort",
+      "stomach routine"
     ],
     "i18nKey": "condition.digestion",
     "mapReady": true
@@ -143,13 +171,17 @@
     "id": "focus",
     "name": "Focus",
     "aliases": [
+      "attention reset",
       "clarity",
       "concentration",
       "deep work",
       "mental focus",
       "study",
       "study focus",
+      "study routine",
+      "study session",
       "work",
+      "work concentration",
       "work focus"
     ],
     "summary": "A simple routine intended to complement focus-friendly habits such as rest, hydration and breaks.",
@@ -163,13 +195,17 @@
     "slug": "focus",
     "featured": true,
     "keywords": [
+      "attention reset",
       "clarity",
       "concentration",
       "deep work",
       "mental focus",
       "study",
       "study focus",
+      "study routine",
+      "study session",
       "work",
+      "work concentration",
       "work focus"
     ],
     "i18nKey": "condition.focus",
@@ -179,11 +215,14 @@
     "id": "low-energy",
     "name": "Low Energy",
     "aliases": [
+      "afternoon slump",
       "daytime tiredness",
       "energy",
       "fatigue",
       "low energy",
       "morning energy",
+      "morning reset",
+      "recharge routine",
       "sluggish",
       "tired"
     ],
@@ -198,11 +237,14 @@
     "slug": "low-energy",
     "featured": false,
     "keywords": [
+      "afternoon slump",
       "daytime tiredness",
       "energy",
       "fatigue",
       "low energy",
       "morning energy",
+      "morning reset",
+      "recharge routine",
       "sluggish",
       "tired"
     ],
@@ -213,9 +255,12 @@
     "id": "neck-shoulder-tension",
     "name": "Neck & Shoulder Tension",
     "aliases": [
+      "desk reset",
       "desk tension",
       "neck pain",
       "office neck",
+      "office shoulders",
+      "posture break",
       "shoulder pain",
       "stiff neck",
       "tight shoulders",
@@ -232,9 +277,12 @@
     "slug": "neck-shoulder-tension",
     "featured": false,
     "keywords": [
+      "desk reset",
       "desk tension",
       "neck pain",
       "office neck",
+      "office shoulders",
+      "posture break",
       "shoulder pain",
       "stiff neck",
       "tight shoulders",
@@ -251,7 +299,10 @@
       "appetite routine",
       "food cravings",
       "food urge",
+      "mindful eating",
+      "snack urge",
       "snacking",
+      "sweet craving routine",
       "sweet cravings"
     ],
     "summary": "A mindful-eating support routine. It is not a weight-loss treatment and should not replace balanced nutrition.",
@@ -269,7 +320,10 @@
       "appetite routine",
       "food cravings",
       "food urge",
+      "mindful eating",
+      "snack urge",
       "snacking",
+      "sweet craving routine",
       "sweet cravings"
     ],
     "i18nKey": "condition.cravings",
@@ -348,7 +402,10 @@
     "name": "Travel Queasiness",
     "aliases": [
       "airsick",
+      "car queasiness",
       "car sick",
+      "flight queasiness",
+      "motion discomfort",
       "motion sickness",
       "nausea",
       "queasy travel",
@@ -367,7 +424,10 @@
     "featured": false,
     "keywords": [
       "airsick",
+      "car queasiness",
       "car sick",
+      "flight queasiness",
+      "motion discomfort",
       "motion sickness",
       "nausea",
       "queasy travel",
@@ -408,6 +468,300 @@
       "wellness reset"
     ],
     "i18nKey": "condition.general-balance",
+    "mapReady": true
+  },
+  {
+    "id": "eye-screen-comfort",
+    "name": "Eye & Screen Comfort",
+    "aliases": [
+      "screen fatigue",
+      "eye comfort",
+      "tired eyes",
+      "screen break",
+      "computer eyes",
+      "digital eye break"
+    ],
+    "summary": "A gentle screen-break routine built around points traditionally referenced for eye comfort, calm and general balance.",
+    "pointIds": [
+      "eye",
+      "liver",
+      "shen-men",
+      "point-zero"
+    ],
+    "category": "Daily",
+    "slug": "eye-screen-comfort",
+    "featured": false,
+    "keywords": [
+      "computer",
+      "computer eyes",
+      "digital eye break",
+      "eye comfort",
+      "eyes",
+      "phone",
+      "screen",
+      "screen break",
+      "screen fatigue",
+      "study",
+      "tired eyes"
+    ],
+    "i18nKey": "condition.eye-screen-comfort",
+    "mapReady": true
+  },
+  {
+    "id": "back-comfort",
+    "name": "Back Comfort",
+    "aliases": [
+      "back tension",
+      "mid back",
+      "upper back",
+      "posture comfort",
+      "desk back",
+      "back reset"
+    ],
+    "summary": "A general comfort routine using auricular points traditionally associated with the back, posture breaks and relaxation.",
+    "pointIds": [
+      "thoracic-spine",
+      "lumbar-spine",
+      "shoulder",
+      "shen-men"
+    ],
+    "category": "Comfort",
+    "slug": "back-comfort",
+    "featured": false,
+    "keywords": [
+      "back",
+      "back comfort",
+      "back reset",
+      "back tension",
+      "desk",
+      "desk back",
+      "mid back",
+      "posture",
+      "posture comfort",
+      "upper back"
+    ],
+    "i18nKey": "condition.back-comfort",
+    "mapReady": true
+  },
+  {
+    "id": "lower-body-comfort",
+    "name": "Lower-Body Comfort",
+    "aliases": [
+      "hip comfort",
+      "lower body",
+      "hip tension",
+      "lower back and hip",
+      "leg day recovery",
+      "hip reset"
+    ],
+    "summary": "A simple lower-body wellness routine centred on hip and lower-back comfort after ordinary daily activity.",
+    "pointIds": [
+      "hip",
+      "lumbar-spine",
+      "sympathetic",
+      "shen-men"
+    ],
+    "category": "Comfort",
+    "slug": "lower-body-comfort",
+    "featured": false,
+    "keywords": [
+      "comfort",
+      "hip",
+      "hip comfort",
+      "hip reset",
+      "hip tension",
+      "leg day recovery",
+      "lower back",
+      "lower back and hip",
+      "lower body",
+      "recovery"
+    ],
+    "i18nKey": "condition.lower-body-comfort",
+    "mapReady": true
+  },
+  {
+    "id": "breathing-reset",
+    "name": "Breathing Reset",
+    "aliases": [
+      "pause and breathe",
+      "breathing routine",
+      "calm breathing",
+      "breath reset",
+      "mindful breathing"
+    ],
+    "summary": "A pause-and-breathe wellness routine for ordinary moments of tension. It is not intended for breathing difficulty or respiratory symptoms.",
+    "pointIds": [
+      "lung",
+      "shen-men",
+      "sympathetic",
+      "point-zero"
+    ],
+    "category": "Calm",
+    "slug": "breathing-reset",
+    "featured": false,
+    "keywords": [
+      "breath",
+      "breath reset",
+      "breathing",
+      "breathing routine",
+      "calm",
+      "calm breathing",
+      "mindful breathing",
+      "mindfulness",
+      "pause",
+      "pause and breathe",
+      "reset"
+    ],
+    "i18nKey": "condition.breathing-reset",
+    "mapReady": true
+  },
+  {
+    "id": "after-meal-comfort",
+    "name": "After-Meal Comfort",
+    "aliases": [
+      "after eating",
+      "post meal",
+      "full after eating",
+      "meal comfort",
+      "digestive reset",
+      "after meal"
+    ],
+    "summary": "A digestive-wellness routine using points traditionally referenced after meals and in general digestive self-care.",
+    "pointIds": [
+      "stomach",
+      "large-intestine",
+      "small-intestine",
+      "spleen"
+    ],
+    "category": "Digestion",
+    "slug": "after-meal-comfort",
+    "featured": false,
+    "keywords": [
+      "after eating",
+      "after meal",
+      "digestion",
+      "digestive comfort",
+      "digestive reset",
+      "full after eating",
+      "fullness",
+      "meal",
+      "meal comfort",
+      "post meal",
+      "stomach"
+    ],
+    "i18nKey": "condition.after-meal-comfort",
+    "mapReady": true
+  },
+  {
+    "id": "daily-recovery",
+    "name": "Daily Recovery",
+    "aliases": [
+      "recovery routine",
+      "long day",
+      "reset after work",
+      "recharge",
+      "everyday recovery",
+      "day recovery"
+    ],
+    "summary": "A gentle end-of-day wellness combination for resetting after a demanding or busy day.",
+    "pointIds": [
+      "adrenal",
+      "kidney",
+      "shen-men",
+      "subcortex"
+    ],
+    "category": "Daily",
+    "slug": "daily-recovery",
+    "featured": false,
+    "keywords": [
+      "busy day",
+      "day recovery",
+      "everyday recovery",
+      "long day",
+      "recharge",
+      "recovery",
+      "recovery routine",
+      "reset",
+      "reset after work",
+      "rest"
+    ],
+    "i18nKey": "condition.daily-recovery",
+    "mapReady": true
+  },
+  {
+    "id": "deep-relaxation",
+    "name": "Deep Relaxation",
+    "aliases": [
+      "deep calm",
+      "relax deeply",
+      "quiet mind",
+      "slow down",
+      "relaxation routine",
+      "unwind deeply"
+    ],
+    "summary": "A calming wellness routine built around points traditionally referenced for rest, relaxation and settling a busy mind.",
+    "pointIds": [
+      "subcortex",
+      "shen-men",
+      "heart",
+      "thalamus"
+    ],
+    "category": "Calm",
+    "slug": "deep-relaxation",
+    "featured": false,
+    "keywords": [
+      "calm",
+      "deep calm",
+      "deep relaxation",
+      "quiet mind",
+      "relax",
+      "relax deeply",
+      "relaxation routine",
+      "rest",
+      "slow down",
+      "unwind",
+      "unwind deeply"
+    ],
+    "i18nKey": "condition.deep-relaxation",
+    "mapReady": true
+  },
+  {
+    "id": "travel-balance",
+    "name": "Travel Balance",
+    "aliases": [
+      "motion comfort",
+      "travel comfort",
+      "balance while travelling",
+      "car ride comfort",
+      "flight comfort",
+      "boat comfort"
+    ],
+    "summary": "A general travel-wellness routine using points traditionally referenced for balance, calm and travel comfort.",
+    "pointIds": [
+      "inner-ear",
+      "stomach",
+      "shen-men",
+      "sympathetic"
+    ],
+    "category": "Travel",
+    "slug": "travel-balance",
+    "featured": false,
+    "keywords": [
+      "balance",
+      "balance while travelling",
+      "boat",
+      "boat comfort",
+      "car",
+      "car ride comfort",
+      "flight",
+      "flight comfort",
+      "journey",
+      "motion",
+      "motion comfort",
+      "travel",
+      "travel comfort"
+    ],
+    "i18nKey": "condition.travel-balance",
     "mapReady": true
   }
 ]

@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "15",
+  "version": "16",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -35,12 +35,13 @@
     "allLibraryPointsMapped": true,
     "mappedReferenceDistinction": false,
     "guidedApplicationMode": true,
-    "guidedApplicationBilingual": true
+    "guidedApplicationBilingual": true,
+    "expandedConditionLibrary": true
   },
-  "releaseName": "Guided Application Mode",
+  "releaseName": "Condition Library Expansion",
   "database": {
     "acupointCount": 30,
-    "conditionCount": 12,
+    "conditionCount": 20,
     "mappedAcupointCount": 30
   },
   "mapReference": {
