@@ -49,8 +49,8 @@ const mapPositions={
 };
 
 const anatomicalEarSvg=(extraClass="")=>`
-<div class="premium-ear-wrap ${extraClass}" aria-label="Minimal line-art ear illustration">
-  <img class="premium-ear-image" src="./images/ear-option-1.webp" alt="Minimal line-art illustration of an ear">
+<div class="premium-ear-wrap ${extraClass}" aria-label="Clean ear illustration">
+  <img class="premium-ear-image" src="./images/bloome-ear-clean.svg" alt="Clean illustration of an ear">
 </div>`;
 
 function escapeHtml(value=""){
@@ -367,7 +367,7 @@ function homeView(){
   return `
   <section class="route premium-home">
     <div class="route-hero premium-hero"><div class="container route-grid">
-      <div class="hero-copy reveal-item"><p class="eyebrow">Bloomé Ear Acupoint Guide</p><h1>What would you like support with today?</h1><p class="lead">Choose a wellness need or search by name. We’ll show the suggested points directly on the ear.</p>${searchBoxMarkup("home-search")}<div class="hero-trust"><span>◌ Visual point guidance</span><span>✧ Beginner friendly</span></div></div>
+      <div class="hero-copy reveal-item"><p class="eyebrow">Bloomé Ear Acupoint Guide</p><h1>What would you like to focus on today?</h1><p class="lead">Choose a wellness need or search by name. We’ll show the suggested points directly on the ear.</p>${searchBoxMarkup("home-search")}<div class="hero-trust"><span>◌ Visual point guidance</span><span>✧ Beginner friendly</span></div></div>
       <div class="hero-card premium-hero-card reveal-item">${anatomicalEarSvg("hero-ear")}<div class="hero-card-note">A calmer way to find your points</div></div>
     </div></div>
     <section class="section soft-section need-section"><div class="container"><div class="section-heading centered-heading reveal-item"><p class="eyebrow">Start with a need</p><h2>Choose what feels most relevant.</h2><p>Each guide opens with a focused ear map, so you can see the combination before reading the details.</p></div><div class="need-grid">${journeys.map((j,i)=>`<button class="need-card reveal-item" style="--delay:${i*55}ms" data-open-route="condition" data-open-id="${j[3]}"><span class="need-icon">${j[0]}</span><h3>${j[1]}</h3><p>${j[2]}</p><span class="need-link">View guide <b>→</b></span></button>`).join("")}</div></div></section>

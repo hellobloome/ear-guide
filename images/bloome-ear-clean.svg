@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="520" height="760" viewBox="0 0 520 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fillEar" x1="143" y1="92" x2="401" y2="633" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FBF6F2"/>
+      <stop offset="0.55" stop-color="#F3E5DD"/>
+      <stop offset="1" stop-color="#EAD7CD"/>
+    </linearGradient>
+    <linearGradient id="strokeEar" x1="226" y1="80" x2="319" y2="646" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7A3B31"/>
+      <stop offset="1" stop-color="#5A1611"/>
+    </linearGradient>
+    <filter id="softShadow" x="48" y="40" width="414" height="656" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#5A1611" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#softShadow)">
+    <path d="M258 68
+             C182 73 125 125 106 201
+             C92 260 103 317 129 360
+             C149 393 170 421 179 453
+             C189 489 187 523 199 555
+             C218 607 264 642 327 642
+             C394 642 438 597 438 536
+             C438 492 419 460 398 429
+             C377 397 361 368 363 326
+             C364 286 381 255 391 221
+             C408 165 396 116 353 88
+             C326 70 291 63 258 68Z"
+          fill="url(#fillEar)" stroke="url(#strokeEar)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <path d="M176 142
+           C154 179 146 226 152 272
+           C158 315 177 351 204 386"
+        stroke="white" stroke-opacity="0.6" stroke-width="12" stroke-linecap="round"/>
+
+  <path d="M260 103
+           C206 109 164 144 149 209
+           C138 256 149 301 173 341
+           C196 377 224 411 230 450
+           C235 486 228 525 245 561
+           C261 596 295 618 329 618
+           C376 618 409 587 409 540
+           C409 503 394 475 376 446
+           C357 414 340 382 341 334
+           C343 283 360 245 370 209
+           C384 156 373 123 341 106
+           C317 93 290 98 260 103Z"
+        stroke="#5A1611" stroke-width="7.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M320 154
+           C275 164 240 196 230 245
+           C224 275 231 306 248 332
+           C266 356 289 373 299 396
+           C312 427 309 467 288 494
+           C270 518 242 530 241 554
+           C241 580 260 599 290 603"
+        stroke="#5A1611" stroke-width="6.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M321 202
+           C291 210 267 233 261 265
+           C255 295 266 321 286 340
+           C307 360 332 377 338 405
+           C344 434 334 466 313 488
+           C297 505 277 514 275 531"
+        stroke="#5A1611" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M196 326
+           C212 315 231 317 241 332
+           C251 348 250 368 235 380
+           C220 391 201 385 196 367"
+        stroke="#5A1611" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M206 397
+           C224 390 243 396 252 410
+           C260 423 255 439 239 446
+           C222 453 205 444 200 429"
+        stroke="#5A1611" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M251 277
+           C233 293 229 322 241 342
+           C255 365 282 377 305 382
+           C329 387 346 404 349 430
+           C351 456 336 476 316 485
+           C292 496 257 492 239 466
+           C222 440 222 413 224 389
+           C226 360 214 336 216 313
+           C218 291 231 273 251 277Z"
+        stroke="#5A1611" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <path d="M244 558
+           C243 593 269 618 306 621
+           C329 623 351 611 362 592
+           C372 575 371 555 360 542
+           C348 529 329 531 311 542
+           C289 556 267 564 244 558Z"
+        stroke="#5A1611" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <ellipse cx="271" cy="262" rx="112" ry="148" fill="white" fill-opacity="0.18"/>
+</svg>
