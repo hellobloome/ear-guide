@@ -16,41 +16,41 @@ let selectedConditionPoint=new Map();
 let applicationProgress=new Map();
 
 const mapPositions={
-  "shen-men":[61,25],
-  "point-zero":[50,44],
-  "heart":[42,54],
-  "sympathetic":[31,40],
-  "kidney":[59,37],
-  "occiput":[34,65],
+  "shen-men":[36,24],
+  "point-zero":[48,45],
+  "heart":[41,56],
+  "sympathetic":[33,46],
+  "kidney":[58,39],
+  "occiput":[39,59],
   "stomach":[49,50],
-  "spleen":[55,54],
-  "brain":[39,69],
-  "endocrine":[48,66],
-  "mouth":[43,58],
-  "cervical-spine":[66,57],
-  "shoulder":[70,47],
-  "jaw":[44,77],
-  "liver":[57,44],
-  "lung":[47,56],
-  "large-intestine":[43,39],
-  "small-intestine":[49,40],
-  "bladder":[54,35],
-  "gallbladder":[58,32],
-  "pancreas":[61,34],
-  "adrenal":[33,58],
-  "subcortex":[37,68],
-  "thalamus":[41,67],
-  "ear-apex":[50,13],
-  "eye":[38,80],
-  "inner-ear":[48,82],
-  "thoracic-spine":[66,51],
-  "lumbar-spine":[64,44],
-  "hip":[62,38]
+  "spleen":[55,52],
+  "brain":[36,71],
+  "endocrine":[46,64],
+  "mouth":[42,60],
+  "cervical-spine":[67,56],
+  "shoulder":[72,47],
+  "jaw":[42,76],
+  "liver":[56,44],
+  "lung":[45,55],
+  "large-intestine":[42,40],
+  "small-intestine":[47,42],
+  "bladder":[53,36],
+  "gallbladder":[59,34],
+  "pancreas":[62,35],
+  "adrenal":[34,58],
+  "subcortex":[38,67],
+  "thalamus":[41,66],
+  "ear-apex":[50,12],
+  "eye":[37,80],
+  "inner-ear":[47,82],
+  "thoracic-spine":[67,51],
+  "lumbar-spine":[65,44],
+  "hip":[63,38]
 };
 
 const anatomicalEarSvg=(extraClass="")=>`
 <div class="premium-ear-wrap ${extraClass}" aria-label="Minimal line-art ear illustration">
-  <img class="premium-ear-image" src="./images/ear-option-1.webp" alt="Minimal line-art illustration of an ear">
+  <img class="premium-ear-image" src="./images/ear-option-1.png" alt="Minimal line-art illustration of an ear">
 </div>`;
 
 function markerLabelClass(left,top){
@@ -1246,3 +1246,5 @@ loadData();
 
 
 /* Bloomé Package 17 — Combination Audit */
+
+/* Bloomé Package 19.1 — Full Map Audit */

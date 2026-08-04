@@ -40,8 +40,8 @@
     "mapReady": true,
     "i18nKey": "point.shen-men",
     "mapPosition": [
-      61,
-      25
+      36,
+      24
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },
@@ -78,8 +78,8 @@
     "mapReady": true,
     "i18nKey": "point.point-zero",
     "mapPosition": [
-      50,
-      44
+      48,
+      45
     ],
     "mapSystem": "Nogier / existing Bloomé reference"
   },
@@ -108,8 +108,8 @@
     "mapReady": true,
     "i18nKey": "point.heart",
     "mapPosition": [
-      42,
-      54
+      41,
+      56
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },
@@ -147,8 +147,8 @@
     "mapReady": true,
     "i18nKey": "point.sympathetic",
     "mapPosition": [
-      31,
-      40
+      33,
+      46
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },
@@ -179,8 +179,8 @@
     "mapReady": true,
     "i18nKey": "point.kidney",
     "mapPosition": [
-      59,
-      37
+      58,
+      39
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },
@@ -210,8 +210,8 @@
     "mapReady": true,
     "i18nKey": "point.occiput",
     "mapPosition": [
-      34,
-      65
+      39,
+      59
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },
@@ -273,7 +273,7 @@
     "i18nKey": "point.spleen",
     "mapPosition": [
       55,
-      54
+      52
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },
@@ -303,8 +303,8 @@
     "mapReady": true,
     "i18nKey": "point.brain",
     "mapPosition": [
-      39,
-      69
+      36,
+      71
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },
@@ -333,8 +333,8 @@
     "mapReady": true,
     "i18nKey": "point.endocrine",
     "mapPosition": [
-      48,
-      66
+      46,
+      64
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },
@@ -363,8 +363,8 @@
     "mapReady": true,
     "i18nKey": "point.mouth",
     "mapPosition": [
-      43,
-      58
+      42,
+      60
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },
@@ -393,8 +393,8 @@
     "mapReady": true,
     "i18nKey": "point.cervical-spine",
     "mapPosition": [
-      66,
-      57
+      67,
+      56
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },
@@ -422,7 +422,7 @@
     "mapReady": true,
     "i18nKey": "point.shoulder",
     "mapPosition": [
-      70,
+      72,
       47
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
@@ -452,8 +452,8 @@
     "mapReady": true,
     "i18nKey": "point.jaw",
     "mapPosition": [
-      44,
-      77
+      42,
+      76
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },
@@ -480,7 +480,7 @@
     "mapReady": true,
     "i18nKey": "point.liver",
     "mapPosition": [
-      57,
+      56,
       44
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
@@ -509,8 +509,8 @@
     "mapReady": true,
     "i18nKey": "point.lung",
     "mapPosition": [
-      47,
-      56
+      45,
+      55
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
     "mapCode": "CO14"
@@ -540,8 +540,8 @@
     "mapReady": true,
     "i18nKey": "point.large-intestine",
     "mapPosition": [
-      43,
-      39
+      42,
+      40
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
     "mapCode": "CO7"
@@ -569,8 +569,8 @@
     "mapReady": true,
     "i18nKey": "point.small-intestine",
     "mapPosition": [
-      49,
-      40
+      47,
+      42
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
     "mapCode": "CO6"
@@ -596,8 +596,8 @@
     "mapReady": true,
     "i18nKey": "point.bladder",
     "mapPosition": [
-      54,
-      35
+      53,
+      36
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
     "mapCode": "CO9"
@@ -623,8 +623,8 @@
     "mapReady": true,
     "i18nKey": "point.gallbladder",
     "mapPosition": [
-      58,
-      32
+      59,
+      34
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
     "mapCode": "CO11",
@@ -652,8 +652,8 @@
     "mapReady": true,
     "i18nKey": "point.pancreas",
     "mapPosition": [
-      61,
-      34
+      62,
+      35
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
     "mapCode": "CO11",
@@ -683,7 +683,7 @@
     "mapReady": true,
     "i18nKey": "point.adrenal",
     "mapPosition": [
-      33,
+      34,
       58
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
@@ -715,8 +715,8 @@
     "mapReady": true,
     "i18nKey": "point.subcortex",
     "mapPosition": [
-      37,
-      68
+      38,
+      67
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
     "mapCode": "AT4",
@@ -747,7 +747,7 @@
     "i18nKey": "point.thalamus",
     "mapPosition": [
       41,
-      67
+      66
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
     "mapCode": "AT4",
@@ -778,7 +778,7 @@
     "i18nKey": "point.ear-apex",
     "mapPosition": [
       50,
-      13
+      12
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
     "mapCode": "HX6,7i"
@@ -808,7 +808,7 @@
     "mapReady": true,
     "i18nKey": "point.eye",
     "mapPosition": [
-      38,
+      37,
       80
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
@@ -840,7 +840,7 @@
     "mapReady": true,
     "i18nKey": "point.inner-ear",
     "mapPosition": [
-      48,
+      47,
       82
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
@@ -871,7 +871,7 @@
     "mapReady": true,
     "i18nKey": "point.thoracic-spine",
     "mapPosition": [
-      66,
+      67,
       51
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
@@ -903,7 +903,7 @@
     "mapReady": true,
     "i18nKey": "point.lumbar-spine",
     "mapPosition": [
-      64,
+      65,
       44
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
@@ -932,7 +932,7 @@
     "mapReady": true,
     "i18nKey": "point.hip",
     "mapPosition": [
-      62,
+      63,
       38
     ],
     "mapSystem": "WFAS-style anatomical auricular reference",
