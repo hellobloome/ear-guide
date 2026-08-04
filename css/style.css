@@ -1659,3 +1659,53 @@ h3,p{margin-top:0}
     transition:none;
   }
 }
+
+
+/* ==========================================================
+   Bloomé Package 17 — Combination Audit
+   Adds guide-intent context and explicit condition roles.
+   ========================================================== */
+
+.condition-use-when{
+  width:min(720px,100%);
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:10px;
+  align-items:start;
+  margin-top:22px;
+  padding:14px 17px;
+  border:1px solid rgba(90,22,17,.09);
+  border-radius:17px;
+  background:rgba(255,253,252,.58);
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.6;
+}
+
+.condition-use-when strong{
+  color:var(--primary);
+  white-space:nowrap;
+}
+
+.condition-related-guides{
+  margin-top:28px;
+  padding:24px;
+  border:1px solid rgba(90,22,17,.08);
+  border-radius:22px;
+  background:rgba(255,253,252,.72);
+}
+
+.condition-related-guides .eyebrow{
+  margin-bottom:12px;
+}
+
+@media(max-width:680px){
+  .condition-use-when{
+    grid-template-columns:1fr;
+    gap:4px;
+  }
+
+  .condition-related-guides{
+    padding:20px;
+  }
+}

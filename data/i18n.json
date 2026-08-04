@@ -170,7 +170,10 @@
         "Review application guide": "Semak panduan penggunaan",
         "This guided mode is for general wellness education and does not confirm clinical point placement. Stop and remove the ear seed if irritation, swelling, dizziness or significant discomfort occurs.": "Mod panduan ini adalah untuk pendidikan kesejahteraan umum dan tidak mengesahkan kedudukan titik secara klinikal. Hentikan penggunaan dan tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara.",
         "Step": "Langkah",
-        "of": "daripada"
+        "of": "daripada",
+        "Best for": "Sesuai untuk",
+        "A lighter add-on. Skip it if you prefer a shorter routine.": "Tambahan ringan. Anda boleh abaikannya jika mahu rutin yang lebih ringkas.",
+        "Builds on the primary point as part of the suggested routine.": "Melengkapi titik utama sebagai sebahagian daripada rutin yang dicadangkan."
       },
       "placeholders": {
         "Try “sleep”, “stress” or “Shen Men”": "Cuba “tidur”, “stres” atau “Shen Men”",
@@ -202,7 +205,8 @@
         "tekanan",
         "tenangkan diri",
         "terlebih fikir"
-      ]
+      ],
+      "useWhen": "Pilih ini apabila anda mahukan reset ringkas untuk menenangkan diri pada hari yang terasa sibuk atau tegang."
     },
     "sleep": {
       "name": "Tidur",
@@ -227,7 +231,8 @@
         "sukar tidur",
         "tenang sebelum tidur",
         "waktu malam"
-      ]
+      ],
+      "useWhen": "Pilih ini untuk rutin bertenang pada waktu malam atau sebelum tidur."
     },
     "head-tension": {
       "name": "Ketegangan Kepala",
@@ -248,7 +253,8 @@
         "reset kepala",
         "sakit kepala kerana skrin",
         "tekanan kepala"
-      ]
+      ],
+      "useWhen": "Pilih ini untuk ketegangan kepala atau pelipis biasa sebagai sebahagian daripada rutin keselesaan umum."
     },
     "digestion": {
       "name": "Penghadaman",
@@ -269,7 +275,8 @@
         "reset penghadaman",
         "rutin perut",
         "selepas makan"
-      ]
+      ],
+      "useWhen": "Pilih ini sebagai rutin kesejahteraan penghadaman yang umum, bukan khusus untuk waktu selepas makan."
     },
     "focus": {
       "name": "Fokus",
@@ -292,7 +299,8 @@
         "sesi belajar",
         "tumpuan",
         "tumpuan kerja"
-      ]
+      ],
+      "useWhen": "Pilih ini untuk rutin belajar, kerja meja atau tumpuan bersama rehat biasa dan hidrasi yang mencukupi."
     },
     "low-energy": {
       "name": "Kurang Tenaga",
@@ -315,7 +323,8 @@
         "letih",
         "reset pagi",
         "tenaga pagi"
-      ]
+      ],
+      "useWhen": "Pilih ini pada hari biasa yang terasa kurang bertenaga apabila anda mahukan reset penjagaan diri yang ringkas."
     },
     "neck-shoulder-tension": {
       "name": "Ketegangan Leher & Bahu",
@@ -338,7 +347,8 @@
         "leher tegang",
         "rehat postur",
         "reset meja kerja"
-      ]
+      ],
+      "useWhen": "Pilih ini apabila kawasan utama yang terasa tegang ialah leher dan bahu."
     },
     "cravings": {
       "name": "Keinginan Makan",
@@ -359,7 +369,8 @@
         "mengidam",
         "selera makan",
         "snek"
-      ]
+      ],
+      "useWhen": "Pilih ini sebagai sokongan untuk pemakanan lebih sedar, bukan sebagai rawatan menurunkan berat badan."
     },
     "menstrual-comfort": {
       "name": "Keselesaan Haid",
@@ -371,7 +382,8 @@
         "keselesaan bulanan",
         "kitaran haid",
         "premenstrual"
-      ]
+      ],
+      "useWhen": "Pilih ini sebagai rutin penjagaan diri umum sepanjang kitaran haid."
     },
     "jaw-tension": {
       "name": "Ketegangan Rahang",
@@ -382,7 +394,8 @@
         "ketap gigi",
         "gigi bergeser",
         "rahang ketat"
-      ]
+      ],
+      "useWhen": "Pilih ini untuk rutin merehatkan rahang, terutama apabila anda sedar anda mengetap gigi atau muka terasa tegang."
     },
     "travel-queasiness": {
       "name": "Loya Semasa Perjalanan",
@@ -403,7 +416,8 @@
         "mabuk udara",
         "rasa loya",
         "tidak selesa dalam kereta"
-      ]
+      ],
+      "useWhen": "Pilih ini apabila rasa loya ialah ketidakselesaan utama semasa perjalanan. Dapatkan rawatan perubatan jika simptom teruk atau berterusan."
     },
     "general-balance": {
       "name": "Keseimbangan Umum",
@@ -414,7 +428,8 @@
         "penjagaan diri",
         "reset harian",
         "kesejahteraan umum"
-      ]
+      ],
+      "useWhen": "Pilih ini apabila anda mahukan rutin tiga titik yang ringkas tanpa fokus pada keperluan tertentu."
     },
     "eye-screen-comfort": {
       "name": "Keselesaan Mata & Skrin",
@@ -434,7 +449,8 @@
         "telefon",
         "belajar",
         "rehat skrin"
-      ]
+      ],
+      "useWhen": "Pilih ini untuk rutin rehat skrin atau mata penat bersama rehat visual secara berkala."
     },
     "back-comfort": {
       "name": "Keselesaan Belakang",
@@ -453,7 +469,8 @@
         "meja kerja",
         "belakang atas",
         "belakang tengah"
-      ]
+      ],
+      "useWhen": "Pilih ini apabila keselesaan bahagian atas atau tengah belakang ialah fokus utama."
     },
     "lower-body-comfort": {
       "name": "Keselesaan Bahagian Bawah Badan",
@@ -472,7 +489,8 @@
         "belakang bawah",
         "bahagian bawah badan",
         "keselesaan"
-      ]
+      ],
+      "useWhen": "Pilih ini apabila keselesaan pinggul atau bahagian bawah belakang ialah fokus utama."
     },
     "breathing-reset": {
       "name": "Reset Pernafasan",
@@ -491,7 +509,8 @@
         "tenang",
         "reset",
         "mindfulness"
-      ]
+      ],
+      "useWhen": "Pilih ini untuk rutin berhenti seketika dan bernafas dengan sedar. Ia bukan untuk sesak nafas atau simptom pernafasan."
     },
     "after-meal-comfort": {
       "name": "Keselesaan Selepas Makan",
@@ -510,7 +529,8 @@
         "penghadaman",
         "perut",
         "keselesaan"
-      ]
+      ],
+      "useWhen": "Pilih ini apabila anda mahukan rutin kesejahteraan penghadaman yang lembut selepas makan biasa."
     },
     "daily-recovery": {
       "name": "Pemulihan Harian",
@@ -529,7 +549,8 @@
         "cas semula",
         "hari sibuk",
         "reset"
-      ]
+      ],
+      "useWhen": "Pilih ini untuk reset pada penghujung hari selepas kesibukan mental atau fizikal biasa."
     },
     "deep-relaxation": {
       "name": "Relaksasi Mendalam",
@@ -548,7 +569,8 @@
         "minda",
         "rehat",
         "relaksasi"
-      ]
+      ],
+      "useWhen": "Pilih ini apabila anda mahukan rutin yang lebih perlahan dan berfokus pada rehat, bukan reset stres yang cepat pada waktu siang."
     },
     "travel-balance": {
       "name": "Keseimbangan Semasa Perjalanan",
@@ -568,7 +590,8 @@
         "bot",
         "keseimbangan",
         "keselesaan"
-      ]
+      ],
+      "useWhen": "Pilih ini apabila keseimbangan dan keselesaan perjalanan umum ialah fokus utama, bukan rasa loya itu sendiri."
     }
   },
   "points": {

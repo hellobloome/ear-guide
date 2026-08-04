@@ -573,15 +573,20 @@ function fullMapView(){
 }
 
 
-function combinationRole(index,total){
+function combinationRole(index,total,condition=null){
+  const explicit=condition?.pointRoles?.[index];
+  const fallback=index===0?"primary":(index===total-1&&total>3?"optional":"support");
+  const role=explicit||fallback;
+
   if(currentLocale==="ms"){
-    if(index===0)return ["Utama","Mula di sini","Titik utama dalam gabungan Bloomé ini."];
-    if(index===total-1 && total>3)return ["Sokongan pilihan","Tambah jika perlu","Titik sokongan untuk melengkapkan rutin ini."];
-    return ["Sokongan",`Langkah ${index+1}`,"Digabungkan dengan titik utama sebagai sebahagian daripada rutin yang dicadangkan."];
+    if(role==="primary")return ["Utama","Mula di sini","Titik utama dalam gabungan Bloomé ini."];
+    if(role==="optional")return ["Sokongan pilihan","Tambah jika perlu","Tambahan ringan. Anda boleh abaikannya jika mahu rutin yang lebih ringkas."];
+    return ["Sokongan",`Langkah ${index+1}`,"Melengkapi titik utama sebagai sebahagian daripada rutin yang dicadangkan."];
   }
-  if(index===0)return ["Primary","Start here","The anchor point in this Bloomé combination."];
-  if(index===total-1 && total>3)return ["Optional support","Add if useful","A supporting point that rounds out the routine."];
-  return ["Support",`Step ${index+1}`,"Paired with the primary point as part of the suggested routine."];
+
+  if(role==="primary")return ["Primary","Start here","The anchor point in this Bloomé combination."];
+  if(role==="optional")return ["Optional support","Add if useful","A lighter add-on. Skip it if you prefer a shorter routine."];
+  return ["Support",`Step ${index+1}`,"Builds on the primary point as part of the suggested routine."];
 }
 function conditionInfoMarkup(point,role=["Selected point","",""]){
   return `<div class="role-line"><span class="role-badge">${escapeHtml(role[0])}</span><small>${escapeHtml(role[1])}</small></div><h2 id="condition-point-title">${escapeHtml(point.name)}</h2><p class="role-explainer">${escapeHtml(role[2])}</p><div class="info-section"><div class="info-label"><span>⌖</span>Location</div><p id="condition-point-location">${escapeHtml(point.location)}</p></div><div class="info-section"><div class="info-label"><span>✦</span>Traditional wellness use</div><p id="condition-point-use">${escapeHtml(point.traditionalUse)}</p></div><div class="info-section"><div class="info-label"><span>◌</span>Gentle stimulation</div><p id="condition-point-stimulate">${escapeHtml(point.howToStimulate)}</p></div>`;
@@ -600,6 +605,7 @@ function conditionView(id){
         <p class="eyebrow">${escapeHtml(condition.category||"Concern")}</p>
         <h1>${escapeHtml(condition.name)}</h1>
         <p class="lead">${escapeHtml(condition.summary)}</p>
+        ${condition.useWhen?`<div class="condition-use-when"><strong>Best for</strong><span>${escapeHtml(condition.useWhen)}</span></div>`:""}
       </div>
     </div>
 
@@ -621,9 +627,9 @@ function conditionView(id){
           </div>
 
           <aside class="condition-info-card">
-            <div id="condition-info-content">${conditionInfoMarkup(current,combinationRole(Math.max(0,points.findIndex(p=>p.id===current.id)),points.length))}</div>
+            <div id="condition-info-content">${conditionInfoMarkup(current,combinationRole(Math.max(0,points.findIndex(p=>p.id===current.id)),points.length,condition))}</div>
             <div class="point-tabs">
-              ${points.map((point,index)=>`<button class="point-tab ${point.id===current.id?"active":""}" data-condition-point-tab="${escapeHtml(point.id)}"><span>${index+1}. ${escapeHtml(point.name)}</span><small>${combinationRole(index,points.length)[0]}</small></button>`).join("")}
+              ${points.map((point,index)=>`<button class="point-tab ${point.id===current.id?"active":""}" data-condition-point-tab="${escapeHtml(point.id)}"><span>${index+1}. ${escapeHtml(point.name)}</span><small>${combinationRole(index,points.length,condition)[0]}</small></button>`).join("")}
             </div>
             <div class="condition-actions condition-actions-guided">
               <button class="primary-button" data-start-apply="${escapeHtml(condition.id)}">Start application</button>
@@ -634,14 +640,24 @@ function conditionView(id){
         </div>
 
         <div class="notice" style="margin-top:24px">This illustration is a simplified educational guide, not a clinical placement chart. Use only on clean, intact skin and seek professional care for severe, persistent, sudden or unexplained symptoms.</div>
+
+        ${(condition.relatedGuideIds||[]).length?`
+          <div class="condition-related-guides">
+            <p class="eyebrow">Related guides</p>
+            <div class="tag-list">
+              ${(condition.relatedGuideIds||[]).map(cid=>conditionMap.get(cid)).filter(Boolean).map(related=>`
+                <button class="tag-button" data-open-route="condition" data-open-id="${escapeHtml(related.id)}">${escapeHtml(related.name)}</button>
+              `).join("")}
+            </div>
+          </div>`:""}
       </div>
     </section>
   </section>`;
 }
 
 
-function applicationStepRole(index,total){
-  return combinationRole(index,total);
+function applicationStepRole(index,total,condition){
+  return combinationRole(index,total,condition);
 }
 
 function applicationProgressMarkup(points,step){
@@ -692,7 +708,7 @@ function applicationView(id){
   }
 
   const point=points[step];
-  const role=applicationStepRole(step,points.length);
+  const role=applicationStepRole(step,points.length,condition);
   const position=mapPositions[point.id]||[50,50];
   const percent=Math.round(((step+1)/points.length)*100);
 
@@ -1093,7 +1109,7 @@ function wireCondition(id){
     $$("[data-condition-point]").forEach(button=>button.classList.toggle("active",button.dataset.conditionPoint===pointId));
     $$("[data-condition-point-tab]").forEach(button=>button.classList.toggle("active",button.dataset.conditionPointTab===pointId));
     const idx=points.findIndex(p=>p.id===pointId);
-    $("#condition-info-content").innerHTML=conditionInfoMarkup(point,combinationRole(idx,points.length));
+    $("#condition-info-content").innerHTML=conditionInfoMarkup(point,combinationRole(idx,points.length,condition));
     translateUi($("#condition-info-content"));
     $("#open-selected-point").dataset.pointId=pointId;
   }
@@ -1219,3 +1235,6 @@ loadData();
 
 
 /* Bloomé Package 15 — Guided Application Mode */
+
+
+/* Bloomé Package 17 — Combination Audit */

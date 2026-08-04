@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "16",
+  "version": "17",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -36,9 +36,13 @@
     "mappedReferenceDistinction": false,
     "guidedApplicationMode": true,
     "guidedApplicationBilingual": true,
-    "expandedConditionLibrary": true
+    "expandedConditionLibrary": true,
+    "explicitConditionRoles": true,
+    "conditionIntentNotes": true,
+    "conditionRelatedGuides": true,
+    "combinationAuditComplete": true
   },
-  "releaseName": "Condition Library Expansion",
+  "releaseName": "Combination Audit",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

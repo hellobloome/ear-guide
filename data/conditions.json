@@ -19,9 +19,9 @@
     "summary": "A general wellness routine intended to support relaxation during busy or tense periods.",
     "pointIds": [
       "shen-men",
-      "point-zero",
+      "sympathetic",
       "heart",
-      "sympathetic"
+      "point-zero"
     ],
     "category": "Calm",
     "slug": "stress",
@@ -41,7 +41,19 @@
       "unwind"
     ],
     "i18nKey": "condition.stress",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this when the main goal is a short calming reset during a mentally busy or tense day.",
+    "relatedGuideIds": [
+      "deep-relaxation",
+      "general-balance"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "sleep",
@@ -64,8 +76,8 @@
     "pointIds": [
       "shen-men",
       "heart",
-      "kidney",
-      "occiput"
+      "occiput",
+      "kidney"
     ],
     "category": "Rest",
     "slug": "sleep",
@@ -85,7 +97,19 @@
       "wind down"
     ],
     "i18nKey": "condition.sleep",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this for an evening wind-down or bedtime wellness routine.",
+    "relatedGuideIds": [
+      "deep-relaxation",
+      "stress"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "head-tension",
@@ -103,8 +127,8 @@
     ],
     "summary": "Points traditionally referenced in complementary routines for head comfort.",
     "pointIds": [
-      "shen-men",
       "occiput",
+      "shen-men",
       "sympathetic",
       "point-zero"
     ],
@@ -123,7 +147,19 @@
       "temple tension"
     ],
     "i18nKey": "condition.head-tension",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this for ordinary head or temple tension as part of a general comfort routine.",
+    "relatedGuideIds": [
+      "eye-screen-comfort",
+      "neck-shoulder-tension"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "digestion",
@@ -165,7 +201,19 @@
       "stomach routine"
     ],
     "i18nKey": "condition.digestion",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this as a broad digestive-wellness routine rather than for a specific meal-time moment.",
+    "relatedGuideIds": [
+      "after-meal-comfort",
+      "cravings"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "focus",
@@ -186,9 +234,9 @@
     ],
     "summary": "A simple routine intended to complement focus-friendly habits such as rest, hydration and breaks.",
     "pointIds": [
+      "brain",
       "shen-men",
       "point-zero",
-      "brain",
       "kidney"
     ],
     "category": "Daily",
@@ -209,7 +257,19 @@
       "work focus"
     ],
     "i18nKey": "condition.focus",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this for a study, desk-work or concentration routine alongside normal breaks and hydration.",
+    "relatedGuideIds": [
+      "eye-screen-comfort",
+      "daily-recovery"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "low-energy",
@@ -229,8 +289,8 @@
     "summary": "A complementary self-care routine for days when you feel physically or mentally drained.",
     "pointIds": [
       "kidney",
-      "spleen",
       "brain",
+      "spleen",
       "point-zero"
     ],
     "category": "Daily",
@@ -249,7 +309,19 @@
       "tired"
     ],
     "i18nKey": "condition.low-energy",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this for an ordinary low-energy day when you want a simple self-care reset.",
+    "relatedGuideIds": [
+      "daily-recovery",
+      "general-balance"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "neck-shoulder-tension",
@@ -270,8 +342,8 @@
     "pointIds": [
       "cervical-spine",
       "shoulder",
-      "shen-men",
-      "sympathetic"
+      "sympathetic",
+      "shen-men"
     ],
     "category": "Comfort",
     "slug": "neck-shoulder-tension",
@@ -289,7 +361,19 @@
       "upper back tension"
     ],
     "i18nKey": "condition.neck-shoulder-tension",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this when the main area of ordinary tension is the neck and shoulders.",
+    "relatedGuideIds": [
+      "back-comfort",
+      "head-tension"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "cravings",
@@ -327,7 +411,19 @@
       "sweet cravings"
     ],
     "i18nKey": "condition.cravings",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this as a mindful-eating support routine, not as a weight-loss treatment.",
+    "relatedGuideIds": [
+      "digestion",
+      "after-meal-comfort"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "menstrual-comfort",
@@ -361,7 +457,19 @@
       "premenstrual wellness"
     ],
     "i18nKey": "condition.menstrual-comfort",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this as a general self-care routine during the menstrual cycle.",
+    "relatedGuideIds": [
+      "general-balance",
+      "stress"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "jaw-tension",
@@ -395,7 +503,19 @@
       "tmj"
     ],
     "i18nKey": "condition.jaw-tension",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this for an ordinary jaw-relaxation routine, especially when you notice clenching or facial tension.",
+    "relatedGuideIds": [
+      "stress",
+      "head-tension"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "travel-queasiness",
@@ -415,9 +535,9 @@
     "summary": "A complementary routine sometimes explored for travel-related queasiness.",
     "pointIds": [
       "stomach",
+      "inner-ear",
       "sympathetic",
-      "shen-men",
-      "point-zero"
+      "shen-men"
     ],
     "category": "Travel",
     "slug": "travel-queasiness",
@@ -435,7 +555,18 @@
       "travel sickness"
     ],
     "i18nKey": "condition.travel-queasiness",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this when queasiness is the main travel concern. Seek medical care for severe or persistent symptoms.",
+    "relatedGuideIds": [
+      "travel-balance"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "general-balance",
@@ -451,8 +582,8 @@
     ],
     "summary": "A gentle starter combination for a simple, non-condition-specific wellness ritual.",
     "pointIds": [
-      "shen-men",
       "point-zero",
+      "shen-men",
       "sympathetic"
     ],
     "category": "Beginner",
@@ -468,7 +599,18 @@
       "wellness reset"
     ],
     "i18nKey": "condition.general-balance",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support"
+    ],
+    "useWhen": "Choose this when you want a simple three-point routine without focusing on a specific wellness concern.",
+    "relatedGuideIds": [
+      "stress",
+      "daily-recovery"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "eye-screen-comfort",
@@ -505,7 +647,19 @@
       "tired eyes"
     ],
     "i18nKey": "condition.eye-screen-comfort",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this for a screen-break or tired-eye wellness routine alongside regular visual rest.",
+    "relatedGuideIds": [
+      "focus",
+      "head-tension"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "back-comfort",
@@ -541,7 +695,19 @@
       "upper back"
     ],
     "i18nKey": "condition.back-comfort",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this when ordinary upper- or mid-back comfort is the main focus.",
+    "relatedGuideIds": [
+      "neck-shoulder-tension",
+      "lower-body-comfort"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "lower-body-comfort",
@@ -577,7 +743,18 @@
       "recovery"
     ],
     "i18nKey": "condition.lower-body-comfort",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this when ordinary hip or lower-back comfort is the main focus.",
+    "relatedGuideIds": [
+      "back-comfort"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "breathing-reset",
@@ -613,7 +790,19 @@
       "reset"
     ],
     "i18nKey": "condition.breathing-reset",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this for a mindful pause-and-breathe routine. It is not for shortness of breath or respiratory symptoms.",
+    "relatedGuideIds": [
+      "stress",
+      "general-balance"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "after-meal-comfort",
@@ -650,7 +839,19 @@
       "stomach"
     ],
     "i18nKey": "condition.after-meal-comfort",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this when you specifically want a gentle digestive-wellness routine after a normal meal.",
+    "relatedGuideIds": [
+      "digestion",
+      "cravings"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "daily-recovery",
@@ -686,7 +887,19 @@
       "rest"
     ],
     "i18nKey": "condition.daily-recovery",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this for an end-of-day reset after ordinary mental or physical busyness.",
+    "relatedGuideIds": [
+      "low-energy",
+      "deep-relaxation"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "deep-relaxation",
@@ -723,7 +936,19 @@
       "unwind deeply"
     ],
     "i18nKey": "condition.deep-relaxation",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this when you want a slower, rest-focused routine rather than a quick daytime stress reset.",
+    "relatedGuideIds": [
+      "stress",
+      "sleep"
+    ],
+    "combinationAuditVersion": 17
   },
   {
     "id": "travel-balance",
@@ -739,9 +964,9 @@
     "summary": "A general travel-wellness routine using points traditionally referenced for balance, calm and travel comfort.",
     "pointIds": [
       "inner-ear",
-      "stomach",
+      "point-zero",
       "shen-men",
-      "sympathetic"
+      "stomach"
     ],
     "category": "Travel",
     "slug": "travel-balance",
@@ -762,6 +987,18 @@
       "travel comfort"
     ],
     "i18nKey": "condition.travel-balance",
-    "mapReady": true
+    "mapReady": true,
+    "pointRoles": [
+      "primary",
+      "support",
+      "support",
+      "optional"
+    ],
+    "useWhen": "Choose this when balance and general travel comfort are the focus rather than queasiness itself.",
+    "relatedGuideIds": [
+      "travel-queasiness",
+      "general-balance"
+    ],
+    "combinationAuditVersion": 17
   }
 ]

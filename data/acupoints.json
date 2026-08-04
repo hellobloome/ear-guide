@@ -66,7 +66,7 @@
       "jaw-tension",
       "low-energy",
       "stress",
-      "travel-queasiness"
+      "travel-balance"
     ],
     "shortDescription": "Often used as a balancing or centering point in auricular practice.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
@@ -134,7 +134,6 @@
       "menstrual-comfort",
       "neck-shoulder-tension",
       "stress",
-      "travel-balance",
       "travel-queasiness"
     ],
     "shortDescription": "Frequently included in traditional comfort and relaxation combinations.",
@@ -469,9 +468,7 @@
     "traditionalUse": "Traditionally referenced in auricular routines centred on digestive wellness and general balance.",
     "howToStimulate": "Use light, comfortable pressure for a few seconds at a time. Stop if the area becomes painful or irritated.",
     "relatedConditionIds": [
-      "digestion",
-      "eye-screen-comfort",
-      "general-balance"
+      "eye-screen-comfort"
     ],
     "shortDescription": "Traditionally referenced in auricular routines centred on digestive wellness and general balance.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
@@ -500,8 +497,7 @@
     "traditionalUse": "Traditionally referenced in general wellness routines and in auricular traditions focused on breathing comfort.",
     "howToStimulate": "Use gentle, steady pressure rather than strong pressure. Remove the seed if the skin becomes irritated.",
     "relatedConditionIds": [
-      "breathing-reset",
-      "general-balance"
+      "breathing-reset"
     ],
     "shortDescription": "Traditionally referenced in general wellness routines and in auricular traditions focused on breathing comfort.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
@@ -531,8 +527,7 @@
     "traditionalUse": "Traditionally referenced in digestive-wellness routines.",
     "howToStimulate": "Press gently for several seconds, release, and repeat a few times if comfortable.",
     "relatedConditionIds": [
-      "after-meal-comfort",
-      "digestion"
+      "after-meal-comfort"
     ],
     "shortDescription": "Traditionally referenced in digestive-wellness routines.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
@@ -562,8 +557,7 @@
     "traditionalUse": "Traditionally referenced in digestive-wellness routines.",
     "howToStimulate": "Use brief, light pressure. More pressure is not necessarily better.",
     "relatedConditionIds": [
-      "after-meal-comfort",
-      "digestion"
+      "after-meal-comfort"
     ],
     "shortDescription": "Traditionally referenced in digestive-wellness routines.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
@@ -591,9 +585,7 @@
     "location": "In the cymba conchae below the middle region of the inferior antihelix crus (CO9).",
     "traditionalUse": "Traditionally included in broader body-balance routines in auricular practice.",
     "howToStimulate": "Press lightly and discontinue if there is persistent tenderness, redness or irritation.",
-    "relatedConditionIds": [
-      "general-balance"
-    ],
+    "relatedConditionIds": [],
     "shortDescription": "Traditionally included in broader body-balance routines in auricular practice.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
     "slug": "bladder",
@@ -620,9 +612,7 @@
     "location": "In the posterosuperior part of the cymba conchae, within the shared Pancreas / Gallbladder CO11 zone.",
     "traditionalUse": "Traditionally referenced in digestive and general-balance routines.",
     "howToStimulate": "Apply light, comfortable pressure for a few seconds at a time.",
-    "relatedConditionIds": [
-      "digestion"
-    ],
+    "relatedConditionIds": [],
     "shortDescription": "Traditionally referenced in digestive and general-balance routines.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
     "slug": "gallbladder",
@@ -651,10 +641,7 @@
     "location": "In the posterosuperior part of the cymba conchae, within the shared Pancreas / Gallbladder CO11 zone.",
     "traditionalUse": "Traditionally referenced in digestive and appetite-focused wellness routines.",
     "howToStimulate": "Use gentle pressure only and remove the seed if the skin becomes irritated.",
-    "relatedConditionIds": [
-      "cravings",
-      "digestion"
-    ],
+    "relatedConditionIds": [],
     "shortDescription": "Traditionally referenced in digestive and appetite-focused wellness routines.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
     "slug": "pancreas",
@@ -684,9 +671,7 @@
     "traditionalUse": "Traditionally referenced in routines focused on stress, resilience and general energy balance.",
     "howToStimulate": "Use brief, light pressure and stop if stimulation feels sharp or uncomfortable.",
     "relatedConditionIds": [
-      "daily-recovery",
-      "low-energy",
-      "stress"
+      "daily-recovery"
     ],
     "shortDescription": "Traditionally referenced in routines focused on stress, resilience and general energy balance.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
@@ -717,10 +702,7 @@
     "howToStimulate": "Press gently for a few seconds and release. Avoid prolonged or painful pressure.",
     "relatedConditionIds": [
       "daily-recovery",
-      "deep-relaxation",
-      "focus",
-      "sleep",
-      "stress"
+      "deep-relaxation"
     ],
     "shortDescription": "Traditionally referenced in calming, rest and focus-oriented auricular routines.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
@@ -752,9 +734,7 @@
     "traditionalUse": "Traditionally referenced in calming and comfort-focused auricular routines.",
     "howToStimulate": "Use gentle, intermittent pressure. Stop if the area becomes tender or irritated.",
     "relatedConditionIds": [
-      "deep-relaxation",
-      "head-tension",
-      "stress"
+      "deep-relaxation"
     ],
     "shortDescription": "Traditionally referenced in calming and comfort-focused auricular routines.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
@@ -785,11 +765,7 @@
     "location": "At the apex of the helix, found at the top of the ear when the auricle is gently folded forward.",
     "traditionalUse": "Traditionally referenced in broad calming and comfort-oriented auricular routines.",
     "howToStimulate": "Use very light pressure. This area can be sensitive, so discontinue if uncomfortable.",
-    "relatedConditionIds": [
-      "general-balance",
-      "head-tension",
-      "stress"
-    ],
+    "relatedConditionIds": [],
     "shortDescription": "Traditionally referenced in broad calming and comfort-oriented auricular routines.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
     "slug": "ear-apex",
@@ -819,9 +795,7 @@
     "traditionalUse": "Traditionally referenced in routines centred on eye comfort and screen-related wellness.",
     "howToStimulate": "Use gentle pressure only. Do not apply seeds inside the ear canal.",
     "relatedConditionIds": [
-      "eye-screen-comfort",
-      "focus",
-      "head-tension"
+      "eye-screen-comfort"
     ],
     "shortDescription": "Traditionally referenced in routines centred on eye comfort and screen-related wellness.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
@@ -884,8 +858,7 @@
     "traditionalUse": "Traditionally referenced in upper- and mid-back comfort routines.",
     "howToStimulate": "Use comfortable pressure only and avoid pressing on irritated or broken skin.",
     "relatedConditionIds": [
-      "back-comfort",
-      "neck-shoulder-tension"
+      "back-comfort"
     ],
     "shortDescription": "Traditionally referenced in upper- and mid-back comfort routines.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
