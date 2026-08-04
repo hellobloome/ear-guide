@@ -49,8 +49,8 @@ const mapPositions={
 };
 
 const anatomicalEarSvg=(extraClass="")=>`
-<div class="premium-ear-wrap ${extraClass}" aria-label="Refined clean ear illustration">
-  <img class="premium-ear-image" src="./images/bloome-ear-clean-fixed.png" alt="Refined clean illustration of an ear">
+<div class="premium-ear-wrap ${extraClass}" aria-label="Minimal line-art ear illustration">
+  <img class="premium-ear-image" src="./images/ear-option-1.webp" alt="Minimal line-art illustration of an ear">
 </div>`;
 
 function escapeHtml(value=""){

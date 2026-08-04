@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "18",
+  "version": "17.1",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -41,10 +41,9 @@
     "conditionIntentNotes": true,
     "conditionRelatedGuides": true,
     "combinationAuditComplete": true,
-    "finalEarIllustration": true,
     "homepageHeadlineRefined": true
   },
-  "releaseName": "Final Clean Ear Illustration",
+  "releaseName": "Homepage Copy Refinement",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
