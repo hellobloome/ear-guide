@@ -192,7 +192,7 @@
       "back of head"
     ],
     "category": "Anatomical point",
-    "location": "On the posterior-superior area of the antitragus.",
+    "location": "On the posterior part of the lateral surface of the antitragus.",
     "traditionalUse": "Commonly referenced in routines for rest and head comfort.",
     "howToStimulate": "Press until you feel mild pressure, not sharp pain.",
     "relatedConditionIds": [
@@ -210,8 +210,8 @@
     "mapReady": true,
     "i18nKey": "point.occiput",
     "mapPosition": [
-      39,
-      59
+      42,
+      64
     ],
     "mapSystem": "WFAS-style anatomical auricular reference"
   },

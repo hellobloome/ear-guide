@@ -21,7 +21,7 @@ const mapPositions={
   "heart":[41,56],
   "sympathetic":[33,46],
   "kidney":[58,39],
-  "occiput":[39,59],
+  "occiput":[42,64],
   "stomach":[49,50],
   "spleen":[55,52],
   "brain":[36,71],

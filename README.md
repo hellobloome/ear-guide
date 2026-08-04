@@ -1,37 +1,23 @@
-# Bloomé Guide — Package 5: Premium Pass
+# Bloome Package 19.2 – Occiput Placement Correction
 
-This package builds directly on Package 4B.
+This patch is a focused hotfix based on your feedback.
 
-## New in Package 5
-- Option 1 minimal line-art ear integrated throughout the guide.
-- Intent-first homepage with six wellness starting paths.
-- Refined ring-style point markers and selected-point pulse.
-- Smart Combination hierarchy: Primary, Support, Optional support.
-- Softer motion and reveal transitions with reduced-motion support.
-- Existing search, A–Z discovery, condition maps, full ear map, point pages, Quick Help and beginner guide remain intact.
+## What was corrected
+- Re-audited the visible ear-map placement for the **Occiput** point.
+- Moved **Occiput** from the previous incorrect antitragus/concha-adjacent position.
+- Updated it to better match:
+  **posterior part of the lateral surface of the antitragus**
+- Updated both:
+  - `js/app.js`
+  - `data/acupoints.json`
+- Refined the Occiput location text for consistency.
 
-## Install with GitHub Desktop
-1. Extract this ZIP.
-2. Copy everything inside the extracted folder into your local `ear-guide` repository folder.
-3. Choose Replace when Windows asks about existing files.
-4. In GitHub Desktop, review the changes.
-5. Summary: `Package 5 - Premium Pass`
-6. Commit to main, then Push origin.
-7. Wait for GitHub Pages to redeploy, then hard-refresh the live site.
+## Files included
+- `index.html`
+- `css/`
+- `js/`
+- `data/`
+- `images/`
 
-## Test checklist
-- Home: six need cards open the correct condition.
-- Search: sleep, stress and Shen Men still work.
-- Condition: ear map appears immediately; markers switch the information card.
-- Smart Combination labels appear beside the point tabs.
-- Ear map: markers remain interactive.
-- Mobile: bottom navigation and Quick Help remain usable.
-
-## Note
-The ear illustration and point positions are visual educational guidance rather than a clinical placement chart. Apply Mode remains reserved for a later package.
-
-
-Package 7 restores the stable direction and separates future ear illustration work from layout logic.
-
-
-Package 8.1 focuses only on replacing the ear illustration with a clean non-botanical asset.
+## Recommended commit summary
+Package 19.2 – occiput placement correction
