@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "20.2",
+  "version": "20.3",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -51,9 +51,11 @@
     "homepageHeroIllustrationRemoved": true,
     "earCoordinateLayer": true,
     "markersAnchoredToEarArtwork": true,
-    "mapPanelHeightIndependentMarkers": true
+    "mapPanelHeightIndependentMarkers": true,
+    "coordinateRecalibration": true,
+    "coordinateRecalibrationBaseAsset": true
   },
-  "releaseName": "Ear Map Coordinate Architecture Fix",
+  "releaseName": "Map Coordinate Recalibration",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

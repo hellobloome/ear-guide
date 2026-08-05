@@ -16,36 +16,36 @@ let selectedConditionPoint=new Map();
 let applicationProgress=new Map();
 
 const mapPositions={
-  "shen-men":[36,24],
-  "point-zero":[48,45],
-  "heart":[41,56],
-  "sympathetic":[33,46],
-  "kidney":[58,39],
-  "occiput":[42,64],
-  "stomach":[49,50],
-  "spleen":[55,52],
-  "brain":[36,71],
-  "endocrine":[46,64],
-  "mouth":[42,60],
-  "cervical-spine":[67,56],
-  "shoulder":[72,47],
-  "jaw":[42,76],
-  "liver":[56,44],
-  "lung":[45,55],
-  "large-intestine":[42,40],
-  "small-intestine":[47,42],
-  "bladder":[53,36],
-  "gallbladder":[59,34],
-  "pancreas":[62,35],
+  "shen-men":[35,23],
+  "point-zero":[49,45],
+  "heart":[43,56],
+  "sympathetic":[35,45],
+  "kidney":[55,40],
+  "occiput":[40.5,63],
+  "stomach":[48,49],
+  "spleen":[54,51],
+  "brain":[35.5,70],
+  "endocrine":[43.5,66],
+  "mouth":[41,61],
+  "cervical-spine":[66.5,56],
+  "shoulder":[71,48],
+  "jaw":[41,75],
+  "liver":[55,44],
+  "lung":[45,54],
+  "large-intestine":[41,40.5],
+  "small-intestine":[46,42],
+  "bladder":[52.5,36.5],
+  "gallbladder":[58.5,34],
+  "pancreas":[56.5,34.5],
   "adrenal":[34,58],
-  "subcortex":[38,67],
-  "thalamus":[41,66],
+  "subcortex":[39,68],
+  "thalamus":[41,65.5],
   "ear-apex":[50,12],
-  "eye":[37,80],
-  "inner-ear":[47,82],
-  "thoracic-spine":[67,51],
-  "lumbar-spine":[65,44],
-  "hip":[63,38]
+  "eye":[36.5,80],
+  "inner-ear":[46.5,81.5],
+  "thoracic-spine":[65.5,50.5],
+  "lumbar-spine":[63,44.5],
+  "hip":[60.5,38.5]
 };
 
 const anatomicalEarSvg=(extraClass="",markerContent="")=>`
@@ -1263,3 +1263,6 @@ loadData();
 
 
 /* Bloomé Package 20.2 — Ear Map Coordinate Architecture Fix */
+
+
+/* Bloomé Package 20.3 — Map Coordinate Recalibration */
