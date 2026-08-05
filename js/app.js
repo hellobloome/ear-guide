@@ -380,9 +380,8 @@ function homeView(){
   const journeys=[["☾","Sleep","Wind down and explore a calm bedtime combination.","sleep"],["♡","Stress","Explore points traditionally used in calming routines.","stress"],["⌁","Digestion","Find a simple digestive-wellness combination.","digestion"],["✿","Women's wellness","Explore a menstrual-comfort combination.","menstrual-comfort"],["✦","Energy","Explore a traditional low-energy combination.","low-energy"],["◎","Focus","Find points commonly used in focus routines.","focus"]];
   return `
   <section class="route premium-home">
-    <div class="route-hero premium-hero"><div class="container route-grid">
+    <div class="route-hero premium-hero"><div class="container route-grid home-hero-grid">
       <div class="hero-copy reveal-item"><p class="eyebrow">Bloomé Ear Acupoint Guide</p><h1>What would you like to focus on today?</h1><p class="lead">Choose a wellness need or search by name. We’ll show the suggested points directly on the ear.</p>${searchBoxMarkup("home-search")}<div class="hero-trust"><span>◌ Visual point guidance</span><span>✧ Beginner friendly</span></div></div>
-      <div class="hero-card premium-hero-card reveal-item">${anatomicalEarSvg("hero-ear")}<div class="hero-card-note">A calmer way to find your points</div></div>
     </div></div>
     <section class="section soft-section need-section"><div class="container"><div class="section-heading centered-heading reveal-item"><p class="eyebrow">Start with a need</p><h2>Choose what feels most relevant.</h2><p>Each guide opens with a focused ear map, so you can see the combination before reading the details.</p></div><div class="need-grid">${journeys.map((j,i)=>`<button class="need-card reveal-item" style="--delay:${i*55}ms" data-open-route="condition" data-open-id="${j[3]}"><span class="need-icon">${j[0]}</span><h3>${j[1]}</h3><p>${j[2]}</p><span class="need-link">View guide <b>→</b></span></button>`).join("")}</div></div></section>
     <section class="section"><div class="container premium-paths"><div class="section-heading reveal-item"><p class="eyebrow">Or explore your way</p><h2>Already know what you're looking for?</h2></div><div class="quick-grid compact-paths"><a class="feature-card reveal-item" href="#/discover"><span class="feature-icon">⌕</span><div><h3>Browse A–Z</h3><p>Search concerns and individual acupoints.</p></div><span>→</span></a><a class="feature-card reveal-item" href="#/map"><span class="feature-icon">◌</span><div><h3>Explore the ear</h3><p>Open the complete interactive reference map.</p></div><span>→</span></a><a class="feature-card reveal-item" href="#/guide"><span class="feature-icon">✧</span><div><h3>First time?</h3><p>Read the simple application guide first.</p></div><span>→</span></a></div></div></section>
@@ -1258,3 +1257,6 @@ loadData();
 
 
 /* Bloomé Package 20 — Point Reference Standardization */
+
+
+/* Bloomé Package 20.1 — Copy + Home Hero Cleanup */

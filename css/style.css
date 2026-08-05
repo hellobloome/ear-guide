@@ -1919,3 +1919,30 @@ h3,p{margin-top:0}
     justify-content:center;
   }
 }
+
+
+/* Package 20.1 — Copy + Home Hero Cleanup */
+.premium-home .home-hero-grid{
+  grid-template-columns:minmax(0,820px);
+  justify-content:start;
+}
+
+.premium-home .home-hero-grid .hero-copy{
+  max-width:820px;
+}
+
+.premium-home .home-hero-grid .search-box{
+  max-width:720px;
+}
+
+@media(max-width:960px){
+  .premium-home .home-hero-grid{
+    grid-template-columns:1fr;
+    justify-content:stretch;
+  }
+
+  .premium-home .home-hero-grid .hero-copy{
+    max-width:760px;
+    margin:0 auto;
+  }
+}
