@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "20.1",
+  "version": "21",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -48,9 +48,12 @@
     "standardizedPointCodes": true,
     "referenceLocationAudit": true,
     "simplifiedSupplementaryPointCopy": true,
-    "homepageHeroIllustrationRemoved": true
+    "homepageHeroIllustrationRemoved": true,
+    "mapReferenceLegend": true,
+    "mapReferenceAboutSection": true,
+    "selectedPointReferenceMetadata": true
   },
-  "releaseName": "Copy and Home Hero Cleanup",
+  "releaseName": "Map Reference Guide",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

@@ -174,7 +174,20 @@
         "A lighter add-on. Skip it if you prefer a shorter routine.": "Tambahan ringan. Anda boleh abaikannya jika mahu rutin yang lebih ringkas.",
         "Builds on the primary point as part of the suggested routine.": "Melengkapi titik utama sebagai sebahagian daripada rutin yang dicadangkan.",
         "What would you like to focus on today?": "Apa yang anda ingin fokuskan hari ini?",
-        "Reference code": "Kod rujukan"
+        "Reference code": "Kod rujukan",
+        "Standardized reference": "Rujukan standard",
+        "Supplementary reference": "Rujukan tambahan",
+        "Reference system": "Sistem rujukan",
+        "How the map is built": "Bagaimana peta ini dibina",
+        "Map reference": "Rujukan peta",
+        "Bloomé uses a standardized auricular reference as the main map framework, with a small number of clearly identified supplementary auriculotherapy references.": "Bloomé menggunakan rujukan aurikular standard sebagai rangka utama peta, dengan sebilangan kecil rujukan aurikuloterapi tambahan yang dikenal pasti dengan jelas.",
+        "Standardized points": "Titik standard",
+        "Most mapped points follow GB/T 13734-2008 anatomical auricular nomenclature and location codes, such as TF4, AT3, CO15 and LO5.": "Kebanyakan titik pada peta mengikuti nomenklatur dan kod lokasi anatomi aurikular GB/T 13734-2008, seperti TF4, AT3, CO15 dan LO5.",
+        "Supplementary references": "Rujukan tambahan",
+        "A few familiar auriculotherapy references, including Point Zero, Brain and Thalamus, come from supplementary systems and are labeled separately rather than presented as distinct GB/T points.": "Beberapa rujukan aurikuloterapi yang biasa digunakan, termasuk Point Zero, Otak dan Talamus, berasal daripada sistem tambahan dan dilabel secara berasingan, bukan dipersembahkan sebagai titik GB/T yang berbeza.",
+        "Simplified visual map": "Peta visual ringkas",
+        "Marker positions are visual translations onto Bloomé’s illustrated ear. They are intended for general wellness education, not millimetre-precise clinical localization.": "Kedudukan penanda ialah terjemahan visual pada ilustrasi telinga Bloomé. Ia bertujuan untuk pendidikan kesejahteraan umum, bukan penentuan lokasi klinikal yang tepat sehingga ke milimeter.",
+        "If a point differs between auriculotherapy systems, Bloomé identifies the reference type rather than presenting one system as universal.": "Jika sesuatu titik berbeza antara sistem aurikuloterapi, Bloomé menyatakan jenis rujukannya dan tidak menganggap satu sistem sebagai universal."
       },
       "placeholders": {
         "Try “sleep”, “stress” or “Shen Men”": "Cuba “tidur”, “stres” atau “Shen Men”",

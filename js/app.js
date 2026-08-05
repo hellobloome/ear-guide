@@ -188,6 +188,18 @@ function pointReferenceCode(point){
     : "";
 }
 
+function pointReferenceType(point){
+  const system=String(point?.mapSystem||"").toLowerCase();
+  if(system.includes("supplementary")||system.includes("nogier"))return "supplementary";
+  return "standardized";
+}
+
+function pointReferenceTypeLabel(point){
+  return pointReferenceType(point)==="supplementary"
+    ? uiText("Supplementary reference")
+    : uiText("Standardized reference");
+}
+
 function score(item,query){
   const q=normalize(query);
   if(!q)return 0;
@@ -471,6 +483,12 @@ function fullMapView(){
           <p>All points in Bloomé’s current library are now plotted on the simplified educational ear map.</p>
         </div>
 
+        <div class="map-reference-key" aria-label="Map reference key">
+          <span><i class="reference-key-dot standardized"></i>${uiText("Standardized reference")}</span>
+          <span><i class="reference-key-dot supplementary"></i>${uiText("Supplementary reference")}</span>
+          <a class="text-button map-reference-help" href="#/about">${uiText("How the map is built")}</a>
+        </div>
+
         <div class="map-explorer-toolbar">
           <label class="map-point-search">
             <span aria-hidden="true">⌕</span>
@@ -517,6 +535,17 @@ function fullMapView(){
 
             <div class="map-reference-note" id="map-reference-note" ${pointIsMapped(first)?"hidden":""}>
               This point is in Bloomé’s reference library but has not yet been placed on the simplified interactive ear.
+            </div>
+
+            <div class="map-reference-meta">
+              <div>
+                <span>${uiText("Reference code")}</span>
+                <strong class="point-reference-code" id="map-reference-code">${escapeHtml(first.standardCode||"—")}</strong>
+              </div>
+              <div>
+                <span>${uiText("Reference system")}</span>
+                <strong class="reference-type ${pointReferenceType(first)}" id="map-reference-type">${pointReferenceTypeLabel(first)}</strong>
+              </div>
             </div>
 
             <div class="map-info-block">
@@ -892,13 +921,48 @@ function aboutView(){
         <h1>Wellness guidance, made easier to understand.</h1>
       </div>
     </div>
+
     <section class="section soft-section">
       <div class="container about-panel">
         <div><h2>Visual guidance before dense explanation.</h2></div>
         <div>
           <p>Bloomé creates approachable self-care tools and educational resources for everyday wellness.</p>
-          <p>Condition pages now begin with the ear itself, because customers need to see where the suggested points are before reading deeper details.</p>
+          <p>Condition pages begin with the ear itself, because it is easier to understand a suggested combination when you can see the points first.</p>
           <p>This guide distinguishes traditional auricular uses from medical treatment. It is not designed to diagnose illness or replace professional care.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section map-reference-about">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">${uiText("Map reference")}</p>
+          <h2>${uiText("How the map is built")}</h2>
+          <p class="lead">${uiText("Bloomé uses a standardized auricular reference as the main map framework, with a small number of clearly identified supplementary auriculotherapy references.")}</p>
+        </div>
+
+        <div class="reference-explainer-grid">
+          <article class="reference-explainer-card">
+            <span class="reference-card-mark standardized">01</span>
+            <h3>${uiText("Standardized points")}</h3>
+            <p>${uiText("Most mapped points follow GB/T 13734-2008 anatomical auricular nomenclature and location codes, such as TF4, AT3, CO15 and LO5.")}</p>
+          </article>
+
+          <article class="reference-explainer-card">
+            <span class="reference-card-mark supplementary">02</span>
+            <h3>${uiText("Supplementary references")}</h3>
+            <p>${uiText("A few familiar auriculotherapy references, including Point Zero, Brain and Thalamus, come from supplementary systems and are labeled separately rather than presented as distinct GB/T points.")}</p>
+          </article>
+
+          <article class="reference-explainer-card">
+            <span class="reference-card-mark visual">03</span>
+            <h3>${uiText("Simplified visual map")}</h3>
+            <p>${uiText("Marker positions are visual translations onto Bloomé’s illustrated ear. They are intended for general wellness education, not millimetre-precise clinical localization.")}</p>
+          </article>
+        </div>
+
+        <div class="notice reference-about-notice">
+          ${uiText("If a point differs between auriculotherapy systems, Bloomé identifies the reference type rather than presenting one system as universal.")}
         </div>
       </div>
     </section>
@@ -981,6 +1045,15 @@ function wireFullMap(){
 
     $("#map-title").textContent=point.name;
     $("#map-category").textContent=point.category||"Ear point";
+
+    const referenceCode=$("#map-reference-code");
+    if(referenceCode)referenceCode.textContent=point.standardCode||"—";
+
+    const referenceType=$("#map-reference-type");
+    if(referenceType){
+      referenceType.textContent=pointReferenceTypeLabel(point);
+      referenceType.className=`reference-type ${pointReferenceType(point)}`;
+    }
 
     const status=$("#map-plot-status");
     status.textContent=mapped?uiText("On map"):uiText("Reference only");
@@ -1260,3 +1333,6 @@ loadData();
 
 
 /* Bloomé Package 20.1 — Copy + Home Hero Cleanup */
+
+
+/* Bloomé Package 21 — Map Reference Guide */
