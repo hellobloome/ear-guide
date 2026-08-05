@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "20.4",
+  "version": "20.5",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -53,9 +53,11 @@
     "markersAnchoredToEarArtwork": true,
     "mapPanelHeightIndependentMarkers": true,
     "imageLocalCoordinates": true,
-    "stageToImageCoordinateConversion": true
+    "stageToImageCoordinateConversion": true,
+    "fullPointPlacementAudit": true,
+    "manualCoordinateRecalibrationAllPoints": true
   },
-  "releaseName": "Image-local Coordinate Fix",
+  "releaseName": "Full Point Placement Audit",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
