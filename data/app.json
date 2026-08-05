@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "21.1",
+  "version": "22",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -52,9 +52,10 @@
     "mapReferenceLegend": true,
     "mapReferenceAboutSection": true,
     "selectedPointReferenceMetadata": true,
-    "homeHeroCenteredDesktop": true
+    "homeHeroCenteredDesktop": true,
+    "bahasaMelayuPolished": true
   },
-  "releaseName": "Home Hero Alignment",
+  "releaseName": "Bahasa Melayu Language Polish",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
