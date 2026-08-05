@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "20.1",
+  "version": "20.2",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -48,9 +48,12 @@
     "standardizedPointCodes": true,
     "referenceLocationAudit": true,
     "simplifiedSupplementaryPointCopy": true,
-    "homepageHeroIllustrationRemoved": true
+    "homepageHeroIllustrationRemoved": true,
+    "earCoordinateLayer": true,
+    "markersAnchoredToEarArtwork": true,
+    "mapPanelHeightIndependentMarkers": true
   },
-  "releaseName": "Copy and Home Hero Cleanup",
+  "releaseName": "Ear Map Coordinate Architecture Fix",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

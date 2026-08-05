@@ -48,9 +48,10 @@ const mapPositions={
   "hip":[63,38]
 };
 
-const anatomicalEarSvg=(extraClass="")=>`
+const anatomicalEarSvg=(extraClass="",markerContent="")=>`
 <div class="premium-ear-wrap ${extraClass}" aria-label="Minimal line-art ear illustration">
   <img class="premium-ear-image" src="./images/ear-option-1.png" alt="Minimal line-art illustration of an ear">
+  ${markerContent?`<div class="ear-coordinate-layer">${markerContent}</div>`:""}
 </div>`;
 
 function markerLabelClass(left,top){
@@ -453,6 +454,10 @@ function fullMapView(){
   const first=pointMap.get(mapSelectedId)||mappedPoints[0]||allPoints[0];
   const categories=[...new Set(allPoints.map(point=>point.category).filter(Boolean))].sort();
   const letters=[...new Set(allPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
+  const mapMarkerHtml=mappedPoints.map(point=>{
+    const [left,top]=mapPositions[point.id];
+    return `<button class="map-marker ${point.id===first.id?"active":""} ${markerLabelClass(left,top)}" style="left:${left}%;top:${top}%" data-map-id="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${escapeHtml(point.name)}"></button>`;
+  }).join("");
 
   return `
   <section class="route map-explorer-route">
@@ -489,11 +494,7 @@ function fullMapView(){
         <div class="map-explorer-grid">
           <div class="map-canvas map-explorer-canvas">
             <div class="map-stage map-explorer-stage" id="map-stage">
-              ${anatomicalEarSvg()}
-              ${mappedPoints.map(point=>{
-                const [left,top]=mapPositions[point.id];
-                return `<button class="map-marker ${point.id===first.id?"active":""} ${markerLabelClass(left,top)}" style="left:${left}%;top:${top}%" data-map-id="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${escapeHtml(point.name)}"></button>`;
-              }).join("")}
+              ${anatomicalEarSvg("",mapMarkerHtml)}
             </div>
 
             <div class="zoom-controls">
@@ -611,6 +612,10 @@ function conditionView(id){
   const points=(condition.pointIds||[]).map(pid=>pointMap.get(pid)).filter(Boolean);
   const currentId=selectedConditionPoint.get(id)||points[0]?.id;
   const current=pointMap.get(currentId)||points[0];
+  const conditionMarkerHtml=points.map((point,index)=>{
+    const position=mapPositions[point.id]||[50,50];
+    return `<button class="condition-point ${point.id===current.id?"active":""} ${markerLabelClass(position[0],position[1])}" style="left:${position[0]}%;top:${position[1]}%" data-condition-point="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${index+1}. ${escapeHtml(point.name)}">${index+1}</button>`;
+  }).join("");
   return `
   <section class="route">
     <div class="route-hero">
@@ -632,11 +637,7 @@ function conditionView(id){
 
         <div class="condition-experience">
           <div class="condition-map-card">
-            ${anatomicalEarSvg("compact")}
-            ${points.map((point,index)=>{
-              const position=mapPositions[point.id]||[50,50];
-              return `<button class="condition-point ${point.id===current.id?"active":""} ${markerLabelClass(position[0],position[1])}" style="left:${position[0]}%;top:${position[1]}%" data-condition-point="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${index+1}. ${escapeHtml(point.name)}">${index+1}</button>`;
-            }).join("")}
+            ${anatomicalEarSvg("compact",conditionMarkerHtml)}
           </div>
 
           <aside class="condition-info-card">
@@ -724,6 +725,11 @@ function applicationView(id){
   const role=applicationStepRole(step,points.length,condition);
   const position=mapPositions[point.id]||[50,50];
   const percent=Math.round(((step+1)/points.length)*100);
+  const applicationMarkerHtml=points.map((p,index)=>{
+    const pos=mapPositions[p.id]||[50,50];
+    const state=index<step?"complete":index===step?"current":"upcoming";
+    return `<span class="application-point ${state}" style="left:${pos[0]}%;top:${pos[1]}%" aria-label="${escapeHtml(p.name)}">${index<step?"✓":index+1}</span>`;
+  }).join("");
 
   return `
   <section class="route application-route">
@@ -764,13 +770,7 @@ function applicationView(id){
               <strong>${escapeHtml(point.name)}</strong>
             </div>
 
-            ${anatomicalEarSvg("compact")}
-
-            ${points.map((p,index)=>{
-              const pos=mapPositions[p.id]||[50,50];
-              const state=index<step?"complete":index===step?"current":"upcoming";
-              return `<span class="application-point ${state}" style="left:${pos[0]}%;top:${pos[1]}%" aria-label="${escapeHtml(p.name)}">${index<step?"✓":index+1}</span>`;
-            }).join("")}
+            ${anatomicalEarSvg("compact",applicationMarkerHtml)}
           </div>
 
           <aside class="application-info-card">
@@ -1260,3 +1260,6 @@ loadData();
 
 
 /* Bloomé Package 20.1 — Copy + Home Hero Cleanup */
+
+
+/* Bloomé Package 20.2 — Ear Map Coordinate Architecture Fix */

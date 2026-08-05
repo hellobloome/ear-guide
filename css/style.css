@@ -1946,3 +1946,79 @@ h3,p{margin-top:0}
     margin:0 auto;
   }
 }
+
+
+/* Package 20.2 — Ear Map Coordinate Architecture Fix
+   Markers now share the exact same coordinate box as the ear illustration.
+   This prevents desktop panel height, translations, or card resizing from moving markers
+   relative to the ear artwork. Coordinates and image asset are unchanged. */
+
+.premium-ear-wrap{
+  position:relative;
+  overflow:visible;
+  flex:none;
+}
+
+.ear-coordinate-layer{
+  position:absolute;
+  inset:0;
+  z-index:7;
+  pointer-events:none;
+}
+
+.ear-coordinate-layer .map-marker,
+.ear-coordinate-layer .condition-point,
+.ear-coordinate-layer .application-point{
+  position:absolute;
+  translate:-50% -50%;
+  pointer-events:auto;
+}
+
+.ear-coordinate-layer .map-marker:hover,
+.ear-coordinate-layer .map-marker.active,
+.ear-coordinate-layer .condition-point:hover,
+.ear-coordinate-layer .condition-point.active,
+.ear-coordinate-layer .application-point.current{
+  translate:-50% -50%;
+}
+
+.map-canvas,
+.condition-map-card,
+.application-map-card{
+  align-items:center;
+  justify-items:center;
+}
+
+.map-stage{
+  display:grid;
+  place-items:center;
+}
+
+.map-explorer-grid,
+.condition-experience,
+.application-workspace{
+  align-items:start;
+}
+
+.map-explorer-canvas{
+  min-height:660px;
+}
+
+/* Labels now sit inside the ear coordinate layer, so give active labels room to float. */
+.map-explorer-canvas,
+.condition-map-card,
+.application-map-card{
+  overflow:hidden;
+}
+
+@media(max-width:900px){
+  .map-explorer-canvas{
+    min-height:590px;
+  }
+}
+
+@media(max-width:640px){
+  .map-explorer-canvas{
+    min-height:510px;
+  }
+}
