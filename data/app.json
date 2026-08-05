@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "22.3",
+  "version": "22.1",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -54,13 +54,9 @@
     "selectedPointReferenceMetadata": true,
     "homeHeroCenteredDesktop": true,
     "bahasaMelayuPolished": true,
-    "malayMapOrderHotfix": true,
-    "stableMapCoordinateCanvas": true,
-    "stableGuidedApplicationCoordinateCanvas": true,
-    "stableSquareMapCanvas": true,
-    "nonCroppingMapEarArt": true
+    "malayMapOrderHotfix": true
   },
-  "releaseName": "Map Canvas Aspect Ratio Fix",
+  "releaseName": "Malay Copy and Map Order Hotfix",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
