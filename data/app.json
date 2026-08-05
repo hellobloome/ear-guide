@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "22.1",
+  "version": "20.1",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -48,15 +48,9 @@
     "standardizedPointCodes": true,
     "referenceLocationAudit": true,
     "simplifiedSupplementaryPointCopy": true,
-    "homepageHeroIllustrationRemoved": true,
-    "mapReferenceLegend": true,
-    "mapReferenceAboutSection": true,
-    "selectedPointReferenceMetadata": true,
-    "homeHeroCenteredDesktop": true,
-    "bahasaMelayuPolished": true,
-    "malayMapOrderHotfix": true
+    "homepageHeroIllustrationRemoved": true
   },
-  "releaseName": "Malay Copy and Map Order Hotfix",
+  "releaseName": "Copy and Home Hero Cleanup",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

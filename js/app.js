@@ -188,32 +188,6 @@ function pointReferenceCode(point){
     : "";
 }
 
-function pointReferenceType(point){
-  const system=String(point?.mapSystem||"").toLowerCase();
-  if(system.includes("supplementary")||system.includes("nogier"))return "supplementary";
-  return "standardized";
-}
-
-function pointReferenceTypeLabel(point){
-  return pointReferenceType(point)==="supplementary"
-    ? uiText("Supplementary reference")
-    : uiText("Standardized reference");
-}
-
-function stableSourcePoint(pointOrId){
-  const id=typeof pointOrId==="string" ? pointOrId : pointOrId?.id;
-  return sourceAcupoints.find(item=>item.id===id) || null;
-}
-
-function stablePointName(point){
-  return stableSourcePoint(point)?.name || point?.name || "";
-}
-
-function stablePointCategory(point){
-  return stableSourcePoint(point)?.category || point?.category || "";
-}
-
-
 function score(item,query){
   const q=normalize(query);
   if(!q)return 0;
@@ -475,10 +449,10 @@ function mapRelatedMarkup(point){
 
 function fullMapView(){
   const mappedPoints=acupoints.filter(point=>pointIsMapped(point));
-  const allPoints=acupoints.slice().sort((a,b)=>stablePointName(a).localeCompare(stablePointName(b)));
+  const allPoints=acupoints.slice().sort((a,b)=>a.name.localeCompare(b.name));
   const first=pointMap.get(mapSelectedId)||mappedPoints[0]||allPoints[0];
-  const categories=[...new Set(allPoints.map(point=>stablePointCategory(point)).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
-  const letters=[...new Set(allPoints.map(point=>stablePointName(point).charAt(0).toUpperCase()).filter(Boolean))].sort();
+  const categories=[...new Set(allPoints.map(point=>point.category).filter(Boolean))].sort();
+  const letters=[...new Set(allPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
 
   return `
   <section class="route map-explorer-route">
@@ -495,12 +469,6 @@ function fullMapView(){
         <div class="map-library-summary complete-map-summary">
           <div><strong>${mappedPoints.length}</strong><span>Complete visual library</span></div>
           <p>All points in Bloomé’s current library are now plotted on the simplified educational ear map.</p>
-        </div>
-
-        <div class="map-reference-key" aria-label="Map reference key">
-          <span><i class="reference-key-dot standardized"></i>${uiText("Standardized reference")}</span>
-          <span><i class="reference-key-dot supplementary"></i>${uiText("Supplementary reference")}</span>
-          <a class="text-button map-reference-help" href="#/about">${uiText("How the map is built")}</a>
         </div>
 
         <div class="map-explorer-toolbar">
@@ -549,17 +517,6 @@ function fullMapView(){
 
             <div class="map-reference-note" id="map-reference-note" ${pointIsMapped(first)?"hidden":""}>
               This point is in Bloomé’s reference library but has not yet been placed on the simplified interactive ear.
-            </div>
-
-            <div class="map-reference-meta">
-              <div>
-                <span>${uiText("Reference code")}</span>
-                <strong class="point-reference-code" id="map-reference-code">${escapeHtml(first.standardCode||"—")}</strong>
-              </div>
-              <div>
-                <span>${uiText("Reference system")}</span>
-                <strong class="reference-type ${pointReferenceType(first)}" id="map-reference-type">${pointReferenceTypeLabel(first)}</strong>
-              </div>
             </div>
 
             <div class="map-info-block">
@@ -611,7 +568,7 @@ function fullMapView(){
                   <span class="map-point-card-icon">${mapped?"◉":"◌"}</span>
                   <span>
                     <strong>${escapeHtml(point.name)}</strong>
-                    <small>${escapeHtml(stablePointCategory(point)||point.category||"Ear point")} · ${mapped?uiText("Mapped"):uiText("Reference")}</small>
+                    <small>${escapeHtml(point.category||"Ear point")} · ${mapped?uiText("Mapped"):uiText("Reference")}</small>
                   </span>
                   <span class="map-point-card-arrow">→</span>
                 </button>`;
@@ -935,48 +892,13 @@ function aboutView(){
         <h1>Wellness guidance, made easier to understand.</h1>
       </div>
     </div>
-
     <section class="section soft-section">
       <div class="container about-panel">
         <div><h2>Visual guidance before dense explanation.</h2></div>
         <div>
           <p>Bloomé creates approachable self-care tools and educational resources for everyday wellness.</p>
-          <p>Condition pages begin with the ear itself, because it is easier to understand a suggested combination when you can see the points first.</p>
+          <p>Condition pages now begin with the ear itself, because customers need to see where the suggested points are before reading deeper details.</p>
           <p>This guide distinguishes traditional auricular uses from medical treatment. It is not designed to diagnose illness or replace professional care.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section map-reference-about">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">${uiText("Map reference")}</p>
-          <h2>${uiText("How the map is built")}</h2>
-          <p class="lead">${uiText("Bloomé uses a standardized auricular reference as the main map framework, with a small number of clearly identified supplementary auriculotherapy references.")}</p>
-        </div>
-
-        <div class="reference-explainer-grid">
-          <article class="reference-explainer-card">
-            <span class="reference-card-mark standardized">01</span>
-            <h3>${uiText("Standardized points")}</h3>
-            <p>${uiText("Most mapped points follow GB/T 13734-2008 anatomical auricular nomenclature and location codes, such as TF4, AT3, CO15 and LO5.")}</p>
-          </article>
-
-          <article class="reference-explainer-card">
-            <span class="reference-card-mark supplementary">02</span>
-            <h3>${uiText("Supplementary references")}</h3>
-            <p>${uiText("A few familiar auriculotherapy references, including Point Zero, Brain and Thalamus, come from supplementary systems and are labeled separately rather than presented as distinct GB/T points.")}</p>
-          </article>
-
-          <article class="reference-explainer-card">
-            <span class="reference-card-mark visual">03</span>
-            <h3>${uiText("Simplified visual map")}</h3>
-            <p>${uiText("Marker positions are visual translations onto Bloomé’s illustrated ear. They are intended for general wellness education, not millimetre-precise clinical localization.")}</p>
-          </article>
-        </div>
-
-        <div class="notice reference-about-notice">
-          ${uiText("If a point differs between auriculotherapy systems, Bloomé identifies the reference type rather than presenting one system as universal.")}
         </div>
       </div>
     </section>
@@ -1032,10 +954,7 @@ function wireFullMap(){
   let activeLetter="all";
   let activeQuery="";
 
-  const allIds=acupoints
-    .slice()
-    .sort((a,b)=>stablePointName(a).localeCompare(stablePointName(b)))
-    .map(point=>point.id);
+  const allIds=acupoints.map(point=>point.id);
 
   function relatedButtons(){
     $$("[data-map-condition-id]",$("#map-related")).forEach(button=>{
@@ -1063,15 +982,6 @@ function wireFullMap(){
     $("#map-title").textContent=point.name;
     $("#map-category").textContent=point.category||"Ear point";
 
-    const referenceCode=$("#map-reference-code");
-    if(referenceCode)referenceCode.textContent=point.standardCode||"—";
-
-    const referenceType=$("#map-reference-type");
-    if(referenceType){
-      referenceType.textContent=pointReferenceTypeLabel(point);
-      referenceType.className=`reference-type ${pointReferenceType(point)}`;
-    }
-
     const status=$("#map-plot-status");
     status.textContent=mapped?uiText("On map"):uiText("Reference only");
     status.classList.toggle("mapped",mapped);
@@ -1095,8 +1005,8 @@ function wireFullMap(){
       const point=pointMap.get(id);
       if(!point)return false;
       const queryMatch=!activeQuery || searchableText(point).includes(normalize(activeQuery));
-      const categoryMatch=activeCategory==="all" || stablePointCategory(point)===activeCategory;
-      const letterMatch=activeLetter==="all" || stablePointName(point).charAt(0).toUpperCase()===activeLetter;
+      const categoryMatch=activeCategory==="all" || point.category===activeCategory;
+      const letterMatch=activeLetter==="all" || point.name.charAt(0).toUpperCase()===activeLetter;
       return queryMatch && categoryMatch && letterMatch;
     });
   }
@@ -1350,6 +1260,3 @@ loadData();
 
 
 /* Bloomé Package 20.1 — Copy + Home Hero Cleanup */
-
-
-/* Bloomé Package 21 — Map Reference Guide */
