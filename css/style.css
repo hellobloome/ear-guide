@@ -2114,3 +2114,59 @@ h3,p{margin-top:0}
     justify-content:center;
   }
 }
+
+
+/* Package 22.2 — Map Marker Stability Fix
+   Keep the map coordinate canvas independent from the changing info-panel height.
+   Point coordinates and ear artwork are unchanged. */
+
+.map-explorer-grid{
+  align-items:start;
+}
+
+.map-explorer-canvas{
+  height:650px;
+  min-height:650px;
+  align-self:start;
+}
+
+.map-explorer-stage{
+  height:100%;
+  min-height:0;
+}
+
+/* Guided Application uses the same percentage-marker architecture.
+   Stabilize its map panel too so step-copy length cannot shift markers. */
+.application-workspace{
+  align-items:start;
+}
+
+.application-map-card{
+  height:620px;
+  min-height:620px;
+  align-self:start;
+}
+
+@media(max-width:960px){
+  .map-explorer-canvas{
+    height:590px;
+    min-height:590px;
+  }
+
+  .application-map-card{
+    height:580px;
+    min-height:580px;
+  }
+}
+
+@media(max-width:680px){
+  .map-explorer-canvas{
+    height:500px;
+    min-height:500px;
+  }
+
+  .application-map-card{
+    height:500px;
+    min-height:500px;
+  }
+}

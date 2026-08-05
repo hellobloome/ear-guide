@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "22.1",
+  "version": "22.2",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -54,9 +54,11 @@
     "selectedPointReferenceMetadata": true,
     "homeHeroCenteredDesktop": true,
     "bahasaMelayuPolished": true,
-    "malayMapOrderHotfix": true
+    "malayMapOrderHotfix": true,
+    "stableMapCoordinateCanvas": true,
+    "stableGuidedApplicationCoordinateCanvas": true
   },
-  "releaseName": "Malay Copy and Map Order Hotfix",
+  "releaseName": "Map Marker Stability Fix",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
