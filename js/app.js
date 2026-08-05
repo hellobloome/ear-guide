@@ -200,6 +200,20 @@ function pointReferenceTypeLabel(point){
     : uiText("Standardized reference");
 }
 
+function stableSourcePoint(pointOrId){
+  const id=typeof pointOrId==="string" ? pointOrId : pointOrId?.id;
+  return sourceAcupoints.find(item=>item.id===id) || null;
+}
+
+function stablePointName(point){
+  return stableSourcePoint(point)?.name || point?.name || "";
+}
+
+function stablePointCategory(point){
+  return stableSourcePoint(point)?.category || point?.category || "";
+}
+
+
 function score(item,query){
   const q=normalize(query);
   if(!q)return 0;
@@ -461,10 +475,10 @@ function mapRelatedMarkup(point){
 
 function fullMapView(){
   const mappedPoints=acupoints.filter(point=>pointIsMapped(point));
-  const allPoints=acupoints.slice().sort((a,b)=>a.name.localeCompare(b.name));
+  const allPoints=acupoints.slice().sort((a,b)=>stablePointName(a).localeCompare(stablePointName(b)));
   const first=pointMap.get(mapSelectedId)||mappedPoints[0]||allPoints[0];
-  const categories=[...new Set(allPoints.map(point=>point.category).filter(Boolean))].sort();
-  const letters=[...new Set(allPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
+  const categories=[...new Set(allPoints.map(point=>stablePointCategory(point)).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+  const letters=[...new Set(allPoints.map(point=>stablePointName(point).charAt(0).toUpperCase()).filter(Boolean))].sort();
 
   return `
   <section class="route map-explorer-route">
@@ -597,7 +611,7 @@ function fullMapView(){
                   <span class="map-point-card-icon">${mapped?"◉":"◌"}</span>
                   <span>
                     <strong>${escapeHtml(point.name)}</strong>
-                    <small>${escapeHtml(point.category||"Ear point")} · ${mapped?uiText("Mapped"):uiText("Reference")}</small>
+                    <small>${escapeHtml(stablePointCategory(point)||point.category||"Ear point")} · ${mapped?uiText("Mapped"):uiText("Reference")}</small>
                   </span>
                   <span class="map-point-card-arrow">→</span>
                 </button>`;
@@ -1018,7 +1032,10 @@ function wireFullMap(){
   let activeLetter="all";
   let activeQuery="";
 
-  const allIds=acupoints.map(point=>point.id);
+  const allIds=acupoints
+    .slice()
+    .sort((a,b)=>stablePointName(a).localeCompare(stablePointName(b)))
+    .map(point=>point.id);
 
   function relatedButtons(){
     $$("[data-map-condition-id]",$("#map-related")).forEach(button=>{
@@ -1078,8 +1095,8 @@ function wireFullMap(){
       const point=pointMap.get(id);
       if(!point)return false;
       const queryMatch=!activeQuery || searchableText(point).includes(normalize(activeQuery));
-      const categoryMatch=activeCategory==="all" || point.category===activeCategory;
-      const letterMatch=activeLetter==="all" || point.name.charAt(0).toUpperCase()===activeLetter;
+      const categoryMatch=activeCategory==="all" || stablePointCategory(point)===activeCategory;
+      const letterMatch=activeLetter==="all" || stablePointName(point).charAt(0).toUpperCase()===activeLetter;
       return queryMatch && categoryMatch && letterMatch;
     });
   }

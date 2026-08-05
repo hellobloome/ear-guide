@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "22",
+  "version": "22.1",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -53,9 +53,10 @@
     "mapReferenceAboutSection": true,
     "selectedPointReferenceMetadata": true,
     "homeHeroCenteredDesktop": true,
-    "bahasaMelayuPolished": true
+    "bahasaMelayuPolished": true,
+    "malayMapOrderHotfix": true
   },
-  "releaseName": "Bahasa Melayu Language Polish",
+  "releaseName": "Malay Copy and Map Order Hotfix",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
