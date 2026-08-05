@@ -182,6 +182,12 @@ function pointStatusLabel(point){
   return pointIsMapped(point) ? "Mapped acupoint" : "Reference acupoint";
 }
 
+function pointReferenceCode(point){
+  return point?.standardCode
+    ? `<span class="point-reference-code" title="${escapeHtml(point.mapSystem||"Auricular reference")}">${escapeHtml(point.standardCode)}</span>`
+    : "";
+}
+
 function score(item,query){
   const q=normalize(query);
   if(!q)return 0;
@@ -597,7 +603,7 @@ function combinationRole(index,total,condition=null){
   return ["Support",`Step ${index+1}`,"Builds on the primary point as part of the suggested routine."];
 }
 function conditionInfoMarkup(point,role=["Selected point","",""]){
-  return `<div class="role-line"><span class="role-badge">${escapeHtml(role[0])}</span><small>${escapeHtml(role[1])}</small></div><h2 id="condition-point-title">${escapeHtml(point.name)}</h2><p class="role-explainer">${escapeHtml(role[2])}</p><div class="info-section"><div class="info-label"><span>⌖</span>Location</div><p id="condition-point-location">${escapeHtml(point.location)}</p></div><div class="info-section"><div class="info-label"><span>✦</span>Traditional wellness use</div><p id="condition-point-use">${escapeHtml(point.traditionalUse)}</p></div><div class="info-section"><div class="info-label"><span>◌</span>Gentle stimulation</div><p id="condition-point-stimulate">${escapeHtml(point.howToStimulate)}</p></div>`;
+  return `<div class="role-line"><span class="role-badge">${escapeHtml(role[0])}</span><small>${escapeHtml(role[1])}</small></div><div class="condition-point-heading"><h2 id="condition-point-title">${escapeHtml(point.name)}</h2>${pointReferenceCode(point)}</div><p class="role-explainer">${escapeHtml(role[2])}</p><div class="info-section"><div class="info-label"><span>⌖</span>Location</div><p id="condition-point-location">${escapeHtml(point.location)}</p></div><div class="info-section"><div class="info-label"><span>✦</span>Traditional wellness use</div><p id="condition-point-use">${escapeHtml(point.traditionalUse)}</p></div><div class="info-section"><div class="info-label"><span>◌</span>Gentle stimulation</div><p id="condition-point-stimulate">${escapeHtml(point.howToStimulate)}</p></div>`;
 }
 
 function conditionView(id){
@@ -825,6 +831,7 @@ function pointView(id){
           <span class="point-library-status ${mapped?"mapped":"reference"}">${mapped?"Mapped acupoint":"Reference acupoint"}</span>
         </div>
         <h1>${escapeHtml(point.name)}</h1>
+        ${point.standardCode?`<div class="point-reference-strip"><span>${uiText("Reference code")}</span>${pointReferenceCode(point)}</div>`:""}
         <p class="lead">${escapeHtml(point.traditionalUse)}</p>
       </div>
     </div>
@@ -1248,3 +1255,6 @@ loadData();
 /* Bloomé Package 17 — Combination Audit */
 
 /* Bloomé Package 19.1 — Full Map Audit */
+
+
+/* Bloomé Package 20 — Point Reference Standardization */

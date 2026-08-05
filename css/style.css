@@ -1875,3 +1875,47 @@ h3,p{margin-top:0}
     height:44px;
   }
 }
+
+
+/* Package 20 — Point Reference Standardization */
+.point-reference-strip{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:-10px 0 22px;
+  color:var(--muted);
+  font-size:.76rem;
+  font-weight:600;
+}
+.point-reference-code{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:27px;
+  padding:5px 9px;
+  border:1px solid rgba(90,22,17,.12);
+  border-radius:999px;
+  background:rgba(255,253,252,.86);
+  color:var(--primary);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+.condition-point-heading{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+}
+.condition-point-heading h2{
+  min-width:0;
+}
+@media(max-width:680px){
+  .condition-point-heading{
+    align-items:center;
+  }
+  .point-reference-strip{
+    justify-content:center;
+  }
+}

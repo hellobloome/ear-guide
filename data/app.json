@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "19",
+  "version": "20",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -44,9 +44,11 @@
     "homepageHeadlineRefined": true,
     "mapLegibilityPolish": true,
     "edgeAwareMarkerLabels": true,
-    "expandedMapTouchTargets": true
+    "expandedMapTouchTargets": true,
+    "standardizedPointCodes": true,
+    "referenceLocationAudit": true
   },
-  "releaseName": "Map Legibility Polish",
+  "releaseName": "Point Reference Standardization",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

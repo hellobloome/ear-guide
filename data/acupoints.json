@@ -7,7 +7,7 @@
       "shenmen"
     ],
     "category": "Master point",
-    "location": "In the triangular fossa, toward its upper-central region.",
+    "location": "In the upper part of the posterior third of the triangular fossa (TF4).",
     "traditionalUse": "Commonly selected in auricular wellness routines intended to promote calm and overall balance.",
     "howToStimulate": "Press gently for 5–10 seconds, release, and repeat a few times. Stop if the area becomes painful or irritated.",
     "relatedConditionIds": [
@@ -43,7 +43,8 @@
       36,
       24
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "TF4"
   },
   {
     "id": "point-zero",
@@ -52,7 +53,7 @@
       "zero point"
     ],
     "category": "Master point",
-    "location": "Near the center of the ear, around the root of the helix.",
+    "location": "Near the center of the ear around the root of the helix; retained as a Nogier-derived reference rather than a GB/T 13734-2008 point.",
     "traditionalUse": "Often used as a balancing or centering point in auricular practice.",
     "howToStimulate": "Use light, steady pressure. More pressure is not necessarily better.",
     "relatedConditionIds": [
@@ -81,7 +82,8 @@
       48,
       45
     ],
-    "mapSystem": "Nogier / existing Bloomé reference"
+    "mapSystem": "Nogier-derived supplementary reference",
+    "standardCode": "Nogier P0"
   },
   {
     "id": "heart",
@@ -90,7 +92,7 @@
       "heart point"
     ],
     "category": "Organ point",
-    "location": "In the central concha region.",
+    "location": "In the central depression of the cavum conchae (CO15).",
     "traditionalUse": "Traditionally included in routines related to calm, rest and emotional settling.",
     "howToStimulate": "Press gently and discontinue use if you notice persistent tenderness or skin irritation.",
     "relatedConditionIds": [
@@ -111,7 +113,8 @@
       41,
       56
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "CO15"
   },
   {
     "id": "sympathetic",
@@ -121,7 +124,7 @@
       "sympathetic point"
     ],
     "category": "Master point",
-    "location": "Near the junction of the inferior crus of the antihelix and the inner helix.",
+    "location": "At the anterior end of the inferior crus of the antihelix where it meets the inner border of the helix (AH6a).",
     "traditionalUse": "Frequently included in traditional comfort and relaxation combinations.",
     "howToStimulate": "Apply brief, comfortable pressure several times through the day.",
     "relatedConditionIds": [
@@ -150,7 +153,8 @@
       33,
       46
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "AH6a"
   },
   {
     "id": "kidney",
@@ -159,7 +163,7 @@
       "kidney point"
     ],
     "category": "Organ point",
-    "location": "In the upper concha region.",
+    "location": "Below the posterior part of the inferior crus of the antihelix, in concha area 10 (CO10).",
     "traditionalUse": "Traditionally associated with foundational energy and restorative routines.",
     "howToStimulate": "Use gentle pressure only and keep the surrounding skin clean and dry.",
     "relatedConditionIds": [
@@ -182,7 +186,8 @@
       58,
       39
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "CO10"
   },
   {
     "id": "occiput",
@@ -192,7 +197,7 @@
       "back of head"
     ],
     "category": "Anatomical point",
-    "location": "On the posterior part of the lateral surface of the antitragus.",
+    "location": "On the posterior part of the lateral surface of the antitragus (AT3).",
     "traditionalUse": "Commonly referenced in routines for rest and head comfort.",
     "howToStimulate": "Press until you feel mild pressure, not sharp pain.",
     "relatedConditionIds": [
@@ -213,7 +218,8 @@
       42,
       64
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "AT3"
   },
   {
     "id": "stomach",
@@ -222,7 +228,7 @@
       "stomach point"
     ],
     "category": "Organ point",
-    "location": "Around the end of the crus of the helix in the concha.",
+    "location": "At the point where the helix crus disappears into the concha (CO4).",
     "traditionalUse": "Traditionally included in digestive-support and appetite-awareness routines.",
     "howToStimulate": "Stimulate gently before or after meals as part of a mindful routine.",
     "relatedConditionIds": [
@@ -245,7 +251,8 @@
       49,
       50
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "CO4"
   },
   {
     "id": "spleen",
@@ -254,7 +261,7 @@
       "spleen point"
     ],
     "category": "Organ point",
-    "location": "In the concha region, close to the liver and stomach representations.",
+    "location": "In the posterosuperior part of the cavum conchae (CO13).",
     "traditionalUse": "Traditionally linked with digestive and energy-support routines.",
     "howToStimulate": "Use light pressure and avoid applying seeds to broken or inflamed skin.",
     "relatedConditionIds": [
@@ -275,7 +282,8 @@
       55,
       52
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "CO13"
   },
   {
     "id": "brain",
@@ -285,7 +293,7 @@
       "brain point"
     ],
     "category": "Functional point",
-    "location": "On the inner aspect of the antitragus.",
+    "location": "A supplementary auriculotherapy reference retained by Bloomé in the antitragus region; the generic name “Brain” is not a distinct GB/T 13734-2008 standardized point.",
     "traditionalUse": "Often selected in traditional routines for clarity, rest and general regulation.",
     "howToStimulate": "Press comfortably for a few seconds at a time.",
     "relatedConditionIds": [
@@ -306,7 +314,8 @@
       36,
       71
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "Supplementary auriculotherapy reference",
+    "standardCode": "Supplementary"
   },
   {
     "id": "endocrine",
@@ -316,7 +325,7 @@
       "hormone"
     ],
     "category": "Functional point",
-    "location": "At the base of the intertragic notch.",
+    "location": "Within the intertragic notch, at the floor of the cavum conchae (CO18).",
     "traditionalUse": "Traditionally included in women’s wellness and general regulation routines.",
     "howToStimulate": "Apply light pressure only. Seek professional guidance for persistent symptoms.",
     "relatedConditionIds": [
@@ -336,7 +345,8 @@
       46,
       64
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "CO18"
   },
   {
     "id": "mouth",
@@ -346,7 +356,7 @@
       "appetite"
     ],
     "category": "Anatomical point",
-    "location": "Near the lower portion of the concha, close to the ear canal opening.",
+    "location": "Below the helix crus in the anterior one-third of concha area 1 (CO1).",
     "traditionalUse": "Sometimes used in mindful-eating and oral-comfort routines.",
     "howToStimulate": "Press gently and keep seeds away from the ear canal.",
     "relatedConditionIds": [
@@ -366,7 +376,8 @@
       42,
       60
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "CO1"
   },
   {
     "id": "cervical-spine",
@@ -376,7 +387,7 @@
       "cervical"
     ],
     "category": "Anatomical point",
-    "location": "Along the lower antihelix, corresponding traditionally to the neck region.",
+    "location": "Posterior to the Neck area on the lower portion of the antihelix body (AH13).",
     "traditionalUse": "Traditionally selected for neck-comfort routines.",
     "howToStimulate": "Use comfortable pressure and seek medical care for severe, persistent or injury-related pain.",
     "relatedConditionIds": [
@@ -396,7 +407,8 @@
       67,
       56
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "AH13"
   },
   {
     "id": "shoulder",
@@ -405,7 +417,7 @@
       "shoulder point"
     ],
     "category": "Anatomical point",
-    "location": "Along the antihelix region traditionally corresponding to the shoulder.",
+    "location": "In the scapha below the Elbow area, spanning scapha areas 4 and 5 (SF4,5).",
     "traditionalUse": "Commonly selected in shoulder-comfort routines.",
     "howToStimulate": "Press gently. Do not use ear seeds as a substitute for assessment after injury.",
     "relatedConditionIds": [
@@ -425,7 +437,8 @@
       72,
       47
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "SF4,5"
   },
   {
     "id": "jaw",
@@ -435,7 +448,7 @@
       "tmj point"
     ],
     "category": "Anatomical point",
-    "location": "On the earlobe region traditionally mapped to the jaw and face.",
+    "location": "In the posterosuperior part of the anterior surface of the earlobe (LO3).",
     "traditionalUse": "Traditionally included in jaw-relaxation routines.",
     "howToStimulate": "Use mild pressure and consult a dental or medical professional for persistent jaw pain.",
     "relatedConditionIds": [
@@ -455,7 +468,8 @@
       42,
       76
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "standardCode": "LO3"
   },
   {
     "id": "liver",
@@ -464,7 +478,7 @@
       "liver point"
     ],
     "category": "Organ point",
-    "location": "In the posteroinferior part of the cymba conchae (CO12 in the WFAS-style nomenclature used for this map).",
+    "location": "In the posteroinferior part of the cymba conchae (CO12).",
     "traditionalUse": "Traditionally referenced in auricular routines centred on digestive wellness and general balance.",
     "howToStimulate": "Use light, comfortable pressure for a few seconds at a time. Stop if the area becomes painful or irritated.",
     "relatedConditionIds": [
@@ -483,8 +497,9 @@
       56,
       44
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "CO12"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "CO12",
+    "standardCode": "CO12"
   },
   {
     "id": "lung",
@@ -493,7 +508,7 @@
       "lung point"
     ],
     "category": "Organ point",
-    "location": "In the cavum conchae around the Heart and Trachea regions (CO14 in the WFAS-style nomenclature used for this map).",
+    "location": "In the cavum conchae surrounding the Heart and Trachea regions (CO14).",
     "traditionalUse": "Traditionally referenced in general wellness routines and in auricular traditions focused on breathing comfort.",
     "howToStimulate": "Use gentle, steady pressure rather than strong pressure. Remove the seed if the skin becomes irritated.",
     "relatedConditionIds": [
@@ -512,8 +527,9 @@
       45,
       55
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "CO14"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "CO14",
+    "standardCode": "CO14"
   },
   {
     "id": "large-intestine",
@@ -523,7 +539,7 @@
       "large bowel point"
     ],
     "category": "Organ point",
-    "location": "In the anterior one-third of the superior-concha region between the helix crus and the concha boundary line (CO7).",
+    "location": "In the anterior one-third of the superior concha region between the helix crus and the concha boundary (CO7).",
     "traditionalUse": "Traditionally referenced in digestive-wellness routines.",
     "howToStimulate": "Press gently for several seconds, release, and repeat a few times if comfortable.",
     "relatedConditionIds": [
@@ -543,8 +559,9 @@
       42,
       40
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "CO7"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "CO7",
+    "standardCode": "CO7"
   },
   {
     "id": "small-intestine",
@@ -553,7 +570,7 @@
       "small bowel point"
     ],
     "category": "Organ point",
-    "location": "In the middle one-third of the superior-concha region between the helix crus and the concha boundary line (CO6).",
+    "location": "In the middle one-third of the superior concha region between the helix crus and the concha boundary (CO6).",
     "traditionalUse": "Traditionally referenced in digestive-wellness routines.",
     "howToStimulate": "Use brief, light pressure. More pressure is not necessarily better.",
     "relatedConditionIds": [
@@ -572,8 +589,9 @@
       47,
       42
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "CO6"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "CO6",
+    "standardCode": "CO6"
   },
   {
     "id": "bladder",
@@ -582,7 +600,7 @@
       "bladder point"
     ],
     "category": "Organ point",
-    "location": "In the cymba conchae below the middle region of the inferior antihelix crus (CO9).",
+    "location": "Below the middle part of the inferior crus of the antihelix, in concha area 9 (CO9).",
     "traditionalUse": "Traditionally included in broader body-balance routines in auricular practice.",
     "howToStimulate": "Press lightly and discontinue if there is persistent tenderness, redness or irritation.",
     "relatedConditionIds": [],
@@ -599,8 +617,9 @@
       53,
       36
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "CO9"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "CO9",
+    "standardCode": "CO9"
   },
   {
     "id": "gallbladder",
@@ -609,7 +628,7 @@
       "gall bladder point"
     ],
     "category": "Organ point",
-    "location": "In the posterosuperior part of the cymba conchae, within the shared Pancreas / Gallbladder CO11 zone.",
+    "location": "In the posterosuperior cymba conchae, within the shared Pancreas/Gallbladder zone (CO11).",
     "traditionalUse": "Traditionally referenced in digestive and general-balance routines.",
     "howToStimulate": "Apply light, comfortable pressure for a few seconds at a time.",
     "relatedConditionIds": [],
@@ -626,10 +645,11 @@
       59,
       34
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
+    "mapSystem": "GB/T 13734-2008 shared Pancreas/Gallbladder zone",
     "mapCode": "CO11",
     "sharedMapZone": "CO11",
-    "mapNote": "WFAS combines pancreas and gallbladder within CO11; Bloomé keeps both library entries and displays two nearby markers within the same shared zone."
+    "mapNote": "WFAS combines pancreas and gallbladder within CO11; Bloomé keeps both library entries and displays two nearby markers within the same shared zone.",
+    "standardCode": "CO11"
   },
   {
     "id": "pancreas",
@@ -638,7 +658,7 @@
       "pancreas point"
     ],
     "category": "Organ point",
-    "location": "In the posterosuperior part of the cymba conchae, within the shared Pancreas / Gallbladder CO11 zone.",
+    "location": "In the posterosuperior cymba conchae, within the shared Pancreas/Gallbladder zone (CO11).",
     "traditionalUse": "Traditionally referenced in digestive and appetite-focused wellness routines.",
     "howToStimulate": "Use gentle pressure only and remove the seed if the skin becomes irritated.",
     "relatedConditionIds": [],
@@ -655,10 +675,11 @@
       62,
       35
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
+    "mapSystem": "GB/T 13734-2008 shared Pancreas/Gallbladder zone",
     "mapCode": "CO11",
     "sharedMapZone": "CO11",
-    "mapNote": "WFAS combines pancreas and gallbladder within CO11; Bloomé keeps both library entries and displays two nearby markers within the same shared zone."
+    "mapNote": "WFAS combines pancreas and gallbladder within CO11; Bloomé keeps both library entries and displays two nearby markers within the same shared zone.",
+    "standardCode": "CO11"
   },
   {
     "id": "adrenal",
@@ -667,7 +688,7 @@
       "adrenal point"
     ],
     "category": "Functional point",
-    "location": "On the lower half of the lateral surface of the tragus, around the traditional Adrenal region.",
+    "location": "At the lower tip of the free edge of the tragus, on the posterior edge of tragus area 2 (TG2p).",
     "traditionalUse": "Traditionally referenced in routines focused on stress, resilience and general energy balance.",
     "howToStimulate": "Use brief, light pressure and stop if stimulation feels sharp or uncomfortable.",
     "relatedConditionIds": [
@@ -686,8 +707,9 @@
       34,
       58
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "Tragus lower region"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "Tragus lower region",
+    "standardCode": "TG2p"
   },
   {
     "id": "subcortex",
@@ -697,7 +719,7 @@
       "subcortical point"
     ],
     "category": "Functional point",
-    "location": "On the medial side of the antitragus (AT4).",
+    "location": "On the medial surface of the antitragus (AT4).",
     "traditionalUse": "Traditionally referenced in calming, rest and focus-oriented auricular routines.",
     "howToStimulate": "Press gently for a few seconds and release. Avoid prolonged or painful pressure.",
     "relatedConditionIds": [
@@ -718,10 +740,11 @@
       38,
       67
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "AT4",
     "sharedMapZone": "AT4",
-    "mapNote": "These references overlap in the inner-antitragus AT4 region in the source systems used; Bloomé displays nearby markers for easier selection."
+    "mapNote": "These references overlap in the inner-antitragus AT4 region in the source systems used; Bloomé displays nearby markers for easier selection.",
+    "standardCode": "AT4"
   },
   {
     "id": "thalamus",
@@ -730,7 +753,7 @@
       "thalamus point"
     ],
     "category": "Functional point",
-    "location": "On the inner side of the antitragus, in the AT4 region used for Thalamus / Subcortex references.",
+    "location": "A supplementary auriculotherapy reference retained by Bloomé on the inner antitragus; “Thalamus” is not a distinct GB/T 13734-2008 standardized point.",
     "traditionalUse": "Traditionally referenced in calming and comfort-focused auricular routines.",
     "howToStimulate": "Use gentle, intermittent pressure. Stop if the area becomes tender or irritated.",
     "relatedConditionIds": [
@@ -749,10 +772,11 @@
       41,
       66
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
+    "mapSystem": "Supplementary auriculotherapy reference",
     "mapCode": "AT4",
     "sharedMapZone": "AT4",
-    "mapNote": "These references overlap in the inner-antitragus AT4 region in the source systems used; Bloomé displays nearby markers for easier selection."
+    "mapNote": "These references overlap in the inner-antitragus AT4 region in the source systems used; Bloomé displays nearby markers for easier selection.",
+    "standardCode": "Supplementary"
   },
   {
     "id": "ear-apex",
@@ -762,7 +786,7 @@
       "auricular apex"
     ],
     "category": "Master point",
-    "location": "At the apex of the helix, found at the top of the ear when the auricle is gently folded forward.",
+    "location": "At the upper apex formed when the auricle is gently folded forward, at the boundary of helix areas 6 and 7 (HX6,7i).",
     "traditionalUse": "Traditionally referenced in broad calming and comfort-oriented auricular routines.",
     "howToStimulate": "Use very light pressure. This area can be sensitive, so discontinue if uncomfortable.",
     "relatedConditionIds": [],
@@ -780,8 +804,9 @@
       50,
       12
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "HX6,7i"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "HX6,7i",
+    "standardCode": "HX6,7i"
   },
   {
     "id": "eye",
@@ -791,7 +816,7 @@
       "eyes"
     ],
     "category": "Sensory point",
-    "location": "In the central part of the anterolateral surface of the earlobe (LO5).",
+    "location": "In the central part of the anterior surface of the earlobe (LO5).",
     "traditionalUse": "Traditionally referenced in routines centred on eye comfort and screen-related wellness.",
     "howToStimulate": "Use gentle pressure only. Do not apply seeds inside the ear canal.",
     "relatedConditionIds": [
@@ -811,8 +836,9 @@
       37,
       80
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "LO5"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "LO5",
+    "standardCode": "LO5"
   },
   {
     "id": "inner-ear",
@@ -822,7 +848,7 @@
       "balance point"
     ],
     "category": "Sensory point",
-    "location": "In the earlobe Area 6 region (LO6), in the middle-posterior portion of the lobe grid.",
+    "location": "In the posterior-middle part of the anterior surface of the earlobe (LO6).",
     "traditionalUse": "Traditionally referenced in balance and travel-comfort routines.",
     "howToStimulate": "Use light pressure and stop immediately if stimulation increases dizziness or discomfort.",
     "relatedConditionIds": [
@@ -843,8 +869,9 @@
       47,
       82
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "LO6"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "LO6",
+    "standardCode": "LO6"
   },
   {
     "id": "thoracic-spine",
@@ -854,7 +881,7 @@
       "thoracic back"
     ],
     "category": "Anatomical point",
-    "location": "Along the middle portion of the antihelix body, between the cervical and lumbosacral representation areas (AH11 region).",
+    "location": "Posterior to the Chest area on the middle portion of the antihelix body (AH11).",
     "traditionalUse": "Traditionally referenced in upper- and mid-back comfort routines.",
     "howToStimulate": "Use comfortable pressure only and avoid pressing on irritated or broken skin.",
     "relatedConditionIds": [
@@ -874,18 +901,21 @@
       67,
       51
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "AH11"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "AH11",
+    "standardCode": "AH11"
   },
   {
     "id": "lumbar-spine",
-    "name": "Lumbar Spine",
+    "name": "Lumbosacral Spine",
     "aliases": [
       "lower back",
-      "lumbar back"
+      "lumbar back",
+      "lumbar spine",
+      "lumbosacral spine"
     ],
     "category": "Anatomical point",
-    "location": "On the upper portion of the antihelix body in the lumbosacral representation region (AH9 region).",
+    "location": "Posterior to the Abdomen area on the upper portion of the antihelix body (AH9).",
     "traditionalUse": "Traditionally referenced in lower-back comfort routines.",
     "howToStimulate": "Press gently for several seconds. Stop if the area feels sharply painful or irritated.",
     "relatedConditionIds": [
@@ -898,7 +928,9 @@
     "featured": false,
     "keywords": [
       "lower back",
-      "lumbar back"
+      "lumbar back",
+      "lumbar spine",
+      "lumbosacral spine"
     ],
     "mapReady": true,
     "i18nKey": "point.lumbar-spine",
@@ -906,8 +938,9 @@
       65,
       44
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "AH9"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "AH9",
+    "standardCode": "AH9"
   },
   {
     "id": "hip",
@@ -916,7 +949,7 @@
       "hip point"
     ],
     "category": "Anatomical point",
-    "location": "At the beginning of the inferior antihelix crus, in the auricular region corresponding to the hip.",
+    "location": "In the lower one-third of the superior crus of the antihelix (AH5).",
     "traditionalUse": "Traditionally referenced in hip and lower-body comfort routines.",
     "howToStimulate": "Use light, intermittent pressure and discontinue if uncomfortable.",
     "relatedConditionIds": [
@@ -935,7 +968,8 @@
       63,
       38
     ],
-    "mapSystem": "WFAS-style anatomical auricular reference",
-    "mapCode": "Inferior antihelix crus"
+    "mapSystem": "GB/T 13734-2008 standardized auricular reference",
+    "mapCode": "Inferior antihelix crus",
+    "standardCode": "AH5"
   }
 ]
