@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "22.2",
+  "version": "22.3",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -56,9 +56,11 @@
     "bahasaMelayuPolished": true,
     "malayMapOrderHotfix": true,
     "stableMapCoordinateCanvas": true,
-    "stableGuidedApplicationCoordinateCanvas": true
+    "stableGuidedApplicationCoordinateCanvas": true,
+    "stableSquareMapCanvas": true,
+    "nonCroppingMapEarArt": true
   },
-  "releaseName": "Map Marker Stability Fix",
+  "releaseName": "Map Canvas Aspect Ratio Fix",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
