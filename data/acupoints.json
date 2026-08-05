@@ -40,8 +40,8 @@
     "mapReady": true,
     "i18nKey": "point.shen-men",
     "mapPosition": [
-      36,
-      24
+      31.0,
+      23.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "TF4"
@@ -79,8 +79,8 @@
     "mapReady": true,
     "i18nKey": "point.point-zero",
     "mapPosition": [
-      48,
-      45
+      49.0,
+      46.0
     ],
     "mapSystem": "Nogier-derived supplementary reference",
     "standardCode": "Nogier P0"
@@ -110,8 +110,8 @@
     "mapReady": true,
     "i18nKey": "point.heart",
     "mapPosition": [
-      41,
-      56
+      45.9,
+      58.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "CO15"
@@ -150,8 +150,8 @@
     "mapReady": true,
     "i18nKey": "point.sympathetic",
     "mapPosition": [
-      33,
-      46
+      54.9,
+      40.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "AH6a"
@@ -183,8 +183,8 @@
     "mapReady": true,
     "i18nKey": "point.kidney",
     "mapPosition": [
-      58,
-      39
+      55.0,
+      41.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "CO10"
@@ -215,8 +215,8 @@
     "mapReady": true,
     "i18nKey": "point.occiput",
     "mapPosition": [
-      42,
-      64
+      47.9,
+      66.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "AT3"
@@ -248,8 +248,8 @@
     "mapReady": true,
     "i18nKey": "point.stomach",
     "mapPosition": [
-      49,
-      50
+      44.0,
+      46.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "CO4"
@@ -279,8 +279,8 @@
     "mapReady": true,
     "i18nKey": "point.spleen",
     "mapPosition": [
-      55,
-      52
+      48.0,
+      45.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "CO13"
@@ -311,8 +311,8 @@
     "mapReady": true,
     "i18nKey": "point.brain",
     "mapPosition": [
-      36,
-      71
+      42.0,
+      63.0
     ],
     "mapSystem": "Supplementary auriculotherapy reference",
     "standardCode": "Supplementary"
@@ -342,8 +342,8 @@
     "mapReady": true,
     "i18nKey": "point.endocrine",
     "mapPosition": [
-      46,
-      64
+      47.9,
+      67.9
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "CO18"
@@ -373,8 +373,8 @@
     "mapReady": true,
     "i18nKey": "point.mouth",
     "mapPosition": [
-      42,
-      60
+      40.9,
+      52.9
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "CO1"
@@ -404,8 +404,8 @@
     "mapReady": true,
     "i18nKey": "point.cervical-spine",
     "mapPosition": [
-      67,
-      56
+      59.0,
+      46.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "AH13"
@@ -434,8 +434,8 @@
     "mapReady": true,
     "i18nKey": "point.shoulder",
     "mapPosition": [
-      72,
-      47
+      72.9,
+      50.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "SF4,5"
@@ -465,8 +465,8 @@
     "mapReady": true,
     "i18nKey": "point.jaw",
     "mapPosition": [
-      42,
-      76
+      45.0,
+      72.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "standardCode": "LO3"
@@ -494,8 +494,8 @@
     "mapReady": true,
     "i18nKey": "point.liver",
     "mapPosition": [
-      56,
-      44
+      57.0,
+      47.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "CO12",
@@ -524,8 +524,8 @@
     "mapReady": true,
     "i18nKey": "point.lung",
     "mapPosition": [
-      45,
-      55
+      52.0,
+      58.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "CO14",
@@ -556,8 +556,8 @@
     "mapReady": true,
     "i18nKey": "point.large-intestine",
     "mapPosition": [
-      42,
-      40
+      42.0,
+      43.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "CO7",
@@ -586,8 +586,8 @@
     "mapReady": true,
     "i18nKey": "point.small-intestine",
     "mapPosition": [
-      47,
-      42
+      47.9,
+      45.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "CO6",
@@ -614,8 +614,8 @@
     "mapReady": true,
     "i18nKey": "point.bladder",
     "mapPosition": [
-      53,
-      36
+      60.0,
+      37.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "CO9",
@@ -642,8 +642,8 @@
     "mapReady": true,
     "i18nKey": "point.gallbladder",
     "mapPosition": [
-      59,
-      34
+      62.9,
+      34.0
     ],
     "mapSystem": "GB/T 13734-2008 shared Pancreas/Gallbladder zone",
     "mapCode": "CO11",
@@ -672,8 +672,8 @@
     "mapReady": true,
     "i18nKey": "point.pancreas",
     "mapPosition": [
-      62,
-      35
+      57.9,
+      35.0
     ],
     "mapSystem": "GB/T 13734-2008 shared Pancreas/Gallbladder zone",
     "mapCode": "CO11",
@@ -704,8 +704,8 @@
     "mapReady": true,
     "i18nKey": "point.adrenal",
     "mapPosition": [
-      34,
-      58
+      35.0,
+      59.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "Tragus lower region",
@@ -737,8 +737,8 @@
     "mapReady": true,
     "i18nKey": "point.subcortex",
     "mapPosition": [
-      38,
-      67
+      43.0,
+      67.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "AT4",
@@ -769,8 +769,8 @@
     "mapReady": true,
     "i18nKey": "point.thalamus",
     "mapPosition": [
-      41,
-      66
+      46.0,
+      64.0
     ],
     "mapSystem": "Supplementary auriculotherapy reference",
     "mapCode": "AT4",
@@ -801,8 +801,8 @@
     "mapReady": true,
     "i18nKey": "point.ear-apex",
     "mapPosition": [
-      50,
-      12
+      50.0,
+      12.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "HX6,7i",
@@ -833,8 +833,8 @@
     "mapReady": true,
     "i18nKey": "point.eye",
     "mapPosition": [
-      37,
-      80
+      42.0,
+      78.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "LO5",
@@ -866,8 +866,8 @@
     "mapReady": true,
     "i18nKey": "point.inner-ear",
     "mapPosition": [
-      47,
-      82
+      50.0,
+      80.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "LO6",
@@ -898,8 +898,8 @@
     "mapReady": true,
     "i18nKey": "point.thoracic-spine",
     "mapPosition": [
-      67,
-      51
+      57.9,
+      52.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "AH11",
@@ -935,8 +935,8 @@
     "mapReady": true,
     "i18nKey": "point.lumbar-spine",
     "mapPosition": [
-      65,
-      44
+      60.0,
+      58.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "AH9",
@@ -965,8 +965,8 @@
     "mapReady": true,
     "i18nKey": "point.hip",
     "mapPosition": [
-      63,
-      38
+      55.0,
+      40.0
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "Inferior antihelix crus",
