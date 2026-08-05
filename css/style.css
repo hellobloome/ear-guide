@@ -2083,3 +2083,34 @@ h3,p{margin-top:0}
   }
   .map-reference-meta{grid-template-columns:1fr}
 }
+
+
+/* Package 21.1 — Home Hero Alignment */
+@media(min-width:961px){
+  .premium-home .home-hero-grid{
+    grid-template-columns:minmax(0,860px);
+    justify-content:center;
+  }
+
+  .premium-home .home-hero-grid .hero-copy{
+    max-width:860px;
+    margin:0 auto;
+    text-align:center;
+  }
+
+  .premium-home .home-hero-grid .lead{
+    max-width:640px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .premium-home .home-hero-grid .search-box{
+    width:min(100%,720px);
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .premium-home .home-hero-grid .hero-trust{
+    justify-content:center;
+  }
+}

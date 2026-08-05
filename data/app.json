@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "21",
+  "version": "21.1",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -51,9 +51,10 @@
     "homepageHeroIllustrationRemoved": true,
     "mapReferenceLegend": true,
     "mapReferenceAboutSection": true,
-    "selectedPointReferenceMetadata": true
+    "selectedPointReferenceMetadata": true,
+    "homeHeroCenteredDesktop": true
   },
-  "releaseName": "Map Reference Guide",
+  "releaseName": "Home Hero Alignment",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
