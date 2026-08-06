@@ -108,7 +108,7 @@ function uiText(english){
 }
 
 function pointCountText(count,{suggested=false}={}){
-  if(currentLocale==="ms")return suggested?`${count} titik dicadangkan`:`${count} titik`;
+  if(currentLocale==="ms")return suggested?`${count} titik yang dicadangkan`:`${count} titik`;
   return suggested?`${count} suggested point${count===1?"":"s"}`:`${count} point${count===1?"":"s"}`;
 }
 
@@ -600,9 +600,9 @@ function combinationRole(index,total,condition=null){
   const role=explicit||fallback;
 
   if(currentLocale==="ms"){
-    if(role==="primary")return ["Utama","Mula di sini","Titik utama dalam gabungan Bloomé ini."];
-    if(role==="optional")return ["Sokongan pilihan","Tambah jika perlu","Tambahan ringan. Anda boleh abaikannya jika mahu rutin yang lebih ringkas."];
-    return ["Sokongan",`Langkah ${index+1}`,"Melengkapi titik utama sebagai sebahagian daripada rutin yang dicadangkan."];
+    if(role==="primary")return ["Utama","Mulakan di sini","Titik utama yang menjadi asas gabungan Bloomé ini."];
+    if(role==="optional")return ["Sokongan pilihan","Tambah jika sesuai","Titik tambahan. Abaikan jika anda mahukan rutin yang lebih ringkas."];
+    return ["Sokongan",`Langkah ${index+1}`,"Titik sokongan yang melengkapi titik utama dalam rutin ini."];
   }
 
   if(role==="primary")return ["Primary","Start here","The anchor point in this Bloomé combination."];

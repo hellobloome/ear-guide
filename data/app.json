@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "23.1",
+  "version": "24",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -59,9 +59,13 @@
     "kneePointAdded": true,
     "centeredHomeHero": true,
     "professionalMalayHomeGreeting": true,
-    "trueCenteredHomeHero": true
+    "trueCenteredHomeHero": true,
+    "bahasaMelayuPolish": true,
+    "malaySearchAliasesExpanded": true,
+    "malayPointCopyReviewed": true,
+    "malayConditionCopyReviewed": true
   },
-  "releaseName": "Home Centering Correction",
+  "releaseName": "Bahasa Melayu Polish",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
