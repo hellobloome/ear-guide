@@ -2082,3 +2082,76 @@ h3,p{margin-top:0}
     justify-content:center;
   }
 }
+
+
+/* Package 23.1 — Home Centering Correction
+   The previous pass centered the grid track but the inherited route-grid
+   layout still made the hero feel visually left-weighted.
+   This pass makes the homepage hero a true centered flex composition. */
+
+.premium-home .premium-hero .home-hero-grid{
+  display:flex !important;
+  flex-direction:column;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:0 !important;
+  width:min(1120px,calc(100% - 40px));
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+.premium-home .premium-hero .hero-copy{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:min(100%,860px) !important;
+  max-width:860px !important;
+  margin:0 auto !important;
+  text-align:center !important;
+}
+
+.premium-home .premium-hero .hero-copy .eyebrow,
+.premium-home .premium-hero .hero-copy h1,
+.premium-home .premium-hero .hero-copy .lead{
+  width:100%;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  text-align:center !important;
+}
+
+.premium-home .premium-hero .hero-copy h1{
+  max-width:860px;
+}
+
+.premium-home .premium-hero .hero-copy .lead{
+  max-width:640px !important;
+}
+
+.premium-home .premium-hero .hero-copy .search-box{
+  width:min(100%,720px) !important;
+  max-width:720px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  align-self:center;
+}
+
+.premium-home .premium-hero .hero-copy .hero-trust{
+  width:100%;
+  justify-content:center !important;
+  align-items:center;
+  text-align:center;
+}
+
+@media(max-width:680px){
+  .premium-home .premium-hero .home-hero-grid{
+    width:min(100% - 28px,1120px);
+  }
+
+  .premium-home .premium-hero .hero-copy{
+    width:100% !important;
+  }
+
+  .premium-home .premium-hero .hero-copy .hero-trust{
+    gap:8px 14px;
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "23",
+  "version": "23.1",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -58,9 +58,10 @@
     "pancreasGallbladderMerged": true,
     "kneePointAdded": true,
     "centeredHomeHero": true,
-    "professionalMalayHomeGreeting": true
+    "professionalMalayHomeGreeting": true,
+    "trueCenteredHomeHero": true
   },
-  "releaseName": "Home Alignment + BM Greeting",
+  "releaseName": "Home Centering Correction",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
