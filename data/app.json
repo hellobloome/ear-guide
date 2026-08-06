@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "24",
+  "version": "24.1",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -63,9 +63,10 @@
     "bahasaMelayuPolish": true,
     "malaySearchAliasesExpanded": true,
     "malayPointCopyReviewed": true,
-    "malayConditionCopyReviewed": true
+    "malayConditionCopyReviewed": true,
+    "malayDynamicApplicationCopy": true
   },
-  "releaseName": "Bahasa Melayu Polish",
+  "releaseName": "BM Dynamic Copy Fix",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

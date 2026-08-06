@@ -112,6 +112,43 @@ function pointCountText(count,{suggested=false}={}){
   return suggested?`${count} suggested point${count===1?"":"s"}`:`${count} point${count===1?"":"s"}`;
 }
 
+function applicationStepText(step,total){
+  return currentLocale==="ms"
+    ? `Langkah ${step} daripada ${total}`
+    : `Step ${step} of ${total}`;
+}
+
+function applicationCompleteTitle(name){
+  return currentLocale==="ms"
+    ? `Rutin ${name} selesai.`
+    : `${name} guide complete.`;
+}
+
+function applicationCompleteLead(count){
+  return currentLocale==="ms"
+    ? `Anda telah selesai mengikuti panduan penggunaan ${count} titik ini.`
+    : `You’ve reached the end of this ${count}-point application guide.`;
+}
+
+function applicationBackToConditionText(name,{guide=false,arrow=false}={}){
+  if(currentLocale==="ms"){
+    const text=guide?`Kembali ke panduan ${name}`:`Kembali ke ${name}`;
+    return arrow?`← ${text}`:text;
+  }
+  const text=guide?`Back to ${name} guide`:`Back to ${name}`;
+  return arrow?`← ${text}`:text;
+}
+
+function applicationPointGuideText(name){
+  return currentLocale==="ms"
+    ? `Buka panduan penuh ${name}`
+    : `Open full ${name} guide`;
+}
+
+function applicationProgressLabel(){
+  return currentLocale==="ms" ? "Kemajuan penggunaan" : "Application progress";
+}
+
 function translateUi(root=document){
   document.documentElement.lang=currentLocale==="ms"?"ms":"en";
 
@@ -710,8 +747,8 @@ function applicationView(id){
         <div class="application-complete-card">
           <span class="application-complete-icon">✓</span>
           <p class="eyebrow">Routine complete</p>
-          <h1>${escapeHtml(condition.name)} guide complete.</h1>
-          <p class="lead">You’ve reached the end of this ${points.length}-point application guide.</p>
+          <h1>${escapeHtml(applicationCompleteTitle(condition.name))}</h1>
+          <p class="lead">${escapeHtml(applicationCompleteLead(points.length))}</p>
 
           <div class="application-reminders">
             <article><span>◌</span><strong>Press gently</strong><p>Mild pressure is enough. Sharp pain is not the goal.</p></article>
@@ -720,7 +757,7 @@ function applicationView(id){
           </div>
 
           <div class="application-complete-actions">
-            <button class="primary-button" data-finish-apply="${escapeHtml(id)}">Back to ${escapeHtml(condition.name)} guide</button>
+            <button class="primary-button" data-finish-apply="${escapeHtml(id)}">${escapeHtml(applicationBackToConditionText(condition.name,{guide:true}))}</button>
             <a class="secondary-button" href="#/guide">Review application guide</a>
           </div>
         </div>
@@ -742,16 +779,16 @@ function applicationView(id){
   <section class="route application-route">
     <div class="route-hero application-hero">
       <div class="container">
-        <a class="application-back-link" href="#/condition/${escapeHtml(condition.id)}">← Back to ${escapeHtml(condition.name)}</a>
+        <a class="application-back-link" href="#/condition/${escapeHtml(condition.id)}">${escapeHtml(applicationBackToConditionText(condition.name,{arrow:true}))}</a>
         <p class="eyebrow">Guided application</p>
         <h1>${escapeHtml(condition.name)}</h1>
         <p class="lead">Follow the suggested combination one point at a time. Take your time and use gentle pressure.</p>
 
         <div class="application-progress-head">
-          <span>Step ${step+1} of ${points.length}</span>
+          <span>${escapeHtml(applicationStepText(step+1,points.length))}</span>
           <strong>${percent}%</strong>
         </div>
-        <div class="application-progress-bar" aria-label="Application progress">
+        <div class="application-progress-bar" aria-label="${escapeHtml(applicationProgressLabel())}">
           <span style="width:${percent}%"></span>
         </div>
         <div class="application-progress-list">
@@ -773,7 +810,7 @@ function applicationView(id){
         <div class="application-workspace">
           <div class="application-map-card">
             <div class="application-map-caption">
-              <span>Step ${step+1}</span>
+              <span>${escapeHtml(currentLocale==="ms"?`Langkah ${step+1}`:`Step ${step+1}`)}</span>
               <strong>${escapeHtml(point.name)}</strong>
             </div>
 
@@ -786,7 +823,7 @@ function applicationView(id){
               <small>${escapeHtml(role[1])}</small>
             </div>
 
-            <p class="eyebrow application-step-label">Step ${step+1} of ${points.length}</p>
+            <p class="eyebrow application-step-label">${escapeHtml(applicationStepText(step+1,points.length))}</p>
             <h2>${escapeHtml(point.name)}</h2>
             <p class="role-explainer">${escapeHtml(role[2])}</p>
 
@@ -810,7 +847,7 @@ function applicationView(id){
               <button class="primary-button" data-apply-next="${escapeHtml(id)}">${step===points.length-1?"Finish routine":"Next point"}</button>
             </div>
 
-            <button class="application-point-detail-link text-button" data-open-route="point" data-open-id="${escapeHtml(point.id)}">Open full ${escapeHtml(point.name)} guide</button>
+            <button class="application-point-detail-link text-button" data-open-route="point" data-open-id="${escapeHtml(point.id)}">${escapeHtml(applicationPointGuideText(point.name))}</button>
           </aside>
         </div>
 
