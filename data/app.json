@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "20.5",
+  "version": "22",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -52,12 +52,13 @@
     "earCoordinateLayer": true,
     "markersAnchoredToEarArtwork": true,
     "mapPanelHeightIndependentMarkers": true,
-    "imageLocalCoordinates": true,
-    "stageToImageCoordinateConversion": true,
-    "fullPointPlacementAudit": true,
-    "manualCoordinateRecalibrationAllPoints": true
+    "masterPixelCoordinates": true,
+    "approvedV3PlacementMap": true,
+    "runtimePercentageDerivation": true,
+    "pancreasGallbladderMerged": true,
+    "kneePointAdded": true
   },
-  "releaseName": "Full Point Placement Audit",
+  "releaseName": "Master Coordinate Integration",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
@@ -68,14 +69,19 @@
     "exception": "Point Zero is retained from the existing Bloomé / Nogier-origin reference.",
     "sharedZones": {
       "CO11": [
-        "gallbladder",
-        "pancreas"
+        "pancreas-gallbladder"
       ],
       "AT4": [
         "subcortex",
         "thalamus"
       ]
     },
-    "disclaimer": "The Bloomé map is a simplified educational visual, not a clinical placement chart."
+    "disclaimer": "The Bloomé map is a simplified educational visual, not a clinical placement chart.",
+    "coordinateSource": {
+      "canvasWidthPx": 1141,
+      "canvasHeightPx": 2047,
+      "source": "Bloomé Master 30-Point Pixel Table v3 APPROVED",
+      "rule": "Website percentages are derived from approved pixel positions."
+    }
   }
 }

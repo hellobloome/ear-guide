@@ -914,38 +914,6 @@
         "pundi kencing"
       ]
     },
-    "gallbladder": {
-      "location": "Di bahagian posterosuperior cymba conchae, dalam zon bersama Pankreas/Pundi Hempedu (CO11).",
-      "traditionalUse": "Secara tradisional dirujuk dalam rutin penghadaman dan keseimbangan umum.",
-      "howToStimulate": "Berikan tekanan ringan dan selesa selama beberapa saat setiap kali.",
-      "aliases": [
-        "pundi hempedu"
-      ],
-      "name": "Pundi Hempedu",
-      "category": "Titik organ",
-      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
-      "shortDescription": "Secara tradisional dirujuk dalam rutin penghadaman dan keseimbangan umum.",
-      "keywords": [
-        "Pundi Hempedu",
-        "pundi hempedu"
-      ]
-    },
-    "pancreas": {
-      "location": "Di bahagian posterosuperior cymba conchae, dalam zon bersama Pankreas/Pundi Hempedu (CO11).",
-      "traditionalUse": "Secara tradisional dirujuk dalam rutin kesejahteraan yang menumpukan pada penghadaman dan kesedaran selera makan.",
-      "howToStimulate": "Gunakan tekanan lembut sahaja dan tanggalkan ear seed jika kulit mengalami iritasi.",
-      "aliases": [
-        "pankreas"
-      ],
-      "name": "Pankreas",
-      "category": "Titik organ",
-      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
-      "shortDescription": "Secara tradisional dirujuk dalam rutin kesejahteraan yang menumpukan pada penghadaman dan kesedaran selera makan.",
-      "keywords": [
-        "Pankreas",
-        "pankreas"
-      ]
-    },
     "adrenal": {
       "location": "Di hujung bawah tepi bebas tragus, pada tepi posterior kawasan tragus 2 (TG2p).",
       "traditionalUse": "Secara tradisional dirujuk dalam rutin yang menumpukan pada stres, daya tahan dan keseimbangan tenaga umum.",
@@ -1106,6 +1074,42 @@
       "keywords": [
         "Pinggul",
         "pinggul"
+      ]
+    },
+    "pancreas-gallbladder": {
+      "location": "Di zon bersama bahagian posterosuperior cymba conchae (CO11).",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin kesejahteraan penghadaman dan keseimbangan umum.",
+      "howToStimulate": "Gunakan tekanan ringan dan selesa selama beberapa saat setiap kali.",
+      "aliases": [
+        "pankreas",
+        "pundi hempedu",
+        "pankreas / pundi hempedu"
+      ],
+      "name": "Pankreas / Pundi Hempedu",
+      "category": "Titik organ",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Rujukan bersama CO11 untuk rutin kesejahteraan penghadaman dan keseimbangan umum.",
+      "keywords": [
+        "pankreas",
+        "pundi hempedu",
+        "CO11"
+      ]
+    },
+    "knee": {
+      "location": "Pada crus superior antiheliks di kawasan lutut.",
+      "traditionalUse": "Secara tradisional dirujuk dalam rutin kesejahteraan untuk keselesaan bahagian bawah badan dan pergerakan.",
+      "howToStimulate": "Gunakan tekanan ringan dan selesa. Hentikan jika kawasan terasa sakit atau iritasi.",
+      "aliases": [
+        "lutut",
+        "titik lutut"
+      ],
+      "name": "Lutut",
+      "category": "Titik anatomi",
+      "caution": "Gunakan hanya pada kulit yang bersih dan tidak luka. Tanggalkan ear seed jika berlaku iritasi, bengkak, pening atau ketidakselesaan yang ketara. Pastikan semua ear seed berada di luar saluran telinga.",
+      "shortDescription": "Rujukan keselesaan bahagian bawah badan pada crus superior antiheliks.",
+      "keywords": [
+        "lutut",
+        "bahagian bawah badan"
       ]
     }
   }

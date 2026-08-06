@@ -40,11 +40,16 @@
     "mapReady": true,
     "i18nKey": "point.shen-men",
     "mapPosition": [
-      31.0,
-      23.0
+      39.956,
+      26.282
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "TF4"
+    "standardCode": "TF4",
+    "mapNumber": 1,
+    "pixelPosition": [
+      455.9,
+      538.0
+    ]
   },
   {
     "id": "point-zero",
@@ -79,11 +84,16 @@
     "mapReady": true,
     "i18nKey": "point.point-zero",
     "mapPosition": [
-      49.0,
-      46.0
+      37.388,
+      47.924
     ],
     "mapSystem": "Nogier-derived supplementary reference",
-    "standardCode": "Nogier P0"
+    "standardCode": "Nogier P0",
+    "mapNumber": 2,
+    "pixelPosition": [
+      426.6,
+      981.0
+    ]
   },
   {
     "id": "heart",
@@ -110,11 +120,16 @@
     "mapReady": true,
     "i18nKey": "point.heart",
     "mapPosition": [
-      45.9,
-      58.0
+      34.628,
+      56.009
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "CO15"
+    "standardCode": "CO15",
+    "mapNumber": 3,
+    "pixelPosition": [
+      395.1,
+      1146.5
+    ]
   },
   {
     "id": "sympathetic",
@@ -150,11 +165,16 @@
     "mapReady": true,
     "i18nKey": "point.sympathetic",
     "mapPosition": [
-      54.9,
-      40.0
+      14.321,
+      34.235
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "AH6a"
+    "standardCode": "AH6a",
+    "mapNumber": 4,
+    "pixelPosition": [
+      163.4,
+      700.8
+    ]
   },
   {
     "id": "kidney",
@@ -183,11 +203,16 @@
     "mapReady": true,
     "i18nKey": "point.kidney",
     "mapPosition": [
-      55.0,
-      41.0
+      38.58,
+      39.853
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "CO10"
+    "standardCode": "CO10",
+    "mapNumber": 5,
+    "pixelPosition": [
+      440.2,
+      815.8
+    ]
   },
   {
     "id": "occiput",
@@ -215,11 +240,16 @@
     "mapReady": true,
     "i18nKey": "point.occiput",
     "mapPosition": [
-      47.9,
-      66.0
+      45.469,
+      69.468
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "AT3"
+    "standardCode": "AT3",
+    "mapNumber": 6,
+    "pixelPosition": [
+      518.8,
+      1422.0
+    ]
   },
   {
     "id": "stomach",
@@ -248,11 +278,16 @@
     "mapReady": true,
     "i18nKey": "point.stomach",
     "mapPosition": [
-      44.0,
-      46.0
+      44.093,
+      49.57
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "CO4"
+    "standardCode": "CO4",
+    "mapNumber": 7,
+    "pixelPosition": [
+      503.1,
+      1014.7
+    ]
   },
   {
     "id": "spleen",
@@ -279,11 +314,16 @@
     "mapReady": true,
     "i18nKey": "point.spleen",
     "mapPosition": [
-      48.0,
-      45.0
+      51.332,
+      52.145
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "CO13"
+    "standardCode": "CO13",
+    "mapNumber": 8,
+    "pixelPosition": [
+      585.7,
+      1067.4
+    ]
   },
   {
     "id": "brain",
@@ -311,11 +351,16 @@
     "mapReady": true,
     "i18nKey": "point.brain",
     "mapPosition": [
-      42.0,
-      63.0
+      51.332,
+      62.394
     ],
     "mapSystem": "Supplementary auriculotherapy reference",
-    "standardCode": "Supplementary"
+    "standardCode": "Supplementary",
+    "mapNumber": 9,
+    "pixelPosition": [
+      585.7,
+      1277.2
+    ]
   },
   {
     "id": "endocrine",
@@ -342,11 +387,16 @@
     "mapReady": true,
     "i18nKey": "point.endocrine",
     "mapPosition": [
-      47.9,
-      67.9
+      25.565,
+      66.869
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "CO18"
+    "standardCode": "CO18",
+    "mapNumber": 10,
+    "pixelPosition": [
+      291.7,
+      1368.8
+    ]
   },
   {
     "id": "mouth",
@@ -373,11 +423,16 @@
     "mapReady": true,
     "i18nKey": "point.mouth",
     "mapPosition": [
-      40.9,
-      52.9
+      25.723,
+      48.696
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "CO1"
+    "standardCode": "CO1",
+    "mapNumber": 11,
+    "pixelPosition": [
+      293.5,
+      996.8
+    ]
   },
   {
     "id": "cervical-spine",
@@ -404,11 +459,16 @@
     "mapReady": true,
     "i18nKey": "point.cervical-spine",
     "mapPosition": [
-      59.0,
-      46.0
+      61.227,
+      58.559
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "AH13"
+    "standardCode": "AH13",
+    "mapNumber": 12,
+    "pixelPosition": [
+      698.6,
+      1198.7
+    ]
   },
   {
     "id": "shoulder",
@@ -434,11 +494,16 @@
     "mapReady": true,
     "i18nKey": "point.shoulder",
     "mapPosition": [
-      72.9,
-      50.0
+      76.827,
+      50.337
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "SF4,5"
+    "standardCode": "SF4,5",
+    "mapNumber": 13,
+    "pixelPosition": [
+      876.6,
+      1030.4
+    ]
   },
   {
     "id": "jaw",
@@ -465,11 +530,16 @@
     "mapReady": true,
     "i18nKey": "point.jaw",
     "mapPosition": [
-      45.0,
-      72.0
+      46.845,
+      74.421
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
-    "standardCode": "LO3"
+    "standardCode": "LO3",
+    "mapNumber": 14,
+    "pixelPosition": [
+      534.5,
+      1523.4
+    ]
   },
   {
     "id": "liver",
@@ -494,12 +564,17 @@
     "mapReady": true,
     "i18nKey": "point.liver",
     "mapPosition": [
-      57.0,
-      47.0
+      54.084,
+      48.031
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "CO12",
-    "standardCode": "CO12"
+    "standardCode": "CO12",
+    "mapNumber": 15,
+    "pixelPosition": [
+      617.1,
+      983.2
+    ]
   },
   {
     "id": "lung",
@@ -524,12 +599,17 @@
     "mapReady": true,
     "i18nKey": "point.lung",
     "mapPosition": [
-      52.0,
-      58.0
+      43.699,
+      56.009
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "CO14",
-    "standardCode": "CO14"
+    "standardCode": "CO14",
+    "mapNumber": 16,
+    "pixelPosition": [
+      498.6,
+      1146.5
+    ]
   },
   {
     "id": "large-intestine",
@@ -556,12 +636,17 @@
     "mapReady": true,
     "i18nKey": "point.large-intestine",
     "mapPosition": [
-      42.0,
-      43.0
+      30.447,
+      40.62
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "CO7",
-    "standardCode": "CO7"
+    "standardCode": "CO7",
+    "mapNumber": 17,
+    "pixelPosition": [
+      347.4,
+      831.5
+    ]
   },
   {
     "id": "small-intestine",
@@ -586,12 +671,17 @@
     "mapReady": true,
     "i18nKey": "point.small-intestine",
     "mapPosition": [
-      47.9,
-      45.0
+      34.619,
+      42.721
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "CO6",
-    "standardCode": "CO6"
+    "standardCode": "CO6",
+    "mapNumber": 18,
+    "pixelPosition": [
+      395.0,
+      874.5
+    ]
   },
   {
     "id": "bladder",
@@ -614,72 +704,98 @@
     "mapReady": true,
     "i18nKey": "point.bladder",
     "mapPosition": [
-      60.0,
-      37.0
+      28.703,
+      37.621
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "CO9",
-    "standardCode": "CO9"
+    "standardCode": "CO9",
+    "mapNumber": 19,
+    "pixelPosition": [
+      327.5,
+      770.1
+    ]
   },
   {
-    "id": "gallbladder",
-    "name": "Gallbladder",
+    "id": "pancreas-gallbladder",
+    "name": "Pancreas / Gallbladder",
     "aliases": [
+      "pancreas",
+      "gallbladder",
+      "gall bladder",
+      "pancreas point",
       "gall bladder point"
     ],
     "category": "Organ point",
-    "location": "In the posterosuperior cymba conchae, within the shared Pancreas/Gallbladder zone (CO11).",
-    "traditionalUse": "Traditionally referenced in digestive and general-balance routines.",
+    "location": "In the shared posterosuperior cymba conchae zone (CO11).",
+    "traditionalUse": "Traditionally referenced in digestive and general-balance wellness routines.",
     "howToStimulate": "Apply light, comfortable pressure for a few seconds at a time.",
     "relatedConditionIds": [],
-    "shortDescription": "Traditionally referenced in digestive and general-balance routines.",
+    "shortDescription": "A shared CO11 reference used in digestive and general-balance wellness routines.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
-    "slug": "gallbladder",
+    "slug": "pancreas-gallbladder",
     "featured": false,
     "keywords": [
-      "gall bladder point"
+      "pancreas",
+      "gallbladder",
+      "gall bladder",
+      "pancreas point",
+      "gall bladder point",
+      "CO11"
     ],
     "mapReady": true,
-    "i18nKey": "point.gallbladder",
-    "mapPosition": [
-      62.9,
-      34.0
-    ],
+    "i18nKey": "point.pancreas-gallbladder",
     "mapSystem": "GB/T 13734-2008 shared Pancreas/Gallbladder zone",
     "mapCode": "CO11",
     "sharedMapZone": "CO11",
-    "mapNote": "WFAS combines pancreas and gallbladder within CO11; Bloomé keeps both library entries and displays two nearby markers within the same shared zone.",
-    "standardCode": "CO11"
+    "mapNote": "Pancreas and Gallbladder are represented as one shared CO11 marker in the approved Bloomé master map.",
+    "standardCode": "CO11",
+    "mapNumber": 20,
+    "pixelPosition": [
+      509.0,
+      863.6
+    ],
+    "mapPosition": [
+      44.61,
+      42.189
+    ]
   },
   {
-    "id": "pancreas",
-    "name": "Pancreas",
+    "id": "knee",
+    "name": "Knee",
     "aliases": [
-      "pancreas point"
+      "knee point"
     ],
-    "category": "Organ point",
-    "location": "In the posterosuperior cymba conchae, within the shared Pancreas/Gallbladder zone (CO11).",
-    "traditionalUse": "Traditionally referenced in digestive and appetite-focused wellness routines.",
-    "howToStimulate": "Use gentle pressure only and remove the seed if the skin becomes irritated.",
-    "relatedConditionIds": [],
-    "shortDescription": "Traditionally referenced in digestive and appetite-focused wellness routines.",
+    "category": "Anatomical point",
+    "location": "On the superior crus of the antihelix in the knee region.",
+    "traditionalUse": "Traditionally referenced in lower-body comfort and mobility-focused wellness routines.",
+    "howToStimulate": "Use light, comfortable pressure and stop if the area becomes painful or irritated.",
+    "relatedConditionIds": [
+      "lower-body-comfort"
+    ],
+    "shortDescription": "A lower-body comfort reference on the superior antihelix crus.",
     "caution": "Use only on clean, intact skin. Remove the seed if irritation, swelling, dizziness, or significant discomfort occurs. Keep all seeds outside the ear canal.",
-    "slug": "pancreas",
+    "slug": "knee",
     "featured": false,
     "keywords": [
-      "pancreas point"
+      "knee",
+      "knee point",
+      "lower body"
     ],
     "mapReady": true,
-    "i18nKey": "point.pancreas",
-    "mapPosition": [
-      57.9,
-      35.0
+    "i18nKey": "point.knee",
+    "mapSystem": "GB/T 13734-2008-style auricular anatomical reference",
+    "mapCode": "AH4",
+    "standardCode": "AH4",
+    "mapNumber": 21,
+    "pixelPosition": [
+      524.6,
+      352.2
     ],
-    "mapSystem": "GB/T 13734-2008 shared Pancreas/Gallbladder zone",
-    "mapCode": "CO11",
-    "sharedMapZone": "CO11",
-    "mapNote": "WFAS combines pancreas and gallbladder within CO11; Bloomé keeps both library entries and displays two nearby markers within the same shared zone.",
-    "standardCode": "CO11"
+    "mapPosition": [
+      45.977,
+      17.206
+    ]
   },
   {
     "id": "adrenal",
@@ -704,12 +820,17 @@
     "mapReady": true,
     "i18nKey": "point.adrenal",
     "mapPosition": [
-      35.0,
-      59.0
+      23.76,
+      57.787
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "Tragus lower region",
-    "standardCode": "TG2p"
+    "standardCode": "TG2p",
+    "mapNumber": 22,
+    "pixelPosition": [
+      271.1,
+      1182.9
+    ]
   },
   {
     "id": "subcortex",
@@ -737,14 +858,19 @@
     "mapReady": true,
     "i18nKey": "point.subcortex",
     "mapPosition": [
-      43.0,
-      67.0
+      41.332,
+      65.325
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "AT4",
     "sharedMapZone": "AT4",
     "mapNote": "These references overlap in the inner-antitragus AT4 region in the source systems used; Bloomé displays nearby markers for easier selection.",
-    "standardCode": "AT4"
+    "standardCode": "AT4",
+    "mapNumber": 23,
+    "pixelPosition": [
+      471.6,
+      1337.2
+    ]
   },
   {
     "id": "thalamus",
@@ -769,14 +895,19 @@
     "mapReady": true,
     "i18nKey": "point.thalamus",
     "mapPosition": [
-      46.0,
-      64.0
+      35.25,
+      67.64
     ],
     "mapSystem": "Supplementary auriculotherapy reference",
     "mapCode": "AT4",
     "sharedMapZone": "AT4",
     "mapNote": "These references overlap in the inner-antitragus AT4 region in the source systems used; Bloomé displays nearby markers for easier selection.",
-    "standardCode": "Supplementary"
+    "standardCode": "Supplementary",
+    "mapNumber": 24,
+    "pixelPosition": [
+      402.2,
+      1384.6
+    ]
   },
   {
     "id": "ear-apex",
@@ -801,12 +932,17 @@
     "mapReady": true,
     "i18nKey": "point.ear-apex",
     "mapPosition": [
-      50.0,
-      12.0
+      48.58,
+      8.246
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "HX6,7i",
-    "standardCode": "HX6,7i"
+    "standardCode": "HX6,7i",
+    "mapNumber": 25,
+    "pixelPosition": [
+      554.3,
+      168.8
+    ]
   },
   {
     "id": "eye",
@@ -833,12 +969,17 @@
     "mapReady": true,
     "i18nKey": "point.eye",
     "mapPosition": [
-      42.0,
-      78.0
+      32.06,
+      85.1
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "LO5",
-    "standardCode": "LO5"
+    "standardCode": "LO5",
+    "mapNumber": 26,
+    "pixelPosition": [
+      365.8,
+      1742.0
+    ]
   },
   {
     "id": "inner-ear",
@@ -866,12 +1007,17 @@
     "mapReady": true,
     "i18nKey": "point.inner-ear",
     "mapPosition": [
-      50.0,
-      80.0
+      45.083,
+      85.1
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "LO6",
-    "standardCode": "LO6"
+    "standardCode": "LO6",
+    "mapNumber": 27,
+    "pixelPosition": [
+      514.4,
+      1742.0
+    ]
   },
   {
     "id": "thoracic-spine",
@@ -898,12 +1044,17 @@
     "mapReady": true,
     "i18nKey": "point.thoracic-spine",
     "mapPosition": [
-      57.9,
-      52.0
+      72.095,
+      45.774
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "AH11",
-    "standardCode": "AH11"
+    "standardCode": "AH11",
+    "mapNumber": 28,
+    "pixelPosition": [
+      822.6,
+      937.0
+    ]
   },
   {
     "id": "lumbar-spine",
@@ -935,12 +1086,17 @@
     "mapReady": true,
     "i18nKey": "point.lumbar-spine",
     "mapPosition": [
-      60.0,
-      58.0
+      66.161,
+      34.255
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "AH9",
-    "standardCode": "AH9"
+    "standardCode": "AH9",
+    "mapNumber": 29,
+    "pixelPosition": [
+      754.9,
+      701.2
+    ]
   },
   {
     "id": "hip",
@@ -965,11 +1121,16 @@
     "mapReady": true,
     "i18nKey": "point.hip",
     "mapPosition": [
-      55.0,
-      40.0
+      50.377,
+      21.387
     ],
     "mapSystem": "GB/T 13734-2008 standardized auricular reference",
     "mapCode": "Inferior antihelix crus",
-    "standardCode": "AH5"
+    "standardCode": "AH5",
+    "mapNumber": 30,
+    "pixelPosition": [
+      574.8,
+      437.8
+    ]
   }
 ]

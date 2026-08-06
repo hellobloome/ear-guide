@@ -15,38 +15,45 @@ let mapZoom=1;
 let selectedConditionPoint=new Map();
 let applicationProgress=new Map();
 
-const mapPositions={
-  "shen-men":[31.0,23.0],
-  "point-zero":[49.0,46.0],
-  "heart":[45.9,58.0],
-  "sympathetic":[54.9,40.0],
-  "kidney":[55.0,41.0],
-  "occiput":[47.9,66.0],
-  "stomach":[44.0,46.0],
-  "spleen":[48.0,45.0],
-  "brain":[42.0,63.0],
-  "endocrine":[47.9,67.9],
-  "mouth":[40.9,52.9],
-  "cervical-spine":[59.0,46.0],
-  "shoulder":[72.9,50.0],
-  "jaw":[45.0,72.0],
-  "liver":[57.0,47.0],
-  "lung":[52.0,58.0],
-  "large-intestine":[42.0,43.0],
-  "small-intestine":[47.9,45.0],
-  "bladder":[60.0,37.0],
-  "gallbladder":[62.9,34.0],
-  "pancreas":[57.9,35.0],
-  "adrenal":[35.0,59.0],
-  "subcortex":[43.0,67.0],
-  "thalamus":[46.0,64.0],
-  "ear-apex":[50.0,12.0],
-  "eye":[42.0,78.0],
-  "inner-ear":[50.0,80.0],
-  "thoracic-spine":[57.9,52.0],
-  "lumbar-spine":[60.0,58.0],
-  "hip":[55.0,40.0]
+const MASTER_EAR_CANVAS={width:1141,height:2047};
+const masterPixelPositions={
+  "shen-men":[455.9,538.0],
+  "point-zero":[426.6,981.0],
+  "heart":[395.1,1146.5],
+  "sympathetic":[163.4,700.8],
+  "kidney":[440.2,815.8],
+  "occiput":[518.8,1422.0],
+  "stomach":[503.1,1014.7],
+  "spleen":[585.7,1067.4],
+  "brain":[585.7,1277.2],
+  "endocrine":[291.7,1368.8],
+  "mouth":[293.5,996.8],
+  "cervical-spine":[698.6,1198.7],
+  "shoulder":[876.6,1030.4],
+  "jaw":[534.5,1523.4],
+  "liver":[617.1,983.2],
+  "lung":[498.6,1146.5],
+  "large-intestine":[347.4,831.5],
+  "small-intestine":[395.0,874.5],
+  "bladder":[327.5,770.1],
+  "pancreas-gallbladder":[509.0,863.6],
+  "knee":[524.6,352.2],
+  "adrenal":[271.1,1182.9],
+  "subcortex":[471.6,1337.2],
+  "thalamus":[402.2,1384.6],
+  "ear-apex":[554.3,168.8],
+  "eye":[365.8,1742.0],
+  "inner-ear":[514.4,1742.0],
+  "thoracic-spine":[822.6,937.0],
+  "lumbar-spine":[754.9,701.2],
+  "hip":[574.8,437.8]
 };
+const mapPositions=Object.fromEntries(
+  Object.entries(masterPixelPositions).map(([id,[x,y]])=>[
+    id,
+    [x/MASTER_EAR_CANVAS.width*100,y/MASTER_EAR_CANVAS.height*100]
+  ])
+);
 
 const anatomicalEarSvg=(extraClass="",markerContent="")=>`
 <div class="premium-ear-wrap ${extraClass}" aria-label="Minimal line-art ear illustration">
@@ -1265,7 +1272,7 @@ loadData();
 /* Bloomé Package 20.2 — Ear Map Coordinate Architecture Fix */
 
 
-/* Bloomé Package 20.4 — Image-local Coordinate Fix */
-
-
-/* Package 20.5 — Full Point Placement Audit: all 30 map points re-audited and manually recalibrated against the current ear illustration. */
+/* Package 22 — Master Coordinate Integration
+   Source of truth: 1141 × 2047 approved pixel map.
+   Percentages are derived at runtime from masterPixelPositions.
+   Do not hand-edit percentage coordinates separately. */
