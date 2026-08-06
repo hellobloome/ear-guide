@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "24.1",
+  "version": "24.2",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -64,9 +64,11 @@
     "malaySearchAliasesExpanded": true,
     "malayPointCopyReviewed": true,
     "malayConditionCopyReviewed": true,
-    "malayDynamicApplicationCopy": true
+    "malayDynamicApplicationCopy": true,
+    "cacheBustedApplicationBundle": true,
+    "dynamicMalayFallbackTranslator": true
   },
-  "releaseName": "BM Dynamic Copy Fix",
+  "releaseName": "BM Cache + Dynamic Fallback Fix",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
