@@ -2022,3 +2022,63 @@ h3,p{margin-top:0}
     min-height:510px;
   }
 }
+
+
+/* Package 23 — Home Alignment + BM Greeting
+   Centers the simplified homepage hero after the decorative ear was removed.
+   Ear-map coordinate architecture is intentionally untouched. */
+
+.premium-home .home-hero-grid{
+  grid-template-columns:minmax(0,820px);
+  justify-content:center;
+}
+
+.premium-home .home-hero-grid .hero-copy{
+  width:100%;
+  max-width:820px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.premium-home .home-hero-grid .hero-copy .lead{
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.premium-home .home-hero-grid .search-box{
+  width:100%;
+  max-width:720px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.premium-home .home-hero-grid .hero-trust{
+  justify-content:center;
+}
+
+@media(max-width:960px){
+  .premium-home .home-hero-grid{
+    grid-template-columns:minmax(0,760px);
+    justify-content:center;
+  }
+
+  .premium-home .home-hero-grid .hero-copy{
+    max-width:760px;
+    margin:0 auto;
+    text-align:center;
+  }
+}
+
+@media(max-width:680px){
+  .premium-home .home-hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .premium-home .home-hero-grid .hero-copy{
+    width:100%;
+  }
+
+  .premium-home .home-hero-grid .hero-trust{
+    justify-content:center;
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "22",
+  "version": "23",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -56,9 +56,11 @@
     "approvedV3PlacementMap": true,
     "runtimePercentageDerivation": true,
     "pancreasGallbladderMerged": true,
-    "kneePointAdded": true
+    "kneePointAdded": true,
+    "centeredHomeHero": true,
+    "professionalMalayHomeGreeting": true
   },
-  "releaseName": "Master Coordinate Integration",
+  "releaseName": "Home Alignment + BM Greeting",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
