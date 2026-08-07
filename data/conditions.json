@@ -210,8 +210,8 @@
     ],
     "useWhen": "Choose this as a broad digestive-wellness routine rather than for a specific meal-time moment.",
     "relatedGuideIds": [
-      "after-meal-comfort",
-      "cravings"
+      "cravings",
+      "general-balance"
     ],
     "combinationAuditVersion": 17
   },
@@ -421,7 +421,7 @@
     "useWhen": "Choose this as a mindful-eating support routine, not as a weight-loss treatment.",
     "relatedGuideIds": [
       "digestion",
-      "after-meal-comfort"
+      "general-balance"
     ],
     "combinationAuditVersion": 17
   },
@@ -805,40 +805,41 @@
     "combinationAuditVersion": 17
   },
   {
-    "id": "after-meal-comfort",
-    "name": "After-Meal Comfort",
+    "id": "depuffing",
+    "name": "Depuffing",
     "aliases": [
-      "after eating",
-      "post meal",
-      "full after eating",
-      "meal comfort",
-      "digestive reset",
-      "after meal"
+      "depuff",
+      "depuffing",
+      "puffy face",
+      "facial puffiness",
+      "morning puffiness",
+      "puffy morning",
+      "face feels puffy"
     ],
-    "summary": "A digestive-wellness routine using points traditionally referenced after meals and in general digestive self-care.",
+    "summary": "A gentle self-care routine for mornings or travel days when the face looks or feels puffy.",
     "pointIds": [
-      "stomach",
-      "large-intestine",
-      "small-intestine",
-      "spleen"
+      "spleen",
+      "kidney",
+      "lung",
+      "endocrine"
     ],
-    "category": "Digestion",
-    "slug": "after-meal-comfort",
+    "category": "Beauty & Self-Care",
+    "slug": "depuffing",
     "featured": false,
     "keywords": [
-      "after eating",
-      "after meal",
-      "digestion",
-      "digestive comfort",
-      "digestive reset",
-      "full after eating",
-      "fullness",
-      "meal",
-      "meal comfort",
-      "post meal",
-      "stomach"
+      "beauty",
+      "depuff",
+      "depuffing",
+      "face",
+      "facial puffiness",
+      "morning",
+      "morning puffiness",
+      "puffy",
+      "puffy face",
+      "self care",
+      "travel"
     ],
-    "i18nKey": "condition.after-meal-comfort",
+    "i18nKey": "condition.depuffing",
     "mapReady": true,
     "pointRoles": [
       "primary",
@@ -846,12 +847,12 @@
       "support",
       "optional"
     ],
-    "useWhen": "Choose this when you specifically want a gentle digestive-wellness routine after a normal meal.",
+    "useWhen": "Choose this for a gentle facial-freshness routine when your face looks or feels puffy, such as in the morning or after travel. Seek medical advice for puffiness that is sudden, painful, one-sided or persistent.",
     "relatedGuideIds": [
-      "digestion",
-      "cravings"
+      "general-balance",
+      "daily-recovery"
     ],
-    "combinationAuditVersion": 17
+    "combinationAuditVersion": 27
   },
   {
     "id": "daily-recovery",

@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "26.1",
+  "version": "27",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -77,9 +77,14 @@
     "discoverTypeFilters": true,
     "discoverAlphabetBrowse": true,
     "searchSeeAllResults": true,
-    "neutralPointRoleCopy": true
+    "neutralPointRoleCopy": true,
+    "refinedConditionPages": true,
+    "relatedGuideCards": true,
+    "conditionHeroMetadata": true,
+    "depuffingGuide": true,
+    "afterMealComfortRetired": true
   },
-  "releaseName": "Neutral Point Role Copy",
+  "releaseName": "Condition Page Polish + Depuffing",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

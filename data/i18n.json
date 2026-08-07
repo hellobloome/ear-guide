@@ -228,7 +228,24 @@
         "Search results": "Hasil carian",
         "All guides and points": "Semua panduan dan titik",
         "Try another spelling, a broader word, or one of these common guides.": "Cuba ejaan lain, perkataan yang lebih umum atau salah satu panduan biasa ini.",
-        "The main point in this suggested combination.": "Titik utama dalam gabungan yang dicadangkan ini."
+        "The main point in this suggested combination.": "Titik utama dalam gabungan yang dicadangkan ini.",
+        "Suggested routine": "Rutin yang dicadangkan",
+        "Interactive map": "Peta interaktif",
+        "Step-by-step application": "Panduan langkah demi langkah",
+        "Your suggested points": "Titik yang dicadangkan",
+        "See the complete combination before you begin.": "Lihat gabungan titik yang lengkap sebelum anda mula.",
+        "Tap a numbered point": "Tekan titik bernombor",
+        "Choose a point below or tap its marker on the ear.": "Pilih titik di bawah atau tekan penandanya pada telinga.",
+        "Start guided application": "Mulakan panduan penggunaan",
+        "View selected point": "Lihat titik yang dipilih",
+        "How to apply ear seeds": "Cara menggunakan ear seed",
+        "Before you begin": "Sebelum anda mula",
+        "Keep the routine gentle. Use only on clean, intact skin and keep every ear seed outside the ear canal.": "Pastikan rutin kekal lembut. Gunakan hanya pada kulit yang bersih dan tidak luka, serta pastikan setiap ear seed berada di luar saluran telinga.",
+        "Seek professional care for severe, persistent, sudden or unexplained symptoms.": "Dapatkan rawatan profesional jika simptom teruk, berterusan, berlaku secara tiba-tiba atau tidak dapat dijelaskan.",
+        "You may also like": "Anda mungkin juga berminat",
+        "Explore related wellness guides.": "Terokai panduan kesejahteraan yang berkaitan.",
+        "Open related guide": "Buka panduan berkaitan",
+        "Suggested points": "Titik yang dicadangkan"
       },
       "placeholders": {
         "Try “sleep”, “stress” or “Shen Men”": "Cuba “tidur”, “stres” atau “Shen Men”",
@@ -632,29 +649,6 @@
       ],
       "useWhen": "Pilih ini untuk rutin berhenti seketika dan memberi perhatian pada pernafasan. Ia bukan untuk sesak nafas atau simptom pernafasan."
     },
-    "after-meal-comfort": {
-      "name": "Keselesaan Selepas Makan",
-      "category": "Penghadaman",
-      "summary": "Rutin kesejahteraan penghadaman menggunakan titik yang secara tradisional dirujuk selepas makan dan dalam penjagaan diri berkaitan penghadaman.",
-      "aliases": [
-        "selepas makan",
-        "lepas makan",
-        "perut selepas makan",
-        "keselesaan selepas makan",
-        "penghadaman"
-      ],
-      "keywords": [
-        "selepas makan",
-        "lepas makan",
-        "perut selepas makan",
-        "keselesaan selepas makan",
-        "penghadaman",
-        "makan",
-        "perut",
-        "keselesaan"
-      ],
-      "useWhen": "Pilih ini apabila anda mahukan rutin kesejahteraan penghadaman yang lembut selepas makan seperti biasa."
-    },
     "daily-recovery": {
       "name": "Pemulihan Harian",
       "category": "Harian",
@@ -725,6 +719,31 @@
         "keselesaan"
       ],
       "useWhen": "Pilih ini apabila keseimbangan dan keselesaan perjalanan secara umum ialah fokus utama, bukan rasa loya."
+    },
+    "depuffing": {
+      "name": "Wajah Sembap",
+      "category": "Kecantikan & Penjagaan Diri",
+      "summary": "Rutin penjagaan diri yang lembut untuk waktu pagi atau selepas perjalanan apabila wajah kelihatan atau terasa sembap.",
+      "useWhen": "Pilih ini untuk rutin penjagaan wajah yang ringkas apabila wajah kelihatan atau terasa sembap, contohnya pada waktu pagi atau selepas perjalanan. Dapatkan nasihat perubatan jika bengkak berlaku secara tiba-tiba, terasa sakit, hanya pada sebelah wajah atau berterusan.",
+      "aliases": [
+        "wajah sembap",
+        "muka sembap",
+        "sembap pagi",
+        "depuffing",
+        "puffy face",
+        "wajah terasa sembap",
+        "selepas perjalanan"
+      ],
+      "keywords": [
+        "wajah",
+        "muka",
+        "sembap",
+        "pagi",
+        "penjagaan diri",
+        "kecantikan",
+        "perjalanan",
+        "depuffing"
+      ]
     }
   },
   "points": {

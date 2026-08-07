@@ -2867,3 +2867,398 @@ h3,p{margin-top:0}
     padding:21px;
   }
 }
+
+
+/* ==========================================================
+   Package 27 — Condition Page Polish
+   ========================================================== */
+
+.condition-hero{
+  padding-bottom:44px;
+}
+
+.condition-hero-inner{
+  max-width:900px;
+  text-align:center;
+}
+
+.condition-hero-inner .lead{
+  max-width:720px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.condition-hero-meta{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:22px;
+}
+
+.condition-hero-meta span{
+  padding:7px 11px;
+  border:1px solid rgba(90,22,17,.09);
+  border-radius:999px;
+  background:rgba(255,253,252,.70);
+  color:var(--primary);
+  font-size:.72rem;
+  font-weight:700;
+}
+
+.condition-use-when-refined{
+  width:min(760px,100%);
+  margin:20px auto 0;
+  grid-template-columns:auto 1fr;
+  text-align:left;
+  background:rgba(255,253,252,.82);
+}
+
+.condition-main-section{
+  padding-top:48px;
+}
+
+.condition-section-heading{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,420px);
+  gap:30px;
+  align-items:end;
+  margin-bottom:24px;
+}
+
+.condition-section-heading h2{
+  margin-bottom:0;
+}
+
+.condition-section-heading > p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.65;
+}
+
+.condition-experience-refined{
+  align-items:start;
+  gap:28px;
+}
+
+.condition-route .condition-map-card::before{
+  display:none;
+}
+
+.condition-map-card{
+  position:relative;
+}
+
+.condition-map-hint{
+  position:absolute;
+  left:20px;
+  top:18px;
+  z-index:10;
+  padding:8px 11px;
+  border:1px solid rgba(90,22,17,.07);
+  border-radius:999px;
+  background:rgba(255,253,252,.88);
+  color:var(--primary);
+  font-size:.7rem;
+  font-weight:700;
+  box-shadow:0 8px 24px rgba(74,35,31,.05);
+}
+
+.condition-info-card-refined{
+  padding:32px;
+}
+
+.condition-info-card-refined::before{
+  display:none;
+}
+
+.condition-info-intro{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:20px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--line);
+}
+
+.condition-info-intro > span{
+  color:var(--primary);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.condition-info-intro > small{
+  max-width:250px;
+  color:var(--muted);
+  font-size:.72rem;
+  line-height:1.45;
+  text-align:right;
+}
+
+.condition-info-card-refined h2{
+  font-size:clamp(2.35rem,4vw,3.35rem);
+}
+
+.condition-point-tabs{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin-top:22px;
+}
+
+.condition-point-tabs .point-tab{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:10px;
+  align-items:center;
+  padding:10px 12px;
+  border-radius:14px;
+  text-align:left;
+}
+
+.condition-tab-number{
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(90,22,17,.08);
+  font-size:.72rem;
+  font-weight:800;
+}
+
+.condition-tab-copy{
+  min-width:0;
+  display:grid;
+  gap:2px;
+}
+
+.condition-tab-copy b{
+  overflow:hidden;
+  font-size:.78rem;
+  font-weight:750;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.condition-tab-copy small{
+  font-size:.66rem;
+  opacity:.75;
+}
+
+.condition-point-tabs .point-tab.active .condition-tab-number{
+  background:rgba(255,255,255,.18);
+}
+
+.condition-actions-refined{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+  margin-top:22px;
+}
+
+.condition-actions-refined .primary-button,
+.condition-actions-refined .secondary-button{
+  width:100%;
+  justify-content:center;
+}
+
+.condition-actions-refined .condition-guide-link{
+  grid-column:1/-1;
+  justify-self:center;
+  margin-top:2px;
+}
+
+.condition-safety-card{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:15px;
+  align-items:start;
+  margin-top:20px;
+  padding:20px 22px;
+  border:1px solid rgba(90,22,17,.10);
+  border-radius:20px;
+  background:#F4EAE4;
+}
+
+.condition-safety-icon{
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:var(--primary);
+  color:#fff;
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.1rem;
+  font-weight:700;
+}
+
+.condition-safety-card strong{
+  display:block;
+  margin-bottom:5px;
+  color:var(--primary);
+}
+
+.condition-safety-card p{
+  margin:0 0 4px;
+  color:var(--muted);
+  line-height:1.55;
+}
+
+.condition-safety-card small{
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.condition-related-guides-refined{
+  margin-top:54px;
+  padding:0;
+  border:0;
+  background:transparent;
+}
+
+.condition-related-heading{
+  margin-bottom:18px;
+}
+
+.condition-related-heading h2{
+  margin-bottom:0;
+}
+
+.condition-related-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+
+.condition-related-card{
+  appearance:none;
+  display:flex;
+  flex-direction:column;
+  min-height:230px;
+  padding:22px;
+  border:1px solid rgba(90,22,17,.08);
+  border-radius:22px;
+  background:rgba(255,253,252,.88);
+  color:var(--ink);
+  text-align:left;
+  cursor:pointer;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+
+.condition-related-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(90,22,17,.16);
+  box-shadow:0 16px 36px rgba(74,35,31,.07);
+}
+
+.condition-related-card > span{
+  margin-bottom:14px;
+  color:var(--sage);
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+.condition-related-card h3{
+  margin:0 0 8px;
+  color:var(--primary);
+  font-size:1.55rem;
+}
+
+.condition-related-card p{
+  display:-webkit-box;
+  overflow:hidden;
+  margin:0 0 18px;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.55;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+}
+
+.condition-related-card strong{
+  margin-top:auto;
+  color:var(--primary);
+  font-size:.76rem;
+}
+
+@media(max-width:960px){
+  .condition-section-heading{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .condition-related-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:680px){
+  .condition-hero{
+    padding-bottom:34px;
+  }
+
+  .condition-use-when-refined{
+    grid-template-columns:1fr;
+    text-align:left;
+  }
+
+  .condition-main-section{
+    padding-top:36px;
+  }
+
+  .condition-map-hint{
+    left:14px;
+    top:14px;
+    font-size:.64rem;
+  }
+
+  .condition-info-card-refined{
+    padding:23px;
+  }
+
+  .condition-info-intro{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:5px;
+  }
+
+  .condition-info-intro > small{
+    max-width:none;
+    text-align:left;
+  }
+
+  .condition-point-tabs{
+    grid-template-columns:1fr;
+  }
+
+  .condition-actions-refined{
+    grid-template-columns:1fr;
+  }
+
+  .condition-actions-refined .condition-guide-link{
+    grid-column:auto;
+  }
+
+  .condition-safety-card{
+    padding:17px;
+  }
+
+  .condition-related-guides-refined{
+    margin-top:40px;
+  }
+
+  .condition-related-grid{
+    grid-template-columns:1fr;
+  }
+
+  .condition-related-card{
+    min-height:0;
+  }
+}
