@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "24.2",
+  "version": "25",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -66,9 +66,13 @@
     "malayConditionCopyReviewed": true,
     "malayDynamicApplicationCopy": true,
     "cacheBustedApplicationBundle": true,
-    "dynamicMalayFallbackTranslator": true
+    "dynamicMalayFallbackTranslator": true,
+    "refinedBeginnerGuide": true,
+    "guidePrepChecklist": true,
+    "guideAftercareSection": true,
+    "guideNextStepActions": true
   },
-  "releaseName": "BM Cache + Dynamic Fallback Fix",
+  "releaseName": "Guide Page Refinement",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
