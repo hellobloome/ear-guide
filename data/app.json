@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "26",
+  "version": "26.1",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -76,9 +76,10 @@
     "discoverLiveSearch": true,
     "discoverTypeFilters": true,
     "discoverAlphabetBrowse": true,
-    "searchSeeAllResults": true
+    "searchSeeAllResults": true,
+    "neutralPointRoleCopy": true
   },
-  "releaseName": "Search + Discover Polish",
+  "releaseName": "Neutral Point Role Copy",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

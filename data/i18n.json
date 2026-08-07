@@ -95,7 +95,6 @@
         "Optional support": "Sokongan pilihan",
         "Add if useful": "Tambah jika sesuai",
         "Support": "Sokongan",
-        "The anchor point in this Bloomé combination.": "Titik utama yang menjadi asas gabungan Bloomé ini.",
         "A supporting point that rounds out the routine.": "Titik sokongan yang melengkapkan rutin ini.",
         "Paired with the primary point as part of the suggested routine.": "Digabungkan dengan titik utama sebagai sebahagian daripada rutin yang dicadangkan.",
         "This illustration is a simplified educational guide, not a clinical placement chart. Use only on clean, intact skin and seek professional care for severe, persistent, sudden or unexplained symptoms.": "Ilustrasi ini ialah panduan pendidikan ringkas, bukan carta kedudukan klinikal. Gunakan hanya pada kulit yang bersih dan tidak luka. Dapatkan rawatan profesional jika simptom teruk, berterusan, berlaku secara tiba-tiba atau tidak dapat dijelaskan.",
@@ -228,7 +227,8 @@
         "Library": "Pustaka",
         "Search results": "Hasil carian",
         "All guides and points": "Semua panduan dan titik",
-        "Try another spelling, a broader word, or one of these common guides.": "Cuba ejaan lain, perkataan yang lebih umum atau salah satu panduan biasa ini."
+        "Try another spelling, a broader word, or one of these common guides.": "Cuba ejaan lain, perkataan yang lebih umum atau salah satu panduan biasa ini.",
+        "The main point in this suggested combination.": "Titik utama dalam gabungan yang dicadangkan ini."
       },
       "placeholders": {
         "Try “sleep”, “stress” or “Shen Men”": "Cuba “tidur”, “stres” atau “Shen Men”",
