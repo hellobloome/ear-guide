@@ -213,11 +213,27 @@
         "Find a routine by what you want to focus on.": "Cari rutin berdasarkan perkara yang ingin anda fokuskan.",
         "Browse common wellness needs or open the full ear map if you already know the point you are looking for.": "Terokai keperluan kesejahteraan biasa atau buka peta telinga penuh jika anda sudah tahu titik yang ingin dicari.",
         "Choose a wellness need": "Pilih keperluan kesejahteraan",
-        "Explore the ear map": "Terokai peta telinga"
+        "Explore the ear map": "Terokai peta telinga",
+        "Best matches": "Padanan terbaik",
+        "See all results for “sleep”": "Lihat semua hasil untuk “sleep”",
+        "Try another word or choose one of these common guides:": "Cuba perkataan lain atau pilih salah satu panduan biasa ini:",
+        "Find a wellness guide or ear point.": "Cari panduan kesejahteraan atau titik telinga.",
+        "Search naturally, browse by type, or jump straight to a letter.": "Cari dengan perkataan biasa, terokai mengikut jenis atau pilih terus mengikut huruf.",
+        "Clear": "Kosongkan",
+        "Popular searches": "Carian popular",
+        "Head tension": "Ketegangan kepala",
+        "Browse by type": "Terokai mengikut jenis",
+        "Wellness guides": "Panduan kesejahteraan",
+        "Ear points": "Titik telinga",
+        "Library": "Pustaka",
+        "Search results": "Hasil carian",
+        "All guides and points": "Semua panduan dan titik",
+        "Try another spelling, a broader word, or one of these common guides.": "Cuba ejaan lain, perkataan yang lebih umum atau salah satu panduan biasa ini."
       },
       "placeholders": {
         "Try “sleep”, “stress” or “Shen Men”": "Cuba “tidur”, “stres” atau “Shen Men”",
-        "Search the point library, e.g. Shen Men or Liver": "Cari titik telinga, contohnya Shen Men atau Hati"
+        "Search the point library, e.g. Shen Men or Liver": "Cari titik telinga, contohnya Shen Men atau Hati",
+        "Try “sleep”, “headache”, “digestion” or “Shen Men”": "Cuba “tidur”, “sakit kepala”, “penghadaman” atau “Shen Men”"
       }
     }
   },

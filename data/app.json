@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "25",
+  "version": "26",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -70,9 +70,15 @@
     "refinedBeginnerGuide": true,
     "guidePrepChecklist": true,
     "guideAftercareSection": true,
-    "guideNextStepActions": true
+    "guideNextStepActions": true,
+    "searchTypoTolerance": true,
+    "searchTokenMatching": true,
+    "discoverLiveSearch": true,
+    "discoverTypeFilters": true,
+    "discoverAlphabetBrowse": true,
+    "searchSeeAllResults": true
   },
-  "releaseName": "Guide Page Refinement",
+  "releaseName": "Search + Discover Polish",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
