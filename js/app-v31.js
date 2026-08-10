@@ -1,0 +1,2018 @@
+const $=(s,c=document)=>c.querySelector(s);
+const $$=(s,c=document)=>[...c.querySelectorAll(s)];
+
+let conditions=[];
+let acupoints=[];
+let sourceConditions=[];
+let sourceAcupoints=[];
+let localeData={};
+let currentLocale=localStorage.getItem("bloome-locale")==="ms"?"ms":"en";
+let pointMap=new Map();
+let conditionMap=new Map();
+let activeSuggestion=-1;
+let mapSelectedId="shen-men";
+let mapZoom=1;
+let selectedConditionPoint=new Map();
+let applicationProgress=new Map();
+
+const MASTER_EAR_CANVAS={width:1141,height:2047};
+const masterPixelPositions={
+  "shen-men":[455.9,538.0],
+  "point-zero":[426.6,981.0],
+  "heart":[395.1,1146.5],
+  "sympathetic":[163.4,700.8],
+  "kidney":[440.2,815.8],
+  "occiput":[518.8,1422.0],
+  "stomach":[503.1,1014.7],
+  "spleen":[585.7,1067.4],
+  "brain":[585.7,1277.2],
+  "endocrine":[291.7,1368.8],
+  "mouth":[293.5,996.8],
+  "cervical-spine":[698.6,1198.7],
+  "shoulder":[876.6,1030.4],
+  "jaw":[534.5,1523.4],
+  "liver":[617.1,983.2],
+  "lung":[498.6,1146.5],
+  "large-intestine":[347.4,831.5],
+  "small-intestine":[395.0,874.5],
+  "bladder":[327.5,770.1],
+  "pancreas-gallbladder":[509.0,863.6],
+  "knee":[524.6,352.2],
+  "adrenal":[271.1,1182.9],
+  "subcortex":[471.6,1337.2],
+  "thalamus":[402.2,1384.6],
+  "ear-apex":[554.3,168.8],
+  "eye":[365.8,1742.0],
+  "inner-ear":[514.4,1742.0],
+  "thoracic-spine":[822.6,937.0],
+  "lumbar-spine":[754.9,701.2],
+  "hip":[574.8,437.8]
+};
+const mapPositions=Object.fromEntries(
+  Object.entries(masterPixelPositions).map(([id,[x,y]])=>[
+    id,
+    [x/MASTER_EAR_CANVAS.width*100,y/MASTER_EAR_CANVAS.height*100]
+  ])
+);
+
+const anatomicalEarSvg=(extraClass="",markerContent="")=>`
+<div class="premium-ear-wrap ${extraClass}" aria-label="Minimal line-art ear illustration">
+  <img class="premium-ear-image" src="./images/ear-option-1.png" alt="Minimal line-art illustration of an ear">
+  ${markerContent?`<div class="ear-coordinate-layer">${markerContent}</div>`:""}
+</div>`;
+
+function markerLabelClass(left,top){
+  const classes=[];
+  if(left>=60)classes.push("label-left");
+  if(top<=20)classes.push("label-below");
+  if(top>=76)classes.push("label-above");
+  return classes.join(" ");
+}
+
+function escapeHtml(value=""){
+  return String(value).replace(/[&<>"']/g,char=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[char]));
+}
+function normalize(value=""){
+  return String(value).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim();
+}
+
+function localeRecord(type,id){
+  return localeData?.[type]?.[id]||null;
+}
+
+function mergeLocaleItem(item,type){
+  if(currentLocale!=="ms")return {...item};
+  const translated=localeRecord(type,item.id);
+  if(!translated)return {...item};
+
+  return {
+    ...item,
+    ...translated,
+    aliases:[...(item.aliases||[]),...(translated.aliases||[])],
+    keywords:[...(item.keywords||[]),...(translated.keywords||[])]
+  };
+}
+
+function rebuildLocalizedData(){
+  conditions=sourceConditions.map(item=>mergeLocaleItem(item,"conditions"));
+  acupoints=sourceAcupoints.map(item=>mergeLocaleItem(item,"points"));
+  conditionMap=new Map(conditions.map(item=>[item.id,item]));
+  pointMap=new Map(acupoints.map(item=>[item.id,item]));
+}
+
+function uiText(english){
+  if(currentLocale!=="ms")return english;
+  return localeData?.ui?.ms?.exact?.[english]||english;
+}
+
+function pointCountText(count,{suggested=false}={}){
+  if(currentLocale==="ms")return suggested?`${count} titik yang dicadangkan`:`${count} titik`;
+  return suggested?`${count} suggested point${count===1?"":"s"}`:`${count} point${count===1?"":"s"}`;
+}
+
+function applicationStepText(step,total){
+  return currentLocale==="ms"
+    ? `Langkah ${step} daripada ${total}`
+    : `Step ${step} of ${total}`;
+}
+
+function applicationCompleteTitle(name){
+  return currentLocale==="ms"
+    ? `Rutin ${name} selesai.`
+    : `${name} guide complete.`;
+}
+
+function applicationCompleteLead(count){
+  return currentLocale==="ms"
+    ? `Anda telah selesai mengikuti panduan penggunaan ${count} titik ini.`
+    : `You’ve reached the end of this ${count}-point application guide.`;
+}
+
+function applicationBackToConditionText(name,{guide=false,arrow=false}={}){
+  if(currentLocale==="ms"){
+    const text=guide?`Kembali ke panduan ${name}`:`Kembali ke ${name}`;
+    return arrow?`← ${text}`:text;
+  }
+  const text=guide?`Back to ${name} guide`:`Back to ${name}`;
+  return arrow?`← ${text}`:text;
+}
+
+function applicationPointGuideText(name){
+  return currentLocale==="ms"
+    ? `Buka panduan penuh ${name}`
+    : `Open full ${name} guide`;
+}
+
+function applicationProgressLabel(){
+  return currentLocale==="ms" ? "Kemajuan penggunaan" : "Application progress";
+}
+
+function translateUi(root=document){
+  document.documentElement.lang=currentLocale==="ms"?"ms":"en";
+
+  const exact=localeData?.ui?.ms?.exact||{};
+  const reverseExact={};
+  Object.entries(exact).forEach(([english,malay])=>{
+    if(!(malay in reverseExact))reverseExact[malay]=english;
+  });
+
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const nodes=[];
+  while(walker.nextNode())nodes.push(walker.currentNode);
+
+  nodes.forEach(node=>{
+    const raw=node.nodeValue;
+    const trimmed=raw.trim();
+    if(!trimmed)return;
+
+    let replacement=currentLocale==="ms"
+      ? exact[trimmed]
+      : reverseExact[trimmed];
+
+    // Package 24.2: defensive fallback for dynamic Guided Application
+    // phrases containing condition names, point names, or step counts.
+    if(currentLocale==="ms" && !replacement){
+      let match;
+      if((match=trimmed.match(/^You[’']ve reached the end of this (\d+)-point application guide\.$/))){
+        replacement=`Anda telah selesai mengikuti panduan penggunaan ${match[1]} titik ini.`;
+      }else if((match=trimmed.match(/^Back to (.+) guide$/))){
+        replacement=`Kembali ke panduan ${match[1]}`;
+      }else if((match=trimmed.match(/^←\s*Back to (.+)$/))){
+        replacement=`← Kembali ke ${match[1]}`;
+      }else if((match=trimmed.match(/^(.+) guide complete\.$/))){
+        replacement=`Rutin ${match[1]} selesai.`;
+      }else if((match=trimmed.match(/^Step (\d+) of (\d+)$/))){
+        replacement=`Langkah ${match[1]} daripada ${match[2]}`;
+      }else if((match=trimmed.match(/^Step (\d+)$/))){
+        replacement=`Langkah ${match[1]}`;
+      }else if((match=trimmed.match(/^Open full (.+) guide$/))){
+        replacement=`Buka panduan penuh ${match[1]}`;
+      }
+    }
+
+    if(replacement)node.nodeValue=raw.replace(trimmed,replacement);
+  });
+
+  const placeholders=localeData?.ui?.ms?.placeholders||{};
+  const reversePlaceholders={};
+  Object.entries(placeholders).forEach(([english,malay])=>{
+    if(!(malay in reversePlaceholders))reversePlaceholders[malay]=english;
+  });
+
+  $$("[placeholder]",root).forEach(el=>{
+    const current=el.getAttribute("placeholder");
+    const replacement=currentLocale==="ms"
+      ? placeholders[current]
+      : reversePlaceholders[current];
+
+    if(replacement)el.setAttribute("placeholder",replacement);
+  });
+
+  updateLanguageToggle();
+}
+
+function updateLanguageToggle(){
+  const toggle=$("#language-toggle");
+  if(!toggle)return;
+  $$("[data-locale-option]",toggle).forEach(option=>{
+    option.classList.toggle("active",option.dataset.localeOption===currentLocale);
+  });
+  toggle.setAttribute("aria-label",currentLocale==="ms"?"Tukar ke bahasa Inggeris":"Switch to Bahasa Melayu");
+}
+
+function setLocale(locale){
+  currentLocale=locale==="ms"?"ms":"en";
+  localStorage.setItem("bloome-locale",currentLocale);
+  selectedConditionPoint.clear();
+  rebuildLocalizedData();
+  render();
+}
+
+function searchFields(item){
+  const extra=localeRecord("points",item.id)||localeRecord("conditions",item.id)||{};
+  return [
+    item.id,item.name,item.category,item.summary,item.location,item.traditionalUse,
+    ...(item.aliases||[]),...(item.keywords||[]),
+    extra.name,extra.category,extra.summary,extra.location,extra.traditionalUse,
+    ...(extra.aliases||[]),...(extra.keywords||[])
+  ].filter(Boolean);
+}
+
+function normalizeSearch(value=""){
+  return normalize(value)
+    .replace(/[’']/g,"")
+    .replace(/&/g," and ")
+    .replace(/[-_/]/g," ")
+    .replace(/[^a-z0-9\s]/g," ")
+    .replace(/\s+/g," ")
+    .trim();
+}
+
+function searchableText(item){
+  return normalizeSearch(searchFields(item).join(" "));
+}
+
+function searchTokens(value=""){
+  return normalizeSearch(value).split(" ").filter(Boolean);
+}
+
+function editDistance(a,b){
+  if(a===b)return 0;
+  if(!a.length)return b.length;
+  if(!b.length)return a.length;
+  const previous=Array.from({length:b.length+1},(_,i)=>i);
+  for(let i=1;i<=a.length;i++){
+    let diagonal=previous[0];
+    previous[0]=i;
+    for(let j=1;j<=b.length;j++){
+      const old=previous[j];
+      previous[j]=Math.min(
+        previous[j]+1,
+        previous[j-1]+1,
+        diagonal+(a[i-1]===b[j-1]?0:1)
+      );
+      diagonal=old;
+    }
+  }
+  return previous[b.length];
+}
+
+function tokenCloseEnough(queryToken,targetToken){
+  if(queryToken===targetToken)return true;
+  if(queryToken.length<4||targetToken.length<4)return false;
+  const allowance=Math.max(queryToken.length,targetToken.length)>=7?2:1;
+  return Math.abs(queryToken.length-targetToken.length)<=allowance
+    && editDistance(queryToken,targetToken)<=allowance;
+}
+
+function pointIsMapped(point){
+  return Boolean(point && (mapPositions[point.id] || point.mapReady===true));
+}
+
+function pointStatusLabel(point){
+  return pointIsMapped(point) ? "Mapped acupoint" : "Reference acupoint";
+}
+
+function pointReferenceCode(point){
+  return point?.standardCode
+    ? `<span class="point-reference-code" title="${escapeHtml(point.mapSystem||"Auricular reference")}">${escapeHtml(point.standardCode)}</span>`
+    : "";
+}
+
+function score(item,query){
+  const q=normalizeSearch(query);
+  if(!q)return 0;
+
+  const name=normalizeSearch(item.name);
+  const aliases=(item.aliases||[]).map(normalizeSearch).filter(Boolean);
+  const keywords=(item.keywords||[]).map(normalizeSearch).filter(Boolean);
+  const fields=searchFields(item).map(normalizeSearch).filter(Boolean);
+  const haystack=fields.join(" ");
+  const queryTokens=searchTokens(q);
+  const haystackTokens=[...new Set(searchTokens(haystack))];
+
+  if(name===q)return 150;
+  if(aliases.includes(q))return 140;
+  if(keywords.includes(q))return 134;
+  if(normalizeSearch(item.id)===q)return 132;
+
+  if(name.startsWith(q))return 122;
+  if(aliases.some(value=>value.startsWith(q)))return 116;
+  if(name.includes(q))return 110;
+  if(aliases.some(value=>value.includes(q)))return 104;
+  if(fields.some(value=>value===q))return 100;
+  if(haystack.includes(q))return 90;
+
+  if(queryTokens.length){
+    const exactTokenMatches=queryTokens.filter(token=>haystackTokens.includes(token)).length;
+    if(exactTokenMatches===queryTokens.length){
+      return 82 + Math.min(8,queryTokens.length*2);
+    }
+
+    const fuzzyMatches=queryTokens.filter(queryToken=>
+      haystackTokens.some(targetToken=>tokenCloseEnough(queryToken,targetToken))
+    ).length;
+
+    if(fuzzyMatches===queryTokens.length){
+      return 62 + Math.min(8,queryTokens.length*2);
+    }
+
+    if(queryTokens.length>1 && fuzzyMatches>=Math.ceil(queryTokens.length*.75)){
+      return 48;
+    }
+  }
+
+  return 0;
+}
+
+function matches(query,limit=30,kindFilter="all"){
+  const entries=[
+    ...conditions.map(item=>({kind:"condition",item})),
+    ...acupoints.map(item=>({kind:"point",item}))
+  ];
+
+  return entries
+    .filter(entry=>kindFilter==="all"||entry.kind===kindFilter)
+    .map(entry=>({...entry,score:score(entry.item,query)}))
+    .filter(entry=>entry.score>0)
+    .sort((a,b)=>
+      b.score-a.score
+      || (a.kind==="condition"?-1:1)
+      || a.item.name.localeCompare(b.item.name)
+    )
+    .slice(0,limit);
+}
+
+function strongDirectMatch(query){
+  const results=matches(query,3);
+  if(!results.length)return null;
+  const first=results[0];
+  const second=results[1];
+  if(first.score>=132 && (!second || first.score-second.score>=8))return first;
+  if(first.score>=145)return first;
+  return null;
+}
+
+function directoryEntries(query="",kindFilter="all",letter="all"){
+  let entries=query.trim()
+    ? matches(query,100,kindFilter)
+    : [
+        ...conditions.map(item=>({kind:"condition",item,score:0})),
+        ...acupoints.map(item=>({kind:"point",item,score:0}))
+      ].filter(entry=>kindFilter==="all"||entry.kind===kindFilter);
+
+  if(letter!=="all"){
+    entries=entries.filter(entry=>normalizeSearch(entry.item.name).charAt(0).toUpperCase()===letter);
+  }
+
+  if(!query.trim()){
+    entries.sort((a,b)=>a.item.name.localeCompare(b.item.name,currentLocale==="ms"?"ms":"en"));
+  }
+
+  return entries;
+}
+
+function directoryResultCountText(count,query=""){
+  if(currentLocale==="ms"){
+    return query
+      ? `${count} hasil untuk “${query}”`
+      : `${count} hasil`;
+  }
+  return query
+    ? `${count} result${count===1?"":"s"} for “${query}”`
+    : `${count} result${count===1?"":"s"}`;
+}
+
+const toast=$("#toast");
+let toastTimer;
+function showToast(message){
+  toast.textContent=message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>toast.classList.remove("show"),2400);
+}
+
+function getRoute(){
+  const raw=(location.hash||"#/home").replace(/^#\//,"");
+  const [route,id]=raw.split("/");
+  return {route:route||"home",id:id||null};
+}
+function navigate(route,id=null){
+  location.hash=id?`#/${route}/${id}`:`#/${route}`;
+}
+function updateActiveNav(route){
+  const activeBase=["condition","point"].includes(route)?"discover":route==="apply"?"guide":route;
+  $$("[data-nav-route]").forEach(link=>link.classList.toggle("active",link.dataset.navRoute===activeBase));
+}
+function closeMobileMenu(){
+  $("#mobile-menu").classList.remove("open");
+  $("#menu-button").setAttribute("aria-expanded","false");
+}
+function openQuickHelp(){
+  $("#quick-help-sheet").hidden=false;
+  document.body.classList.add("sheet-open");
+  $("#quick-help-button").setAttribute("aria-expanded","true");
+}
+function closeQuickHelp(){
+  $("#quick-help-sheet").hidden=true;
+  document.body.classList.remove("sheet-open");
+  $("#quick-help-button").setAttribute("aria-expanded","false");
+}
+
+function searchBoxMarkup(id="route-search"){
+  return `
+  <div class="search-box">
+    <form class="search-shell" data-search-form>
+      <span aria-hidden="true">⌕</span>
+      <input id="${id}" data-search-input type="search" placeholder="Try “sleep”, “stress” or “Shen Men”" autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
+    <div class="suggestions" data-suggestions hidden></div>
+  </div>`;
+}
+function suggestionMarkup(result,index){
+  const item=result.item;
+  if(result.kind==="condition"){
+    const points=(item.pointIds||[]).map(id=>pointMap.get(id)).filter(Boolean);
+    return `
+    <button class="suggestion suggestion-condition" data-suggestion-index="${index}" data-kind="condition" data-id="${escapeHtml(item.id)}">
+      <span class="suggestion-icon">♡</span>
+      <span class="suggestion-content">
+        <span class="suggestion-topline">
+          <strong>${escapeHtml(item.name)}</strong>
+          <span class="suggestion-kind">Wellness guide</span>
+        </span>
+        <small>${escapeHtml(item.summary||"")}</small>
+        <span class="suggestion-point-preview">
+          ${points.slice(0,4).map(point=>`<span>${escapeHtml(point.name)}</span>`).join("")}
+        </span>
+        <span class="suggestion-footer">
+          <b>${pointCountText(points.length,{suggested:true})}</b>
+          <em>Open guide →</em>
+        </span>
+      </span>
+    </button>`;
+  }
+
+  const mapped=pointIsMapped(item);
+  return `
+  <button class="suggestion suggestion-point-result ${mapped?"is-mapped":"is-reference"}" data-suggestion-index="${index}" data-kind="point" data-id="${escapeHtml(item.id)}">
+    <span class="suggestion-icon">${mapped?"◉":"◌"}</span>
+    <span class="suggestion-content">
+      <span class="suggestion-topline">
+        <strong>${escapeHtml(item.name)}</strong>
+        <span class="suggestion-kind">${mapped?"Mapped point":"Reference point"}</span>
+      </span>
+      <small>${escapeHtml(item.traditionalUse||item.category||"")}</small>
+      <span class="suggestion-footer">
+        <b>${escapeHtml(item.category||"Ear point")}</b>
+        <em>${mapped?"View point →":"Open reference →"}</em>
+      </span>
+    </span>
+  </button>`;
+}
+
+function searchEmptyMarkup(query){
+  const quick=[
+    ["Sleep","sleep"],
+    ["Stress","stress"],
+    ["Focus","focus"],
+    ["Digestion","digestion"],
+    ["Energy","low-energy"]
+  ];
+  return `
+    <div class="search-empty">
+      <strong>We couldn’t find “${escapeHtml(query)}” yet.</strong>
+      <p>Try another word or choose one of these common guides:</p>
+      <div class="search-empty-chips">
+        ${quick.map(([label,id])=>`<button type="button" data-empty-condition="${id}">${label}</button>`).join("")}
+      </div>
+    </div>`;
+}
+
+function searchSuggestionResultsMarkup(query,results){
+  return `
+    <div class="suggestion-heading">
+      <span>Best matches</span>
+      <small>${directoryResultCountText(results.length)}</small>
+    </div>
+    ${results.map(suggestionMarkup).join("")}
+    <div class="suggestion-all-row">
+      <button type="button" data-search-all="${escapeHtml(query)}">See all results for “${escapeHtml(query)}”</button>
+    </div>`;
+}
+
+function wireSearch(scope=document){
+  const form=$("[data-search-form]",scope);
+  if(!form)return;
+  const input=$("[data-search-input]",scope);
+  const suggestions=$("[data-suggestions]",scope);
+
+  function hide(){
+    suggestions.hidden=true;
+    suggestions.innerHTML="";
+    activeSuggestion=-1;
+  }
+
+  function show(){
+    const query=input.value.trim();
+    if(!query){hide();return}
+
+    const results=matches(query,8);
+    activeSuggestion=-1;
+
+    if(!results.length){
+      suggestions.innerHTML=searchEmptyMarkup(query);
+      suggestions.hidden=false;
+      translateUi(suggestions);
+
+      $$("[data-empty-condition]",suggestions).forEach(button=>button.addEventListener("mousedown",event=>{
+        event.preventDefault();
+        navigate("condition",button.dataset.emptyCondition);
+        hide();
+      }));
+      return;
+    }
+
+    suggestions.innerHTML=searchSuggestionResultsMarkup(query,results);
+    suggestions.hidden=false;
+    translateUi(suggestions);
+
+    $$("[data-kind]",suggestions).forEach(button=>button.addEventListener("mousedown",event=>{
+      event.preventDefault();
+      navigate(button.dataset.kind,button.dataset.id);
+      hide();
+    }));
+
+    $("[data-search-all]",suggestions)?.addEventListener("mousedown",event=>{
+      event.preventDefault();
+      navigate("discover",`search-${encodeURIComponent(query)}`);
+      hide();
+    });
+  }
+
+  input.addEventListener("input",show);
+
+  input.addEventListener("keydown",event=>{
+    const items=$$("[data-suggestion-index]",suggestions);
+    if(!items.length)return;
+
+    if(event.key==="ArrowDown"){
+      event.preventDefault();
+      activeSuggestion=(activeSuggestion+1)%items.length;
+    }else if(event.key==="ArrowUp"){
+      event.preventDefault();
+      activeSuggestion=(activeSuggestion-1+items.length)%items.length;
+    }else if(event.key==="Enter"&&activeSuggestion>=0){
+      event.preventDefault();
+      const item=items[activeSuggestion];
+      navigate(item.dataset.kind,item.dataset.id);
+      hide();
+      return;
+    }else{
+      return;
+    }
+
+    items.forEach((item,index)=>item.classList.toggle("active",index===activeSuggestion));
+  });
+
+  form.addEventListener("submit",event=>{
+    event.preventDefault();
+    const query=input.value.trim();
+    if(!query)return showToast(currentLocale==="ms"?"Taip keperluan atau nama titik dahulu.":"Type a concern or acupoint first.");
+
+    const direct=strongDirectMatch(query);
+    if(direct){
+      navigate(direct.kind,direct.item.id);
+    }else{
+      navigate("discover",`search-${encodeURIComponent(query)}`);
+    }
+    hide();
+  });
+
+  document.addEventListener("click",event=>{
+    if(!event.target.closest(".search-box"))hide();
+  },{once:true});
+}
+
+function homeView(){
+  const journeys=[["☾","Sleep","Wind down and explore a calm bedtime combination.","sleep"],["♡","Stress","Explore points traditionally used in calming routines.","stress"],["⌁","Digestion","Find a simple digestive-wellness combination.","digestion"],["✿","Women's wellness","Explore a menstrual-comfort combination.","menstrual-comfort"],["✦","Energy","Explore a traditional low-energy combination.","low-energy"],["◎","Focus","Find points commonly used in focus routines.","focus"]];
+  return `
+  <section class="route premium-home">
+    <div class="route-hero premium-hero"><div class="container route-grid home-hero-grid">
+      <div class="hero-copy reveal-item"><p class="eyebrow">Bloomé Ear Acupoint Guide</p><h1>What would you like to focus on today?</h1><p class="lead">Choose a wellness need or search by name. We’ll show the suggested points directly on the ear.</p>${searchBoxMarkup("home-search")}<div class="hero-trust"><span>◌ Visual point guidance</span><span>✧ Beginner friendly</span></div></div>
+    </div></div>
+    <section class="section soft-section need-section"><div class="container"><div class="section-heading centered-heading reveal-item"><p class="eyebrow">Start with a need</p><h2>Choose what feels most relevant.</h2><p>Each guide opens with a focused ear map, so you can see the combination before reading the details.</p></div><div class="need-grid">${journeys.map((j,i)=>`<button class="need-card reveal-item" style="--delay:${i*55}ms" data-open-route="condition" data-open-id="${j[3]}"><span class="need-icon">${j[0]}</span><h3>${j[1]}</h3><p>${j[2]}</p><span class="need-link">View guide <b>→</b></span></button>`).join("")}</div></div></section>
+    <section class="section"><div class="container premium-paths"><div class="section-heading reveal-item"><p class="eyebrow">Or explore your way</p><h2>Already know what you're looking for?</h2></div><div class="quick-grid compact-paths"><a class="feature-card reveal-item" href="#/discover"><span class="feature-icon">⌕</span><div><h3>Browse A–Z</h3><p>Search concerns and individual acupoints.</p></div><span>→</span></a><a class="feature-card reveal-item" href="#/map"><span class="feature-icon">◌</span><div><h3>Explore the ear</h3><p>Open the complete interactive reference map.</p></div><span>→</span></a><a class="feature-card reveal-item" href="#/guide"><span class="feature-icon">✧</span><div><h3>First time?</h3><p>Read the simple application guide first.</p></div><span>→</span></a></div></div></section>
+  </section>`;
+}
+
+function discoverView(searchTerm=null){
+  const query=(searchTerm||"").trim();
+  const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const availableLetters=new Set(
+    [...conditions,...acupoints]
+      .map(item=>normalizeSearch(item.name).charAt(0).toUpperCase())
+      .filter(Boolean)
+  );
+  const initial=directoryEntries(query,"all","all");
+
+  return `
+  <section class="route discover-route">
+    <div class="route-hero discover-hero">
+      <div class="container discover-hero-inner">
+        <p class="eyebrow">Discover</p>
+        <h1>Find a wellness guide or ear point.</h1>
+        <p class="lead">Search naturally, browse by type, or jump straight to a letter.</p>
+
+        <form class="directory-search" data-directory-search-form>
+          <span class="directory-search-icon" aria-hidden="true">⌕</span>
+          <input
+            id="discover-directory-search"
+            data-directory-search-input
+            type="search"
+            value="${escapeHtml(query)}"
+            placeholder="Try “sleep”, “headache”, “digestion” or “Shen Men”"
+            autocomplete="off"
+          >
+          <button type="button" class="directory-clear" data-directory-clear ${query?"":"hidden"}>Clear</button>
+        </form>
+
+        <div class="discover-popular">
+          <span>Popular searches</span>
+          <div>
+            <button type="button" data-discover-query="sleep">Sleep</button>
+            <button type="button" data-discover-query="stress">Stress</button>
+            <button type="button" data-discover-query="digestion">Digestion</button>
+            <button type="button" data-discover-query="headache">Head tension</button>
+            <button type="button" data-discover-query="shen men">Shen Men</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section soft-section discover-library-section">
+      <div class="container">
+        <div class="discover-toolbar">
+          <div class="discover-filter-block">
+            <span class="discover-filter-label">Browse by type</span>
+            <div class="filter-row discover-type-filters">
+              <button class="filter-chip active" data-directory-filter="all">All</button>
+              <button class="filter-chip" data-directory-filter="condition">Wellness guides</button>
+              <button class="filter-chip" data-directory-filter="point">Ear points</button>
+            </div>
+          </div>
+
+          <div class="discover-filter-block discover-az-block">
+            <span class="discover-filter-label">Browse A–Z</span>
+            <div class="discover-az" aria-label="Browse alphabetically">
+              <button class="discover-letter active" data-directory-letter="all">All</button>
+              ${letters.map(letter=>`
+                <button
+                  class="discover-letter"
+                  data-directory-letter="${letter}"
+                  ${availableLetters.has(letter)?"":"disabled"}
+                >${letter}</button>`).join("")}
+            </div>
+          </div>
+        </div>
+
+        <div class="discover-results-heading">
+          <div>
+            <p class="eyebrow">Library</p>
+            <h2 id="directory-heading">${query?`Search results`:`All guides and points`}</h2>
+          </div>
+          <span class="discover-result-count" id="directory-result-count">${escapeHtml(directoryResultCountText(initial.length,query))}</span>
+        </div>
+
+        <div class="directory-grid directory-grid-refined" id="directory-grid">
+          ${directoryCards(initial,query)}
+        </div>
+      </div>
+    </section>
+  </section>`;
+}
+
+function directoryCards(items,query=""){
+  if(!items.length){
+    return `
+      <div class="empty-state search-directory-empty">
+        <strong>We couldn’t find that yet.</strong>
+        <p>Try another spelling, a broader word, or one of these common guides.</p>
+        <div class="empty-state-actions">
+          <button data-discover-query="sleep">Sleep</button>
+          <button data-discover-query="stress">Stress</button>
+          <button data-discover-query="focus">Focus</button>
+          <button data-discover-query="digestion">Digestion</button>
+        </div>
+      </div>`;
+  }
+
+  return items.map(entry=>{
+    const kind=entry.kind;
+    const item=entry.item;
+
+    if(kind==="condition"){
+      const points=(item.pointIds||[]).map(id=>pointMap.get(id)).filter(Boolean);
+      return `
+        <button class="data-card directory-card directory-condition-card" data-kind-card="condition" data-open-route="condition" data-open-id="${escapeHtml(item.id)}">
+          <div class="directory-card-top">
+            <span class="data-type">Wellness guide</span>
+            <span class="directory-card-icon">♡</span>
+          </div>
+          <h3>${escapeHtml(item.name)}</h3>
+          <p>${escapeHtml(item.summary||"")}</p>
+          <div class="directory-point-preview">
+            ${points.slice(0,3).map(point=>`<span>${escapeHtml(point.name)}</span>`).join("")}
+            ${points.length>3?`<span>+${points.length-3}</span>`:""}
+          </div>
+          <div class="directory-card-footer">
+            <span>${pointCountText(points.length,{suggested:true})}</span>
+            <strong>Open guide →</strong>
+          </div>
+        </button>`;
+    }
+
+    return `
+      <button class="data-card directory-card directory-point-card" data-kind-card="point" data-open-route="point" data-open-id="${escapeHtml(item.id)}">
+        <div class="directory-card-top">
+          <span class="data-type">Ear point</span>
+          ${pointReferenceCode(item)}
+        </div>
+        <h3>${escapeHtml(item.name)}</h3>
+        <p>${escapeHtml(item.traditionalUse||item.shortDescription||"")}</p>
+        <div class="directory-card-footer">
+          <span>${escapeHtml(item.category||"Ear point")}</span>
+          <strong>View point →</strong>
+        </div>
+      </button>`;
+  }).join("");
+}
+
+function relatedGuidesForPoint(point){
+  if(!point)return [];
+
+  const explicit=(point.relatedConditionIds||[])
+    .map(id=>conditionMap.get(id))
+    .filter(Boolean);
+
+  const derived=conditions.filter(condition=>
+    (condition.pointIds||[]).includes(point.id)
+  );
+
+  const seen=new Set();
+  return [...explicit,...derived].filter(condition=>{
+    if(!condition || seen.has(condition.id))return false;
+    seen.add(condition.id);
+    return true;
+  });
+}
+
+function libraryPointPositionText(number,total=acupoints.length){
+  if(currentLocale==="ms")return `Titik ${number} daripada ${total}`;
+  return `Point ${number} of ${total}`;
+}
+
+function relatedGuideCountText(count){
+  if(currentLocale==="ms")return `${count} panduan berkaitan`;
+  return `${count} related guide${count===1?"":"s"}`;
+}
+
+function mapRelatedMarkup(point){
+  const related=relatedGuidesForPoint(point).slice(0,6);
+
+  if(!related.length)return `<p class="map-related-empty">No related guides listed yet.</p>`;
+
+  return related.map(condition=>`
+    <button class="tag-button map-related-link" data-map-condition-id="${escapeHtml(condition.id)}">
+      ${escapeHtml(condition.name)}
+    </button>`).join("");
+}
+
+function fullMapView(){
+  const mappedPoints=acupoints.filter(point=>pointIsMapped(point));
+  const allPoints=acupoints.slice().sort((a,b)=>a.name.localeCompare(b.name,currentLocale==="ms"?"ms":"en"));
+  const first=pointMap.get(mapSelectedId)||mappedPoints[0]||allPoints[0];
+  const categories=[...new Set(allPoints.map(point=>point.category).filter(Boolean))].sort();
+  const letters=[...new Set(allPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
+  const firstRelated=relatedGuidesForPoint(first);
+
+  const mapMarkerHtml=mappedPoints.map(point=>{
+    const [left,top]=mapPositions[point.id];
+    return `<button class="map-marker ${point.id===first.id?"active":""} ${markerLabelClass(left,top)}" style="left:${left}%;top:${top}%" data-map-id="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${escapeHtml(point.name)}"></button>`;
+  }).join("");
+
+  return `
+  <section class="route map-explorer-route map-explorer-route-v28">
+    <div class="route-hero map-explorer-hero map-explorer-hero-v28">
+      <div class="container map-explorer-hero-inner">
+        <p class="eyebrow">Full Ear Map Explorer</p>
+        <h1>Explore all 30 ear points.</h1>
+        <p class="lead">Tap a marker, search by name, or browse the point library to learn where each point sits and how it is traditionally referenced.</p>
+
+        <div class="map-hero-meta">
+          <span>${pointCountText(mappedPoints.length)}</span>
+          <span>Interactive map</span>
+          <span>EN / BM point library</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="section soft-section map-explorer-section map-explorer-section-v28">
+      <div class="container">
+        <div class="map-explorer-toolbar map-explorer-toolbar-v28">
+          <label class="map-point-search map-point-search-v28">
+            <span aria-hidden="true">⌕</span>
+            <input id="map-point-search" type="search" placeholder="Search the point library, e.g. Shen Men or Liver" autocomplete="off">
+            <button id="map-search-clear" type="button" aria-label="${escapeHtml(uiText("Clear point search"))}" hidden>×</button>
+          </label>
+
+          <div class="map-filter-stack">
+            <span class="map-toolbar-label">Filter by type</span>
+            <div class="map-category-row" aria-label="${escapeHtml(uiText("Filter ear points by type"))}">
+              <button class="map-filter-chip active" data-map-category="all">All points</button>
+              ${categories.map(category=>`
+                <button class="map-filter-chip" data-map-category="${escapeHtml(category)}">${escapeHtml(category)}</button>
+              `).join("")}
+            </div>
+          </div>
+        </div>
+
+        <div class="map-explorer-grid map-explorer-grid-v28">
+          <div class="map-canvas map-explorer-canvas map-explorer-canvas-v28">
+            <div class="map-selected-badge">
+              <span>Selected</span>
+              <strong id="map-selected-badge-name">${escapeHtml(first.name)}</strong>
+            </div>
+
+            <div class="map-stage map-explorer-stage" id="map-stage">
+              ${anatomicalEarSvg("",mapMarkerHtml)}
+            </div>
+
+            <div class="zoom-controls">
+              <button id="zoom-in" aria-label="${escapeHtml(uiText("Zoom in"))}">+</button>
+              <button id="zoom-out" aria-label="${escapeHtml(uiText("Zoom out"))}">−</button>
+              <button id="zoom-reset" aria-label="${escapeHtml(uiText("Reset zoom"))}">↺</button>
+            </div>
+          </div>
+
+          <aside class="map-panel map-explorer-panel map-explorer-panel-v28">
+            <div class="map-selected-kicker">
+              <span id="map-number">${escapeHtml(libraryPointPositionText(first.mapNumber||1,acupoints.length))}</span>
+              ${first.standardCode?`<span id="map-reference-code">${escapeHtml(first.standardCode)}</span>`:`<span id="map-reference-code" hidden></span>`}
+            </div>
+
+            <div class="map-selected-heading map-selected-heading-v28">
+              <div>
+                <p class="eyebrow">Selected point</p>
+                <h2 id="map-title">${escapeHtml(first.name)}</h2>
+              </div>
+              <span class="map-point-category" id="map-category">${escapeHtml(first.category||"Ear point")}</span>
+            </div>
+
+            <div class="map-info-grid">
+              <div class="map-info-block">
+                <div class="info-label"><span>⌖</span>Location</div>
+                <p id="map-location">${escapeHtml(first.location||"")}</p>
+              </div>
+
+              <div class="map-info-block">
+                <div class="info-label"><span>✦</span>Traditional wellness use</div>
+                <p id="map-copy">${escapeHtml(first.traditionalUse||"")}</p>
+              </div>
+
+              <div class="map-info-block">
+                <div class="info-label"><span>◌</span>Gentle stimulation</div>
+                <p id="map-stimulate">${escapeHtml(first.howToStimulate||"")}</p>
+              </div>
+            </div>
+
+            <div class="map-related-section map-related-section-v28">
+              <div class="map-related-title-row">
+                <p class="map-mini-label">Related guides</p>
+                <span id="map-related-count">${escapeHtml(relatedGuideCountText(firstRelated.length))}</span>
+              </div>
+              <div class="tag-list" id="map-related">${mapRelatedMarkup(first)}</div>
+            </div>
+
+            <div class="map-actions map-actions-v28">
+              <button class="primary-button" id="map-open-point" data-point-id="${escapeHtml(first.id)}">Open full point guide</button>
+              <div class="map-step-actions">
+                <button class="secondary-button" id="map-prev-point">Previous point</button>
+                <button class="secondary-button" id="map-next-point">Next point</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <section class="map-directory-section map-directory-section-v28">
+          <div class="map-directory-heading">
+            <div>
+              <p class="eyebrow">Point library</p>
+              <h2>Browse all 30 points.</h2>
+              <p class="map-directory-intro">Choose a point here and the map above will highlight its exact approved placement.</p>
+            </div>
+            <span id="map-result-count">${pointCountText(allPoints.length)}</span>
+          </div>
+
+          <div class="map-alpha-row" aria-label="${escapeHtml(uiText("Browse points alphabetically"))}">
+            <button class="map-alpha-chip active" data-map-letter="all">All</button>
+            ${letters.map(letter=>`<button class="map-alpha-chip" data-map-letter="${letter}">${letter}</button>`).join("")}
+          </div>
+
+          <div class="map-point-directory map-point-directory-v28" id="map-point-directory">
+            ${allPoints.map(point=>`
+              <button class="map-point-card map-point-card-v28 ${point.id===first.id?"active":""}" data-map-list-id="${escapeHtml(point.id)}">
+                <span class="map-point-card-number">${escapeHtml(String(point.mapNumber||""))}</span>
+                <span class="map-point-card-copy">
+                  <strong>${escapeHtml(point.name)}</strong>
+                  <small>${escapeHtml(point.category||"Ear point")}${point.standardCode?` · ${escapeHtml(point.standardCode)}`:""}</small>
+                </span>
+                <span class="map-point-card-arrow">→</span>
+              </button>`).join("")}
+          </div>
+
+          <div class="map-directory-empty" id="map-directory-empty" hidden>
+            <strong>No library points match that search.</strong>
+            <p>Try a different point name or choose “All points”.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+  </section>`;
+}
+
+function combinationRole(index,total,condition=null){
+  const explicit=condition?.pointRoles?.[index];
+  const fallback=index===0?"primary":(index===total-1&&total>3?"optional":"support");
+  const role=explicit||fallback;
+
+  if(currentLocale==="ms"){
+    if(role==="primary")return ["Utama","Mulakan di sini","Titik utama dalam gabungan yang dicadangkan ini."];
+    if(role==="optional")return ["Sokongan pilihan","Tambah jika sesuai","Titik tambahan. Abaikan jika anda mahukan rutin yang lebih ringkas."];
+    return ["Sokongan",`Langkah ${index+1}`,"Titik sokongan yang melengkapi titik utama dalam rutin ini."];
+  }
+
+  if(role==="primary")return ["Primary","Start here","The main point in this suggested combination."];
+  if(role==="optional")return ["Optional support","Add if useful","A lighter add-on. Skip it if you prefer a shorter routine."];
+  return ["Support",`Step ${index+1}`,"Builds on the primary point as part of the suggested routine."];
+}
+function conditionInfoMarkup(point,role=["Selected point","",""]){
+  return `<div class="role-line"><span class="role-badge">${escapeHtml(role[0])}</span><small>${escapeHtml(role[1])}</small></div><div class="condition-point-heading"><h2 id="condition-point-title">${escapeHtml(point.name)}</h2>${pointReferenceCode(point)}</div><p class="role-explainer">${escapeHtml(role[2])}</p><div class="info-section"><div class="info-label"><span>⌖</span>Location</div><p id="condition-point-location">${escapeHtml(point.location)}</p></div><div class="info-section"><div class="info-label"><span>✦</span>Traditional wellness use</div><p id="condition-point-use">${escapeHtml(point.traditionalUse)}</p></div><div class="info-section"><div class="info-label"><span>◌</span>Gentle stimulation</div><p id="condition-point-stimulate">${escapeHtml(point.howToStimulate)}</p></div>`;
+}
+
+function conditionView(id){
+  const condition=conditionMap.get(id);
+  if(!condition)return notFoundView();
+
+  const points=(condition.pointIds||[]).map(pid=>pointMap.get(pid)).filter(Boolean);
+  const currentId=selectedConditionPoint.get(id)||points[0]?.id;
+  const current=pointMap.get(currentId)||points[0];
+
+  const conditionMarkerHtml=points.map((point,index)=>{
+    const position=mapPositions[point.id]||[50,50];
+    return `<button class="condition-point ${point.id===current.id?"active":""} ${markerLabelClass(position[0],position[1])}" style="left:${position[0]}%;top:${position[1]}%" data-condition-point="${escapeHtml(point.id)}" data-label="${escapeHtml(point.name)}" aria-label="${index+1}. ${escapeHtml(point.name)}">${index+1}</button>`;
+  }).join("");
+
+  const related=(condition.relatedGuideIds||[])
+    .map(cid=>conditionMap.get(cid))
+    .filter(Boolean)
+    .slice(0,3);
+
+  return `
+  <section class="route condition-route">
+    <div class="route-hero condition-hero">
+      <div class="container condition-hero-inner">
+        <p class="eyebrow">${escapeHtml(condition.category||"Concern")}</p>
+        <h1>${escapeHtml(condition.name)}</h1>
+        <p class="lead">${escapeHtml(condition.summary)}</p>
+
+        <div class="condition-hero-meta">
+          <span>${escapeHtml(pointCountText(points.length,{suggested:true}))}</span>
+          <span>Interactive map</span>
+          <span>Step-by-step application</span>
+        </div>
+
+        ${condition.useWhen?`
+          <div class="condition-use-when condition-use-when-refined">
+            <strong>Best for</strong>
+            <span>${escapeHtml(condition.useWhen)}</span>
+          </div>`:""}
+      </div>
+    </div>
+
+    <section class="section soft-section condition-main-section">
+      <div class="container">
+        <div class="condition-section-heading">
+          <div>
+            <p class="eyebrow">Suggested routine</p>
+            <h2>Your suggested points</h2>
+          </div>
+          <p>See the complete combination before you begin.</p>
+        </div>
+
+        <div class="condition-experience condition-experience-refined">
+          <div class="condition-map-card">
+            <div class="condition-map-hint">Tap a numbered point</div>
+            ${anatomicalEarSvg("compact",conditionMarkerHtml)}
+          </div>
+
+          <aside class="condition-info-card condition-info-card-refined">
+            <div class="condition-info-intro">
+              <span>Suggested points</span>
+              <small>Choose a point below or tap its marker on the ear.</small>
+            </div>
+
+            <div id="condition-info-content">
+              ${conditionInfoMarkup(
+                current,
+                combinationRole(
+                  Math.max(0,points.findIndex(p=>p.id===current.id)),
+                  points.length,
+                  condition
+                )
+              )}
+            </div>
+
+            <div class="point-tabs condition-point-tabs">
+              ${points.map((point,index)=>{
+                const role=combinationRole(index,points.length,condition);
+                return `
+                  <button class="point-tab ${point.id===current.id?"active":""}" data-condition-point-tab="${escapeHtml(point.id)}">
+                    <span class="condition-tab-number">${index+1}</span>
+                    <span class="condition-tab-copy">
+                      <b>${escapeHtml(point.name)}</b>
+                      <small>${escapeHtml(role[0])}</small>
+                    </span>
+                  </button>`;
+              }).join("")}
+            </div>
+
+            <div class="condition-actions condition-actions-guided condition-actions-refined">
+              <button class="primary-button" data-start-apply="${escapeHtml(condition.id)}">Start guided application</button>
+              <button class="secondary-button" id="open-selected-point" data-point-id="${escapeHtml(current.id)}">View selected point</button>
+              <a class="text-button condition-guide-link" href="#/guide">How to apply ear seeds</a>
+            </div>
+          </aside>
+        </div>
+
+        <div class="condition-safety-card">
+          <span class="condition-safety-icon">i</span>
+          <div>
+            <strong>Before you begin</strong>
+            <p>Keep the routine gentle. Use only on clean, intact skin and keep every ear seed outside the ear canal.</p>
+            <small>Seek professional care for severe, persistent, sudden or unexplained symptoms.</small>
+          </div>
+        </div>
+
+        ${related.length?`
+          <section class="condition-related-guides condition-related-guides-refined">
+            <div class="condition-related-heading">
+              <div>
+                <p class="eyebrow">You may also like</p>
+                <h2>Explore related wellness guides.</h2>
+              </div>
+            </div>
+
+            <div class="condition-related-grid">
+              ${related.map(guide=>`
+                <button class="condition-related-card" data-open-route="condition" data-open-id="${escapeHtml(guide.id)}">
+                  <span>${escapeHtml(guide.category||"Wellness guide")}</span>
+                  <h3>${escapeHtml(guide.name)}</h3>
+                  <p>${escapeHtml(guide.summary||"")}</p>
+                  <strong>Open related guide →</strong>
+                </button>
+              `).join("")}
+            </div>
+          </section>`:""}
+      </div>
+    </section>
+  </section>`;
+}
+
+function applicationStepRole(index,total,condition){
+  return combinationRole(index,total,condition);
+}
+
+function applicationProgressMarkup(points,step){
+  return points.map((point,index)=>{
+    const state=index<step?"complete":index===step?"current":"upcoming";
+    const marker=index<step?"✓":index+1;
+    return `
+      <div class="application-progress-step ${state}">
+        <span>${marker}</span>
+        <small>${escapeHtml(point.name)}</small>
+      </div>`;
+  }).join("");
+}
+
+function applicationView(id){
+  const condition=conditionMap.get(id);
+  if(!condition)return notFoundView();
+
+  const points=(condition.pointIds||[]).map(pid=>pointMap.get(pid)).filter(Boolean);
+  if(!points.length)return notFoundView();
+
+  let step=applicationProgress.get(id)??0;
+  step=Math.max(0,Math.min(step,points.length));
+
+  if(step>=points.length){
+    return `
+    <section class="route application-route">
+      <div class="application-complete-wrap container">
+        <div class="application-complete-card">
+          <span class="application-complete-icon">✓</span>
+          <p class="eyebrow">Routine complete</p>
+          <h1>${escapeHtml(applicationCompleteTitle(condition.name))}</h1>
+          <p class="lead">${escapeHtml(applicationCompleteLead(points.length))}</p>
+
+          <div class="application-reminders">
+            <article><span>◌</span><strong>Press gently</strong><p>Mild pressure is enough. Sharp pain is not the goal.</p></article>
+            <article><span>◇</span><strong>Check your skin</strong><p>Inspect the area regularly while the ear seeds are in place.</p></article>
+            <article><span>×</span><strong>Remove if irritated</strong><p>Remove the seeds if redness, swelling or significant discomfort appears.</p></article>
+          </div>
+
+          <div class="application-complete-actions">
+            <button class="primary-button" data-finish-apply="${escapeHtml(id)}">${escapeHtml(applicationBackToConditionText(condition.name,{guide:true}))}</button>
+            <a class="secondary-button" href="#/guide">Review application guide</a>
+          </div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  const point=points[step];
+  const role=applicationStepRole(step,points.length,condition);
+  const position=mapPositions[point.id]||[50,50];
+  const percent=Math.round(((step+1)/points.length)*100);
+  const applicationMarkerHtml=points.map((p,index)=>{
+    const pos=mapPositions[p.id]||[50,50];
+    const state=index<step?"complete":index===step?"current":"upcoming";
+    return `<span class="application-point ${state}" style="left:${pos[0]}%;top:${pos[1]}%" aria-label="${escapeHtml(p.name)}">${index<step?"✓":index+1}</span>`;
+  }).join("");
+
+  return `
+  <section class="route application-route">
+    <div class="route-hero application-hero">
+      <div class="container">
+        <a class="application-back-link" href="#/condition/${escapeHtml(condition.id)}">${escapeHtml(applicationBackToConditionText(condition.name,{arrow:true}))}</a>
+        <p class="eyebrow">Guided application</p>
+        <h1>${escapeHtml(condition.name)}</h1>
+        <p class="lead">Follow the suggested combination one point at a time. Take your time and use gentle pressure.</p>
+
+        <div class="application-progress-head">
+          <span>${escapeHtml(applicationStepText(step+1,points.length))}</span>
+          <strong>${percent}%</strong>
+        </div>
+        <div class="application-progress-bar" aria-label="${escapeHtml(applicationProgressLabel())}">
+          <span style="width:${percent}%"></span>
+        </div>
+        <div class="application-progress-list">
+          ${applicationProgressMarkup(points,step)}
+        </div>
+      </div>
+    </div>
+
+    <section class="section soft-section application-workspace-section">
+      <div class="container">
+        <div class="application-prep-note">
+          <span>✦</span>
+          <div>
+            <strong>Before placing this seed</strong>
+            <p>Use clean hands or tweezers, make sure the outer ear is clean and dry, and apply only to intact skin outside the ear canal.</p>
+          </div>
+        </div>
+
+        <div class="application-workspace">
+          <div class="application-map-card">
+            <div class="application-map-caption">
+              <span>${escapeHtml(currentLocale==="ms"?`Langkah ${step+1}`:`Step ${step+1}`)}</span>
+              <strong>${escapeHtml(point.name)}</strong>
+            </div>
+
+            ${anatomicalEarSvg("compact",applicationMarkerHtml)}
+          </div>
+
+          <aside class="application-info-card">
+            <div class="role-line">
+              <span class="role-badge">${escapeHtml(role[0])}</span>
+              <small>${escapeHtml(role[1])}</small>
+            </div>
+
+            <p class="eyebrow application-step-label">${escapeHtml(applicationStepText(step+1,points.length))}</p>
+            <h2>${escapeHtml(point.name)}</h2>
+            <p class="role-explainer">${escapeHtml(role[2])}</p>
+
+            <div class="application-info-section">
+              <div class="info-label"><span>⌖</span>Where to place</div>
+              <p>${escapeHtml(point.location||"")}</p>
+            </div>
+
+            <div class="application-info-section">
+              <div class="info-label"><span>◌</span>Gentle stimulation</div>
+              <p>${escapeHtml(point.howToStimulate||"")}</p>
+            </div>
+
+            <div class="application-info-section application-wellness-context">
+              <div class="info-label"><span>✦</span>Why it’s included</div>
+              <p>${escapeHtml(point.traditionalUse||"")}</p>
+            </div>
+
+            <div class="application-step-actions">
+              <button class="secondary-button" data-apply-prev="${escapeHtml(id)}" ${step===0?"disabled":""}>Back</button>
+              <button class="primary-button" data-apply-next="${escapeHtml(id)}">${step===points.length-1?"Finish routine":"Next point"}</button>
+            </div>
+
+            <button class="application-point-detail-link text-button" data-open-route="point" data-open-id="${escapeHtml(point.id)}">${escapeHtml(applicationPointGuideText(point.name))}</button>
+          </aside>
+        </div>
+
+        <div class="notice application-safety-notice">
+          This guided mode is for general wellness education and does not confirm clinical point placement. Stop and remove the ear seed if irritation, swelling, dizziness or significant discomfort occurs.
+        </div>
+      </div>
+    </section>
+  </section>`;
+}
+
+
+function pointView(id){
+  const point=pointMap.get(id);
+  if(!point)return notFoundView();
+
+  const related=relatedGuidesForPoint(point).slice(0,6);
+  const ordered=acupoints.slice().sort((a,b)=>(a.mapNumber||999)-(b.mapNumber||999));
+  const currentIndex=Math.max(0,ordered.findIndex(item=>item.id===point.id));
+  const previous=ordered[(currentIndex-1+ordered.length)%ordered.length];
+  const next=ordered[(currentIndex+1)%ordered.length];
+  const mapped=pointIsMapped(point);
+  const position=mapPositions[point.id]||[50,50];
+
+  const pointMarker=mapped
+    ? `<span class="map-marker active point-detail-marker ${markerLabelClass(position[0],position[1])}" style="left:${position[0]}%;top:${position[1]}%" data-label="${escapeHtml(point.name)}" aria-hidden="true"></span>`
+    : "";
+
+  return `
+  <section class="route point-detail-route">
+    <div class="route-hero point-detail-hero">
+      <div class="container point-detail-hero-inner">
+        <div class="point-detail-kicker">
+          <span>${escapeHtml(libraryPointPositionText(point.mapNumber||currentIndex+1,ordered.length))}</span>
+          <span>${escapeHtml(point.category||"Ear point")}</span>
+          ${point.standardCode?`<span>${escapeHtml(point.standardCode)}</span>`:""}
+        </div>
+
+        <h1>${escapeHtml(point.name)}</h1>
+        <p class="lead">${escapeHtml(point.traditionalUse)}</p>
+      </div>
+    </div>
+
+    <section class="section soft-section point-detail-main">
+      <div class="container">
+        <div class="point-detail-layout-v28">
+          <aside class="point-visual-card">
+            <div class="point-visual-heading">
+              <div>
+                <p class="eyebrow">Visual location</p>
+                <h2>Find it on the ear.</h2>
+              </div>
+              <span>${escapeHtml(String(point.mapNumber||currentIndex+1))}</span>
+            </div>
+
+            <div class="point-detail-map-frame">
+              ${anatomicalEarSvg("point-detail-ear",pointMarker)}
+            </div>
+
+            <p class="point-visual-caption">The marker uses the same approved coordinate as the full interactive ear map.</p>
+
+            ${mapped
+              ? `<button class="primary-button point-map-button-v28" data-jump-map="${escapeHtml(point.id)}">View on full ear map</button>`
+              : `<div class="reference-map-message">Visual placement is not available for this point.</div>`}
+          </aside>
+
+          <article class="point-detail-content-card">
+            <div class="point-detail-section-grid">
+              <section class="point-detail-section">
+                <span class="point-detail-section-icon">⌖</span>
+                <div>
+                  <p class="eyebrow">General location</p>
+                  <p>${escapeHtml(point.location)}</p>
+                </div>
+              </section>
+
+              <section class="point-detail-section">
+                <span class="point-detail-section-icon">✦</span>
+                <div>
+                  <p class="eyebrow">Traditional wellness use</p>
+                  <p>${escapeHtml(point.traditionalUse)}</p>
+                </div>
+              </section>
+
+              <section class="point-detail-section">
+                <span class="point-detail-section-icon">◌</span>
+                <div>
+                  <p class="eyebrow">Gentle stimulation</p>
+                  <p>${escapeHtml(point.howToStimulate)}</p>
+                </div>
+              </section>
+
+              <section class="point-detail-section point-detail-caution">
+                <span class="point-detail-section-icon">!</span>
+                <div>
+                  <p class="eyebrow">Caution</p>
+                  <p>${escapeHtml(point.caution||"Use only on clean, intact skin and remove if irritation occurs.")}</p>
+                </div>
+              </section>
+            </div>
+
+            <div class="point-related-panel">
+              <div class="point-related-panel-heading">
+                <div>
+                  <p class="eyebrow">Related wellness guides</p>
+                  <h2>Where this point appears.</h2>
+                </div>
+                <span>${escapeHtml(relatedGuideCountText(related.length))}</span>
+              </div>
+
+              ${related.length
+                ? `<div class="point-related-guide-grid">
+                    ${related.map(condition=>`
+                      <button class="point-related-guide-card" data-open-route="condition" data-open-id="${escapeHtml(condition.id)}">
+                        <span>${escapeHtml(condition.category||"Wellness guide")}</span>
+                        <strong>${escapeHtml(condition.name)}</strong>
+                        <p>${escapeHtml(condition.summary||"")}</p>
+                        <small>Open guide →</small>
+                      </button>
+                    `).join("")}
+                  </div>`
+                : `<p class="point-related-empty">No related guides listed yet.</p>`}
+            </div>
+          </article>
+        </div>
+
+        <div class="point-detail-safety-note">
+          <span>i</span>
+          <p>This page provides general wellness education and does not replace professional medical advice.</p>
+        </div>
+
+        <nav class="point-detail-navigation" aria-label="${escapeHtml(uiText("Point navigation"))}">
+          <button class="point-nav-card point-nav-prev" data-open-route="point" data-open-id="${escapeHtml(previous.id)}">
+            <small>Previous point</small>
+            <strong>← ${escapeHtml(previous.name)}</strong>
+          </button>
+
+          <button class="point-nav-card point-nav-next" data-open-route="point" data-open-id="${escapeHtml(next.id)}">
+            <small>Next point</small>
+            <strong>${escapeHtml(next.name)} →</strong>
+          </button>
+        </nav>
+      </div>
+    </section>
+  </section>`;
+}
+
+function guideView(){
+  const steps=[
+    ["Clean","Wash your hands. Clean and thoroughly dry the outer ear before application."],
+    ["Choose","Start with a small number of points so the routine stays simple and comfortable."],
+    ["Apply","Use clean tweezers and place each seed on intact skin, outside the ear canal."],
+    ["Stimulate","Press gently for a few seconds. Mild pressure is enough. Sharp pain is not the goal."],
+    ["Check","Inspect the skin daily and remove seeds if irritation, swelling or significant discomfort appears."],
+    ["Rest","Give the skin regular breaks between applications."]
+  ];
+
+  const quickChecks=[
+    ["Clean + dry","Ear and hands are clean and completely dry."],
+    ["Intact skin","Do not apply over cuts, rashes, irritation or broken skin."],
+    ["Outside only","Keep every ear seed outside the ear canal."],
+    ["Gentle pressure","Comfortable pressure is enough. More pressure is not better."]
+  ];
+
+  const aftercare=[
+    ["While wearing","Check the skin regularly and keep the area clean and dry."],
+    ["Remove early if needed","Remove the ear seed if redness, swelling, dizziness or significant discomfort appears."],
+    ["Give skin a break","Allow the skin to rest between applications before placing new ear seeds."]
+  ];
+
+  return `
+  <section class="route guide-route">
+    <div class="route-hero guide-hero">
+      <div class="container guide-hero-inner">
+        <p class="eyebrow">Beginner guide</p>
+        <h1>A simple ear seed routine, step by step.</h1>
+        <p class="lead">Start clean, keep the routine simple, and use only gentle pressure.</p>
+
+        <div class="guide-hero-meta" aria-label="Guide highlights">
+          <span>6 simple steps</span>
+          <span>Beginner friendly</span>
+          <span>Skin-conscious</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="section soft-section guide-main-section">
+      <div class="container">
+        <section class="guide-prep-card">
+          <div class="guide-section-heading">
+            <div>
+              <p class="eyebrow">Before you start</p>
+              <h2>Four quick checks.</h2>
+            </div>
+            <p>These basics matter more than making the routine complicated.</p>
+          </div>
+
+          <div class="guide-check-grid">
+            ${quickChecks.map((item,i)=>`
+              <article class="guide-check-item">
+                <span class="guide-check-icon">${i+1}</span>
+                <div>
+                  <h3>${item[0]}</h3>
+                  <p>${item[1]}</p>
+                </div>
+              </article>`).join("")}
+          </div>
+        </section>
+
+        <section class="guide-steps-section">
+          <div class="guide-section-heading">
+            <div>
+              <p class="eyebrow">How to use</p>
+              <h2>Your six-step routine.</h2>
+            </div>
+            <p>Move through the steps in order. There is no need to rush.</p>
+          </div>
+
+          <div class="guide-grid guide-grid-refined">
+            ${steps.map((s,i)=>`
+              <article class="guide-step">
+                <span>${i+1}</span>
+                <div class="guide-step-copy">
+                  <small>${i<2?"Prepare":i<4?"Apply":"Aftercare"}</small>
+                  <h3>${s[0]}</h3>
+                  <p>${s[1]}</p>
+                </div>
+              </article>`).join("")}
+          </div>
+        </section>
+
+        <section class="guide-aftercare-card">
+          <div class="guide-section-heading">
+            <div>
+              <p class="eyebrow">While wearing ear seeds</p>
+              <h2>Keep it comfortable.</h2>
+            </div>
+            <p>Ear seeds should feel like a gentle wellness ritual, not something you need to tolerate.</p>
+          </div>
+
+          <div class="guide-aftercare-list">
+            ${aftercare.map(item=>`
+              <article>
+                <span>✓</span>
+                <div>
+                  <h3>${item[0]}</h3>
+                  <p>${item[1]}</p>
+                </div>
+              </article>`).join("")}
+          </div>
+        </section>
+
+        <div class="guide-safety-notice">
+          <div class="guide-safety-mark">!</div>
+          <div>
+            <strong>When to stop</strong>
+            <p>Remove the ear seeds if irritation, swelling, dizziness or significant discomfort occurs. Keep all ear seeds outside the ear canal. This guide is for general wellness education and does not replace professional medical advice.</p>
+          </div>
+        </div>
+
+        <section class="guide-next-card">
+          <div>
+            <p class="eyebrow">Ready to choose your points?</p>
+            <h2>Find a routine by what you want to focus on.</h2>
+            <p>Browse common wellness needs or open the full ear map if you already know the point you are looking for.</p>
+          </div>
+          <div class="guide-next-actions">
+            <a class="primary-button" href="#/home">Choose a wellness need</a>
+            <a class="secondary-button" href="#/map">Explore the ear map</a>
+          </div>
+        </section>
+      </div>
+    </section>
+  </section>`;
+}
+
+function aboutView(){
+  return `
+  <section class="route about-route">
+    <div class="route-hero">
+      <div class="container">
+        <p class="eyebrow">About Bloomé</p>
+        <h1>Wellness guidance, made easier to understand.</h1>
+      </div>
+    </div>
+    <section class="section soft-section">
+      <div class="container about-panel">
+        <div><h2>Visual guidance before dense explanation.</h2></div>
+        <div>
+          <p>Bloomé creates approachable self-care tools and educational resources for everyday wellness.</p>
+          <p>Condition pages now begin with the ear itself, because customers need to see where the suggested points are before reading deeper details.</p>
+          <p>This guide distinguishes traditional auricular uses from medical treatment. It is not designed to diagnose illness or replace professional care.</p>
+        </div>
+      </div>
+
+      <div class="container about-social-card">
+        <div>
+          <p class="eyebrow">Follow Bloomé</p>
+          <h2>Stay connected beyond the guide.</h2>
+          <p>Follow Bloomé for product updates, simple wellness education and new ear seed content.</p>
+        </div>
+
+        <div class="about-social-links">
+          <a href="https://www.instagram.com/hello.bloome.my/" target="_blank" rel="noopener noreferrer" aria-label="Follow Bloomé on Instagram">
+            <span>◎</span><strong>Instagram</strong><small>@hello.bloome.my</small>
+          </a>
+          <a href="https://www.tiktok.com/@hello.bloome.my" target="_blank" rel="noopener noreferrer" aria-label="Follow Bloomé on TikTok">
+            <span>♪</span><strong>TikTok</strong><small>@hello.bloome.my</small>
+          </a>
+          <a href="https://www.facebook.com/bloome.my" target="_blank" rel="noopener noreferrer" aria-label="Follow Bloomé on Facebook">
+            <span>f</span><strong>Facebook</strong><small>bloome.my</small>
+          </a>
+        </div>
+      </div>
+    </section>
+  </section>`;
+}
+
+function notFoundView(){
+  return `<section class="route"><div class="route-hero"><div class="container"><p class="eyebrow">Not found</p><h1>This page wandered off.</h1><p class="lead">Return to the guide and continue exploring.</p><a class="primary-button" href="#/home">Back home</a></div></div></section>`;
+}
+
+function wireCommonActions(){
+  $$("[data-open-route]").forEach(button=>button.addEventListener("click",()=>navigate(button.dataset.openRoute,button.dataset.openId)));
+
+  $$("[data-start-apply]").forEach(button=>button.addEventListener("click",()=>{
+    const id=button.dataset.startApply;
+    applicationProgress.set(id,0);
+    navigate("apply",id);
+  }));
+
+  $$("[data-jump-map]").forEach(button=>button.addEventListener("click",()=>{
+    mapSelectedId=button.dataset.jumpMap;
+    navigate("map");
+  }));
+
+  wireSearch($("#app"));
+}
+function wireDiscover(){
+  const grid=$("#directory-grid");
+  if(!grid)return;
+
+  const input=$("[data-directory-search-input]");
+  const form=$("[data-directory-search-form]");
+  const clearButton=$("[data-directory-clear]");
+  const resultCount=$("#directory-result-count");
+  const heading=$("#directory-heading");
+
+  let activeFilter="all";
+  let activeLetter="all";
+  let activeQuery=input?.value.trim()||"";
+
+  function resetLetter(){
+    activeLetter="all";
+    $$("[data-directory-letter]").forEach(button=>{
+      button.classList.toggle("active",button.dataset.directoryLetter==="all");
+    });
+  }
+
+  function applyDirectory(){
+    const items=directoryEntries(activeQuery,activeFilter,activeLetter);
+    grid.innerHTML=directoryCards(items,activeQuery);
+    resultCount.textContent=directoryResultCountText(items.length,activeQuery);
+    heading.textContent=activeQuery?"Search results":"All guides and points";
+    if(clearButton)clearButton.hidden=!activeQuery;
+
+    translateUi(grid);
+    translateUi(resultCount.parentElement);
+    wireCommonActions();
+
+    $$("[data-discover-query]",grid).forEach(button=>{
+      button.addEventListener("click",()=>setDiscoverQuery(button.dataset.discoverQuery));
+    });
+  }
+
+  function setDiscoverQuery(value){
+    activeQuery=value||"";
+    if(input)input.value=activeQuery;
+    resetLetter();
+    applyDirectory();
+    input?.focus();
+    $("#directory-grid")?.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+
+  $$("[data-directory-filter]").forEach(button=>button.addEventListener("click",()=>{
+    activeFilter=button.dataset.directoryFilter;
+    $$("[data-directory-filter]").forEach(item=>item.classList.toggle("active",item===button));
+    applyDirectory();
+  }));
+
+  $$("[data-directory-letter]").forEach(button=>button.addEventListener("click",()=>{
+    if(button.disabled)return;
+    activeLetter=button.dataset.directoryLetter;
+    $$("[data-directory-letter]").forEach(item=>item.classList.toggle("active",item===button));
+    applyDirectory();
+  }));
+
+  input?.addEventListener("input",()=>{
+    activeQuery=input.value.trim();
+    resetLetter();
+    applyDirectory();
+  });
+
+  form?.addEventListener("submit",event=>{
+    event.preventDefault();
+    activeQuery=input?.value.trim()||"";
+    resetLetter();
+    applyDirectory();
+  });
+
+  clearButton?.addEventListener("click",()=>{
+    activeQuery="";
+    if(input)input.value="";
+    resetLetter();
+    applyDirectory();
+    input?.focus();
+  });
+
+  $$("[data-discover-query]").forEach(button=>{
+    button.addEventListener("click",()=>setDiscoverQuery(button.dataset.discoverQuery));
+  });
+
+  applyDirectory();
+}
+
+function wireFullMap(){
+  const stage=$("#map-stage");
+  if(!stage)return;
+
+  const searchInput=$("#map-point-search");
+  const clearButton=$("#map-search-clear");
+  const emptyState=$("#map-directory-empty");
+  const resultCount=$("#map-result-count");
+
+  let activeCategory="all";
+  let activeLetter="all";
+  let activeQuery="";
+
+  const allIds=acupoints
+    .slice()
+    .sort((a,b)=>(a.mapNumber||999)-(b.mapNumber||999))
+    .map(point=>point.id);
+
+  function relatedButtons(){
+    $$("[data-map-condition-id]",$("#map-related")).forEach(button=>{
+      button.addEventListener("click",()=>navigate("condition",button.dataset.mapConditionId));
+    });
+  }
+
+  function select(id,{scrollOnMobile=false}={}){
+    const point=pointMap.get(id);
+    if(!point)return;
+
+    mapSelectedId=id;
+    const mapped=pointIsMapped(point);
+    const related=relatedGuidesForPoint(point);
+
+    $$(".map-marker").forEach(marker=>{
+      marker.classList.toggle("active",mapped && marker.dataset.mapId===id);
+    });
+    $$(".map-point-card").forEach(card=>{
+      card.classList.toggle("active",card.dataset.mapListId===id);
+    });
+
+    stage.classList.toggle("map-has-selection",mapped);
+    stage.classList.toggle("map-reference-selection",!mapped);
+
+    $("#map-selected-badge-name").textContent=point.name;
+    $("#map-number").textContent=libraryPointPositionText(point.mapNumber||1,acupoints.length);
+    $("#map-title").textContent=point.name;
+    $("#map-category").textContent=point.category||uiText("Ear point");
+
+    const code=$("#map-reference-code");
+    if(code){
+      code.textContent=point.standardCode||"";
+      code.hidden=!point.standardCode;
+    }
+
+    $("#map-location").textContent=point.location||"";
+    $("#map-copy").textContent=point.traditionalUse||"";
+    $("#map-stimulate").textContent=point.howToStimulate||"";
+    $("#map-related-count").textContent=relatedGuideCountText(related.length);
+    $("#map-related").innerHTML=mapRelatedMarkup(point);
+    $("#map-open-point").dataset.pointId=id;
+    relatedButtons();
+
+    if(scrollOnMobile && window.matchMedia("(max-width: 680px)").matches){
+      $(".map-explorer-panel")?.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+  }
+
+  function visiblePointIds(){
+    return allIds.filter(id=>{
+      const point=pointMap.get(id);
+      if(!point)return false;
+      const queryMatch=!activeQuery || score(point,activeQuery)>0;
+      const categoryMatch=activeCategory==="all" || point.category===activeCategory;
+      const letterMatch=activeLetter==="all" || point.name.charAt(0).toUpperCase()===activeLetter;
+      return queryMatch && categoryMatch && letterMatch;
+    });
+  }
+
+  function applyFilters(){
+    const visible=new Set(visiblePointIds());
+
+    $$(".map-marker").forEach(marker=>{
+      marker.classList.toggle("map-filtered-out",!visible.has(marker.dataset.mapId));
+      marker.disabled=!visible.has(marker.dataset.mapId);
+    });
+
+    $$(".map-point-card").forEach(card=>{
+      card.hidden=!visible.has(card.dataset.mapListId);
+    });
+
+    const count=visible.size;
+    resultCount.textContent=pointCountText(count);
+    emptyState.hidden=count!==0;
+
+    if(count>0 && !visible.has(mapSelectedId)){
+      select([...visible][0]);
+    }
+  }
+
+  $$("[data-map-id]").forEach(marker=>{
+    marker.addEventListener("click",()=>select(marker.dataset.mapId,{scrollOnMobile:true}));
+  });
+
+  $$("[data-map-list-id]").forEach(card=>{
+    card.addEventListener("click",()=>{
+      const id=card.dataset.mapListId;
+      select(id);
+      const target=window.matchMedia("(max-width: 680px)").matches
+        ? $(".map-explorer-panel")
+        : $(".map-explorer-canvas");
+      target?.scrollIntoView({behavior:"smooth",block:"center"});
+    });
+  });
+
+  $$("[data-map-category]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      activeCategory=button.dataset.mapCategory;
+      $$("[data-map-category]").forEach(item=>item.classList.toggle("active",item===button));
+      applyFilters();
+    });
+  });
+
+  $$("[data-map-letter]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      activeLetter=button.dataset.mapLetter;
+      $$("[data-map-letter]").forEach(item=>item.classList.toggle("active",item===button));
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener("input",()=>{
+    activeQuery=searchInput.value.trim();
+    clearButton.hidden=!activeQuery;
+    applyFilters();
+  });
+
+  clearButton?.addEventListener("click",()=>{
+    searchInput.value="";
+    activeQuery="";
+    clearButton.hidden=true;
+    searchInput.focus();
+    applyFilters();
+  });
+
+  $("#map-open-point")?.addEventListener("click",event=>{
+    navigate("point",event.currentTarget.dataset.pointId);
+  });
+
+  function stepVisible(direction){
+    const ids=visiblePointIds();
+    if(!ids.length)return;
+    const currentIndex=Math.max(0,ids.indexOf(mapSelectedId));
+    const nextIndex=(currentIndex+direction+ids.length)%ids.length;
+    select(ids[nextIndex]);
+  }
+
+  $("#map-prev-point")?.addEventListener("click",()=>stepVisible(-1));
+  $("#map-next-point")?.addEventListener("click",()=>stepVisible(1));
+
+  function applyZoom(){
+    stage.style.transform=`scale(${mapZoom})`;
+  }
+
+  $("#zoom-in")?.addEventListener("click",()=>{
+    mapZoom=Math.min(1.65,mapZoom+.15);
+    applyZoom();
+  });
+
+  $("#zoom-out")?.addEventListener("click",()=>{
+    mapZoom=Math.max(.8,mapZoom-.15);
+    applyZoom();
+  });
+
+  $("#zoom-reset")?.addEventListener("click",()=>{
+    mapZoom=1;
+    applyZoom();
+  });
+
+  relatedButtons();
+  select(mapSelectedId);
+  applyFilters();
+}
+
+function wireCondition(id){
+  const condition=conditionMap.get(id);
+  if(!condition)return;
+  const points=(condition.pointIds||[]).map(pid=>pointMap.get(pid)).filter(Boolean);
+  function select(pointId){
+    const point=pointMap.get(pointId);
+    if(!point)return;
+    selectedConditionPoint.set(id,pointId);
+    $$("[data-condition-point]").forEach(button=>button.classList.toggle("active",button.dataset.conditionPoint===pointId));
+    $$("[data-condition-point-tab]").forEach(button=>button.classList.toggle("active",button.dataset.conditionPointTab===pointId));
+    const idx=points.findIndex(p=>p.id===pointId);
+    $("#condition-info-content").innerHTML=conditionInfoMarkup(point,combinationRole(idx,points.length,condition));
+    translateUi($("#condition-info-content"));
+    $("#open-selected-point").dataset.pointId=pointId;
+  }
+  $$("[data-condition-point]").forEach(button=>button.addEventListener("click",()=>select(button.dataset.conditionPoint)));
+  $$("[data-condition-point-tab]").forEach(button=>button.addEventListener("click",()=>select(button.dataset.conditionPointTab)));
+  $("#open-selected-point")?.addEventListener("click",event=>navigate("point",event.currentTarget.dataset.pointId));
+}
+
+
+function wireApplication(id){
+  const condition=conditionMap.get(id);
+  if(!condition)return;
+
+  const points=(condition.pointIds||[]).map(pid=>pointMap.get(pid)).filter(Boolean);
+
+  $("[data-apply-prev]")?.addEventListener("click",()=>{
+    const step=applicationProgress.get(id)??0;
+    applicationProgress.set(id,Math.max(0,step-1));
+    render();
+  });
+
+  $("[data-apply-next]")?.addEventListener("click",()=>{
+    const step=applicationProgress.get(id)??0;
+    applicationProgress.set(id,Math.min(points.length,step+1));
+    render();
+  });
+
+  $("[data-finish-apply]")?.addEventListener("click",()=>{
+    applicationProgress.delete(id);
+    navigate("condition",id);
+  });
+}
+
+
+function render(){
+  const {route,id}=getRoute();
+  document.body.dataset.route=route;
+  updateActiveNav(route);
+  closeMobileMenu();
+  closeQuickHelp();
+  const app=$("#app");
+
+  let html;
+  if(route==="home")html=homeView();
+  else if(route==="discover"){
+    const search=id&&id.startsWith("search-")?decodeURIComponent(id.replace(/^search-/,"")):null;
+    html=discoverView(search);
+  }
+  else if(route==="map")html=fullMapView();
+  else if(route==="point")html=pointView(id);
+  else if(route==="condition")html=conditionView(id);
+  else if(route==="apply")html=applicationView(id);
+  else if(route==="guide")html=guideView();
+  else if(route==="about")html=aboutView();
+  else html=notFoundView();
+
+  app.innerHTML=html;
+  app.focus({preventScroll:true});
+  window.scrollTo({top:0,behavior:"instant"});
+  wireCommonActions();
+  wireDiscover();
+  wireFullMap();
+  if(route==="condition")wireCondition(id);
+  if(route==="apply")wireApplication(id);
+  translateUi(document);
+  requestAnimationFrame(()=>$$('.reveal-item').forEach(el=>el.classList.add('revealed')));
+}
+
+async function loadData(){
+  try{
+    const [conditionResponse,pointResponse,i18nResponse]=await Promise.all([
+      fetch("./data/conditions.json?v=31",{cache:"no-store"}),
+      fetch("./data/acupoints.json?v=31",{cache:"no-store"}),
+      fetch("./data/i18n.json?v=31",{cache:"no-store"})
+    ]);
+    if(!conditionResponse.ok||!pointResponse.ok||!i18nResponse.ok)throw new Error("Data load failed");
+    sourceConditions=await conditionResponse.json();
+    sourceAcupoints=await pointResponse.json();
+    localeData=await i18nResponse.json();
+    rebuildLocalizedData();
+    render();
+  }catch(error){
+    console.error(error);
+    $("#app").innerHTML=`<div class="route-loading"><p>The guide database could not load. Refresh the page.</p></div>`;
+  }
+}
+
+$("#menu-button").addEventListener("click",()=>{
+  const open=$("#mobile-menu").classList.toggle("open");
+  $("#menu-button").setAttribute("aria-expanded",String(open));
+});
+$$("#mobile-menu a").forEach(link=>link.addEventListener("click",closeMobileMenu));
+$("#quick-help-button").addEventListener("click",openQuickHelp);
+$("#quick-help-close").addEventListener("click",closeQuickHelp);
+$("#quick-help-backdrop").addEventListener("click",closeQuickHelp);
+$$(".quick-help-grid a").forEach(link=>link.addEventListener("click",closeQuickHelp));
+window.addEventListener("keydown",event=>{if(event.key==="Escape")closeQuickHelp()});
+window.addEventListener("hashchange",render);
+$("#language-toggle")?.addEventListener("click",()=>{
+  setLocale(currentLocale==="en"?"ms":"en");
+});
+loadData();
+
+
+/* Package 9A note:
+   Condition rendering keeps existing data bindings.
+   Future upgrades can expand from this stable structure.
+*/
+
+
+/* Bloomé Package 9B — Smart Search Experience */
+
+
+/* Bloomé Package 13 — Bahasa Melayu Layer */
+
+
+/* Bloomé Package 14 — Complete 30-Point Ear Map */
+
+
+/* Bloomé Package 14.1 — Language Toggle Hotfix */
+
+
+/* Bloomé Package 14.2 — Translation Collision Fix */
+
+
+/* Bloomé Package 15 — Guided Application Mode */
+
+
+/* Bloomé Package 17 — Combination Audit */
+
+/* Bloomé Package 19.1 — Full Map Audit */
+
+
+/* Bloomé Package 20 — Point Reference Standardization */
+
+
+/* Bloomé Package 20.1 — Copy + Home Hero Cleanup */
+
+
+/* Bloomé Package 20.2 — Ear Map Coordinate Architecture Fix */
+
+
+/* Package 22 — Master Coordinate Integration
+   Source of truth: 1141 × 2047 approved pixel map.
+   Percentages are derived at runtime from masterPixelPositions.
+   Do not hand-edit percentage coordinates separately. */
+
+/* Package 24.2
+   Unique JS bundle filename + cache-busted data requests.
+   This prevents GitHub Pages/browser cache from mixing old app.js
+   with new Bahasa Melayu translation data. */

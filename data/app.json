@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "30",
+  "version": "31",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -101,9 +101,14 @@
     "reducedMotionSupport": true,
     "premiumCardInteractions": true,
     "refinedHeaderAndNavigation": true,
-    "visualRhythmPass": true
+    "visualRhythmPass": true,
+    "socialLinks": true,
+    "siteFooter": true,
+    "aboutSocialBlock": true,
+    "openGraphMetadata": true,
+    "v1ReleaseQa": true
   },
-  "releaseName": "Final Visual Gloss",
+  "releaseName": "Social Links + Final QA",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
@@ -128,5 +133,12 @@
       "source": "Bloomé Master 30-Point Pixel Table v3 APPROVED",
       "rule": "Website percentages are derived from approved pixel positions."
     }
+  },
+  "releaseVersion": "1.0.0",
+  "releaseStatus": "release-candidate",
+  "social": {
+    "instagram": "https://www.instagram.com/hello.bloome.my/",
+    "tiktok": "https://www.tiktok.com/@hello.bloome.my",
+    "facebook": "https://www.facebook.com/bloome.my"
   }
 }
