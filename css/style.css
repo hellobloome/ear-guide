@@ -4596,3 +4596,57 @@ h3,p{margin-top:0}
     right:7px;
   }
 }
+
+
+/* ==========================================================
+   Package 29.1 — Individual Point Marker Size Hotfix
+   Reduce oversized highlighted marker on single-point ear map
+   ========================================================== */
+
+.point-detail-layout-v28 .point-marker.is-active,
+.point-detail-layout-v28 .map-point.is-active,
+.point-detail-layout-v28 .ear-point.is-active,
+.point-detail-layout-v28 .marker.is-active{
+  transform:translate(-50%,-50%) scale(.88) !important;
+}
+
+.point-detail-layout-v28 .point-marker.is-active::before,
+.point-detail-layout-v28 .map-point.is-active::before,
+.point-detail-layout-v28 .ear-point.is-active::before,
+.point-detail-layout-v28 .marker.is-active::before{
+  width:28px !important;
+  height:28px !important;
+}
+
+.point-detail-layout-v28 .point-marker.is-active::after,
+.point-detail-layout-v28 .map-point.is-active::after,
+.point-detail-layout-v28 .ear-point.is-active::after,
+.point-detail-layout-v28 .marker.is-active::after{
+  width:14px !important;
+  height:14px !important;
+}
+
+@media(max-width:680px){
+  .point-detail-layout-v28 .point-marker.is-active,
+  .point-detail-layout-v28 .map-point.is-active,
+  .point-detail-layout-v28 .ear-point.is-active,
+  .point-detail-layout-v28 .marker.is-active{
+    transform:translate(-50%,-50%) scale(.84) !important;
+  }
+
+  .point-detail-layout-v28 .point-marker.is-active::before,
+  .point-detail-layout-v28 .map-point.is-active::before,
+  .point-detail-layout-v28 .ear-point.is-active::before,
+  .point-detail-layout-v28 .marker.is-active::before{
+    width:24px !important;
+    height:24px !important;
+  }
+
+  .point-detail-layout-v28 .point-marker.is-active::after,
+  .point-detail-layout-v28 .map-point.is-active::after,
+  .point-detail-layout-v28 .ear-point.is-active::after,
+  .point-detail-layout-v28 .marker.is-active::after{
+    width:12px !important;
+    height:12px !important;
+  }
+}
