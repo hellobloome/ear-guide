@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "28",
+  "version": "28.1",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -88,9 +88,10 @@
     "pointPreviousNextNavigation": true,
     "derivedRelatedGuides": true,
     "mapFuzzyPointSearch": true,
-    "mapSelectedPointBadge": true
+    "mapSelectedPointBadge": true,
+    "conditionPointTabsLeftAligned": true
   },
-  "releaseName": "Full Map + Point Detail Polish",
+  "releaseName": "Condition Point Tabs Left Align",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
