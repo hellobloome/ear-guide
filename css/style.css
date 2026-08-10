@@ -4039,3 +4039,560 @@ h3,p{margin-top:0}
     width:100%;
   }
 }
+
+
+/* ==========================================================
+   Package 29 — Mobile QR Journey Audit
+   Primary journey:
+   QR → Home → Need/Search → Condition → Guided Application
+   ========================================================== */
+
+@media(max-width:680px){
+
+  /* ---------- Safe-area + overall mobile rhythm ---------- */
+  html{
+    scroll-padding-top:72px;
+  }
+
+  body{
+    padding-bottom:calc(92px + env(safe-area-inset-bottom,0px));
+  }
+
+  main{
+    min-height:calc(100vh - 64px);
+  }
+
+  .route{
+    min-height:calc(100vh - 64px);
+  }
+
+  .container{
+    width:min(100% - 24px,1120px);
+  }
+
+  .section{
+    padding:46px 0;
+  }
+
+  .route-hero{
+    padding:40px 0 28px;
+  }
+
+  h1{
+    font-size:clamp(2.75rem,12vw,3.55rem);
+    line-height:1;
+    margin-bottom:18px;
+  }
+
+  h2{
+    font-size:clamp(2.15rem,9vw,2.9rem);
+    line-height:1.02;
+  }
+
+  .lead{
+    font-size:.96rem;
+    line-height:1.65;
+  }
+
+  /* ---------- Compact sticky header ---------- */
+  .app-header{
+    top:0;
+    padding-top:env(safe-area-inset-top,0px);
+  }
+
+  .header-inner{
+    min-height:62px;
+  }
+
+  .brand{
+    gap:8px;
+    font-size:1.72rem;
+  }
+
+  .brand-mark{
+    width:27px;
+    height:27px;
+    font-size:10px;
+  }
+
+  .header-actions{
+    gap:7px;
+  }
+
+  .language-toggle{
+    min-height:38px;
+    padding:6px 9px;
+  }
+
+  .menu-button{
+    width:40px;
+    height:40px;
+  }
+
+  .mobile-menu{
+    padding:4px 16px calc(14px + env(safe-area-inset-bottom,0px));
+  }
+
+  .mobile-menu a{
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    padding:11px 4px;
+  }
+
+  /* ---------- Search: comfortable with phone keyboard ---------- */
+  .search-box{
+    margin-top:22px;
+  }
+
+  .search-shell{
+    grid-template-columns:22px minmax(0,1fr);
+    gap:9px;
+    padding:11px 13px;
+    border-radius:18px;
+  }
+
+  .search-shell input,
+  .directory-search input,
+  .map-point-search input{
+    font-size:16px; /* prevents iOS input zoom */
+  }
+
+  .search-shell button{
+    grid-column:1/-1;
+    min-height:46px;
+    padding:12px 18px;
+  }
+
+  .suggestions{
+    max-height:min(58vh,440px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    border-radius:17px;
+  }
+
+  .suggestion{
+    min-height:54px;
+  }
+
+  /* ---------- Home QR landing: quicker first choice ---------- */
+  .premium-home .premium-hero{
+    padding-top:34px;
+  }
+
+  .premium-home .hero-trust{
+    gap:7px 12px;
+    margin-top:14px;
+    font-size:.72rem;
+  }
+
+  .need-section{
+    padding-top:38px;
+  }
+
+  .need-grid{
+    gap:11px;
+    margin-top:24px;
+  }
+
+  .need-card{
+    min-height:0;
+    padding:20px;
+    border-radius:20px;
+  }
+
+  .need-icon{
+    width:40px;
+    height:40px;
+    margin-bottom:14px;
+  }
+
+  .need-card h3{
+    font-size:1.45rem;
+    margin-bottom:5px;
+  }
+
+  .need-card p{
+    min-height:0;
+    margin-bottom:12px;
+    font-size:.84rem;
+    line-height:1.5;
+  }
+
+  /* ---------- Condition flow ---------- */
+  .condition-main-section{
+    padding-top:30px;
+  }
+
+  .condition-section-heading{
+    margin-bottom:17px;
+  }
+
+  .condition-experience-refined{
+    gap:16px;
+  }
+
+  .condition-map-card{
+    min-height:455px;
+    border-radius:24px;
+  }
+
+  .condition-map-card .premium-ear-wrap.compact{
+    width:min(82%,360px);
+  }
+
+  .condition-map-hint{
+    left:12px;
+    top:12px;
+    padding:7px 9px;
+  }
+
+  .condition-info-card-refined{
+    padding:21px;
+    border-radius:22px;
+  }
+
+  .condition-info-intro{
+    margin-bottom:14px;
+    padding-bottom:13px;
+  }
+
+  .condition-info-card-refined h2{
+    font-size:2.65rem;
+  }
+
+  .condition-point-tabs{
+    gap:7px;
+    margin-top:17px;
+  }
+
+  .condition-point-tabs .point-tab{
+    min-height:54px;
+    padding:10px 11px;
+  }
+
+  .condition-actions-refined{
+    gap:8px;
+    margin-top:18px;
+  }
+
+  .condition-actions-refined .primary-button,
+  .condition-actions-refined .secondary-button{
+    min-height:48px;
+  }
+
+  .condition-guide-link{
+    min-height:44px;
+  }
+
+  .condition-safety-card{
+    margin-top:16px;
+  }
+
+  .condition-related-guides-refined{
+    margin-top:34px;
+  }
+
+  /* ---------- Full map ---------- */
+  .map-explorer-grid-v28{
+    gap:16px;
+  }
+
+  .map-explorer-canvas-v28{
+    min-height:470px;
+    border-radius:22px;
+    scroll-margin-top:76px;
+  }
+
+  .map-explorer-panel-v28{
+    scroll-margin-top:76px;
+  }
+
+  .map-category-row{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    padding-bottom:4px;
+    scrollbar-width:none;
+  }
+
+  .map-category-row::-webkit-scrollbar{
+    display:none;
+  }
+
+  .map-filter-chip{
+    flex:none;
+    min-height:40px;
+  }
+
+  .map-point-card-v28{
+    min-height:58px;
+  }
+
+  /* ---------- Point page ---------- */
+  .point-detail-layout-v28{
+    gap:16px;
+  }
+
+  .point-detail-map-frame{
+    min-height:315px;
+  }
+
+  .point-visual-card,
+  .point-detail-content-card{
+    scroll-margin-top:76px;
+  }
+
+  .point-detail-section{
+    padding:17px;
+  }
+
+  .point-nav-card{
+    min-height:70px;
+  }
+
+  /* ---------- Guide ---------- */
+  .guide-main-section{
+    padding-top:30px;
+  }
+
+  .guide-prep-card,
+  .guide-aftercare-card,
+  .guide-next-card{
+    padding:20px;
+  }
+
+  .guide-check-item,
+  .guide-grid-refined .guide-step{
+    min-height:0;
+  }
+
+  /* ---------- Guided Application: distraction-free mobile mode ---------- */
+  body[data-route="apply"]{
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+
+  body[data-route="apply"] .bottom-nav,
+  body[data-route="apply"] .quick-help-button{
+    display:none !important;
+  }
+
+  .application-hero{
+    padding-top:28px;
+    padding-bottom:22px;
+  }
+
+  .application-back-link{
+    min-height:42px;
+    align-items:center;
+    margin-bottom:12px;
+  }
+
+  .application-progress-head{
+    margin-top:22px;
+  }
+
+  .application-progress-list{
+    margin-top:12px;
+  }
+
+  .application-progress-step{
+    min-width:104px;
+  }
+
+  .application-workspace-section{
+    padding-top:26px;
+    padding-bottom:30px;
+  }
+
+  .application-prep-note{
+    grid-template-columns:34px 1fr;
+    gap:11px;
+    margin-bottom:16px;
+    padding:14px;
+    border-radius:17px;
+  }
+
+  .application-prep-note > span{
+    width:34px;
+    height:34px;
+  }
+
+  .application-workspace{
+    gap:16px;
+  }
+
+  .application-map-card{
+    min-height:440px;
+    border-radius:24px;
+  }
+
+  .application-map-card .premium-ear-wrap{
+    width:min(82%,340px);
+  }
+
+  .application-map-caption{
+    left:12px;
+    top:12px;
+  }
+
+  .application-info-card{
+    padding:21px 21px 96px;
+    border-radius:22px;
+  }
+
+  .application-info-card h2{
+    font-size:2.7rem;
+  }
+
+  .application-info-section{
+    padding:16px 0;
+  }
+
+  .application-step-actions{
+    position:fixed;
+    left:12px;
+    right:12px;
+    bottom:calc(10px + env(safe-area-inset-bottom,0px));
+    z-index:84;
+    display:grid;
+    grid-template-columns:minmax(104px,.72fr) minmax(0,1.28fr);
+    gap:8px;
+    margin:0;
+    padding:8px;
+    border:1px solid rgba(90,22,17,.10);
+    border-radius:20px;
+    background:rgba(255,253,252,.94);
+    box-shadow:0 16px 45px rgba(52,22,19,.18);
+    backdrop-filter:blur(16px);
+  }
+
+  .application-step-actions button{
+    min-height:48px;
+  }
+
+  .application-point-detail-link{
+    min-height:44px;
+  }
+
+  .application-safety-notice{
+    margin-top:16px;
+  }
+
+  .application-complete-wrap{
+    min-height:calc(100vh - 62px);
+    padding-top:28px;
+    padding-bottom:calc(36px + env(safe-area-inset-bottom,0px));
+  }
+
+  .application-complete-card{
+    padding:28px 19px;
+  }
+
+  .application-complete-actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .application-complete-actions .primary-button,
+  .application-complete-actions .secondary-button{
+    width:100%;
+    min-height:48px;
+  }
+
+  /* ---------- Bottom nav: thumb-zone + safe area ---------- */
+  .bottom-nav{
+    left:10px;
+    right:10px;
+    bottom:calc(8px + env(safe-area-inset-bottom,0px));
+    min-height:66px;
+    padding:7px;
+    border-radius:20px;
+  }
+
+  .bottom-nav a{
+    min-height:50px;
+    align-content:center;
+    padding:5px 3px;
+  }
+
+  .bottom-nav a > span{
+    font-size:1rem;
+    line-height:1;
+  }
+
+  .bottom-nav small{
+    margin-top:4px;
+    font-size:.62rem;
+  }
+
+  /* ---------- Quick help ---------- */
+  .quick-help-button{
+    right:14px;
+    bottom:calc(88px + env(safe-area-inset-bottom,0px));
+    width:46px;
+    height:46px;
+    padding:6px;
+    justify-content:center;
+  }
+
+  .quick-help-button span{
+    width:34px;
+    height:34px;
+  }
+
+  .sheet-card{
+    max-height:min(82vh,720px);
+    overflow-y:auto;
+    padding:20px 18px calc(22px + env(safe-area-inset-bottom,0px));
+  }
+
+  .quick-help-grid a{
+    min-height:68px;
+  }
+
+  .toast{
+    bottom:calc(88px + env(safe-area-inset-bottom,0px));
+    max-width:calc(100% - 32px);
+    text-align:center;
+  }
+
+  /* ---------- Tap-target baseline ---------- */
+  .primary-button,
+  .secondary-button,
+  .text-button,
+  .filter-chip,
+  .discover-letter,
+  .map-alpha-chip,
+  .tag-button{
+    min-height:44px;
+  }
+}
+
+/* Very narrow phones */
+@media(max-width:390px){
+  .container{
+    width:min(100% - 20px,1120px);
+  }
+
+  h1{
+    font-size:2.55rem;
+  }
+
+  .condition-map-card,
+  .application-map-card{
+    min-height:410px;
+  }
+
+  .condition-info-card-refined,
+  .application-info-card,
+  .point-visual-card,
+  .point-detail-content-card{
+    padding-left:18px;
+    padding-right:18px;
+  }
+
+  .bottom-nav{
+    left:7px;
+    right:7px;
+  }
+}
