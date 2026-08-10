@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "29.2",
+  "version": "30",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -95,9 +95,15 @@
     "mobileQrJourneyPolish": true,
     "guidedApplicationFocusMode": true,
     "mobileStickyApplicationControls": true,
-    "mobileTapTargetAudit": true
+    "mobileTapTargetAudit": true,
+    "finalVisualGloss": true,
+    "unifiedFocusStates": true,
+    "reducedMotionSupport": true,
+    "premiumCardInteractions": true,
+    "refinedHeaderAndNavigation": true,
+    "visualRhythmPass": true
   },
-  "releaseName": "Individual Point Marker Size Reduction",
+  "releaseName": "Final Visual Gloss",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

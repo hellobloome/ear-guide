@@ -4713,3 +4713,485 @@ h3,p{margin-top:0}
     right:16px !important;
   }
 }
+
+
+/* ==========================================================
+   Package 30 — Final Visual Gloss
+   Presentation-only pass. No map coordinates or content changes.
+   ========================================================== */
+
+:root{
+  --surface-glass:rgba(255,253,252,.82);
+  --surface-glass-strong:rgba(255,253,252,.94);
+  --border-soft:rgba(90,22,17,.075);
+  --border-hover:rgba(90,22,17,.16);
+  --shadow-xs:0 7px 20px rgba(74,35,31,.035);
+  --shadow-sm:0 14px 34px rgba(74,35,31,.055);
+  --shadow-md:0 20px 50px rgba(74,35,31,.075);
+  --focus-ring:0 0 0 4px rgba(90,22,17,.11);
+}
+
+/* ---------- Overall canvas ---------- */
+body{
+  background:
+    radial-gradient(circle at 8% 4%,rgba(238,220,211,.17),transparent 31rem),
+    radial-gradient(circle at 92% 28%,rgba(213,220,207,.15),transparent 27rem),
+    var(--cream);
+}
+
+main{
+  position:relative;
+}
+
+.route{
+  animation:bloome-route-in .28s ease both;
+}
+
+.soft-section{
+  border-top:1px solid rgba(90,22,17,.035);
+  border-bottom:1px solid rgba(90,22,17,.025);
+}
+
+@keyframes bloome-route-in{
+  from{opacity:.01;transform:translateY(5px)}
+  to{opacity:1;transform:none}
+}
+
+/* ---------- Header polish ---------- */
+.app-header{
+  background:rgba(248,245,241,.86);
+  border-bottom-color:rgba(90,22,17,.075);
+  box-shadow:0 3px 20px rgba(74,35,31,.025);
+}
+
+.brand{
+  transition:opacity .18s ease,transform .18s ease;
+}
+
+.brand:hover{
+  opacity:.92;
+  transform:translateY(-1px);
+}
+
+.brand-mark{
+  background:rgba(255,253,252,.58);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28);
+}
+
+.desktop-nav a{
+  position:relative;
+  transition:color .18s ease,opacity .18s ease;
+}
+
+.desktop-nav a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  right:50%;
+  bottom:-10px;
+  height:2px;
+  border-radius:999px;
+  background:var(--primary);
+  transition:left .2s ease,right .2s ease;
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a.active::after{
+  left:0;
+  right:0;
+}
+
+.language-toggle,
+.menu-button{
+  transition:border-color .18s ease,background .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+
+.language-toggle:hover,
+.menu-button:hover{
+  border-color:rgba(90,22,17,.18);
+  background:rgba(255,253,252,.9);
+  box-shadow:var(--shadow-xs);
+}
+
+/* ---------- Typography rhythm ---------- */
+.eyebrow{
+  letter-spacing:.11em;
+}
+
+.section-heading,
+.condition-section-heading,
+.guide-section-heading,
+.discover-results-heading,
+.map-directory-heading{
+  position:relative;
+}
+
+.section-heading h2,
+.condition-section-heading h2,
+.guide-section-heading h2,
+.discover-results-heading h2,
+.map-directory-heading h2{
+  text-wrap:balance;
+}
+
+.lead{
+  text-wrap:pretty;
+}
+
+/* ---------- Buttons ---------- */
+.primary-button,
+.secondary-button,
+.text-button{
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    border-color .18s ease,
+    background .18s ease,
+    color .18s ease;
+}
+
+.primary-button{
+  box-shadow:0 8px 18px rgba(90,22,17,.12);
+}
+
+.primary-button:hover{
+  transform:translateY(-1px);
+  box-shadow:0 12px 24px rgba(90,22,17,.16);
+}
+
+.primary-button:active,
+.secondary-button:active,
+.text-button:active{
+  transform:translateY(1px) scale(.995);
+}
+
+.secondary-button:hover{
+  border-color:rgba(90,22,17,.18);
+  background:#fff;
+  box-shadow:var(--shadow-xs);
+}
+
+.text-button:hover{
+  opacity:.78;
+}
+
+.primary-button:focus-visible,
+.secondary-button:focus-visible,
+.text-button:focus-visible,
+.filter-chip:focus-visible,
+.point-tab:focus-visible,
+.need-card:focus-visible,
+.data-card:focus-visible,
+.feature-card:focus-visible,
+.condition-related-card:focus-visible,
+.point-related-guide-card:focus-visible,
+.map-point-card:focus-visible,
+.map-filter-chip:focus-visible,
+.map-alpha-chip:focus-visible,
+.discover-letter:focus-visible,
+.tag-button:focus-visible{
+  outline:none;
+  box-shadow:var(--focus-ring);
+}
+
+/* ---------- Shared premium cards ---------- */
+.need-card,
+.feature-card,
+.data-card,
+.guide-step,
+.guide-check-item,
+.condition-info-card,
+.condition-related-card,
+.point-related-guide-card,
+.point-visual-card,
+.point-detail-content-card,
+.map-explorer-panel,
+.map-directory-section,
+.discover-toolbar,
+.guide-prep-card,
+.guide-aftercare-card,
+.guide-next-card{
+  border-color:var(--border-soft);
+}
+
+.need-card,
+.feature-card,
+.data-card,
+.condition-related-card,
+.point-related-guide-card,
+.map-point-card{
+  will-change:transform;
+}
+
+.need-card:hover,
+.feature-card:hover,
+.data-card:hover,
+.condition-related-card:hover,
+.point-related-guide-card:hover{
+  border-color:var(--border-hover);
+  box-shadow:var(--shadow-md);
+}
+
+.need-card:active,
+.feature-card:active,
+.data-card:active,
+.condition-related-card:active,
+.point-related-guide-card:active{
+  transform:translateY(-1px) scale(.998);
+}
+
+/* ---------- Search ---------- */
+.search-box,
+.directory-search,
+.map-point-search{
+  transition:border-color .18s ease,box-shadow .18s ease,background .18s ease;
+}
+
+.search-box:focus-within,
+.directory-search:focus-within,
+.map-point-search:focus-within{
+  border-color:rgba(90,22,17,.20);
+  box-shadow:0 0 0 4px rgba(90,22,17,.055),var(--shadow-sm);
+  background:#fff;
+}
+
+.suggestions{
+  border-color:var(--border-soft);
+  box-shadow:0 22px 55px rgba(74,35,31,.11);
+}
+
+/* ---------- Filter / chip system ---------- */
+.filter-chip,
+.discover-letter,
+.map-filter-chip,
+.map-alpha-chip,
+.tag-button,
+.directory-point-preview span,
+.condition-hero-meta span,
+.map-hero-meta span,
+.guide-hero-meta span,
+.point-detail-kicker span{
+  transition:
+    border-color .16s ease,
+    background .16s ease,
+    color .16s ease,
+    transform .16s ease;
+}
+
+.filter-chip:hover,
+.discover-letter:hover:not(:disabled),
+.map-filter-chip:hover,
+.map-alpha-chip:hover,
+.tag-button:hover{
+  transform:translateY(-1px);
+  border-color:rgba(90,22,17,.16);
+}
+
+/* ---------- Condition pages ---------- */
+.condition-map-card,
+.map-explorer-canvas,
+.point-detail-map-frame,
+.application-map-card{
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.38);
+}
+
+.condition-info-card-refined,
+.map-explorer-panel-v28,
+.point-visual-card,
+.point-detail-content-card{
+  box-shadow:var(--shadow-sm);
+}
+
+.condition-point-tabs .point-tab{
+  transition:
+    background .16s ease,
+    color .16s ease,
+    border-color .16s ease,
+    transform .16s ease,
+    box-shadow .16s ease;
+}
+
+.condition-point-tabs .point-tab:hover{
+  border-color:rgba(90,22,17,.16);
+  transform:translateY(-1px);
+}
+
+.condition-point-tabs .point-tab.active{
+  box-shadow:0 8px 20px rgba(90,22,17,.12);
+}
+
+.condition-safety-card,
+.guide-safety-notice,
+.point-detail-safety-note,
+.application-safety-notice{
+  box-shadow:inset 3px 0 0 rgba(90,22,17,.12);
+}
+
+/* ---------- Full map ---------- */
+.map-selected-badge{
+  border-color:var(--border-soft);
+  box-shadow:var(--shadow-sm);
+}
+
+.map-point-card{
+  transition:
+    transform .16s ease,
+    border-color .16s ease,
+    background .16s ease,
+    box-shadow .16s ease;
+}
+
+.map-point-card:hover{
+  transform:translateY(-1px);
+  border-color:var(--border-hover);
+  box-shadow:var(--shadow-xs);
+}
+
+.map-point-card.active{
+  box-shadow:0 8px 22px rgba(90,22,17,.08);
+}
+
+/* ---------- Guide ---------- */
+.guide-check-item,
+.guide-step,
+.guide-aftercare-list article{
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+
+.guide-check-item:hover,
+.guide-step:hover,
+.guide-aftercare-list article:hover{
+  transform:translateY(-2px);
+  border-color:rgba(90,22,17,.12);
+  box-shadow:var(--shadow-xs);
+}
+
+/* ---------- Guided application ---------- */
+.application-info-card,
+.application-map-card,
+.application-complete-card{
+  border-color:var(--border-soft);
+  box-shadow:var(--shadow-sm);
+}
+
+.application-progress-step{
+  transition:background .16s ease,color .16s ease,border-color .16s ease;
+}
+
+/* ---------- Empty / loading states ---------- */
+.empty-state,
+.search-empty,
+.map-directory-empty{
+  background:
+    linear-gradient(145deg,rgba(255,253,252,.88),rgba(248,239,234,.72));
+  border-color:rgba(90,22,17,.10);
+}
+
+.loading-ring{
+  box-shadow:0 0 0 4px rgba(90,22,17,.035);
+}
+
+.route-loading p{
+  margin-top:14px;
+  font-size:.82rem;
+  letter-spacing:.02em;
+}
+
+/* ---------- Quick Help ---------- */
+.quick-help-button{
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+
+.quick-help-button:hover{
+  transform:translateY(-2px);
+  border-color:rgba(90,22,17,.18);
+  box-shadow:0 18px 48px rgba(61,26,22,.20);
+}
+
+.sheet-card{
+  border:1px solid var(--border-soft);
+  box-shadow:0 -22px 60px rgba(50,23,20,.14);
+}
+
+/* ---------- Bottom navigation ---------- */
+.bottom-nav{
+  border:1px solid rgba(90,22,17,.08);
+  box-shadow:0 16px 45px rgba(53,25,22,.14);
+  backdrop-filter:blur(18px);
+}
+
+.bottom-nav a{
+  border-radius:15px;
+  transition:background .16s ease,color .16s ease,transform .16s ease;
+}
+
+.bottom-nav a:active{
+  transform:scale(.98);
+}
+
+/* ---------- Desktop visual breathing ---------- */
+@media(min-width:961px){
+  .route-hero{
+    padding-top:72px;
+  }
+
+  .condition-experience-refined,
+  .map-explorer-grid-v28,
+  .point-detail-layout-v28{
+    gap:30px;
+  }
+}
+
+/* ---------- Mobile visual gloss ---------- */
+@media(max-width:680px){
+  .route{
+    animation-duration:.2s;
+  }
+
+  .app-header{
+    box-shadow:0 5px 18px rgba(74,35,31,.035);
+  }
+
+  .need-card,
+  .guide-check-item,
+  .guide-step,
+  .condition-info-card-refined,
+  .point-visual-card,
+  .point-detail-content-card,
+  .map-explorer-panel-v28{
+    box-shadow:0 10px 28px rgba(74,35,31,.045);
+  }
+
+  .primary-button:hover,
+  .secondary-button:hover,
+  .need-card:hover,
+  .feature-card:hover,
+  .data-card:hover,
+  .guide-step:hover,
+  .guide-check-item:hover{
+    transform:none;
+  }
+
+  .condition-point-tabs .point-tab:active,
+  .map-point-card:active,
+  .discover-letter:active,
+  .filter-chip:active{
+    transform:scale(.985);
+  }
+
+  .sheet-card{
+    border-radius:28px 28px 0 0;
+  }
+}
+
+/* ---------- Respect reduced-motion preference ---------- */
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    scroll-behavior:auto !important;
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}
