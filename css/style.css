@@ -5271,3 +5271,56 @@ main{
   .brand-wordmark-image{height:28px}
   .footer-wordmark-image{height:28px}
 }
+
+
+/* ==========================================================
+   Package 31.2 — Cormorant Garamond Text Brand
+   ========================================================== */
+
+.brand-text-logo{
+  display:inline-flex;
+  align-items:center;
+  gap:0;
+  color:var(--primary);
+  text-decoration:none;
+  font-family:"Cormorant Garamond",serif;
+  font-size:2.18rem;
+  font-weight:600;
+  line-height:1;
+  letter-spacing:.01em;
+}
+
+.brand-text-logo span{
+  display:block;
+  transform:translateY(-1px);
+}
+
+.footer-text-logo{
+  display:inline-flex;
+  align-items:center;
+  gap:0;
+  color:var(--primary);
+  text-decoration:none;
+  font-family:"Cormorant Garamond",serif;
+  font-size:2rem;
+  font-weight:600;
+  line-height:1;
+  letter-spacing:.01em;
+}
+
+/* Neutralize the previous Package 31.1 image-brand rules. */
+.brand-mark-image,
+.brand-wordmark-image,
+.footer-wordmark-image{
+  display:none !important;
+}
+
+@media(max-width:680px){
+  .brand-text-logo{
+    font-size:1.9rem;
+  }
+
+  .footer-text-logo{
+    font-size:1.85rem;
+  }
+}

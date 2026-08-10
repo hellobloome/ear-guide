@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "31",
+  "version": "31.2",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -106,9 +106,12 @@
     "siteFooter": true,
     "aboutSocialBlock": true,
     "openGraphMetadata": true,
-    "v1ReleaseQa": true
+    "v1ReleaseQa": true,
+    "liveTextBrandLogo": true,
+    "brandEmblemRemoved": true,
+    "imageWordmarkRemoved": true
   },
-  "releaseName": "Social Links + Final QA",
+  "releaseName": "Cormorant Garamond Text Brand",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
