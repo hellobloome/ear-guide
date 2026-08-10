@@ -5257,3 +5257,17 @@ main{
   .site-footer-brand{grid-column:auto}
   .site-footer-bottom{align-items:flex-start;flex-direction:column;gap:7px;margin-top:28px}
 }
+
+
+/* Package 31.1 — Brand header match */
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--primary)}
+.brand-mark-image{width:34px;height:34px;display:block;object-fit:contain;border:none;border-radius:0;background:none;box-shadow:none}
+.brand-wordmark-image{height:34px;width:auto;display:block;object-fit:contain}
+.footer-brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--primary)}
+.footer-wordmark-image{height:32px}
+@media (max-width: 767px){
+  .brand{gap:8px}
+  .brand-mark-image{width:30px;height:30px}
+  .brand-wordmark-image{height:28px}
+  .footer-wordmark-image{height:28px}
+}
