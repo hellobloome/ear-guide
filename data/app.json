@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "29.1",
+  "version": "29.2",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -97,7 +97,7 @@
     "mobileStickyApplicationControls": true,
     "mobileTapTargetAudit": true
   },
-  "releaseName": "Individual Point Marker Size Hotfix",
+  "releaseName": "Individual Point Marker Size Reduction",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,

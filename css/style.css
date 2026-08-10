@@ -4650,3 +4650,66 @@ h3,p{margin-top:0}
     height:12px !important;
   }
 }
+
+
+/* ==========================================================
+   Package 29.2 — Individual Point Marker Size Reduction
+   Make single-point page marker visibly smaller on desktop and mobile
+   ========================================================== */
+
+.point-detail-layout-v28 .map-marker.point-detail-marker{
+  width:14px !important;
+  height:14px !important;
+  border-width:2px !important;
+}
+
+.point-detail-layout-v28 .map-marker.point-detail-marker::before{
+  inset:-5px !important;
+}
+
+.point-detail-layout-v28 .map-marker.point-detail-marker.active{
+  background:var(--sage) !important;
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.94),
+    0 0 0 6px rgba(126,143,120,.17),
+    0 4px 10px rgba(74,35,31,.10) !important;
+}
+
+.point-detail-layout-v28 .map-marker.point-detail-marker::after{
+  left:18px !important;
+}
+
+.point-detail-layout-v28 .map-marker.point-detail-marker.label-left::after,
+.point-detail-layout-v28 .map-marker.point-detail-marker.label-left.label-below::after,
+.point-detail-layout-v28 .map-marker.point-detail-marker.label-left.label-above::after{
+  right:18px !important;
+}
+
+@media(max-width:680px){
+  .point-detail-layout-v28 .map-marker.point-detail-marker{
+    width:12px !important;
+    height:12px !important;
+    border-width:2px !important;
+  }
+
+  .point-detail-layout-v28 .map-marker.point-detail-marker::before{
+    inset:-4px !important;
+  }
+
+  .point-detail-layout-v28 .map-marker.point-detail-marker.active{
+    box-shadow:
+      0 0 0 3px rgba(255,255,255,.94),
+      0 0 0 5px rgba(126,143,120,.15),
+      0 3px 8px rgba(74,35,31,.09) !important;
+  }
+
+  .point-detail-layout-v28 .map-marker.point-detail-marker::after{
+    left:16px !important;
+  }
+
+  .point-detail-layout-v28 .map-marker.point-detail-marker.label-left::after,
+  .point-detail-layout-v28 .map-marker.point-detail-marker.label-left.label-below::after,
+  .point-detail-layout-v28 .map-marker.point-detail-marker.label-left.label-above::after{
+    right:16px !important;
+  }
+}
