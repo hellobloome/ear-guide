@@ -1,6 +1,6 @@
 {
   "name": "Bloomé Guide",
-  "version": "27",
+  "version": "28",
   "defaultRoute": "home",
   "supportedRoutes": [
     "home",
@@ -82,9 +82,15 @@
     "relatedGuideCards": true,
     "conditionHeroMetadata": true,
     "depuffingGuide": true,
-    "afterMealComfortRetired": true
+    "afterMealComfortRetired": true,
+    "refinedFullEarMap": true,
+    "pointMiniMapPreview": true,
+    "pointPreviousNextNavigation": true,
+    "derivedRelatedGuides": true,
+    "mapFuzzyPointSearch": true,
+    "mapSelectedPointBadge": true
   },
-  "releaseName": "Condition Page Polish + Depuffing",
+  "releaseName": "Full Map + Point Detail Polish",
   "database": {
     "acupointCount": 30,
     "conditionCount": 20,
