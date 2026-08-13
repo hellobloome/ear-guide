@@ -1,7 +1,7 @@
 (()=>{
 const V={front:{orbit:"180deg 75deg 105%",target:"0m 0m 0m",fov:"30deg"},endocrine:["166deg 80deg 61%","25deg"],sympathetic:["190deg 68deg 62%","24deg"],subcortex:["150deg 84deg 62%","24deg"],thalamus:["145deg 82deg 58%","23deg"],adrenal:["168deg 80deg 61%","24deg"],brain:["145deg 83deg 58%","23deg"],pointZero:["180deg 74deg 60%","24deg"],mouth:["190deg 82deg 60%","24deg"],shoulder:["205deg 78deg 62%","24deg"],cervicalSpine:["160deg 80deg 60%","24deg"],occiput:["140deg 82deg 70%","24deg"],earApex:["180deg 42deg 80%","22deg"]};
 const MAIN_IDS={pointZero:"point-zero",sympathetic:"sympathetic",occiput:"occiput",brain:"brain",endocrine:"endocrine",mouth:"mouth",cervicalSpine:"cervical-spine",shoulder:"shoulder",adrenal:"adrenal",subcortex:"subcortex",thalamus:"thalamus",earApex:"ear-apex"};
-let lib,box,mv,current="endocrine",anchors=[],last,frame=0,engine,opening=false;
+let lib,box,mv,current="endocrine",anchors=[],last,frame=0,engine,opening=false,lastActivation;
 const tgt=s=>s.trim().split(/\s+/).slice(0,3).join(" ");
 function loadEngine(){if(customElements.get("model-viewer"))return Promise.resolve();if(engine)return engine;engine=new Promise((ok,no)=>{const s=document.createElement("script");s.type="module";s.src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js";s.onload=()=>customElements.whenDefined("model-viewer").then(ok);s.onerror=no;document.head.appendChild(s)});return engine}
 async function loadData(){if(lib)return lib;const r=await fetch("./3d/data/coordinates-1b10-frozen.json",{cache:"force-cache"});if(!r.ok)throw Error();return lib=await r.json()}
@@ -17,5 +17,8 @@ async function open(id,trigger){last=trigger;create();box.hidden=false;document.
 function close(){if(!box)return;box.hidden=true;document.body.classList.remove("bloome-3d-open");last?.focus()}
 create();
 loadData().catch(()=>{});
-document.addEventListener("click",e=>{const b=e.target.closest("[data-open-3d]");if(!b||!b.dataset.open3d)return;e.preventDefault();open(b.dataset.open3d,b)},true);document.addEventListener("keydown",e=>{if(e.key==="Escape"&&box&&!box.hidden)close()});
+function activate(e){const b=e.target.closest?.("[data-open-3d]");if(!b||!b.dataset.open3d)return;const now=Date.now();if(e.type==="click"&&lastActivation?.button===b&&now-lastActivation.time<700)return;e.preventDefault();e.stopPropagation();lastActivation={button:b,time:now};open(b.dataset.open3d,b)}
+document.addEventListener("pointerup",activate,true);
+document.addEventListener("click",activate,true);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&box&&!box.hidden)close()});
 })();

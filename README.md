@@ -83,3 +83,8 @@ This patch is a focused hotfix based on your feedback.
 
 ## Recommended commit summary
 Package 19.2 – occiput placement correction
+## Package 32.5.2
+
+- Opens the native 3D overlay on the first completed mouse or touch tap.
+- Keeps a keyboard-click fallback and prevents the same interaction from opening twice.
+- Preserves the frozen Beta 1B.10 coordinates and Ear 1 geometry.
