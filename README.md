@@ -1,3 +1,11 @@
+# Bloomé Guide Package 32.5 — 3D Location Guidance
+
+Package 32.5 displays the selected point's actual location guidance directly beneath its name in the native 3D viewer.
+
+See `docs/package-history/PACKAGE_32_5_3D_LOCATION_GUIDANCE.md` for details.
+
+---
+
 # Bloomé Guide Package 32.4.1 — Material Load Fix
 
 Package 32.4.1 fixes the persistent Preparing the 3D ear message while retaining the warm editorial makeover.
