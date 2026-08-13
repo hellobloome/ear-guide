@@ -15,6 +15,22 @@ let mapZoom=1;
 let selectedConditionPoint=new Map();
 let applicationProgress=new Map();
 
+const threeDLocationIds={
+  "point-zero":"pointZero",
+  "sympathetic":"sympathetic",
+  "occiput":"occiput",
+  "brain":"brain",
+  "endocrine":"endocrine",
+  "mouth":"mouth",
+  "cervical-spine":"cervicalSpine",
+  "shoulder":"shoulder",
+  "adrenal":"adrenal",
+  "subcortex":"subcortex",
+  "thalamus":"thalamus",
+  "ear-apex":"earApex"
+};
+const threeDViewerBase="https://hellobloome.github.io/ear-guide-3d-sandbox/";
+
 const MASTER_EAR_CANVAS={width:1141,height:2047};
 const masterPixelPositions={
   "shen-men":[455.9,538.0],
@@ -1269,6 +1285,10 @@ function pointView(id){
   const next=ordered[(currentIndex+1)%ordered.length];
   const mapped=pointIsMapped(point);
   const position=mapPositions[point.id]||[50,50];
+  const threeDLocation=threeDLocationIds[point.id];
+  const threeDLink=threeDLocation
+    ? `${threeDViewerBase}?location=${encodeURIComponent(threeDLocation)}`
+    : "";
 
   const pointMarker=mapped
     ? `<span class="map-marker active point-detail-marker ${markerLabelClass(position[0],position[1])}" style="left:${position[0]}%;top:${position[1]}%" data-label="${escapeHtml(point.name)}" aria-hidden="true"></span>`
@@ -1306,6 +1326,14 @@ function pointView(id){
             </div>
 
             <p class="point-visual-caption">The marker uses the same approved coordinate as the full interactive ear map.</p>
+
+            ${threeDLocation
+              ? `<a class="view-3d-button" href="${escapeHtml(threeDLink)}" aria-label="${escapeHtml(currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`)}">
+                  <span class="view-3d-button-icon" aria-hidden="true">3D</span>
+                  <span><strong>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</strong><small>${currentLocale==="ms"?"Putar dan zum telinga interaktif":"Rotate and zoom the interactive ear"}</small></span>
+                  <b aria-hidden="true">→</b>
+                </a>`
+              : ""}
 
             ${mapped
               ? `<button class="primary-button point-map-button-v28" data-jump-map="${escapeHtml(point.id)}">View on full ear map</button>`

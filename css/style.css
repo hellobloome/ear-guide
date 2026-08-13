@@ -3656,6 +3656,59 @@ h3,p{margin-top:0}
   justify-content:center;
 }
 
+.view-3d-button{
+  width:100%;
+  min-height:68px;
+  margin:0 0 10px;
+  padding:11px 14px;
+  display:grid;
+  grid-template-columns:42px 1fr auto;
+  align-items:center;
+  gap:12px;
+  border:1px solid rgba(90,22,17,.13);
+  border-radius:17px;
+  background:linear-gradient(135deg,#6F2736,#8B3D50);
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 12px 28px rgba(90,22,17,.13);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+
+.view-3d-button:hover{
+  transform:translateY(-1px);
+  box-shadow:0 16px 34px rgba(90,22,17,.18);
+}
+
+.view-3d-button:focus-visible{
+  outline:3px solid rgba(111,39,54,.24);
+  outline-offset:3px;
+}
+
+.view-3d-button-icon{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.28);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.06em;
+}
+
+.view-3d-button > span:nth-child(2){
+  display:flex;
+  min-width:0;
+  flex-direction:column;
+  gap:2px;
+  text-align:left;
+}
+
+.view-3d-button strong{font-size:.83rem}
+.view-3d-button small{color:rgba(255,255,255,.76);font-size:.66rem;font-weight:500}
+.view-3d-button b{font-size:1.05rem}
+
 .point-detail-content-card{
   padding:30px;
 }
