@@ -1011,6 +1011,7 @@ function conditionView(id){
   const points=(condition.pointIds||[]).map(pid=>pointMap.get(pid)).filter(Boolean);
   const currentId=selectedConditionPoint.get(id)||points[0]?.id;
   const current=pointMap.get(currentId)||points[0];
+  const currentThreeDLocation=threeDLocationIds[current.id];
 
   const conditionMarkerHtml=points.map((point,index)=>{
     const position=mapPositions[point.id]||[50,50];
@@ -1092,7 +1093,8 @@ function conditionView(id){
             </div>
 
             <div class="condition-actions condition-actions-guided condition-actions-refined">
-              <button class="primary-button" data-start-apply="${escapeHtml(condition.id)}">Start guided application</button>
+              <button class="primary-button condition-start-button" data-start-apply="${escapeHtml(condition.id)}">Start guided application</button>
+              <button class="routine-view-3d-button" id="condition-view-3d" type="button" data-open-3d="${escapeHtml(currentThreeDLocation||"")}" ${currentThreeDLocation?"":"hidden"}><span aria-hidden="true">3D</span>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</button>
               <button class="secondary-button" id="open-selected-point" data-point-id="${escapeHtml(current.id)}">View selected point</button>
               <a class="text-button condition-guide-link" href="#/guide">How to apply ear seeds</a>
             </div>
@@ -1265,6 +1267,10 @@ function applicationView(id){
               <button class="secondary-button" data-apply-prev="${escapeHtml(id)}" ${step===0?"disabled":""}>Back</button>
               <button class="primary-button" data-apply-next="${escapeHtml(id)}">${step===points.length-1?"Finish routine":"Next point"}</button>
             </div>
+
+            ${threeDLocationIds[point.id]
+              ? `<button class="routine-view-3d-button application-view-3d" type="button" data-open-3d="${escapeHtml(threeDLocationIds[point.id])}" aria-label="${escapeHtml(currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`)}"><span aria-hidden="true">3D</span>${currentLocale==="ms"?"Lihat lokasi dalam 3D":"View placement in 3D"}</button>`
+              : ""}
 
             <button class="application-point-detail-link text-button" data-open-route="point" data-open-id="${escapeHtml(point.id)}">${escapeHtml(applicationPointGuideText(point.name))}</button>
           </aside>
@@ -1904,6 +1910,13 @@ function wireCondition(id){
     $("#condition-info-content").innerHTML=conditionInfoMarkup(point,combinationRole(idx,points.length,condition));
     translateUi($("#condition-info-content"));
     $("#open-selected-point").dataset.pointId=pointId;
+    const conditionThreeD=$("#condition-view-3d");
+    const threeDLocation=threeDLocationIds[pointId];
+    if(conditionThreeD){
+      conditionThreeD.hidden=!threeDLocation;
+      conditionThreeD.dataset.open3d=threeDLocation||"";
+      conditionThreeD.setAttribute("aria-label",currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`);
+    }
   }
   $$("[data-condition-point]").forEach(button=>button.addEventListener("click",()=>select(button.dataset.conditionPoint)));
   $$("[data-condition-point-tab]").forEach(button=>button.addEventListener("click",()=>select(button.dataset.conditionPointTab)));

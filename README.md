@@ -1,3 +1,11 @@
+# Bloomé Guide Package 32.3 — Routine 3D Integration
+
+Package 32.3 adds the native 3D placement view to concern routines and supported guided-application steps.
+
+See `docs/package-history/PACKAGE_32_3_ROUTINE_3D_INTEGRATION.md` for details.
+
+---
+
 # Bloomé Guide Package 32.2 — Native In-Site 3D Viewer
 
 Package 32.2 opens the approved 3D ear in a native Bloomé overlay inside the main guide. Customers no longer leave the website or see the separate sandbox.

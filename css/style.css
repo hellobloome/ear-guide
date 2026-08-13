@@ -3066,6 +3066,10 @@ h3,p{margin-top:0}
   justify-content:center;
 }
 
+.condition-start-button{grid-column:1/-1}
+.routine-view-3d-button{min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;background:linear-gradient(135deg,#6F2736,#8B3D50);color:#fff;font-family:inherit;font-weight:700;cursor:pointer;box-shadow:0 9px 22px rgba(90,22,17,.13)}
+.routine-view-3d-button span{width:28px;height:28px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.27);border-radius:50%;background:rgba(255,255,255,.12);font-size:.61rem;letter-spacing:.05em}.routine-view-3d-button:hover{filter:brightness(1.05);transform:translateY(-1px)}.routine-view-3d-button:focus-visible{outline:3px solid rgba(111,39,54,.24);outline-offset:3px}.routine-view-3d-button[hidden]{display:none!important}.application-view-3d{width:100%;margin-top:12px}
+
 .condition-actions-refined .condition-guide-link{
   grid-column:1/-1;
   justify-self:center;
