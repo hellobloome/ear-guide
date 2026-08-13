@@ -1,3 +1,11 @@
+# Bloomé Guide Package 32.4.1 — Material Load Fix
+
+Package 32.4.1 fixes the persistent Preparing the 3D ear message while retaining the warm editorial makeover.
+
+See `docs/package-history/PACKAGE_32_4_1_MATERIAL_LOAD_FIX.md` for details.
+
+---
+
 # Bloomé Guide Package 32.4 — Editorial Ear Makeover
 
 Package 32.4 gives the native 3D ear a warmer, softer and more human editorial presentation while preserving its exact geometry and coordinates.
