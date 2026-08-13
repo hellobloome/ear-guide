@@ -1,3 +1,11 @@
+# Bloomé Guide Package 32.2 — Native In-Site 3D Viewer
+
+Package 32.2 opens the approved 3D ear in a native Bloomé overlay inside the main guide. Customers no longer leave the website or see the separate sandbox.
+
+See `docs/package-history/PACKAGE_32_2_NATIVE_3D_OVERLAY.md` for details.
+
+---
+
 # Bloomé Guide Package 32.1 — Ear Map 3D Shortcut
 
 Package 32.1 adds View in 3D directly to the selected-point panel on the interactive ear map. It appears only for approved 3D locations, while Open full point guide remains available as a secondary action.

@@ -29,7 +29,6 @@ const threeDLocationIds={
   "thalamus":"thalamus",
   "ear-apex":"earApex"
 };
-const threeDViewerBase="https://hellobloome.github.io/ear-guide-3d-sandbox/";
 
 const MASTER_EAR_CANVAS={width:1141,height:2047};
 const masterPixelPositions={
@@ -835,9 +834,6 @@ function fullMapView(){
   const letters=[...new Set(allPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
   const firstRelated=relatedGuidesForPoint(first);
   const firstThreeDLocation=threeDLocationIds[first.id];
-  const firstThreeDLink=firstThreeDLocation
-    ? `${threeDViewerBase}?location=${encodeURIComponent(firstThreeDLocation)}`
-    : "";
 
   const mapMarkerHtml=mappedPoints.map(point=>{
     const [left,top]=mapPositions[point.id];
@@ -938,11 +934,11 @@ function fullMapView(){
             </div>
 
             <div class="map-actions map-actions-v28">
-              <a class="view-3d-button map-view-3d-button" id="map-view-3d" href="${escapeHtml(firstThreeDLink||threeDViewerBase)}" ${firstThreeDLocation?"":"hidden"}>
+              <button class="view-3d-button map-view-3d-button" id="map-view-3d" type="button" data-open-3d="${escapeHtml(firstThreeDLocation||"")}" ${firstThreeDLocation?"":"hidden"}>
                 <span class="view-3d-button-icon" aria-hidden="true">3D</span>
                 <span><strong>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</strong><small>${currentLocale==="ms"?"Putar dan zum lokasi yang dipilih":"Rotate and zoom the selected location"}</small></span>
                 <b aria-hidden="true">→</b>
-              </a>
+              </button>
               <button class="secondary-button" id="map-open-point" data-point-id="${escapeHtml(first.id)}">${currentLocale==="ms"?"Buka panduan titik penuh":"Open full point guide"}</button>
               <div class="map-step-actions">
                 <button class="secondary-button" id="map-prev-point">Previous point</button>
@@ -1295,9 +1291,6 @@ function pointView(id){
   const mapped=pointIsMapped(point);
   const position=mapPositions[point.id]||[50,50];
   const threeDLocation=threeDLocationIds[point.id];
-  const threeDLink=threeDLocation
-    ? `${threeDViewerBase}?location=${encodeURIComponent(threeDLocation)}`
-    : "";
 
   const pointMarker=mapped
     ? `<span class="map-marker active point-detail-marker ${markerLabelClass(position[0],position[1])}" style="left:${position[0]}%;top:${position[1]}%" data-label="${escapeHtml(point.name)}" aria-hidden="true"></span>`
@@ -1337,11 +1330,11 @@ function pointView(id){
             <p class="point-visual-caption">The marker uses the same approved coordinate as the full interactive ear map.</p>
 
             ${threeDLocation
-              ? `<a class="view-3d-button" href="${escapeHtml(threeDLink)}" aria-label="${escapeHtml(currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`)}">
+              ? `<button class="view-3d-button" type="button" data-open-3d="${escapeHtml(threeDLocation)}" aria-label="${escapeHtml(currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`)}">
                   <span class="view-3d-button-icon" aria-hidden="true">3D</span>
                   <span><strong>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</strong><small>${currentLocale==="ms"?"Putar dan zum telinga interaktif":"Rotate and zoom the interactive ear"}</small></span>
                   <b aria-hidden="true">→</b>
-                </a>`
+                </button>`
               : ""}
 
             ${mapped
@@ -1771,9 +1764,7 @@ function wireFullMap(){
     const threeDLocation=threeDLocationIds[id];
     if(mapThreeD){
       mapThreeD.hidden=!threeDLocation;
-      mapThreeD.href=threeDLocation
-        ? `${threeDViewerBase}?location=${encodeURIComponent(threeDLocation)}`
-        : threeDViewerBase;
+      mapThreeD.dataset.open3d=threeDLocation||"";
       mapThreeD.setAttribute("aria-label",currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`);
     }
     relatedButtons();
