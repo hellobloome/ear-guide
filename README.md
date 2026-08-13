@@ -1,3 +1,11 @@
+# Bloomé Guide Package 32.5.1 — First-Tap 3D Fix
+
+Package 32.5.1 ensures the native viewer opens on the first View in 3D tap from the ear map, concern routine, or guided application.
+
+See `docs/package-history/PACKAGE_32_5_1_FIRST_TAP_3D_FIX.md` for details.
+
+---
+
 # Bloomé Guide Package 32.5 — 3D Location Guidance
 
 Package 32.5 displays the selected point's actual location guidance directly beneath its name in the native 3D viewer.
