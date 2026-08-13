@@ -3469,6 +3469,13 @@ h3,p{margin-top:0}
   justify-content:center;
 }
 
+.map-actions-v28 > .secondary-button{
+  width:100%;
+  justify-content:center;
+}
+
+.map-view-3d-button[hidden]{display:none}
+
 .map-step-actions{
   display:grid;
   grid-template-columns:1fr 1fr;

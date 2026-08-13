@@ -834,6 +834,10 @@ function fullMapView(){
   const categories=[...new Set(allPoints.map(point=>point.category).filter(Boolean))].sort();
   const letters=[...new Set(allPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
   const firstRelated=relatedGuidesForPoint(first);
+  const firstThreeDLocation=threeDLocationIds[first.id];
+  const firstThreeDLink=firstThreeDLocation
+    ? `${threeDViewerBase}?location=${encodeURIComponent(firstThreeDLocation)}`
+    : "";
 
   const mapMarkerHtml=mappedPoints.map(point=>{
     const [left,top]=mapPositions[point.id];
@@ -934,7 +938,12 @@ function fullMapView(){
             </div>
 
             <div class="map-actions map-actions-v28">
-              <button class="primary-button" id="map-open-point" data-point-id="${escapeHtml(first.id)}">Open full point guide</button>
+              <a class="view-3d-button map-view-3d-button" id="map-view-3d" href="${escapeHtml(firstThreeDLink||threeDViewerBase)}" ${firstThreeDLocation?"":"hidden"}>
+                <span class="view-3d-button-icon" aria-hidden="true">3D</span>
+                <span><strong>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</strong><small>${currentLocale==="ms"?"Putar dan zum lokasi yang dipilih":"Rotate and zoom the selected location"}</small></span>
+                <b aria-hidden="true">→</b>
+              </a>
+              <button class="secondary-button" id="map-open-point" data-point-id="${escapeHtml(first.id)}">${currentLocale==="ms"?"Buka panduan titik penuh":"Open full point guide"}</button>
               <div class="map-step-actions">
                 <button class="secondary-button" id="map-prev-point">Previous point</button>
                 <button class="secondary-button" id="map-next-point">Next point</button>
@@ -1758,6 +1767,15 @@ function wireFullMap(){
     $("#map-related-count").textContent=relatedGuideCountText(related.length);
     $("#map-related").innerHTML=mapRelatedMarkup(point);
     $("#map-open-point").dataset.pointId=id;
+    const mapThreeD=$("#map-view-3d");
+    const threeDLocation=threeDLocationIds[id];
+    if(mapThreeD){
+      mapThreeD.hidden=!threeDLocation;
+      mapThreeD.href=threeDLocation
+        ? `${threeDViewerBase}?location=${encodeURIComponent(threeDLocation)}`
+        : threeDViewerBase;
+      mapThreeD.setAttribute("aria-label",currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`);
+    }
     relatedButtons();
 
     if(scrollOnMobile && window.matchMedia("(max-width: 680px)").matches){

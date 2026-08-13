@@ -1,3 +1,11 @@
+# Bloomé Guide Package 32.1 — Ear Map 3D Shortcut
+
+Package 32.1 adds View in 3D directly to the selected-point panel on the interactive ear map. It appears only for approved 3D locations, while Open full point guide remains available as a secondary action.
+
+See `docs/package-history/PACKAGE_32_1_EAR_MAP_3D_SHORTCUT.md` for details.
+
+---
+
 # Bloomé Guide Package 32 — View in 3D Integration
 
 Package 32 adds targeted View in 3D links to the approved point and area pages while preserving the Package 31.2 guide and its 2D-first experience. See `docs/package-history/PACKAGE_32_VIEW_IN_3D_INTEGRATION.md` for the full integration notes.
