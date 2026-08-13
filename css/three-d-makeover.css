@@ -1,0 +1,3 @@
+.bloome-3d-stage{background:radial-gradient(ellipse at 43% 36%,#fffdf9 0,#f9ece6 39%,#efd9d1 70%,#dec2bb 100%)}
+.bloome-3d-stage model-viewer{filter:saturate(1.03) contrast(1.015)}
+.bloome-3d-area-overlay polygon{fill:rgba(116,43,66,.3);stroke:rgba(116,43,66,.74);filter:drop-shadow(0 5px 8px rgba(116,43,66,.15))}

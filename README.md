@@ -1,3 +1,11 @@
+# Bloomé Guide Package 32.4 — Editorial Ear Makeover
+
+Package 32.4 gives the native 3D ear a warmer, softer and more human editorial presentation while preserving its exact geometry and coordinates.
+
+See `docs/package-history/PACKAGE_32_4_EDITORIAL_EAR_MAKEOVER.md` for details.
+
+---
+
 # Bloomé Guide Package 32.3 — Routine 3D Integration
 
 Package 32.3 adds the native 3D placement view to concern routines and supported guided-application steps.
