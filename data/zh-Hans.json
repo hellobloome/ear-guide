@@ -2,7 +2,7 @@
   "meta":{"locale":"zh-Hans","label":"简体中文","version":"1.1.0"},
   "defaults":{"pointCaution":"仅用于清洁、完整且无破损的皮肤。如出现刺激、发红、肿胀、头晕或明显不适，请取下耳贴。所有耳贴必须位于耳道外。"},
   "ui":{
-    "placeholders":{"Search concerns or points":"搜索关注问题或耳穴","Search all 30 points":"搜索全部 30 个耳穴","Type a concern or acupoint":"输入关注问题或耳穴名称"},
+    "placeholders":{"Search concerns or points":"搜索关注问题或耳穴","Search all 30 points":"搜索全部 30 个耳穴","Type a concern or acupoint":"输入关注问题或耳穴名称","Try “sleep”, “stress” or “Shen Men”":"试试“睡眠”、“压力”或“神门”","Try “sleep”, “headache”, “digestion” or “Shen Men”":"试试“睡眠”、“头部不适”、“消化”或“神门”","Search the point library, e.g. Shen Men or Liver":"搜索耳穴，例如神门或肝"},
     "exact":{
       "Home":"首页","Discover":"探索","Ear map":"耳穴图","Guide":"指南","About":"关于","Quick help":"快速帮助","Close":"关闭","Menu":"菜单",
       "Search":"搜索","Clear":"清除","All points":"全部耳穴","Selected":"已选择","Selected point":"已选耳穴","Selected location":"已选位置","Location":"位置",

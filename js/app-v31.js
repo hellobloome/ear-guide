@@ -206,6 +206,13 @@ function translateUi(root=document){
       ? exact[canonical]
       : reverseExact[trimmed];
 
+    // Translate phrases wrapped with decorative icons or action arrows.
+    if(!replacement){
+      const phraseMap=currentLocale==="en"?reverseExact:exact;
+      const phrase=Object.keys(phraseMap).sort((a,b)=>b.length-a.length).find(key=>trimmed.includes(key));
+      if(phrase)replacement=trimmed.replace(phrase,phraseMap[phrase]);
+    }
+
     // Package 24.2: defensive fallback for dynamic Guided Application
     // phrases containing condition names, point names, or step counts.
     if(currentLocale==="ms" && !replacement){
@@ -544,7 +551,7 @@ function searchEmptyMarkup(query){
   ];
   return `
     <div class="search-empty">
-      <strong>We couldn’t find “${escapeHtml(query)}” yet.</strong>
+      <strong>${localized(`We couldn’t find “${escapeHtml(query)}” yet.`,`Kami belum menemui “${escapeHtml(query)}”.`,`暂未找到“${escapeHtml(query)}”。`)}</strong>
       <p>Try another word or choose one of these common guides:</p>
       <div class="search-empty-chips">
         ${quick.map(([label,id])=>`<button type="button" data-empty-condition="${id}">${label}</button>`).join("")}
@@ -560,7 +567,7 @@ function searchSuggestionResultsMarkup(query,results){
     </div>
     ${results.map(suggestionMarkup).join("")}
     <div class="suggestion-all-row">
-      <button type="button" data-search-all="${escapeHtml(query)}">See all results for “${escapeHtml(query)}”</button>
+      <button type="button" data-search-all="${escapeHtml(query)}">${localized(`See all results for “${escapeHtml(query)}”`,`Lihat semua hasil untuk “${escapeHtml(query)}”`,`查看“${escapeHtml(query)}”的所有结果`)}</button>
     </div>`;
 }
 
@@ -1494,7 +1501,7 @@ function guideView(){
         <p class="lead">Start clean, keep the routine simple, and use only gentle pressure.</p>
 
         <div class="guide-hero-meta" aria-label="Guide highlights">
-          <span>6 simple steps</span>
+          <span>${localized("6 simple steps","6 langkah mudah","6 个简单步骤")}</span>
           <span>Beginner friendly</span>
           <span>Skin-conscious</span>
         </div>
@@ -2021,9 +2028,9 @@ async function loadData(){
     const [conditionResponse,pointResponse,i18nResponse,chineseResponse,chineseUiResponse]=await Promise.all([
       fetch("./data/conditions.json?v=31",{cache:"no-store"}),
       fetch("./data/acupoints.json?v=31",{cache:"no-store"}),
-      fetch("./data/i18n.json?v=1.1.0",{cache:"no-store"}),
-      fetch("./data/zh-Hans.json?v=1.1.0",{cache:"no-store"}),
-      fetch("./data/zh-Hans-ui.json?v=1.1.0",{cache:"no-store"})
+      fetch("./data/i18n.json?v=1.1.1",{cache:"no-store"}),
+      fetch("./data/zh-Hans.json?v=1.1.1",{cache:"no-store"}),
+      fetch("./data/zh-Hans-ui.json?v=1.1.1",{cache:"no-store"})
     ]);
     if(!conditionResponse.ok||!pointResponse.ok||!i18nResponse.ok||!chineseResponse.ok||!chineseUiResponse.ok)throw new Error("Data load failed");
     sourceConditions=await conditionResponse.json();
@@ -2035,7 +2042,7 @@ async function loadData(){
     render();
   }catch(error){
     console.error(error);
-    $("#app").innerHTML=`<div class="route-loading"><p>The guide database could not load. Refresh the page.</p></div>`;
+    $("#app").innerHTML=`<div class="route-loading"><p>${localized("The guide database could not load. Refresh the page.","Pangkalan data panduan tidak dapat dimuatkan. Muat semula halaman.","指南数据库无法加载，请刷新页面。")}</p></div>`;
   }
 }
 

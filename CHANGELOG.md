@@ -1,5 +1,13 @@
 # Bloomé Guide Changelog
 
+## 1.1.1 — Translation completeness fix
+
+- Translated decorative home-page labels in Malay and Simplified Chinese.
+- Translated related-guide action labels that include an arrow icon.
+- Added both Chinese search placeholders and the Chinese ear-library placeholder.
+- Localized dynamic search-result and no-result wording.
+- Added phrase-level translation fallback for wording wrapped by icons or arrows.
+
 ## 1.1.0 — Simplified Chinese support
 
 - Added EN / BM / 中文 language selection.
