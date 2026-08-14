@@ -1,5 +1,12 @@
 # Bloomé Guide Changelog
 
+## 1.1.3 — Pinyin filters and 3D title fit
+
+- Enabled Chinese A–Z browsing for both wellness guides and ear points using Hanyu Pinyin initials.
+- Sorted Chinese Discover results by Pinyin while retaining their displayed Chinese names.
+- Reduced and wrapped long bilingual 3D headings so names such as 交感 (Sympathetic) stay inside the information panel.
+- Added responsive title sizing for desktop and phone layouts.
+
 ## 1.1.2 — Chinese Pinyin point browsing
 
 - Sorted the Chinese 30-point directory by Hanyu Pinyin.

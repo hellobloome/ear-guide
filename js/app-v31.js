@@ -44,12 +44,33 @@ const chinesePointPinyin={
   "lumbar-spine":"yao di zhui","hip":"kuan"
 };
 
+const chineseConditionPinyin={
+  "stress":"ya li shu huan","sleep":"shui mian","head-tension":"tou bu jin beng shu huan",
+  "digestion":"xiao hua yang hu","focus":"zhuan zhu","low-energy":"di neng liang zhuang tai",
+  "neck-shoulder-tension":"jing jian jin beng","cravings":"zui chan guan li",
+  "menstrual-comfort":"jing qi shu shi","jaw-tension":"xia he jin beng",
+  "travel-queasiness":"chu xing fan wei","general-balance":"zheng ti ping heng",
+  "eye-screen-comfort":"yan bu yu ping mu shu shi","back-comfort":"bei bu shu shi",
+  "lower-body-comfort":"xia zhi shu shi","breathing-reset":"hu xi fang song",
+  "depuffing":"xiao zhong huan fu","daily-recovery":"ri chang hui fu",
+  "deep-relaxation":"shen du fang song","travel-balance":"chu xing ping heng"
+};
+
 function pointDirectoryKey(point){
   return currentLocale==="zh"?(chinesePointPinyin[point.id]||point.name):point.name;
 }
 
 function pointDirectoryInitial(point){
   return pointDirectoryKey(point).charAt(0).toUpperCase();
+}
+
+function directoryItemKey(item){
+  if(currentLocale!=="zh")return normalizeSearch(item.name);
+  return chinesePointPinyin[item.id]||chineseConditionPinyin[item.id]||normalizeSearch(item.name);
+}
+
+function directoryItemInitial(item){
+  return directoryItemKey(item).charAt(0).toUpperCase();
 }
 
 const MASTER_EAR_CANVAS={width:1141,height:2047};
@@ -451,11 +472,11 @@ function directoryEntries(query="",kindFilter="all",letter="all"){
       ].filter(entry=>kindFilter==="all"||entry.kind===kindFilter);
 
   if(letter!=="all"){
-    entries=entries.filter(entry=>normalizeSearch(entry.item.name).charAt(0).toUpperCase()===letter);
+    entries=entries.filter(entry=>directoryItemInitial(entry.item)===letter);
   }
 
   if(!query.trim()){
-    entries.sort((a,b)=>a.item.name.localeCompare(b.item.name,currentLocale==="zh"?"zh-Hans":currentLocale));
+    entries.sort((a,b)=>directoryItemKey(a.item).localeCompare(directoryItemKey(b.item),currentLocale==="zh"?"en":currentLocale));
   }
 
   return entries;
@@ -702,7 +723,7 @@ function discoverView(searchTerm=null){
   const letters="ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   const availableLetters=new Set(
     [...conditions,...acupoints]
-      .map(item=>normalizeSearch(item.name).charAt(0).toUpperCase())
+      .map(directoryItemInitial)
       .filter(Boolean)
   );
   const initial=directoryEntries(query,"all","all");
@@ -2051,9 +2072,9 @@ async function loadData(){
     const [conditionResponse,pointResponse,i18nResponse,chineseResponse,chineseUiResponse]=await Promise.all([
       fetch("./data/conditions.json?v=31",{cache:"no-store"}),
       fetch("./data/acupoints.json?v=31",{cache:"no-store"}),
-      fetch("./data/i18n.json?v=1.1.2",{cache:"no-store"}),
-      fetch("./data/zh-Hans.json?v=1.1.2",{cache:"no-store"}),
-      fetch("./data/zh-Hans-ui.json?v=1.1.2",{cache:"no-store"})
+      fetch("./data/i18n.json?v=1.1.3",{cache:"no-store"}),
+      fetch("./data/zh-Hans.json?v=1.1.3",{cache:"no-store"}),
+      fetch("./data/zh-Hans-ui.json?v=1.1.3",{cache:"no-store"})
     ]);
     if(!conditionResponse.ok||!pointResponse.ok||!i18nResponse.ok||!chineseResponse.ok||!chineseUiResponse.ok)throw new Error("Data load failed");
     sourceConditions=await conditionResponse.json();

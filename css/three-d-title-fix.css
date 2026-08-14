@@ -1,0 +1,16 @@
+.bloome-3d-panel {
+  min-width: 0;
+}
+
+.bloome-3d-panel h2 {
+  max-width: 100%;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .bloome-3d-panel h2 {
+    font-size: clamp(1.65rem, 7vw, 2.2rem);
+  }
+}

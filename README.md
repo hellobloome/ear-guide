@@ -12,6 +12,8 @@ The language selector cycles through all three languages. Chinese support covers
 
 In the Chinese 30-point directory, point cards and letter filters follow Hanyu Pinyin order while the approved Chinese and English reference names remain displayed.
 
+The Chinese Discover directory also uses Hanyu Pinyin initials for both wellness guides and ear points. Long bilingual names in the native 3D viewer wrap responsively on desktop and phone.
+
 ## Production baseline
 
 - Mobile-first Bloomé website experience
