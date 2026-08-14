@@ -31,6 +31,27 @@ const threeDLocationIds={
   "ear-apex":"earApex"
 };
 
+// Hanyu Pinyin keys keep the Chinese point directory familiar and predictable
+// while the customer-facing names remain in Simplified Chinese.
+const chinesePointPinyin={
+  "shen-men":"shen men","point-zero":"ling dian","heart":"xin","sympathetic":"jiao gan",
+  "kidney":"shen","occiput":"zhen","stomach":"wei","spleen":"pi","brain":"nao",
+  "endocrine":"nei fen mi","mouth":"kou","cervical-spine":"jing zhui","shoulder":"jian",
+  "jaw":"he","liver":"gan","lung":"fei","large-intestine":"da chang",
+  "small-intestine":"xiao chang","bladder":"pang guang","pancreas-gallbladder":"yi dan",
+  "knee":"xi","adrenal":"shen shang xian","subcortex":"pi zhi xia","thalamus":"qiu nao",
+  "ear-apex":"er jian","eye":"yan","inner-ear":"nei er","thoracic-spine":"xiong zhui",
+  "lumbar-spine":"yao di zhui","hip":"kuan"
+};
+
+function pointDirectoryKey(point){
+  return currentLocale==="zh"?(chinesePointPinyin[point.id]||point.name):point.name;
+}
+
+function pointDirectoryInitial(point){
+  return pointDirectoryKey(point).charAt(0).toUpperCase();
+}
+
 const MASTER_EAR_CANVAS={width:1141,height:2047};
 const masterPixelPositions={
   "shen-men":[455.9,538.0],
@@ -862,10 +883,10 @@ function mapRelatedMarkup(point){
 
 function fullMapView(){
   const mappedPoints=acupoints.filter(point=>pointIsMapped(point));
-  const allPoints=acupoints.slice().sort((a,b)=>a.name.localeCompare(b.name,currentLocale==="zh"?"zh-Hans":currentLocale));
+  const allPoints=acupoints.slice().sort((a,b)=>pointDirectoryKey(a).localeCompare(pointDirectoryKey(b),currentLocale==="zh"?"en":currentLocale));
   const first=pointMap.get(mapSelectedId)||mappedPoints[0]||allPoints[0];
   const categories=[...new Set(allPoints.map(point=>point.category).filter(Boolean))].sort();
-  const letters=[...new Set(allPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
+  const letters=[...new Set(allPoints.map(pointDirectoryInitial))].sort();
   const firstRelated=relatedGuidesForPoint(first);
   const firstThreeDLocation=threeDLocationIds[first.id];
 
@@ -1762,7 +1783,9 @@ function wireFullMap(){
 
   const allIds=acupoints
     .slice()
-    .sort((a,b)=>(a.mapNumber||999)-(b.mapNumber||999))
+    .sort((a,b)=>currentLocale==="zh"
+      ? pointDirectoryKey(a).localeCompare(pointDirectoryKey(b),"en")
+      : (a.mapNumber||999)-(b.mapNumber||999))
     .map(point=>point.id);
 
   function relatedButtons(){
@@ -1826,7 +1849,7 @@ function wireFullMap(){
       if(!point)return false;
       const queryMatch=!activeQuery || score(point,activeQuery)>0;
       const categoryMatch=activeCategory==="all" || point.category===activeCategory;
-      const letterMatch=activeLetter==="all" || point.name.charAt(0).toUpperCase()===activeLetter;
+      const letterMatch=activeLetter==="all" || pointDirectoryInitial(point)===activeLetter;
       return queryMatch && categoryMatch && letterMatch;
     });
   }
@@ -2028,9 +2051,9 @@ async function loadData(){
     const [conditionResponse,pointResponse,i18nResponse,chineseResponse,chineseUiResponse]=await Promise.all([
       fetch("./data/conditions.json?v=31",{cache:"no-store"}),
       fetch("./data/acupoints.json?v=31",{cache:"no-store"}),
-      fetch("./data/i18n.json?v=1.1.1",{cache:"no-store"}),
-      fetch("./data/zh-Hans.json?v=1.1.1",{cache:"no-store"}),
-      fetch("./data/zh-Hans-ui.json?v=1.1.1",{cache:"no-store"})
+      fetch("./data/i18n.json?v=1.1.2",{cache:"no-store"}),
+      fetch("./data/zh-Hans.json?v=1.1.2",{cache:"no-store"}),
+      fetch("./data/zh-Hans-ui.json?v=1.1.2",{cache:"no-store"})
     ]);
     if(!conditionResponse.ok||!pointResponse.ok||!i18nResponse.ok||!chineseResponse.ok||!chineseUiResponse.ok)throw new Error("Data load failed");
     sourceConditions=await conditionResponse.json();

@@ -1,5 +1,12 @@
 # Bloomé Guide Changelog
 
+## 1.1.2 — Chinese Pinyin point browsing
+
+- Sorted the Chinese 30-point directory by Hanyu Pinyin.
+- Grouped Chinese point-directory filters by Pinyin initial.
+- Aligned Chinese previous and next browsing with Pinyin order.
+- Kept displayed point names, map numbers, other locales, and all coordinates unchanged.
+
 ## 1.1.1 — Translation completeness fix
 
 - Translated decorative home-page labels in Malay and Simplified Chinese.

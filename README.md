@@ -10,6 +10,8 @@ Bloomé Guide 1.1 adds complete Simplified Chinese support to the stable custome
 
 The language selector cycles through all three languages. Chinese support covers the interface, all 30 points, all 20 concern routines, search terms, safety guidance, guided application, and the native 3D viewer.
 
+In the Chinese 30-point directory, point cards and letter filters follow Hanyu Pinyin order while the approved Chinese and English reference names remain displayed.
+
 ## Production baseline
 
 - Mobile-first Bloomé website experience
