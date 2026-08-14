@@ -1,4 +1,9 @@
-# Bloomé Guide 1.0 Production Checklist
+# Bloomé Guide 1.1 Production Checklist
+
+- [ ] Cycle the selector through EN → BM → 中文 → EN.
+- [ ] Confirm Chinese navigation, search, point details, routine details, safety text, and guided application.
+- [ ] Search using Chinese terms such as `睡眠`, `压力`, `消化`, `颈肩`, and `耳尖`.
+- [ ] Open a supported Chinese point in 3D and confirm its Chinese name and location guidance.
 
 - [ ] Deploy all files and folders without changing relative paths.
 - [ ] Open the live site in a fresh phone browser session.

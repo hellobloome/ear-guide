@@ -6,7 +6,8 @@ let acupoints=[];
 let sourceConditions=[];
 let sourceAcupoints=[];
 let localeData={};
-let currentLocale=localStorage.getItem("bloome-locale")==="ms"?"ms":"en";
+const supportedLocales=new Set(["en","ms","zh"]);
+let currentLocale=supportedLocales.has(localStorage.getItem("bloome-locale"))?localStorage.getItem("bloome-locale"):"en";
 let pointMap=new Map();
 let conditionMap=new Map();
 let activeSuggestion=-1;
@@ -94,17 +95,21 @@ function normalize(value=""){
 }
 
 function localeRecord(type,id){
-  return localeData?.[type]?.[id]||null;
+  if(currentLocale==="ms")return localeData?.[type]?.[id]||null;
+  if(currentLocale==="zh")return localeData?.zh?.[type]?.[id]||null;
+  return null;
 }
 
 function mergeLocaleItem(item,type){
-  if(currentLocale!=="ms")return {...item};
+  if(currentLocale==="en")return {...item};
   const translated=localeRecord(type,item.id);
   if(!translated)return {...item};
 
   return {
     ...item,
     ...translated,
+    caution:translated.caution||(currentLocale==="zh"?localeData?.zh?.defaults?.pointCaution:item.caution),
+    shortDescription:translated.shortDescription||translated.traditionalUse||item.shortDescription,
     aliases:[...(item.aliases||[]),...(translated.aliases||[])],
     keywords:[...(item.keywords||[]),...(translated.keywords||[])]
   };
@@ -118,34 +123,45 @@ function rebuildLocalizedData(){
 }
 
 function uiText(english){
-  if(currentLocale!=="ms")return english;
-  return localeData?.ui?.ms?.exact?.[english]||english;
+  if(currentLocale==="en")return english;
+  const bucket=currentLocale==="ms"?localeData?.ui?.ms:localeData?.zh?.ui;
+  return bucket?.exact?.[english]||english;
 }
+
+function localized(en,ms,zh){return currentLocale==="ms"?ms:currentLocale==="zh"?zh:en}
 
 function pointCountText(count,{suggested=false}={}){
   if(currentLocale==="ms")return suggested?`${count} titik yang dicadangkan`:`${count} titik`;
+  if(currentLocale==="zh")return suggested?`${count} 个建议耳穴`:`${count} 个耳穴`;
   return suggested?`${count} suggested point${count===1?"":"s"}`:`${count} point${count===1?"":"s"}`;
 }
 
 function applicationStepText(step,total){
+  if(currentLocale==="zh")return `第 ${step} 步，共 ${total} 步`;
   return currentLocale==="ms"
     ? `Langkah ${step} daripada ${total}`
     : `Step ${step} of ${total}`;
 }
 
 function applicationCompleteTitle(name){
+  if(currentLocale==="zh")return `${name}指南已完成。`;
   return currentLocale==="ms"
     ? `Rutin ${name} selesai.`
     : `${name} guide complete.`;
 }
 
 function applicationCompleteLead(count){
+  if(currentLocale==="zh")return `您已完成这份包含 ${count} 个耳穴的贴敷指南。`;
   return currentLocale==="ms"
     ? `Anda telah selesai mengikuti panduan penggunaan ${count} titik ini.`
     : `You’ve reached the end of this ${count}-point application guide.`;
 }
 
 function applicationBackToConditionText(name,{guide=false,arrow=false}={}){
+  if(currentLocale==="zh"){
+    const text=guide?`返回${name}指南`:`返回${name}`;
+    return arrow?`← ${text}`:text;
+  }
   if(currentLocale==="ms"){
     const text=guide?`Kembali ke panduan ${name}`:`Kembali ke ${name}`;
     return arrow?`← ${text}`:text;
@@ -155,22 +171,25 @@ function applicationBackToConditionText(name,{guide=false,arrow=false}={}){
 }
 
 function applicationPointGuideText(name){
+  if(currentLocale==="zh")return `打开${name}完整指南`;
   return currentLocale==="ms"
     ? `Buka panduan penuh ${name}`
     : `Open full ${name} guide`;
 }
 
 function applicationProgressLabel(){
-  return currentLocale==="ms" ? "Kemajuan penggunaan" : "Application progress";
+  return localized("Application progress","Kemajuan penggunaan","贴敷进度");
 }
 
 function translateUi(root=document){
-  document.documentElement.lang=currentLocale==="ms"?"ms":"en";
+  document.documentElement.lang=currentLocale==="zh"?"zh-Hans":currentLocale;
 
-  const exact=localeData?.ui?.ms?.exact||{};
+  const malayExact=localeData?.ui?.ms?.exact||{};
+  const chineseExact=localeData?.zh?.ui?.exact||{};
+  const exact=currentLocale==="zh"?chineseExact:malayExact;
   const reverseExact={};
-  Object.entries(exact).forEach(([english,malay])=>{
-    if(!(malay in reverseExact))reverseExact[malay]=english;
+  [...Object.entries(malayExact),...Object.entries(chineseExact)].forEach(([english,translation])=>{
+    if(!(translation in reverseExact))reverseExact[translation]=english;
   });
 
   const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
@@ -182,8 +201,9 @@ function translateUi(root=document){
     const trimmed=raw.trim();
     if(!trimmed)return;
 
-    let replacement=currentLocale==="ms"
-      ? exact[trimmed]
+    const canonical=reverseExact[trimmed]||trimmed;
+    let replacement=currentLocale!=="en"
+      ? exact[canonical]
       : reverseExact[trimmed];
 
     // Package 24.2: defensive fallback for dynamic Guided Application
@@ -210,16 +230,19 @@ function translateUi(root=document){
     if(replacement)node.nodeValue=raw.replace(trimmed,replacement);
   });
 
-  const placeholders=localeData?.ui?.ms?.placeholders||{};
+  const malayPlaceholders=localeData?.ui?.ms?.placeholders||{};
+  const chinesePlaceholders=localeData?.zh?.ui?.placeholders||{};
+  const placeholders=currentLocale==="zh"?chinesePlaceholders:malayPlaceholders;
   const reversePlaceholders={};
-  Object.entries(placeholders).forEach(([english,malay])=>{
-    if(!(malay in reversePlaceholders))reversePlaceholders[malay]=english;
+  [...Object.entries(malayPlaceholders),...Object.entries(chinesePlaceholders)].forEach(([english,translation])=>{
+    if(!(translation in reversePlaceholders))reversePlaceholders[translation]=english;
   });
 
   $$("[placeholder]",root).forEach(el=>{
     const current=el.getAttribute("placeholder");
-    const replacement=currentLocale==="ms"
-      ? placeholders[current]
+    const canonical=reversePlaceholders[current]||current;
+    const replacement=currentLocale!=="en"
+      ? placeholders[canonical]
       : reversePlaceholders[current];
 
     if(replacement)el.setAttribute("placeholder",replacement);
@@ -234,12 +257,13 @@ function updateLanguageToggle(){
   $$("[data-locale-option]",toggle).forEach(option=>{
     option.classList.toggle("active",option.dataset.localeOption===currentLocale);
   });
-  toggle.setAttribute("aria-label",currentLocale==="ms"?"Tukar ke bahasa Inggeris":"Switch to Bahasa Melayu");
+  toggle.setAttribute("aria-label",localized("Switch language","Tukar bahasa","切换语言"));
 }
 
 function setLocale(locale){
-  currentLocale=locale==="ms"?"ms":"en";
+  currentLocale=supportedLocales.has(locale)?locale:"en";
   localStorage.setItem("bloome-locale",currentLocale);
+  document.dispatchEvent(new CustomEvent("bloome:locale-change",{detail:{locale:currentLocale}}));
   selectedConditionPoint.clear();
   rebuildLocalizedData();
   render();
@@ -260,7 +284,7 @@ function normalizeSearch(value=""){
     .replace(/[’']/g,"")
     .replace(/&/g," and ")
     .replace(/[-_/]/g," ")
-    .replace(/[^a-z0-9\s]/g," ")
+    .replace(/[^a-z0-9\u3400-\u9fff\s]/g," ")
     .replace(/\s+/g," ")
     .trim();
 }
@@ -403,13 +427,14 @@ function directoryEntries(query="",kindFilter="all",letter="all"){
   }
 
   if(!query.trim()){
-    entries.sort((a,b)=>a.item.name.localeCompare(b.item.name,currentLocale==="ms"?"ms":"en"));
+    entries.sort((a,b)=>a.item.name.localeCompare(b.item.name,currentLocale==="zh"?"zh-Hans":currentLocale));
   }
 
   return entries;
 }
 
 function directoryResultCountText(count,query=""){
+  if(currentLocale==="zh")return query?`${count} 条关于“${query}”的结果`:`${count} 条结果`;
   if(currentLocale==="ms"){
     return query
       ? `${count} hasil untuk “${query}”`
@@ -616,7 +641,7 @@ function wireSearch(scope=document){
   form.addEventListener("submit",event=>{
     event.preventDefault();
     const query=input.value.trim();
-    if(!query)return showToast(currentLocale==="ms"?"Taip keperluan atau nama titik dahulu.":"Type a concern or acupoint first.");
+  if(!query)return showToast(localized("Type a concern or acupoint first.","Taip keperluan atau nama titik dahulu.","请先输入关注问题或耳穴名称。"));
 
     const direct=strongDirectMatch(query);
     if(direct){
@@ -806,11 +831,13 @@ function relatedGuidesForPoint(point){
 }
 
 function libraryPointPositionText(number,total=acupoints.length){
+  if(currentLocale==="zh")return `第 ${number} 个，共 ${total} 个`;
   if(currentLocale==="ms")return `Titik ${number} daripada ${total}`;
   return `Point ${number} of ${total}`;
 }
 
 function relatedGuideCountText(count){
+  if(currentLocale==="zh")return `${count} 个相关指南`;
   if(currentLocale==="ms")return `${count} panduan berkaitan`;
   return `${count} related guide${count===1?"":"s"}`;
 }
@@ -828,7 +855,7 @@ function mapRelatedMarkup(point){
 
 function fullMapView(){
   const mappedPoints=acupoints.filter(point=>pointIsMapped(point));
-  const allPoints=acupoints.slice().sort((a,b)=>a.name.localeCompare(b.name,currentLocale==="ms"?"ms":"en"));
+  const allPoints=acupoints.slice().sort((a,b)=>a.name.localeCompare(b.name,currentLocale==="zh"?"zh-Hans":currentLocale));
   const first=pointMap.get(mapSelectedId)||mappedPoints[0]||allPoints[0];
   const categories=[...new Set(allPoints.map(point=>point.category).filter(Boolean))].sort();
   const letters=[...new Set(allPoints.map(point=>point.name.charAt(0).toUpperCase()))].sort();
@@ -936,10 +963,10 @@ function fullMapView(){
             <div class="map-actions map-actions-v28">
               <button class="view-3d-button map-view-3d-button" id="map-view-3d" type="button" data-open-3d-location="${escapeHtml(firstThreeDLocation||"")}" ${firstThreeDLocation?"":"hidden"}>
                 <span class="view-3d-button-icon" aria-hidden="true">3D</span>
-                <span><strong>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</strong><small>${currentLocale==="ms"?"Putar dan zum lokasi yang dipilih":"Rotate and zoom the selected location"}</small></span>
+                <span><strong>${localized("View in 3D","Lihat dalam 3D","以 3D 查看")}</strong><small>${localized("Rotate and zoom the selected location","Putar dan zum lokasi yang dipilih","旋转并缩放已选位置")}</small></span>
                 <b aria-hidden="true">→</b>
               </button>
-              <button class="secondary-button" id="map-open-point" data-point-id="${escapeHtml(first.id)}">${currentLocale==="ms"?"Buka panduan titik penuh":"Open full point guide"}</button>
+              <button class="secondary-button" id="map-open-point" data-point-id="${escapeHtml(first.id)}">${localized("Open full point guide","Buka panduan titik penuh","打开完整耳穴指南")}</button>
               <div class="map-step-actions">
                 <button class="secondary-button" id="map-prev-point">Previous point</button>
                 <button class="secondary-button" id="map-next-point">Next point</button>
@@ -989,6 +1016,12 @@ function combinationRole(index,total,condition=null){
   const explicit=condition?.pointRoles?.[index];
   const fallback=index===0?"primary":(index===total-1&&total>3?"optional":"support");
   const role=explicit||fallback;
+
+  if(currentLocale==="zh"){
+    if(role==="primary")return ["主要耳穴","从这里开始","建议组合中的主要耳穴。"];
+    if(role==="optional")return ["可选辅助","按需添加","可选的辅助耳穴；如希望缩短方案可跳过。"];
+    return ["辅助耳穴",`第 ${index+1} 步`,"作为建议方案的一部分，配合主要耳穴使用。"];
+  }
 
   if(currentLocale==="ms"){
     if(role==="primary")return ["Utama","Mulakan di sini","Titik utama dalam gabungan yang dicadangkan ini."];
@@ -1094,7 +1127,7 @@ function conditionView(id){
 
             <div class="condition-actions condition-actions-guided condition-actions-refined">
               <button class="primary-button condition-start-button" data-start-apply="${escapeHtml(condition.id)}">Start guided application</button>
-              <button class="routine-view-3d-button" id="condition-view-3d" type="button" data-open-3d-location="${escapeHtml(currentThreeDLocation||"")}" ${currentThreeDLocation?"":"hidden"}><span aria-hidden="true">3D</span>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</button>
+              <button class="routine-view-3d-button" id="condition-view-3d" type="button" data-open-3d-location="${escapeHtml(currentThreeDLocation||"")}" ${currentThreeDLocation?"":"hidden"}><span aria-hidden="true">3D</span>${localized("View in 3D","Lihat dalam 3D","以 3D 查看")}</button>
               <button class="secondary-button" id="open-selected-point" data-point-id="${escapeHtml(current.id)}">View selected point</button>
               <a class="text-button condition-guide-link" href="#/guide">How to apply ear seeds</a>
             </div>
@@ -1231,7 +1264,7 @@ function applicationView(id){
         <div class="application-workspace">
           <div class="application-map-card">
             <div class="application-map-caption">
-              <span>${escapeHtml(currentLocale==="ms"?`Langkah ${step+1}`:`Step ${step+1}`)}</span>
+              <span>${escapeHtml(localized(`Step ${step+1}`,`Langkah ${step+1}`,`第 ${step+1} 步`))}</span>
               <strong>${escapeHtml(point.name)}</strong>
             </div>
 
@@ -1269,7 +1302,7 @@ function applicationView(id){
             </div>
 
             ${threeDLocationIds[point.id]
-              ? `<button class="routine-view-3d-button application-view-3d" type="button" data-open-3d-location="${escapeHtml(threeDLocationIds[point.id])}" aria-label="${escapeHtml(currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`)}"><span aria-hidden="true">3D</span>${currentLocale==="ms"?"Lihat lokasi dalam 3D":"View placement in 3D"}</button>`
+              ? `<button class="routine-view-3d-button application-view-3d" type="button" data-open-3d-location="${escapeHtml(threeDLocationIds[point.id])}" aria-label="${escapeHtml(localized(`View ${point.name} in 3D`,`Lihat ${point.name} dalam 3D`,`以 3D 查看${point.name}`))}"><span aria-hidden="true">3D</span>${localized("View placement in 3D","Lihat lokasi dalam 3D","以 3D 查看贴敷位置")}</button>`
               : ""}
 
             <button class="application-point-detail-link text-button" data-open-route="point" data-open-id="${escapeHtml(point.id)}">${escapeHtml(applicationPointGuideText(point.name))}</button>
@@ -1336,9 +1369,9 @@ function pointView(id){
             <p class="point-visual-caption">The marker uses the same approved coordinate as the full interactive ear map.</p>
 
             ${threeDLocation
-              ? `<button class="view-3d-button" type="button" data-open-3d-location="${escapeHtml(threeDLocation)}" aria-label="${escapeHtml(currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`)}">
+              ? `<button class="view-3d-button" type="button" data-open-3d-location="${escapeHtml(threeDLocation)}" aria-label="${escapeHtml(localized(`View ${point.name} in 3D`,`Lihat ${point.name} dalam 3D`,`以 3D 查看${point.name}`))}">
                   <span class="view-3d-button-icon" aria-hidden="true">3D</span>
-                  <span><strong>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</strong><small>${currentLocale==="ms"?"Putar dan zum telinga interaktif":"Rotate and zoom the interactive ear"}</small></span>
+                  <span><strong>${localized("View in 3D","Lihat dalam 3D","以 3D 查看")}</strong><small>${localized("Rotate and zoom the interactive ear","Putar dan zum telinga interaktif","旋转并缩放互动耳朵")}</small></span>
                   <b aria-hidden="true">→</b>
                 </button>`
               : ""}
@@ -1771,7 +1804,7 @@ function wireFullMap(){
     if(mapThreeD){
       mapThreeD.hidden=!threeDLocation;
       mapThreeD.setAttribute("data-open-3d-location",threeDLocation||"");
-      mapThreeD.setAttribute("aria-label",currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`);
+      mapThreeD.setAttribute("aria-label",localized(`View ${point.name} in 3D`,`Lihat ${point.name} dalam 3D`,`以 3D 查看${point.name}`));
     }
     relatedButtons();
 
@@ -1915,7 +1948,7 @@ function wireCondition(id){
     if(conditionThreeD){
       conditionThreeD.hidden=!threeDLocation;
       conditionThreeD.setAttribute("data-open-3d-location",threeDLocation||"");
-      conditionThreeD.setAttribute("aria-label",currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`);
+      conditionThreeD.setAttribute("aria-label",localized(`View ${point.name} in 3D`,`Lihat ${point.name} dalam 3D`,`以 3D 查看${point.name}`));
     }
   }
   $$("[data-condition-point]").forEach(button=>button.addEventListener("click",()=>select(button.dataset.conditionPoint)));
@@ -1985,15 +2018,19 @@ function render(){
 
 async function loadData(){
   try{
-    const [conditionResponse,pointResponse,i18nResponse]=await Promise.all([
+    const [conditionResponse,pointResponse,i18nResponse,chineseResponse,chineseUiResponse]=await Promise.all([
       fetch("./data/conditions.json?v=31",{cache:"no-store"}),
       fetch("./data/acupoints.json?v=31",{cache:"no-store"}),
-      fetch("./data/i18n.json?v=31",{cache:"no-store"})
+      fetch("./data/i18n.json?v=1.1.0",{cache:"no-store"}),
+      fetch("./data/zh-Hans.json?v=1.1.0",{cache:"no-store"}),
+      fetch("./data/zh-Hans-ui.json?v=1.1.0",{cache:"no-store"})
     ]);
-    if(!conditionResponse.ok||!pointResponse.ok||!i18nResponse.ok)throw new Error("Data load failed");
+    if(!conditionResponse.ok||!pointResponse.ok||!i18nResponse.ok||!chineseResponse.ok||!chineseUiResponse.ok)throw new Error("Data load failed");
     sourceConditions=await conditionResponse.json();
     sourceAcupoints=await pointResponse.json();
     localeData=await i18nResponse.json();
+    localeData.zh=await chineseResponse.json();
+    Object.assign(localeData.zh.ui.exact,await chineseUiResponse.json());
     rebuildLocalizedData();
     render();
   }catch(error){
@@ -2014,7 +2051,8 @@ $$(".quick-help-grid a").forEach(link=>link.addEventListener("click",closeQuickH
 window.addEventListener("keydown",event=>{if(event.key==="Escape")closeQuickHelp()});
 window.addEventListener("hashchange",render);
 $("#language-toggle")?.addEventListener("click",()=>{
-  setLocale(currentLocale==="en"?"ms":"en");
+  const order=["en","ms","zh"];
+  setLocale(order[(order.indexOf(currentLocale)+1)%order.length]);
 });
 loadData();
 

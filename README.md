@@ -1,6 +1,14 @@
-# Bloomé Guide 1.0
+# Bloomé Guide 1.1
 
-Bloomé Guide 1.0 is the stable customer-facing release of the ear-seed education guide and its native 3D ear viewer.
+Bloomé Guide 1.1 adds complete Simplified Chinese support to the stable customer-facing ear-seed education guide and native 3D ear viewer.
+
+## Languages
+
+- English (EN)
+- Bahasa Melayu (BM)
+- Simplified Chinese (中文 / zh-Hans)
+
+The language selector cycles through all three languages. Chinese support covers the interface, all 30 points, all 20 concern routines, search terms, safety guidance, guided application, and the native 3D viewer.
 
 ## Production baseline
 
@@ -28,6 +36,6 @@ After deployment, verify the ear map, one supported full point guide, one concer
 
 ## Maintenance policy
 
-Version 1.0 receives bug fixes only. New coordinates, new 3D points, geometry changes, or major customer features should be developed for a later feature release.
+Version 1.1 preserves the 1.0 coordinates and geometry. Translation refinements can be made in `data/zh-Hans.json` and `data/zh-Hans-ui.json` without changing placement data.
 
 See `CHANGELOG.md` for the consolidated release history and `3d/ATTRIBUTION.md` for model credit and licensing.

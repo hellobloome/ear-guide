@@ -3,15 +3,18 @@
     "defaultLocale": "en",
     "supportedLocales": [
       "en",
-      "ms"
+      "ms",
+      "zh"
     ],
     "status": {
       "en": "active",
-      "ms": "active"
+      "ms": "active",
+      "zh": "active"
     },
     "localeLabels": {
       "en": "EN",
-      "ms": "BM"
+      "ms": "BM",
+      "zh": "中文"
     }
   },
   "ui": {

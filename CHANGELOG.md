@@ -1,5 +1,14 @@
 # Bloomé Guide Changelog
 
+## 1.1.0 — Simplified Chinese support
+
+- Added EN / BM / 中文 language selection.
+- Added Simplified Chinese translations for all 30 ear points and 20 concern routines.
+- Added Chinese interface, safety, application, search, and native 3D viewer text.
+- Added Chinese aliases and everyday search terms.
+- Added `zh-Hans` document semantics and Chinese-aware search normalization and sorting.
+- Preserved all approved 2D coordinates, frozen 1B.10 3D coordinates, and Ear 1 geometry.
+
 ## 1.0.0 — Production release
 
 - Promoted the completed Bloomé Guide to the stable production baseline.
