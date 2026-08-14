@@ -934,7 +934,7 @@ function fullMapView(){
             </div>
 
             <div class="map-actions map-actions-v28">
-              <button class="view-3d-button map-view-3d-button" id="map-view-3d" type="button" data-open-3d="${escapeHtml(firstThreeDLocation||"")}" ${firstThreeDLocation?"":"hidden"}>
+              <button class="view-3d-button map-view-3d-button" id="map-view-3d" type="button" data-open-3d-location="${escapeHtml(firstThreeDLocation||"")}" ${firstThreeDLocation?"":"hidden"}>
                 <span class="view-3d-button-icon" aria-hidden="true">3D</span>
                 <span><strong>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</strong><small>${currentLocale==="ms"?"Putar dan zum lokasi yang dipilih":"Rotate and zoom the selected location"}</small></span>
                 <b aria-hidden="true">→</b>
@@ -1094,7 +1094,7 @@ function conditionView(id){
 
             <div class="condition-actions condition-actions-guided condition-actions-refined">
               <button class="primary-button condition-start-button" data-start-apply="${escapeHtml(condition.id)}">Start guided application</button>
-              <button class="routine-view-3d-button" id="condition-view-3d" type="button" data-open-3d="${escapeHtml(currentThreeDLocation||"")}" ${currentThreeDLocation?"":"hidden"}><span aria-hidden="true">3D</span>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</button>
+              <button class="routine-view-3d-button" id="condition-view-3d" type="button" data-open-3d-location="${escapeHtml(currentThreeDLocation||"")}" ${currentThreeDLocation?"":"hidden"}><span aria-hidden="true">3D</span>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</button>
               <button class="secondary-button" id="open-selected-point" data-point-id="${escapeHtml(current.id)}">View selected point</button>
               <a class="text-button condition-guide-link" href="#/guide">How to apply ear seeds</a>
             </div>
@@ -1269,7 +1269,7 @@ function applicationView(id){
             </div>
 
             ${threeDLocationIds[point.id]
-              ? `<button class="routine-view-3d-button application-view-3d" type="button" data-open-3d="${escapeHtml(threeDLocationIds[point.id])}" aria-label="${escapeHtml(currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`)}"><span aria-hidden="true">3D</span>${currentLocale==="ms"?"Lihat lokasi dalam 3D":"View placement in 3D"}</button>`
+              ? `<button class="routine-view-3d-button application-view-3d" type="button" data-open-3d-location="${escapeHtml(threeDLocationIds[point.id])}" aria-label="${escapeHtml(currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`)}"><span aria-hidden="true">3D</span>${currentLocale==="ms"?"Lihat lokasi dalam 3D":"View placement in 3D"}</button>`
               : ""}
 
             <button class="application-point-detail-link text-button" data-open-route="point" data-open-id="${escapeHtml(point.id)}">${escapeHtml(applicationPointGuideText(point.name))}</button>
@@ -1336,7 +1336,7 @@ function pointView(id){
             <p class="point-visual-caption">The marker uses the same approved coordinate as the full interactive ear map.</p>
 
             ${threeDLocation
-              ? `<button class="view-3d-button" type="button" data-open-3d="${escapeHtml(threeDLocation)}" aria-label="${escapeHtml(currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`)}">
+              ? `<button class="view-3d-button" type="button" data-open-3d-location="${escapeHtml(threeDLocation)}" aria-label="${escapeHtml(currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`)}">
                   <span class="view-3d-button-icon" aria-hidden="true">3D</span>
                   <span><strong>${currentLocale==="ms"?"Lihat dalam 3D":"View in 3D"}</strong><small>${currentLocale==="ms"?"Putar dan zum telinga interaktif":"Rotate and zoom the interactive ear"}</small></span>
                   <b aria-hidden="true">→</b>
@@ -1770,7 +1770,7 @@ function wireFullMap(){
     const threeDLocation=threeDLocationIds[id];
     if(mapThreeD){
       mapThreeD.hidden=!threeDLocation;
-      mapThreeD.dataset.open3d=threeDLocation||"";
+      mapThreeD.dataset.open3dLocation=threeDLocation||"";
       mapThreeD.setAttribute("aria-label",currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`);
     }
     relatedButtons();
@@ -1914,7 +1914,7 @@ function wireCondition(id){
     const threeDLocation=threeDLocationIds[pointId];
     if(conditionThreeD){
       conditionThreeD.hidden=!threeDLocation;
-      conditionThreeD.dataset.open3d=threeDLocation||"";
+      conditionThreeD.dataset.open3dLocation=threeDLocation||"";
       conditionThreeD.setAttribute("aria-label",currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`);
     }
   }

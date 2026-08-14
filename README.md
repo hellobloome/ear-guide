@@ -1,3 +1,11 @@
+# Bloomé Guide Package 32.5.3 — Standardized 3D Button Fix
+
+Package 32.5.3 corrects the confirmed first-use failure by using one valid `data-open-3d-location` attribute and its matching `dataset.open3dLocation` property across every 3D entry point.
+
+- Fixes the first View in 3D activation without requiring a point change.
+- Covers the ear map, full point guide, concern routines, and guided application.
+- Preserves the frozen Beta 1B.10 coordinates and Ear 1 geometry.
+
 # Bloomé Guide Package 32.5.1 — First-Tap 3D Fix
 
 Package 32.5.1 ensures the native viewer opens on the first View in 3D tap from the ear map, concern routine, or guided application.
