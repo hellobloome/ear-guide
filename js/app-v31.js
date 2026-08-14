@@ -1770,7 +1770,7 @@ function wireFullMap(){
     const threeDLocation=threeDLocationIds[id];
     if(mapThreeD){
       mapThreeD.hidden=!threeDLocation;
-      mapThreeD.dataset.open3dLocation=threeDLocation||"";
+      mapThreeD.setAttribute("data-open-3d-location",threeDLocation||"");
       mapThreeD.setAttribute("aria-label",currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`);
     }
     relatedButtons();
@@ -1914,7 +1914,7 @@ function wireCondition(id){
     const threeDLocation=threeDLocationIds[pointId];
     if(conditionThreeD){
       conditionThreeD.hidden=!threeDLocation;
-      conditionThreeD.dataset.open3dLocation=threeDLocation||"";
+      conditionThreeD.setAttribute("data-open-3d-location",threeDLocation||"");
       conditionThreeD.setAttribute("aria-label",currentLocale==="ms"?`Lihat ${point.name} dalam 3D`:`View ${point.name} in 3D`);
     }
   }

@@ -1,3 +1,11 @@
+# Bloomé Guide Package 32.5.4 — Direct 3D Attribute Fix
+
+Package 32.5.4 fixes the confirmed first-click failure by reading and updating `data-open-3d-location` directly with `getAttribute` and `setAttribute`. It no longer relies on browser `dataset` conversion for a name containing `3d`.
+
+- Opens the native 3D overlay from the initial View in 3D click.
+- Covers the ear map, full point guide, concern routines, and guided application.
+- Preserves the frozen Beta 1B.10 coordinates and Ear 1 geometry.
+
 # Bloomé Guide Package 32.5.3 — Standardized 3D Button Fix
 
 Package 32.5.3 corrects the confirmed first-use failure by using one valid `data-open-3d-location` attribute and its matching `dataset.open3dLocation` property across every 3D entry point.

@@ -17,7 +17,7 @@ async function open(id,trigger){last=trigger;create();box.hidden=false;document.
 function close(){if(!box)return;box.hidden=true;document.body.classList.remove("bloome-3d-open");last?.focus()}
 create();
 loadData().catch(()=>{});
-function activate(e){const b=e.target.closest?.("[data-open-3d-location]");if(!b||!b.dataset.open3dLocation)return;const now=Date.now();if(e.type==="click"&&lastActivation?.button===b&&now-lastActivation.time<700)return;e.preventDefault();e.stopPropagation();lastActivation={button:b,time:now};open(b.dataset.open3dLocation,b)}
+function activate(e){const b=e.target.closest?.("[data-open-3d-location]");const location=b?.getAttribute("data-open-3d-location");if(!location)return;const now=Date.now();if(e.type==="click"&&lastActivation?.button===b&&now-lastActivation.time<700)return;e.preventDefault();e.stopPropagation();lastActivation={button:b,time:now};open(location,b)}
 document.addEventListener("pointerup",activate,true);
 document.addEventListener("click",activate,true);
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&box&&!box.hidden)close()});
