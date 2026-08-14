@@ -1,5 +1,11 @@
 # Bloomé Guide Changelog
 
+## 1.1.4 — Safety disclaimer wording
+
+- Replaced the concern-page “Before you begin” block with a clearer safety disclaimer.
+- Consolidated safe skin use, removal triggers, educational limitations, and professional-care guidance.
+- Added matching English, Bahasa Melayu, and Simplified Chinese wording.
+
 ## 1.1.3 — Pinyin filters and 3D title fit
 
 - Enabled Chinese A–Z browsing for both wellness guides and ear points using Hanyu Pinyin initials.

@@ -1186,9 +1186,9 @@ function conditionView(id){
         <div class="condition-safety-card">
           <span class="condition-safety-icon">i</span>
           <div>
-            <strong>Before you begin</strong>
-            <p>Keep the routine gentle. Use only on clean, intact skin and keep every ear seed outside the ear canal.</p>
-            <small>Seek professional care for severe, persistent, sudden or unexplained symptoms.</small>
+            <strong>Safety disclaimer</strong>
+            <p>Use ear seeds gently and only on clean, intact skin outside the ear canal. Remove them if irritation, swelling, dizziness or significant discomfort occurs.</p>
+            <small>This guide is for general wellness education only and does not diagnose or treat medical conditions. Seek professional care for severe, persistent, sudden or unexplained symptoms.</small>
           </div>
         </div>
 
@@ -2072,9 +2072,9 @@ async function loadData(){
     const [conditionResponse,pointResponse,i18nResponse,chineseResponse,chineseUiResponse]=await Promise.all([
       fetch("./data/conditions.json?v=31",{cache:"no-store"}),
       fetch("./data/acupoints.json?v=31",{cache:"no-store"}),
-      fetch("./data/i18n.json?v=1.1.3",{cache:"no-store"}),
-      fetch("./data/zh-Hans.json?v=1.1.3",{cache:"no-store"}),
-      fetch("./data/zh-Hans-ui.json?v=1.1.3",{cache:"no-store"})
+      fetch("./data/i18n.json?v=1.1.4",{cache:"no-store"}),
+      fetch("./data/zh-Hans.json?v=1.1.4",{cache:"no-store"}),
+      fetch("./data/zh-Hans-ui.json?v=1.1.4",{cache:"no-store"})
     ]);
     if(!conditionResponse.ok||!pointResponse.ok||!i18nResponse.ok||!chineseResponse.ok||!chineseUiResponse.ok)throw new Error("Data load failed");
     sourceConditions=await conditionResponse.json();
